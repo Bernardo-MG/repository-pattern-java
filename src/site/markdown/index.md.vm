@@ -1,0 +1,29 @@
+# Persistence and Java
+
+The persistence techniques allow storing data contained on classes without worrying about where it is actually stored.
+
+A very nice thing, if it were not because the standard persistenc system on Java, the JPA, has several problems related to different implementations and efficiency.
+
+# Why this library?
+
+This project does not aim to solve any big issue, it was created just to ease building persistence classes on my own Java projects.
+
+---
+
+# An overview
+
+Some of the contents of the project:
+
+- A JPA-based repository.
+- Interface for marking persistence entitites.
+
+---
+
+# About the code
+
+The code is open source and freely accessible. If you want to do any kind of modification just fork it from the repository.
+
+- Java version: ${javaVersion}
+- License: [${license}](./license.html)
+- SCM: [${scmName}](${scmURL})
+- CI: [${ciName}](${ciURL})
