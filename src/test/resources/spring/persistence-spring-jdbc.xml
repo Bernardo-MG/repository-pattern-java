@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/jdbc
+        http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+        http://www.springframework.org/schema/util 
+        http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+	<!-- ============================= CONFIGURATION ============================= -->
+
+	<!-- Configuration -->
+	<context:property-placeholder
+		location="classpath:spring/persistence-spring-jdbc.properties" />
+
+	<!-- Repository -->
+	<bean id="repository" class="${repository.class}" />
+
+	<!-- ================================== JPA ================================== -->
+
+	<!-- Transaction manager -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg ref="dataSource" />
+	</bean>
+
+	<bean id="namedParameterJdbcTemplate"
+		class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg ref="dataSource" />
+	</bean>
+
+	<!-- ============================== DATASOURCE =============================== -->
+
+	<!-- Data source -->
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+		<constructor-arg ref="dataSourceConfig" />
+	</bean>
+
+	<!-- Data source config -->
+	<bean id="dataSourceConfig" class="com.zaxxer.hikari.HikariDataSource">
+		<property name="driverClassName" value="org.h2.Driver" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+	<!-- Database initializer. -->
+	<jdbc:initialize-database data-source="dataSource">
+		<jdbc:script location="${jdbc.initLocation}" />
+		<jdbc:script location="${jdbc.dataLocation}" />
+	</jdbc:initialize-database>
+
+</beans>
