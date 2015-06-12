@@ -221,7 +221,6 @@
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
 			<version>${spring.jpa.version}</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<!-- Spring Test -->
