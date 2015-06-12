@@ -22,7 +22,8 @@
  * SOFTWARE.
  */
 /**
- * Provides classes for working with JPA.
+ * Provides implementations of {@code Repository} for common persistence
+ * systems.
  */
-package com.wandrell.jpa;
+package com.wandrell.persistence.jpa.repository;
 

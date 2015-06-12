@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.wandrell.jpa;
+package com.wandrell.persistence.jpa.repository;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -40,12 +40,15 @@ import com.wandrell.persistence.PersistenceEntity;
 
 /**
  * Extension of {@code FilteredRepository} prepared to work with JPA.
+ * <p>
+ * This is a generic JPA-oriented repository.
  * 
  * @author Bernardo Martínez Garrido
  * @param <V>
  *            the type stored on the repository
  */
-public class JPARepository<V> implements FilteredRepository<V, QueryData> {
+public abstract class JPARepository<V> implements
+        FilteredRepository<V, QueryData> {
 
     /**
      * Query for acquiring all the entities.
@@ -105,6 +108,8 @@ public class JPARepository<V> implements FilteredRepository<V, QueryData> {
     public final Collection<V> getCollection(final QueryData filter) {
         final Query query;      // Query created from the query data
 
+        checkNotNull(filter, "Received a null pointer as the filter");
+
         // Builds the query
         query = buildQuery(filter);
 
@@ -117,6 +122,8 @@ public class JPARepository<V> implements FilteredRepository<V, QueryData> {
     public final V getEntity(final QueryData filter) {
         final Query query;      // Query created from the query data
         V entity;               // Entity acquired from the query
+
+        checkNotNull(filter, "Received a null pointer as the filter");
 
         // Builds the query
         query = buildQuery(filter);

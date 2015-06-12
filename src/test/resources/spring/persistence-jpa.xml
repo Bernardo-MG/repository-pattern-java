@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 		http://www.springframework.org/schema/context 
 		http://www.springframework.org/schema/context/spring-context-4.0.xsd
-		http://www.springframework.org/schema/tx 
-		http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/jdbc
         http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
         http://www.springframework.org/schema/util 
         http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
-	<!-- enables scanning for @Transactional annotations -->
-	<tx:annotation-driven />
+	<!-- ============================= CONFIGURATION ============================= -->
 
+	<!-- Configuration -->
 	<context:property-placeholder
 		location="classpath:spring/persistence-jpa.properties" />
 
-	<context:component-scan base-package="com.wandrell.testing.persistence.util.model" />
+	<!-- Repository -->
+	<bean id="repository" class="${repository.class}" />
+
+	<!-- ================================== JPA ================================== -->
 
 	<!-- JPA EntityManagerFactory -->
-	<bean id="entityManagerFactory" class="${jpa.entityManagerFactory.class}">
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="jpaVendorAdapter">
-			<bean class="${jpa.vendorAdapter.class}">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="database" value="${jpa.database}" />
 				<property name="showSql" value="${jpa.showSql}" />
 			</bean>
@@ -36,28 +36,30 @@
 		<property name="jpaProperties" ref="jpaProperties" />
 	</bean>
 
+	<!-- JPA Properties -->
 	<util:map id="jpaProperties">
-		<entry key="hibernate.dialect" value="${hibernate.dialect}" />
-		<entry key="hibernate.hbm2ddl.auto" value="${hibernate.hbm2ddl.auto}" />
-		<entry key="hibernate.ejb.naming_strategy" value="${hibernate.ejb.naming_strategy}" />
+		<entry key="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+		<entry key="hibernate.hbm2ddl.auto" value="create-drop" />
+		<entry key="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy" />
 		<entry key="hibernate.show_sql" value="${hibernate.show_sql}" />
 		<entry key="hibernate.format_sql" value="${hibernate.format_sql}" />
 	</util:map>
 
-	<!-- Transaction manager for a single JPA EntityManagerFactory (alternative 
-		to JTA) -->
-	<bean id="transactionManager" class="${jpa.transactionManager.class}">
+	<!-- Transaction manager -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
-	<!-- ========================= DATASOURCE DEFINITION ========================= -->
+	<!-- ============================== DATASOURCE =============================== -->
 
-	<bean id="dataSource" class="${jdbc.datasource.class}">
+	<!-- Data source -->
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
 		<constructor-arg ref="dataSourceConfig" />
 	</bean>
 
-	<bean id="dataSourceConfig" class="${jdbc.datasource.config.class}">
-		<property name="driverClassName" value="${jdbc.driverClassName}" />
+	<!-- Data source config -->
+	<bean id="dataSourceConfig" class="com.zaxxer.hikari.HikariDataSource">
+		<property name="driverClassName" value="org.h2.Driver" />
 		<property name="jdbcUrl" value="${jdbc.url}" />
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
