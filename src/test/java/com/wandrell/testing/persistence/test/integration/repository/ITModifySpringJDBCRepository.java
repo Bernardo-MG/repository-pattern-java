@@ -1,4 +1,4 @@
-package com.wandrell.testing.persistence.test.integration.repository.jpa;
+package com.wandrell.testing.persistence.test.integration.repository;
 
 import org.springframework.test.context.ContextConfiguration;
 

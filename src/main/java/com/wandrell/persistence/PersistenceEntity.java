@@ -24,12 +24,16 @@
 package com.wandrell.persistence;
 
 /**
- * Interface for a persistence entity.
+ * Interface for a persistence entity. Gives methods to query and modify the
+ * entity's ID.
  * <p>
- * Such an entity will have an ID, which this interface allows both querying and
- * modifying.
+ * This is meant to be used with the repositories included on this library.
+ * <p>
+ * The ID will be the value contained on the key column for the row where the
+ * entity's data is contained.
  * 
  * @author Bernardo Martínez Garrido.
+ * @see com.wandrell.persistence.repository repository package
  */
 public interface PersistenceEntity {
 
@@ -39,7 +43,7 @@ public interface PersistenceEntity {
      * If no ID has been assigned yet, then the value will be {@code null} or
      * lower than zero.
      * 
-     * @return the entity's id
+     * @return the entity's ID
      */
     public Integer getId();
 

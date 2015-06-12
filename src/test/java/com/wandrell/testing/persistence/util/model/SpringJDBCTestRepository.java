@@ -4,7 +4,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.wandrell.persistence.jpa.repository.SpringJDBCRepository;
+import com.wandrell.persistence.repository.SpringJDBCRepository;
 
 @org.springframework.stereotype.Repository
 public final class SpringJDBCTestRepository extends

@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.wandrell.persistence.jpa.repository;
+package com.wandrell.persistence.repository;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -39,9 +39,8 @@ import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.persistence.PersistenceEntity;
 
 /**
- * Extension of {@code FilteredRepository} prepared to work with JPA.
- * <p>
- * This is a generic JPA-oriented repository.
+ * Extension of {@code FilteredRepository} prepared to work with basic JPA
+ * classes.
  * 
  * @author Bernardo Martínez Garrido
  * @param <V>

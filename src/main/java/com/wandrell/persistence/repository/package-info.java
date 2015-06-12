@@ -24,6 +24,23 @@
 /**
  * Provides implementations of {@code Repository} for common persistence
  * systems.
+ * <p>
+ * The persistence systems, and their repository, are as follow:
+ * <table border=1>
+ * <tr>
+ * <th>System</th>
+ * <th>Repository</th>
+ * </tr>
+ * <tr>
+ * <td>JPA</td>
+ * <td>{@link com.wandrell.persistence.repository.JPARepository JPARepository}</td>
+ * </tr>
+ * <tr>
+ * <td>Spring JDBC</td>
+ * <td>{@link com.wandrell.persistence.repository.SpringJDBCRepository
+ * SpringJDBCRepository}</td>
+ * </tr>
+ * </table>
  */
-package com.wandrell.persistence.jpa.repository;
+package com.wandrell.persistence.repository;
 
