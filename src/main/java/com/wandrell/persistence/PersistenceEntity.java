@@ -33,8 +33,22 @@ package com.wandrell.persistence;
  */
 public interface PersistenceEntity {
 
+    /**
+     * Returns the ID assigned to this entity.
+     * <p>
+     * If no ID has been assigned yet, then the value will be {@code null} or
+     * lower than zero.
+     * 
+     * @return the entity's id
+     */
     public Integer getId();
 
+    /**
+     * Sets the ID assigned to this entity.
+     * 
+     * @param id
+     *            the ID for the entity
+     */
     public void setId(final Integer id);
 
 }

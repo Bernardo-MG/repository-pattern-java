@@ -25,3 +25,4 @@
  * Provides classes for working with JPA.
  */
 package com.wandrell.jpa;
+
