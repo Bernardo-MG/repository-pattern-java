@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd">
 
 	<bannerLeft>
-		<name>Java Persistence Utils</name>
+		<name>${project.name}</name>
 		<href>./</href>
 	</bannerLeft>
 
@@ -111,6 +111,8 @@
 		</menu>
 		<menu name="Documentation" inherit="bottom">
 			<item name="Usage" href="./usage.html" />
+			<item name="Persistence entity" href="./persistence_entity.html" />
+			<item name="Repositories" href="./repositories.html" />
 		</menu>
 		<menu name="Reports" ref="reports" inherit="bottom" />
 		<menu name="Contribute" inherit="bottom">
