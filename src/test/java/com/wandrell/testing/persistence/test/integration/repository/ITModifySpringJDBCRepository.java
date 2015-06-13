@@ -10,7 +10,7 @@ public final class ITModifySpringJDBCRepository extends
         AbstractITModifyJPARepository {
 
     public ITModifySpringJDBCRepository() {
-        super();
+        super("SELECT * FROM test_entities WHERE id = :id");
     }
 
 }

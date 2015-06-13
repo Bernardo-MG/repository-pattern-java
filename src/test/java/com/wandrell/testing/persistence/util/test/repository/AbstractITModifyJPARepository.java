@@ -1,11 +1,16 @@
 package com.wandrell.testing.persistence.util.test.repository;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.wandrell.pattern.repository.DefaultQueryData;
+import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.testing.persistence.util.model.JPATestEntity;
 import com.wandrell.testing.persistence.util.model.TestEntityRepository;
 
@@ -14,10 +19,13 @@ public abstract class AbstractITModifyJPARepository extends
         AbstractTransactionalTestNGSpringContextTests {
 
     @Autowired
-    TestEntityRepository repository;
+    private TestEntityRepository repository;
+    private final String         selectByIdQuery;
 
-    public AbstractITModifyJPARepository() {
+    public AbstractITModifyJPARepository(final String selectByIdQuery) {
         super();
+
+        this.selectByIdQuery = selectByIdQuery;
     }
 
     @Test
@@ -28,34 +36,43 @@ public abstract class AbstractITModifyJPARepository extends
         entity = new JPATestEntity();
         entity.setName("test_entity");
 
-        repository.add(entity);
+        getRepository().add(entity);
 
-        size = repository.getAll().size();
+        size = getRepository().getAll().size();
 
         Assert.assertEquals(entity.getId(), size);
 
-        repository.remove(entity);
+        getRepository().remove(entity);
 
         Assert.assertEquals(repository.getAll().size(), size - 1);
     }
 
-    @Test(dependsOnMethods = { "testAdd_Remove" })
-    public final void testUpdate_Remove() {
-        final JPATestEntity entity;
-        final Integer size;
+    @Test
+    public final void testUpdate() {
+        final QueryData query;
+        final Map<String, Object> parameters;
+        final String nameChange;
+        JPATestEntity entity;
 
-        entity = new JPATestEntity();
-        entity.setName("test_entity");
+        parameters = new LinkedHashMap<>();
+        parameters.put("id", 1);
 
-        repository.update(entity);
+        query = new DefaultQueryData(selectByIdQuery, parameters);
 
-        size = repository.getAll().size();
+        entity = getRepository().getEntity(query);
 
-        Assert.assertEquals(entity.getId(), (Integer) (size + 1));
+        nameChange = "The new name";
+        entity.setName(nameChange);
 
-        repository.remove(entity);
+        getRepository().update(entity);
 
-        Assert.assertEquals(repository.getAll().size(), size - 1);
+        entity = getRepository().getEntity(query);
+
+        Assert.assertEquals(entity.getName(), nameChange);
+    }
+
+    protected final TestEntityRepository getRepository() {
+        return repository;
     }
 
 }

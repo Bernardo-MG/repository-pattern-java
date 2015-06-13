@@ -41,6 +41,8 @@ import com.wandrell.persistence.PersistenceEntity;
 /**
  * Extension of {@code FilteredRepository} prepared to work with basic JPA
  * classes.
+ * <p>
+ * This repository uses JPQL queries.
  * 
  * @author Bernardo Martínez Garrido
  * @param <V>

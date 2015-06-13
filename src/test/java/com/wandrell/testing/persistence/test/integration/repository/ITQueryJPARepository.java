@@ -8,7 +8,7 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITQueryJPAR
 public final class ITQueryJPARepository extends AbstractITQueryJPARepository {
 
     public ITQueryJPARepository() {
-        super();
+        super("SELECT entity FROM TestEntity entity WHERE id = :id");
     }
 
 }

@@ -4,12 +4,13 @@ import org.springframework.test.context.ContextConfiguration;
 
 import com.wandrell.testing.persistence.util.test.repository.AbstractITQueryJPARepository;
 
-@ContextConfiguration(locations = { "classpath:spring/persistence-jpa.xml" })
+@ContextConfiguration(
+        locations = { "classpath:spring/persistence-spring-jdbc.xml" })
 public final class ITQuerySpringJDBCRepository extends
         AbstractITQueryJPARepository {
 
     public ITQuerySpringJDBCRepository() {
-        super();
+        super("SELECT * FROM test_entities WHERE id = :id");
     }
 
 }

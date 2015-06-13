@@ -13,8 +13,9 @@ public final class SpringJDBCTestRepository extends
     @Autowired
     public SpringJDBCTestRepository(final DataSource dataSource) {
         super(JPATestEntity.class, dataSource,
-                "UPDATE test_entities SET name=:name",
-                "DELETE FROM test_entities WHERE id=:id", "test_entities", "id");
+                "UPDATE test_entities SET name = :name WHERE id = :id",
+                "DELETE FROM test_entities WHERE id = :id", "test_entities",
+                "id");
     }
 
 }
