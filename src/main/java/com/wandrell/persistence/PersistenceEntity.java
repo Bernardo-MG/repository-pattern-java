@@ -50,9 +50,9 @@ public interface PersistenceEntity {
     /**
      * Sets the ID assigned to this entity.
      * 
-     * @param id
+     * @param identifier
      *            the ID for the entity
      */
-    public void setId(final Integer id);
+    public void setId(final Integer identifier);
 
 }

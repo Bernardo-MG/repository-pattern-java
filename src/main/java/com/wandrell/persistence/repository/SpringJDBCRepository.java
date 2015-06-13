@@ -105,7 +105,7 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
     /**
      * Template for running the queries.
      */
-    private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+    private final NamedParameterJdbcTemplate jdbcTemplate;
     /**
      * Query for updating entities.
      */
@@ -125,9 +125,9 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
      *            the class of the objects to be returned
      * @param dataSource
      *            JPA source of the data
-     * @param updateQuery
+     * @param update
      *            query for updating an entity on the database
-     * @param deleteQuery
+     * @param delete
      *            query for deleting an entity on the database
      * @param table
      *            table where the repository will execute the queries
@@ -135,14 +135,14 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
      *            primary keys of the table
      */
     public SpringJDBCRepository(final Class<V> type,
-            final DataSource dataSource, final String updateQuery,
-            final String deleteQuery, final String table, final String... keys) {
+            final DataSource dataSource, final String update,
+            final String delete, final String table, final String... keys) {
         super();
 
         checkNotNull(type, "Received a null pointer as the class type");
         checkNotNull(dataSource, "Received a null pointer as the data source");
-        checkNotNull(updateQuery, "Received a null pointer as the update query");
-        checkNotNull(deleteQuery, "Received a null pointer as the delete query");
+        checkNotNull(update, "Received a null pointer as the update query");
+        checkNotNull(delete, "Received a null pointer as the delete query");
         checkNotNull(table, "Received a null pointer as the table");
         checkNotNull(keys, "Received a null pointer as the key columns");
 
@@ -151,13 +151,13 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
         // Queries
         getAllQuery = new DefaultQueryData(String.format("SELECT * FROM %s",
                 table));
-        this.updateQuery = updateQuery;
-        this.deleteQuery = deleteQuery;
+        this.updateQuery = update;
+        this.deleteQuery = delete;
 
         insert = new SimpleJdbcInsert(dataSource).withTableName(table)
                 .usingGeneratedKeyColumns(keys);
 
-        namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
+        jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
     }
 
     /**
@@ -302,11 +302,11 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
      * @return the template for executing the queries
      */
     private final NamedParameterJdbcTemplate getTemplate() {
-        return namedParameterJdbcTemplate;
+        return jdbcTemplate;
     }
 
     /**
-     * Returns the class of the objects returned by the repository
+     * Returns the class of the objects returned by the repository.
      * 
      * @return the class of the objects returned by the repository
      */

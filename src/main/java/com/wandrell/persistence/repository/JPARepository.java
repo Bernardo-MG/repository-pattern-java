@@ -84,7 +84,7 @@ public abstract class JPARepository<V extends PersistenceEntity> implements
      * Entity manager in charge of handling the persistence process.
      */
     @PersistenceContext
-    private EntityManager   em;
+    private EntityManager   entityManager;
 
     /**
      * Constructs a {@code JPARepository} with the specified all-data query.
@@ -266,7 +266,7 @@ public abstract class JPARepository<V extends PersistenceEntity> implements
      * @return the {@code EntityManager} in charge of the persistence
      */
     private final EntityManager getEntityManager() {
-        return em;
+        return entityManager;
     }
 
 }
