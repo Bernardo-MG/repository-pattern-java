@@ -95,6 +95,8 @@ public abstract class JPARepository<V extends PersistenceEntity> implements
     public JPARepository(final QueryData allQuery) {
         super();
 
+        // TODO: The EntityManager should be final
+
         checkNotNull(allQuery,
                 "Received a null pointer as the all-values query");
 

@@ -10,7 +10,7 @@
 
 A micro library for easing the use of persistence on Java, mostly JPA.
 
-This has been created for my own use. Mostly this serves to create JPA repositories, using my [Java Patterns][java_patterns] library.
+This has been created for my own use. Mostly this serves to create JPA repositories, using the [Java Patterns][java_patterns] library.
 
 ## Documentation
 Documentation is always generated for the latest release:

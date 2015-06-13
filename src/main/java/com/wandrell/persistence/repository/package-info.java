@@ -22,8 +22,8 @@
  * SOFTWARE.
  */
 /**
- * Provides implementations of {@code Repository} for common persistence
- * systems.
+ * Provides implementations of the {@code Repository} interface for common
+ * persistence systems.
  * <p>
  * Implementations are offered for the following persistence systems:
  * <table summary="Repositories by persistence item" border=1>

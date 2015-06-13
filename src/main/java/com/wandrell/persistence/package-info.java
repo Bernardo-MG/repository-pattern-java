@@ -22,15 +22,16 @@
  * SOFTWARE.
  */
 /**
- * Provides interfaces for general persistence classes.
+ * Provides various interfaces and classes for using persistence APIs.
  * <p>
  * At the root level only the {@link com.wandrell.persistence.PersistenceEntity
  * PersistenceEntity} interface is offered. This serves as a root for the
  * entities which the repositories contained at the
  * {@link com.wandrell.persistence.repository repository} package will use.
  * <p>
- * These repositories implement the {@code Repository} interface, from my Java
- * Patterns library, making use of common persistence systems.
+ * These repositories implement the {@code Repository} interface, from the <a
+ * href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
+ * library</a>, adapting it for common persistence systems.
  */
 package com.wandrell.persistence;
 

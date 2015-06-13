@@ -83,8 +83,8 @@ import com.wandrell.persistence.PersistenceEntity;
  * @see QueryData
  * @see PersistenceEntity
  */
-public abstract class SpringJDBCRepository<V extends PersistenceEntity>
-        implements FilteredRepository<V, QueryData> {
+public final class SpringJDBCRepository<V extends PersistenceEntity> implements
+        FilteredRepository<V, QueryData> {
 
     /**
      * The class of the objects to be returned.
