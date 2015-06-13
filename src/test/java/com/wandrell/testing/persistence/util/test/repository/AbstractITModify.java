@@ -48,6 +48,21 @@ public abstract class AbstractITModify extends
     }
 
     @Test
+    public final void testRemove_NotPersisted() {
+        final JPATestEntity entity;
+        final Integer size;
+
+        entity = new JPATestEntity();
+        entity.setName("test_entity");
+
+        size = getRepository().getAll().size();
+
+        getRepository().remove(entity);
+
+        Assert.assertEquals((Integer) repository.getAll().size(), size);
+    }
+
+    @Test
     public final void testUpdate() {
         final QueryData query;
         final Map<String, Object> parameters;

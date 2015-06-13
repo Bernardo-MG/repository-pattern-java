@@ -12,6 +12,12 @@ A micro library for easing the use of persistence on Java, mostly JPA.
 
 This has been created for my own use. Mostly this serves to create JPA repositories, using the [Java Patterns][java_patterns] library.
 
+## Features
+
+Offers the following helpful classes:
+- Repository for the basic JPA API
+- Repository for Spring's JDBC API
+
 ## Documentation
 Documentation is always generated for the latest release:
 
