@@ -14,7 +14,7 @@
 	<skin>
 		<groupId>lt.velykis.maven.skins</groupId>
 		<artifactId>reflow-maven-skin</artifactId>
-		<version>1.1.1</version>
+		<version>${site.skin.version}</version>
 	</skin>
 
 	<custom>
@@ -25,10 +25,10 @@
 			<highlightJsTheme>github</highlightJsTheme>
 			<brand>
 				<!-- Brand text in top-left part of the site -->
-				<name>Java Persistence Utils</name>
+				<name>${project.name}</name>
 				<href>./</href>
 			</brand>
-			<slogan>Helper classes for Java persistence.</slogan>
+			<slogan>${project.description}</slogan>
 			<titleTemplate>%2$s | %1$s</titleTemplate>
 			<!-- Use Table of Contents at the top of the page (max 6 elements) -->
 			<toc>top</toc>
@@ -41,15 +41,11 @@
 				<column>Documentation</column>
 				<column>reports</column>
 			</bottomNav>
-			<bottomDescription>
-	        <![CDATA[
-	          Helper classes for Java persistence.
-	        ]]>
-			</bottomDescription>
+			<bottomDescription>${site.description}</bottomDescription>
 			<pages>
 				<index project="persistence-utils">
 					<!-- Override the title -->
-					<titleTemplate>Java Persistence Utils</titleTemplate>
+					<titleTemplate>${project.name}</titleTemplate>
 					<!-- no breadcrumbs on the main index page -->
 					<breadcrumbs>false</breadcrumbs>
 					<!-- no ToC on the main index page -->
@@ -99,18 +95,18 @@
 
 	<body>
 		<links>
-			<item name="GitHub project" href="https://github.com/bernardo-mg/persistence-utils-java" />
+			<item name="GitHub project" href="${scm.url}" />
 			<item name="JavaDocs" href="./apidocs/" />
 		</links>
 
 		<menu name="Main" inherit="top">
 			<item name="Home" href="./" />
-			<item name="GitHub project" href="https://github.com/bernardo-mg/persistence-utils-java" />
+			<item name="GitHub project" href="${scm.url}" />
 			<item name="Changes Log" href="./changes-report.html" />
 		</menu>
 		<menu name="Acquire" inherit="top">
-			<item name="Download" href="https://bintray.com/bernardo-mg/maven/persistence-utils/view" />
-			<item name="GitHub" href="https://github.com/bernardo-mg/persistence-utils-java" />
+			<item name="Download" href="${site.download}" />
+			<item name="GitHub" href="${scm.url}" />
 			<item name="License" href="./license.html" />
 		</menu>
 		<menu name="Documentation" inherit="bottom">
@@ -118,8 +114,8 @@
 		</menu>
 		<menu name="Reports" ref="reports" inherit="bottom" />
 		<menu name="Contribute" inherit="bottom">
-			<item name="Issues" href="https://github.com/bernardo-mg/persistence-utils-java/issue" />
-			<item name="Fork on GitHub" href="https://github.com/bernardo-mg/persistence-utils-java" />
+			<item name="Issues" href="${issueManagement.url}" />
+			<item name="Fork on GitHub" href="${scm.url}" />
 		</menu>
 	</body>
 

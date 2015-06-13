@@ -23,7 +23,6 @@
  */
 package com.wandrell.persistence.repository;
 
-import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Collection;
@@ -44,8 +43,8 @@ import com.wandrell.persistence.PersistenceEntity;
  * Implementation of {@code FilteredRepository} prepared to work with Spring's
  * JDBC API.
  * <p>
- * For this reason, it makes use of SQL queries, to which a simple templating
- * mechanism will be applied.
+ * For this reason, it makes use of SQL queries, to which a simple JPA
+ * templating mechanism will be applied.
  * <p>
  * For example, a query could be like this:
  * <p>
@@ -55,7 +54,9 @@ import com.wandrell.persistence.PersistenceEntity;
  * place of the {@code :id} placeholder.
  * <p>
  * Both the query and the parameters will be received on a {@code QueryData}
- * object, which comes from my Java Patterns library.
+ * object, which comes from the <a
+ * href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
+ * library</a>.
  * <p>
  * A few initial queries are required. These are for updating and deleting
  * entities. These should be created by the user, following a simple pattern.
@@ -80,6 +81,7 @@ import com.wandrell.persistence.PersistenceEntity;
  * @param <V>
  *            the type stored on the repository
  * @see QueryData
+ * @see PersistenceEntity
  */
 public abstract class SpringJDBCRepository<V extends PersistenceEntity>
         implements FilteredRepository<V, QueryData> {
@@ -146,6 +148,7 @@ public abstract class SpringJDBCRepository<V extends PersistenceEntity>
 
         this.classType = type;
 
+        // Queries
         getAllQuery = new DefaultQueryData(String.format("SELECT * FROM %s",
                 table));
         this.updateQuery = updateQuery;
@@ -157,6 +160,16 @@ public abstract class SpringJDBCRepository<V extends PersistenceEntity>
         namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
     }
 
+    /**
+     * Adds an entity to the repository.
+     * <p>
+     * Note that both the {@code add} and the {@link #update(PersistenceEntity)
+     * update} methods work the same, as if the entity does not exist it will be
+     * added, but if it already exists then it will be updated.
+     * 
+     * @param entity
+     *            the entity to add
+     */
     @Override
     public final void add(final V entity) {
         final BeanPropertySqlParameterSource parameterSource; // Bean-based
@@ -165,8 +178,6 @@ public abstract class SpringJDBCRepository<V extends PersistenceEntity>
         final Number newKey;    // Key assigned to the new entity
 
         checkNotNull(entity, "Received a null pointer as the entity");
-        checkArgument(entity instanceof PersistenceEntity,
-                "The entity is not an instance of PersistenceEntity");
 
         parameterSource = new BeanPropertySqlParameterSource(entity);
 
@@ -179,31 +190,62 @@ public abstract class SpringJDBCRepository<V extends PersistenceEntity>
         }
     }
 
+    /**
+     * Returns all the entities contained in the repository.
+     * 
+     * @return all the entities contained in the repository
+     */
     @Override
     public final Collection<V> getAll() {
         return getCollection(getAllValuesQuery());
     }
 
+    /**
+     * Queries the entities in the repository and returns a subset of them.
+     * <p>
+     * The collection is created by building a query from the received
+     * {@code QueryData} and executing it.
+     * 
+     * @param query
+     *            the query user to acquire the entities
+     * @return the queried subset of entities
+     */
     @Override
-    public final Collection<V> getCollection(final QueryData filter) {
-        checkNotNull(filter, "Received a null pointer as the filter");
+    public final Collection<V> getCollection(final QueryData query) {
+        checkNotNull(query, "Received a null pointer as the query");
 
-        return getTemplate().query(filter.getQuery(), filter.getParameters(),
+        return getTemplate().query(query.getQuery(), query.getParameters(),
                 BeanPropertyRowMapper.newInstance(getType()));
     }
 
+    /**
+     * Queries the entities in the repository and returns a single one.
+     * <p>
+     * The entity is acquired by building a query from the received
+     * {@code QueryData} and executing it.
+     * 
+     * @param query
+     *            the query user to acquire the entities
+     * @return the queried entity
+     */
     @Override
-    public final V getEntity(final QueryData filter) {
-        checkNotNull(filter, "Received a null pointer as the filter");
+    public final V getEntity(final QueryData query) {
+        checkNotNull(query, "Received a null pointer as the query");
 
-        return getTemplate().queryForObject(filter.getQuery(),
-                filter.getParameters(),
+        return getTemplate().queryForObject(query.getQuery(),
+                query.getParameters(),
                 BeanPropertyRowMapper.newInstance(getType()));
     }
 
+    /**
+     * Removes an entity from the repository.
+     * 
+     * @param entity
+     *            the entity to remove
+     */
     @Override
     public final void remove(final V entity) {
-        final BeanPropertySqlParameterSource parameterSource;  // Bean-based
+        final BeanPropertySqlParameterSource parameterSource; // Bean-based
                                                               // parameters
                                                               // source
 
@@ -212,6 +254,16 @@ public abstract class SpringJDBCRepository<V extends PersistenceEntity>
         getTemplate().update(getDeleteQuery(), parameterSource);
     }
 
+    /**
+     * Adds an entity to the repository.
+     * <p>
+     * Note that both the {@link #add(PersistenceEntity) add} and the
+     * {@code update} methods work the same, as if the entity does not exist it
+     * will be added, but if it already exists then it will be updated.
+     * 
+     * @param entity
+     *            the entity to add
+     */
     @Override
     public final void update(final V entity) {
         add(entity);

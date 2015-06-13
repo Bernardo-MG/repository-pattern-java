@@ -25,8 +25,8 @@
  * Provides implementations of {@code Repository} for common persistence
  * systems.
  * <p>
- * The persistence systems, and their repository, are as follow:
- * <table border=1>
+ * Implementations are offered for the following persistence systems:
+ * <table summary="Repositories by persistence item" border=1>
  * <tr>
  * <th>System</th>
  * <th>Repository</th>
