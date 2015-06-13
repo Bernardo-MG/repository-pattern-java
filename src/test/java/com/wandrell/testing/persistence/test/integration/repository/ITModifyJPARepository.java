@@ -2,10 +2,10 @@ package com.wandrell.testing.persistence.test.integration.repository;
 
 import org.springframework.test.context.ContextConfiguration;
 
-import com.wandrell.testing.persistence.util.test.repository.AbstractITModifyJPARepository;
+import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
 
 @ContextConfiguration(locations = { "classpath:spring/persistence-jpa.xml" })
-public final class ITModifyJPARepository extends AbstractITModifyJPARepository {
+public final class ITModifyJPARepository extends AbstractITModify {
 
     public ITModifyJPARepository() {
         super("SELECT entity FROM TestEntity entity WHERE id = :id");

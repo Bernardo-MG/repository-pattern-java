@@ -29,6 +29,7 @@ import java.util.Collection;
 
 import javax.sql.DataSource;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -230,11 +231,20 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
      */
     @Override
     public final V getEntity(final QueryData query) {
+        V entity;  // Entity acquired from the query
+
         checkNotNull(query, "Received a null pointer as the query");
 
-        return getTemplate().queryForObject(query.getQuery(),
-                query.getParameters(),
-                BeanPropertyRowMapper.newInstance(getType()));
+        // Tries to acquire the entity
+        try {
+            entity = getTemplate().queryForObject(query.getQuery(),
+                    query.getParameters(),
+                    BeanPropertyRowMapper.newInstance(getType()));
+        } catch (final EmptyResultDataAccessException exception) {
+            entity = null;
+        }
+
+        return entity;
     }
 
     /**

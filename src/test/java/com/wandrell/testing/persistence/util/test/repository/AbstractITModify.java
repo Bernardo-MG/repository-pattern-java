@@ -1,6 +1,5 @@
 package com.wandrell.testing.persistence.util.test.repository;
 
-import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -13,49 +12,63 @@ import org.testng.annotations.Test;
 import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.testing.persistence.util.model.JPATestEntity;
-import com.wandrell.testing.persistence.util.model.TestEntity;
 import com.wandrell.testing.persistence.util.model.TestEntityRepository;
 
 @TransactionConfiguration(defaultRollback = true)
-public abstract class AbstractITQueryJPARepository extends
+public abstract class AbstractITModify extends
         AbstractTransactionalTestNGSpringContextTests {
 
     @Autowired
     private TestEntityRepository repository;
     private final String         selectByIdQuery;
 
-    public AbstractITQueryJPARepository(final String selectByIdQuery) {
+    public AbstractITModify(final String selectByIdQuery) {
         super();
 
         this.selectByIdQuery = selectByIdQuery;
     }
 
     @Test
-    public final void testGetAll() {
-        final Collection<? extends TestEntity> entities;
+    public final void testAdd_Remove() {
+        final JPATestEntity entity;
+        final Integer size;
 
-        entities = repository.getAll();
+        entity = new JPATestEntity();
+        entity.setName("test_entity");
 
-        Assert.assertEquals(entities.size(), 4);
+        getRepository().add(entity);
+
+        size = getRepository().getAll().size();
+
+        Assert.assertEquals(entity.getId(), size);
+
+        getRepository().remove(entity);
+
+        Assert.assertEquals(repository.getAll().size(), size - 1);
     }
 
     @Test
-    public final void testGetEntity() {
+    public final void testUpdate() {
         final QueryData query;
         final Map<String, Object> parameters;
-        final Integer id;
+        final String nameChange;
         JPATestEntity entity;
 
-        id = 1;
-
         parameters = new LinkedHashMap<>();
-        parameters.put("id", id);
+        parameters.put("id", 1);
 
         query = new DefaultQueryData(selectByIdQuery, parameters);
 
         entity = getRepository().getEntity(query);
 
-        Assert.assertEquals(entity.getId(), id);
+        nameChange = "The new name";
+        entity.setName(nameChange);
+
+        getRepository().update(entity);
+
+        entity = getRepository().getEntity(query);
+
+        Assert.assertEquals(entity.getName(), nameChange);
     }
 
     protected final TestEntityRepository getRepository() {
