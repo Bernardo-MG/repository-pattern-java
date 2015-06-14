@@ -24,7 +24,7 @@ template=V: Object, F: Object
     </coordinates>
     <panel_attributes>bg=yellow
 template=V: PersistenceEntity
-/JPARepository/</panel_attributes>
+JPARepository</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

@@ -30,7 +30,6 @@ import java.util.Map.Entry;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.wandrell.pattern.repository.FilteredRepository;
@@ -73,33 +72,36 @@ import com.wandrell.persistence.PersistenceEntity;
  * @see QueryData
  * @see PersistenceEntity
  */
-public abstract class JPARepository<V extends PersistenceEntity> implements
+public final class JPARepository<V extends PersistenceEntity> implements
         FilteredRepository<V, QueryData> {
 
     /**
      * Query for acquiring all the entities.
      */
-    private final QueryData allValuesQuery;
+    private final QueryData     allValuesQuery;
     /**
      * Entity manager in charge of handling the persistence process.
      */
-    @PersistenceContext
-    private EntityManager   entityManager;
+    private final EntityManager manager;
 
     /**
      * Constructs a {@code JPARepository} with the specified all-data query.
      * 
+     * @param entityManager
+     *            {@code EntityManager} for the repository
      * @param allQuery
      *            query for retrieving all the entities from the repository
      */
-    public JPARepository(final QueryData allQuery) {
+    public JPARepository(final EntityManager entityManager,
+            final QueryData allQuery) {
         super();
 
-        // TODO: The EntityManager should be final
-
+        checkNotNull(entityManager,
+                "Received a null pointer as the entity manager");
         checkNotNull(allQuery,
                 "Received a null pointer as the all-values query");
 
+        manager = entityManager;
         allValuesQuery = allQuery;
     }
 
@@ -266,7 +268,7 @@ public abstract class JPARepository<V extends PersistenceEntity> implements
      * @return the {@code EntityManager} in charge of the persistence
      */
     private final EntityManager getEntityManager() {
-        return entityManager;
+        return manager;
     }
 
 }

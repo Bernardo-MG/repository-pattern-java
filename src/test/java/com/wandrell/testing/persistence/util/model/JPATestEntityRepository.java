@@ -23,9 +23,16 @@
  */
 package com.wandrell.testing.persistence.util.model;
 
+import java.util.Collection;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.stereotype.Repository;
 
 import com.wandrell.pattern.repository.DefaultQueryData;
+import com.wandrell.pattern.repository.FilteredRepository;
+import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.persistence.repository.JPARepository;
 
 /**
@@ -37,14 +44,57 @@ import com.wandrell.persistence.repository.JPARepository;
  * @author Bernardo Martínez Garrido
  */
 @Repository
-public final class JPATestEntityRepository extends JPARepository<JPATestEntity>
-        implements TestEntityRepository {
+public final class JPATestEntityRepository implements TestEntityRepository {
+
+    private FilteredRepository<JPATestEntity, QueryData> repository;
 
     /**
      * Constructs a {@code JPATestEntityRepository}.
      */
     public JPATestEntityRepository() {
-        super(new DefaultQueryData("SELECT entity FROM TestEntity entity"));
+        super();
+    }
+
+    @Override
+    public final void add(final JPATestEntity entity) {
+        getBaseRepository().add(entity);
+    }
+
+    @Override
+    public final Collection<JPATestEntity> getAll() {
+        return getBaseRepository().getAll();
+    }
+
+    @Override
+    public final Collection<JPATestEntity>
+            getCollection(final QueryData filter) {
+        return getBaseRepository().getCollection(filter);
+    }
+
+    @Override
+    public final JPATestEntity getEntity(final QueryData filter) {
+        return getBaseRepository().getEntity(filter);
+    }
+
+    @Override
+    public final void remove(final JPATestEntity entity) {
+        getBaseRepository().remove(entity);
+    }
+
+    @PersistenceContext
+    public void setEntityManager(final EntityManager entityManager) {
+        repository = new JPARepository<JPATestEntity>(entityManager,
+                new DefaultQueryData("SELECT entity FROM TestEntity entity"));
+    }
+
+    @Override
+    public final void update(final JPATestEntity entity) {
+        getBaseRepository().update(entity);
+    }
+
+    private final FilteredRepository<JPATestEntity, QueryData>
+            getBaseRepository() {
+        return repository;
     }
 
 }
