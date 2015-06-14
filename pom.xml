@@ -152,6 +152,8 @@
 		<scmURL>${project.scm.url}</scmURL>
 		<ciName>${project.ciManagement.system}</ciName>
 		<ciURL>${project.ciManagement.url}</ciURL>
+		<bintrayURL>https://bintray.com/bernardo-mg/maven/persistence-utils/view</bintrayURL>
+		<mavenURL>http://mvnrepository.com/artifact/com.wandrell/persistence-utils</mavenURL>
 		<license>MIT</license>
 	</properties>
 
