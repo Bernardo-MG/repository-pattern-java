@@ -22,15 +22,15 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:https://github.com/bernardo-mg/persistence-utils-java.git</connection>
-		<developerConnection>scm:git:https://github.com/bernardo-mg/persistence-utils-java.git</developerConnection>
+		<connection>scm:git:https://github.com/Bernardo-MG/persistence-utils-java.git</connection>
+		<developerConnection>scm:git:https://github.com/Bernardo-MG/persistence-utils-java.git</developerConnection>
 		<tag>head</tag>
-		<url>https://github.com/bernardo-mg/persistence-utils-java</url>
+		<url>https://github.com/Bernardo-MG/persistence-utils-java</url>
 	</scm>
 
 	<issueManagement>
 		<system>GitHub</system>
-		<url>https://github.com/bernardo-mg/persistence-utils-java/issues</url>
+		<url>https://github.com/Bernardo-MG/persistence-utils-java/issues</url>
 	</issueManagement>
 
 	<ciManagement>

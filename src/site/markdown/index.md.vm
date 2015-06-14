@@ -15,10 +15,12 @@ Those patterns are stored on the [Java Patterns](https://github.com/Bernardo-MG/
 # An overview
 
 Most of the classes on this library are repositories:
+
 - Repository for the basic JPA API [>>](./repositories.html)
 - Repository for Spring's JDBC API [>>](./repositories.html)
 
 But there are other useful classes here too:
+
 - Root interface for persistent entities [>>](./persistence_entity.html)
 
 ---

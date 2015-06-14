@@ -70,7 +70,7 @@ SpringJDBCRepository</panel_attributes>
       <w>210</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>bg=yellow
+    <panel_attributes>bg=cyan
 QueryData</panel_attributes>
     <additional_attributes/>
   </element>
