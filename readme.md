@@ -48,11 +48,11 @@ All other dependencies are handled through Maven, and noted in the included POM 
 
 ### Installing
 
-Thanks to Maven, the project is easy to install, by just using the following command:
+The recommended way to install the project is by setting up the dependencies manager. To get the configuration information for this check the [Bintray repository][bintray-repo], or the [Maven Central Repository][maven-repo].
+
+If for some reason manual installation is necesary, just use the following Maven command:
 
 ```mvn install```
-
-But the recommended way to install the project is by using the code repositories, where the releases and snapshots are stored. The way to set this is detailed on the documentation page.
 
 ## Collaborate
 
@@ -73,6 +73,7 @@ Feel free to fork it, and share the changes.
 ## License
 The project is released under the [MIT License][license].
 
+[bintray-repo]: https://bintray.com/bernardo-mg/maven
 [maven-repo]: http://mvnrepository.com/artifact/com.wandrell/persistence-utils
 [java_patterns]: https://github.com/Bernardo-MG/java-patterns
 [issues]: https://github.com/bernardo-mg/persistence-utils-java/issues
