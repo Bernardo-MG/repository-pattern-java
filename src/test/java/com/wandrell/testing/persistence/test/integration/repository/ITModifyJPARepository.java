@@ -36,7 +36,8 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
  * @author Bernardo Martínez Garrido
  * @see FilteredEntriesXMLFileParser
  */
-@ContextConfiguration(locations = { "classpath:spring/persistence-jpa.xml" })
+@ContextConfiguration(
+        locations = { "classpath:spring/persistence-jpa-modify.xml" })
 public final class ITModifyJPARepository extends AbstractITModify {
 
     /**

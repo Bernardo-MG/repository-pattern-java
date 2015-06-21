@@ -37,7 +37,7 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
  * @see FilteredEntriesXMLFileParser
  */
 @ContextConfiguration(
-        locations = { "classpath:spring/persistence-spring-jdbc.xml" })
+        locations = { "classpath:spring/persistence-spring-jdbc-modify.xml" })
 public final class ITModifySpringJDBCRepository extends AbstractITModify {
 
     /**
