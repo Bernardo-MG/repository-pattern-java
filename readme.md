@@ -1,16 +1,17 @@
 # Java Persistence Utils
 
+A micro library for easing the use of persistence on Java, mostly JPA.
+
+This has been created for my own use. Mostly this serves to create JPA repositories, using the [Java Patterns][java_patterns] library.
+
 [![Maven Central](https://img.shields.io/maven-central/v/com.wandrell/persistence-utils.svg)][maven-repo]
+[![Bintray](https://api.bintray.com/packages/bernardo-mg/maven/java-patterns/images/download.svg)][bintray-repo]
 
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
 [![Development docs](https://img.shields.io/badge/docs-develop-blue.svg)][site-develop]
 
 [![Release javadocs](https://img.shields.io/badge/javadocs-release-blue.svg)][javadoc-release]
 [![Development javadocs](https://img.shields.io/badge/javadocs-develop-blue.svg)][javadoc-develop]
-
-A micro library for easing the use of persistence on Java, mostly JPA.
-
-This has been created for my own use. Mostly this serves to create JPA repositories, using the [Java Patterns][java_patterns] library.
 
 ## Features
 
@@ -73,7 +74,7 @@ Feel free to fork it, and share the changes.
 ## License
 The project is released under the [MIT License][license].
 
-[bintray-repo]: https://bintray.com/bernardo-mg/maven
+[bintray-repo]: https://bintray.com/bernardo-mg/maven/persistence-utils/view
 [maven-repo]: http://mvnrepository.com/artifact/com.wandrell/persistence-utils
 [java_patterns]: https://github.com/Bernardo-MG/java-patterns
 [issues]: https://github.com/bernardo-mg/persistence-utils-java/issues
