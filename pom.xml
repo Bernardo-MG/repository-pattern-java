@@ -6,7 +6,7 @@
 
 	<groupId>com.wandrell</groupId>
 	<artifactId>persistence-utils</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.1.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>Java Persistence Utils</name>
@@ -30,7 +30,7 @@
 
 	<issueManagement>
 		<system>GitHub</system>
-		<url>https://github.com/Bernardo-MG/persistence-utils-java/issues</url>
+		<url>https://www.github.com/Bernardo-MG/persistence-utils-java/issues</url>
 	</issueManagement>
 
 	<ciManagement>
@@ -148,7 +148,7 @@
 		<site.skin.version>1.1.1</site.skin.version>
 		<site.description>These classes offer an easy and quick way to
 			implement Java persistence</site.description>
-		<site.download>https://bintray.com/bernardo-mg/maven/persistence-utils-java/view</site.download>
+		<site.download>https://bintray.com/bernardo-mg/maven/persistence-utils/view</site.download>
 		<javaVersion>JDK 7, JDK 8 and OpenJDK 7</javaVersion>
 		<scmName>GitHub</scmName>
 		<scmURL>${project.scm.url}</scmURL>

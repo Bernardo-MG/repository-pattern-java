@@ -11,5 +11,13 @@
 				First release of the library.
 			</action>
 		</release>
+		<release version="0.1.1" date="2015-06-14" description="Corrections">
+			<action dev="bmg" type="fix">
+				Corrections to the tests config.
+			</action>
+			<action dev="bmg" type="fix">
+				Corrections to the Maven site.
+			</action>
+		</release>
 	</body>
 </document>
