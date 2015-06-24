@@ -37,7 +37,7 @@ The documentation site sources come along the source code (as it is a Maven site
 $ mvn site
 ```
 
-## Building the code
+## Usage
 
 The application is coded in Java, using Maven to manage the project.
 
