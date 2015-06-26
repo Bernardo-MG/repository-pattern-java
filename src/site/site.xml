@@ -20,7 +20,7 @@
 	<custom>
 		<reflowSkin>
 			<smoothScroll>true</smoothScroll>
-			<theme>default</theme>
+			<theme>bootswatch-spruce</theme>
 			<highlightJs>true</highlightJs>
 			<highlightJsTheme>github</highlightJsTheme>
 			<brand>
@@ -33,17 +33,16 @@
 			<!-- Use Table of Contents at the top of the page (max 6 elements) -->
 			<toc>top</toc>
 			<tocTopMax>6</tocTopMax>
-			<topNav>Documentation|reports|Contribute</topNav>
+			<topNav>Documentation|Info and reports</topNav>
 			<!-- Split menus in the bottom navigation -->
 			<bottomNav maxSpan="9">
 				<column>Main</column>
 				<column>Acquire|Contribute</column>
 				<column>Documentation</column>
-				<column>reports</column>
+				<column>Info and reports</column>
 			</bottomNav>
-			<bottomDescription>${site.description}</bottomDescription>
 			<pages>
-				<index project="persistence-utils">
+				<index project="${project.artifactId}">
 					<!-- Override the title -->
 					<titleTemplate>${project.name}</titleTemplate>
 					<!-- no breadcrumbs on the main index page -->
@@ -52,8 +51,7 @@
 					<toc>false</toc>
 					<markPageHeader>false</markPageHeader>
 					<sections>
-						<columns>2</columns>
-						<body />
+						<body/>
 						<sidebar />
 					</sections>
 				</index>
@@ -96,7 +94,6 @@
 	<body>
 		<links>
 			<item name="GitHub project" href="${scm.url}" />
-			<item name="JavaDocs" href="./apidocs/" />
 		</links>
 
 		<menu name="Main" inherit="top">
@@ -114,7 +111,11 @@
 			<item name="Persistence entity" href="./persistence_entity.html" />
 			<item name="Repositories" href="./repositories.html" />
 		</menu>
-		<menu name="Reports" ref="reports" inherit="bottom" />
+		<menu name="Info and reports" inherit="bottom">
+			<item name="Info" href="./info.html" />
+			<item name="Reports" href="./reports.html" />
+			<item name="JavaDocs" href="./apidocs/" />
+		</menu>
 		<menu name="Contribute" inherit="bottom">
 			<item name="Issues" href="${issueManagement.url}" />
 			<item name="Fork on GitHub" href="${scm.url}" />

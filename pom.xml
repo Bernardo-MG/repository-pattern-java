@@ -567,7 +567,7 @@
 	<reporting>
 		<plugins>
 			<plugin>
-				<!-- Reports -->
+				<!-- Project Info -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
 				<version>${plugin.reports.version}</version>
@@ -578,9 +578,8 @@
 							<report>license</report>
 							<report>modules</report>
 							<report>project-team</report>
-							<report>dependency-info</report>
-							<report>distribution-management</report>
 							<report>dependencies</report>
+							<report>dependency-info</report>
 							<report>dependency-management</report>
 							<report>plugins</report>
 							<report>plugin-management</report>

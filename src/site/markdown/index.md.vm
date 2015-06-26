@@ -10,8 +10,6 @@ This project does not aim to solve any big issue, it was created just to ease bu
 
 Those patterns are stored on the [Java Patterns](https://github.com/Bernardo-MG/java-patterns) library. But there is not much need to talk in plural, as it is mostly the Repository pattern the one being used. You could say this library serves just to give actually usable Repositories.
 
----
-
 # An overview
 
 Most of the classes on this library are repositories:
@@ -33,3 +31,5 @@ The code is open source and freely accessible. If you want to do any kind of mod
 - License: [${license}](./license.html)
 - SCM: [${scmName}](${scmURL})
 - CI: [${ciName}](${ciURL})
+- [Bintray repo](${bintrayURL})
+- [Maven Central Repository](${mavenURL})
