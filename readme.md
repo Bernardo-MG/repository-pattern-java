@@ -34,8 +34,10 @@ Documentation is also generated from the latest snapshot, taken from the 'develo
 The documentation site sources come along the source code (as it is a Maven site), so it is always possible to generate them using the following Maven command:
 
 ```
-$ mvn site
+$ mvn verify site
 ```
+
+The verify phase is required, as otherwise some of the reports won't be created.
 
 ## Usage
 
