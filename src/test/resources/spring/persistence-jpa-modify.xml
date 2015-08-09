@@ -15,7 +15,7 @@
 
 	<!-- Configuration -->
 	<context:property-placeholder
-		location="classpath:spring/persistence-jpa.properties" />
+		location="classpath:spring/persistence-jpa-modify.properties" />
 
 	<!-- Repository -->
 	<bean id="repository" class="${repository.class}" />
