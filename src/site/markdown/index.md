@@ -4,32 +4,24 @@ Persistence systems allow handling a source of data, usually a database, in a tr
 
 This is done by offering a model-oriented API, which stands between the application and wherever the data is being kept. This way the programmer just sends or asks for objects to a data access object, ignoring all the work done to map said objects to the information they store.
 
-# Why this library?
+---
+
+## Why this library?
 
 This project does not aim to solve any big issue, it was created just to ease building persistence classes on my own Java projects. For this it includes the classes I've made or adapted for other projects, following the patterns which I am more accustomed to.
 
 Those patterns are stored on the [Java Patterns](https://github.com/Bernardo-MG/java-patterns) library. But there is not much need to talk in plural, as it is mostly the Repository pattern the one being used. You could say this library serves just to give actually usable Repositories.
 
-# An overview
+## Features
 
 Most of the classes on this library are repositories:
 
-- Repository for the basic JPA API [>>](./repositories.html)
-- Repository for Spring's JDBC API [>>](./repositories.html)
+- [Repository for the basic JPA API][repositories].
+- [Repository for Spring's JDBC API][repositories].
 
-But there are other useful classes here too:
+But some are helper classes:
 
-- Root interface for persistent entities [>>](./persistence_entity.html)
+- Root [interface for persistent entities][persistence_entity].
 
----
-
-# About the code
-
-The code is open source and freely accessible. If you want to do any kind of modification just fork it from the repository.
-
-- Java version: ${javaVersion}
-- License: [${license}](./license.html)
-- SCM: [${scmName}](${scmURL})
-- CI: [${ciName}](${ciURL})
-- [Bintray repo](${bintrayURL})
-- [Maven Central Repository](${mavenURL})
+[persistence_entity]: ./persistence_entity.html
+[repositories]: ./repositories.html
