@@ -6,7 +6,7 @@
 
 	<groupId>com.wandrell</groupId>
 	<artifactId>persistence-utils</artifactId>
-	<version>0.1.1</version>
+	<version>0.1.2</version>
 	<packaging>jar</packaging>
 
 	<name>Java Persistence Utils</name>
@@ -113,15 +113,15 @@
 		<manifest.name>com/wandrell/jpa/utils</manifest.name>
 		<!-- Dependencies versions -->
 		<guava.version>18.0</guava.version>
-		<h2.version>1.4.187</h2.version>
+		<h2.version>1.4.188</h2.version>
 		<jpa.version>1.0.2</jpa.version>
-		<hibernate.version>4.3.9.Final</hibernate.version>
-		<hikari.version>2.3.8</hikari.version>
+		<hibernate.version>4.3.11.Final</hibernate.version>
+		<hikari.version>2.3.9</hikari.version>
 		<slf4j.version>1.7.12</slf4j.version>
 		<spring.version>4.1.6.RELEASE</spring.version>
-		<spring.jpa.version>1.8.0.RELEASE</spring.jpa.version>
-		<testng.version>6.8.8</testng.version>
-		<wandrell.patterns.version>0.4.1</wandrell.patterns.version>
+		<spring.jpa.version>1.8.2.RELEASE</spring.jpa.version>
+		<testng.version>6.9.6</testng.version>
+		<wandrell.patterns.version>0.4.4</wandrell.patterns.version>
 		<!-- Plugins versions -->
 		<plugin.ant.version>1.8</plugin.ant.version>
 		<plugin.assembly.version>2.5.5</plugin.assembly.version>
@@ -219,12 +219,6 @@
 			<groupId>com.wandrell</groupId>
 			<artifactId>java-patterns</artifactId>
 			<version>${wandrell.patterns.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<!-- JPA -->
@@ -283,6 +277,12 @@
 			<artifactId>testng</artifactId>
 			<version>${testng.version}</version>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>com.google.guava</groupId>
+					<artifactId>guava</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 
