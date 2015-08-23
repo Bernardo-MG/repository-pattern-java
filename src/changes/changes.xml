@@ -13,13 +13,19 @@
 		</release>
 		<release version="0.1.1" date="2015-08-09" description="Maven site update">
 			<action dev="bmg" type="update">
-				Changed Maven site skin to Docs Maven Skin.
+				Changed Maven site skin to Docs Maven
+				Skin.
 			</action>
 			<action dev="bmg" type="fix">
 				Corrections to the tests config.
 			</action>
 			<action dev="bmg" type="fix">
 				Corrections to the Maven site.
+			</action>
+		</release>
+		<release version="0.1.2" date="2015-08-23" description="Dependencies update">
+			<action dev="bmg" type="update">
+				Updated dependencies.
 			</action>
 		</release>
 	</body>
