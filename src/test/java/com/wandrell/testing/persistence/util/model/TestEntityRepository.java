@@ -34,7 +34,7 @@ import com.wandrell.pattern.repository.QueryData;
  * 
  * @author Bernardo Martínez Garrido
  */
-public interface TestEntityRepository extends
-        FilteredRepository<JPATestEntity, QueryData> {
+public interface TestEntityRepository
+        extends FilteredRepository<JPATestEntity, QueryData> {
 
 }

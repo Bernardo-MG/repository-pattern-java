@@ -29,9 +29,8 @@
  * entities which the repositories contained at the
  * {@link com.wandrell.persistence.repository repository} package will use.
  * <p>
- * These repositories implement the {@code Repository} interface, from the <a
- * href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
+ * These repositories implement the {@code Repository} interface, from the
+ * <a href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
  * library</a>, adapting it for common persistence systems.
  */
 package com.wandrell.persistence;
-

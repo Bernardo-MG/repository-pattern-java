@@ -30,7 +30,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -58,9 +57,8 @@ import com.wandrell.testing.persistence.util.model.TestEntityRepository;
  * @author Bernardo Martínez Garrido
  * @see NotValidatedXMLFileParser
  */
-@TransactionConfiguration(defaultRollback = true)
-public abstract class AbstractITModify extends
-        AbstractTransactionalTestNGSpringContextTests {
+public abstract class AbstractITModify
+        extends AbstractTransactionalTestNGSpringContextTests {
 
     /**
      * The repository being tested.

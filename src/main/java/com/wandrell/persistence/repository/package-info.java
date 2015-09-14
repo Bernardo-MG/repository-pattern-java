@@ -26,21 +26,12 @@
  * persistence systems.
  * <p>
  * Implementations are offered for the following persistence systems:
- * <table summary="Repositories by persistence item" border=1>
- * <tr>
- * <th>System</th>
- * <th>Repository</th>
- * </tr>
- * <tr>
- * <td>JPA</td>
- * <td>{@link com.wandrell.persistence.repository.JPARepository JPARepository}</td>
- * </tr>
- * <tr>
- * <td>Spring JDBC</td>
- * <td>{@link com.wandrell.persistence.repository.SpringJDBCRepository
- * SpringJDBCRepository}</td>
- * </tr>
- * </table>
+ * <table summary=
+ * "Repositories by persistence item" border=1> <tr> <th>System</th>
+ * <th>Repository</th> </tr> <tr> <td>JPA</td> <td>
+ * {@link com.wandrell.persistence.repository.JPARepository JPARepository}</td>
+ * </tr> <tr> <td>Spring JDBC</td> <td>
+ * {@link com.wandrell.persistence.repository.SpringJDBCRepository
+ * SpringJDBCRepository}</td> </tr> </table>
  */
 package com.wandrell.persistence.repository;
-
