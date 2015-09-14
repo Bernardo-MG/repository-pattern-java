@@ -55,8 +55,8 @@ import com.wandrell.persistence.PersistenceEntity;
  * place of the {@code :id} placeholder.
  * <p>
  * Both the query and the parameters will be received on a {@code QueryData}
- * object, which comes from the <a
- * href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
+ * object, which comes from the
+ * <a href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
  * library</a>.
  * <p>
  * A few initial queries are required. These are for updating and deleting
@@ -73,10 +73,10 @@ import com.wandrell.persistence.PersistenceEntity;
  * {@code UPDATE employees SET name = :name WHERE id = :id}
  * <p>
  * As note to take into consideration, when using the
- * {@link #add(PersistenceEntity) add} and the
- * {@link #update(PersistenceEntity) update} methods both will work the same. If
- * the received entity lacks a code it will be added into the database,
- * otherwise the stored entity will be updated.
+ * {@link #add(PersistenceEntity) add} and the {@link #update(PersistenceEntity)
+ * update} methods both will work the same. If the received entity lacks a code
+ * it will be added into the database, otherwise the stored entity will be
+ * updated.
  * 
  * @author Bernardo Martínez Garrido
  * @param <V>
@@ -84,8 +84,8 @@ import com.wandrell.persistence.PersistenceEntity;
  * @see QueryData
  * @see PersistenceEntity
  */
-public final class SpringJDBCRepository<V extends PersistenceEntity> implements
-        FilteredRepository<V, QueryData> {
+public final class SpringJDBCRepository<V extends PersistenceEntity>
+        implements FilteredRepository<V, QueryData> {
 
     /**
      * The class of the objects to be returned.
@@ -150,8 +150,8 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
         this.classType = type;
 
         // Queries
-        getAllQuery = new DefaultQueryData(String.format("SELECT * FROM %s",
-                table));
+        getAllQuery = new DefaultQueryData(
+                String.format("SELECT * FROM %s", table));
         this.updateQuery = update;
         this.deleteQuery = delete;
 
@@ -174,8 +174,8 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
     @Override
     public final void add(final V entity) {
         final BeanPropertySqlParameterSource parameterSource; // Bean-based
-                                                              // parameters
-                                                              // source
+ // parameters
+ // source
         final Number newKey;    // Key assigned to the new entity
 
         checkNotNull(entity, "Received a null pointer as the entity");
@@ -256,8 +256,8 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
     @Override
     public final void remove(final V entity) {
         final BeanPropertySqlParameterSource parameterSource; // Bean-based
-                                                              // parameters
-                                                              // source
+ // parameters
+ // source
 
         parameterSource = new BeanPropertySqlParameterSource(entity);
 

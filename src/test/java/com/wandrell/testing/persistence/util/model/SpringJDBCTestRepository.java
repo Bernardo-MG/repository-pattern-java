@@ -78,7 +78,8 @@ public final class SpringJDBCTestRepository implements TestEntityRepository {
     }
 
     @Override
-    public final Collection<JPATestEntity> getCollection(final QueryData query) {
+    public final Collection<JPATestEntity>
+            getCollection(final QueryData query) {
         return getBaseRepository().getCollection(query);
     }
 

@@ -51,8 +51,8 @@ import com.wandrell.persistence.PersistenceEntity;
  * place of the {@code :id} placeholder.
  * <p>
  * Both the query and the parameters will be received on a {@code QueryData}
- * object, which comes from the <a
- * href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
+ * object, which comes from the
+ * <a href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
  * library</a>.
  * <p>
  * An initial query is required, this will be used when acquiring all the
@@ -61,10 +61,10 @@ import com.wandrell.persistence.PersistenceEntity;
  * {@code SELECT employee FROM Employee employee"}
  * <p>
  * As note to take into consideration, when using the
- * {@link #add(PersistenceEntity) add} and the
- * {@link #update(PersistenceEntity) update} methods both will work the same. If
- * the received entity lacks a code it will be added into the database,
- * otherwise the stored entity will be updated.
+ * {@link #add(PersistenceEntity) add} and the {@link #update(PersistenceEntity)
+ * update} methods both will work the same. If the received entity lacks a code
+ * it will be added into the database, otherwise the stored entity will be
+ * updated.
  * 
  * @author Bernardo Martínez Garrido
  * @param <V>
@@ -72,8 +72,8 @@ import com.wandrell.persistence.PersistenceEntity;
  * @see QueryData
  * @see PersistenceEntity
  */
-public final class JPARepository<V extends PersistenceEntity> implements
-        FilteredRepository<V, QueryData> {
+public final class JPARepository<V extends PersistenceEntity>
+        implements FilteredRepository<V, QueryData> {
 
     /**
      * Query for acquiring all the entities.

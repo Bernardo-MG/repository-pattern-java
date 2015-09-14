@@ -40,7 +40,7 @@
 	<!-- JPA Properties -->
 	<util:map id="jpaProperties">
 		<entry key="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
-		<entry key="hibernate.hbm2ddl.auto" value="create-drop" />
+		<entry key="hibernate.hbm2ddl.auto" value="update" />
 		<entry key="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy" />
 		<entry key="hibernate.show_sql" value="${hibernate.show_sql}" />
 		<entry key="hibernate.format_sql" value="${hibernate.format_sql}" />
