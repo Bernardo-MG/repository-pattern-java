@@ -6,7 +6,7 @@
 
 	<groupId>com.wandrell</groupId>
 	<artifactId>persistence-utils</artifactId>
-	<version>0.1.3-SNAPSHOT</version>
+	<version>0.1.4-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>Java Persistence Utils</name>
@@ -152,7 +152,7 @@
 		<!-- Extensions versions -->
 		<extension.wagon.version>2.8</extension.wagon.version>
 		<!-- Maven Site -->
-		<site.skin.version>0.1.0</site.skin.version>
+		<site.skin.version>0.2.0</site.skin.version>
 		<bintrayURL>https://bintray.com/bernardo-mg/maven/persistence-utils/view</bintrayURL>
 		<mavenURL>http://mvnrepository.com/artifact/com.wandrell/persistence-utils</mavenURL>
 	</properties>

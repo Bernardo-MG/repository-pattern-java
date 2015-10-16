@@ -12,8 +12,8 @@
 	<custom>
 		<skinConfig>
 			<keywords>Maven, Java, library</keywords>
-			<descriptionUrl>Check the documentation for ${projectName}</descriptionUrl>
-			<twitterSite>@${developerId}</twitterSite>
+			<descriptionUrl>Check the documentation for Java Persistence Utils</descriptionUrl>
+			<twitterSite>@Wandrell_BMG</twitterSite>
 			<interpreters>
 				<interpreter>JDK 7</interpreter>
 				<interpreter>JDK 8</interpreter>
