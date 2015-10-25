@@ -82,7 +82,7 @@ public final class JPATestEntityRepository implements TestEntityRepository {
     }
 
     @PersistenceContext
-    public void setEntityManager(final EntityManager entityManager) {
+    public final void setEntityManager(final EntityManager entityManager) {
         repository = new JPARepository<JPATestEntity>(entityManager,
                 new DefaultQueryData("SELECT entity FROM TestEntity entity"));
     }
