@@ -6,7 +6,7 @@
 
 	<groupId>com.wandrell</groupId>
 	<artifactId>persistence-utils</artifactId>
-	<version>0.1.5</version>
+	<version>0.1.6</version>
 	<packaging>jar</packaging>
 
 	<name>Java Persistence Utils</name>
@@ -117,10 +117,8 @@
 		<jpa.version>1.0.2</jpa.version>
 		<hibernate.version>5.0.2.Final</hibernate.version>
 		<hikari.version>2.3.12</hikari.version>
-		<javassist.version>3.20.0-GA</javassist.version>
 		<slf4j.version>1.7.12</slf4j.version>
 		<spring.version>4.2.2.RELEASE</spring.version>
-		<spring.jpa.version>1.9.0.RELEASE</spring.jpa.version>
 		<testng.version>6.9.8</testng.version>
 		<wandrell.patterns.version>0.4.4</wandrell.patterns.version>
 		<!-- Plugins versions -->
@@ -180,10 +178,6 @@
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
-					<groupId>org.javassist</groupId>
-					<artifactId>javassist</artifactId>
-				</exclusion>
-				<exclusion>
 					<groupId>org.slf4j</groupId>
 					<artifactId>slf4j-api</artifactId>
 				</exclusion>
@@ -195,12 +189,6 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
 			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.javassist</groupId>
-					<artifactId>javassist</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<!-- Hikari CP -->
@@ -214,12 +202,6 @@
 					<artifactId>slf4j-api</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-		<dependency>
-			<!-- Javassist -->
-			<groupId>org.javassist</groupId>
-			<artifactId>javassist</artifactId>
-			<version>${javassist.version}</version>
 		</dependency>
 		<dependency>
 			<!-- Java Patterns -->
@@ -248,28 +230,17 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<!-- Spring Data JPA -->
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-jpa</artifactId>
-			<version>${spring.jpa.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-context</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-core</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-beans</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
-				</exclusion>
-			</exclusions>
+			<!-- Spring JDBC -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<!-- Spring ORM -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<!-- Spring Test -->
