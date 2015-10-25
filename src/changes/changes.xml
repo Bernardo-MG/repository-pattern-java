@@ -42,5 +42,10 @@
 				Updated Maven Site Skin.
 			</action>
 		</release>
+		<release version="0.1.5" date="2015-10-25" description="Updated dependencies">
+			<action dev="bmg" type="update">
+				Updated dependencies.
+			</action>
+		</release>
 	</body>
 </document>
