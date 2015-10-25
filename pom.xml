@@ -6,7 +6,7 @@
 
 	<groupId>com.wandrell</groupId>
 	<artifactId>persistence-utils</artifactId>
-	<version>0.1.4-SNAPSHOT</version>
+	<version>0.1.5-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>Java Persistence Utils</name>
@@ -113,14 +113,14 @@
 		<manifest.name>com/wandrell/jpa/utils</manifest.name>
 		<!-- Dependencies versions -->
 		<guava.version>18.0</guava.version>
-		<h2.version>1.4.188</h2.version>
+		<h2.version>1.4.190</h2.version>
 		<jpa.version>1.0.2</jpa.version>
-		<hibernate.version>5.0.1.Final</hibernate.version>
-		<hikari.version>2.3.9</hikari.version>
+		<hibernate.version>5.0.2.Final</hibernate.version>
+		<hikari.version>2.3.12</hikari.version>
 		<slf4j.version>1.7.12</slf4j.version>
-		<spring.version>4.2.1.RELEASE</spring.version>
+		<spring.version>4.2.2.RELEASE</spring.version>
 		<spring.jpa.version>1.9.0.RELEASE</spring.jpa.version>
-		<testng.version>6.9.6</testng.version>
+		<testng.version>6.9.8</testng.version>
 		<wandrell.patterns.version>0.4.4</wandrell.patterns.version>
 		<!-- Plugins versions -->
 		<plugin.ant.version>1.8</plugin.ant.version>
