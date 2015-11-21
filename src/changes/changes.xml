@@ -52,5 +52,10 @@
 				Removed the Spring data dependency.
 			</action>
 		</release>
+		<release version="0.1.7" date="2015-11-21" description="Updated configuration">
+			<action dev="bmg" type="update">
+				Updated project configuration.
+			</action>
+		</release>
 	</body>
 </document>
