@@ -52,5 +52,15 @@
 				Removed the Spring data dependency.
 			</action>
 		</release>
+		<release version="0.1.7" date="2015-11-22"
+			description="Changed persistence API and updated configuration">
+			<action dev="bmg" type="update">
+				Changed the dependencies for the
+				persistence API.
+			</action>
+			<action dev="bmg" type="update">
+				Updated project configuration.
+			</action>
+		</release>
 	</body>
 </document>
