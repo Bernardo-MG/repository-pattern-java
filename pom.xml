@@ -185,6 +185,7 @@
 		<!-- Dependencies versions -->
 		<guava.version>18.0</guava.version>
 		<h2.version>1.4.190</h2.version>
+		<javaee.api.version>7.0</javaee.api.version>
 		<jpa.version>1.0.2</jpa.version>
 		<hibernate.version>5.0.2.Final</hibernate.version>
 		<hikari.version>2.3.12</hikari.version>
@@ -240,16 +241,16 @@
 			<version>${guava.version}</version>
 		</dependency>
 		<dependency>
+			<!-- JavaEE API -->
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>${javaee.api.version}</version>
+		</dependency>
+		<dependency>
 			<!-- Java Patterns -->
 			<groupId>com.wandrell</groupId>
 			<artifactId>java-patterns</artifactId>
 			<version>${wandrell.patterns.version}</version>
-		</dependency>
-		<dependency>
-			<!-- JPA -->
-			<groupId>javax.persistence</groupId>
-			<artifactId>persistence-api</artifactId>
-			<version>${jpa.version}</version>
 		</dependency>
 		<dependency>
 			<!-- Spring JDBC -->
@@ -273,12 +274,6 @@
 			<artifactId>hibernate-ehcache</artifactId>
 			<version>${hibernate.version}</version>
 			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<!-- Hibernate Entity Manager -->
@@ -293,12 +288,6 @@
 			<artifactId>HikariCP-java6</artifactId>
 			<version>${hikari.version}</version>
 			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<!-- Log4j core -->
@@ -341,12 +330,6 @@
 			<artifactId>testng</artifactId>
 			<version>${testng.version}</version>
 			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>com.google.guava</groupId>
-					<artifactId>guava</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 	</dependencies>
 
