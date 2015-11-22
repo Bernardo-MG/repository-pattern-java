@@ -10,7 +10,7 @@
 
 	<groupId>com.wandrell</groupId>
 	<artifactId>persistence-utils</artifactId>
-	<version>0.1.7-SNAPSHOT</version>
+	<version>0.1.7</version>
 	<packaging>jar</packaging>
 
 	<name>Java Persistence Utils</name>
