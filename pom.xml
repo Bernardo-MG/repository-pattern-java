@@ -248,12 +248,24 @@
 			<artifactId>java-patterns</artifactId>
 			<version>${wandrell.patterns.version}</version>
 		</dependency>
+        <dependency>
+            <!-- Spring Beans -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
 		<dependency>
 			<!-- Spring JDBC -->
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+        <dependency>
+            <!-- Spring Transactions -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
 		<!-- ============================================== -->
 		<!-- ======= TEST ENVIRONMENT DEPENDENCIES ======== -->
 		<!-- ============================================== -->
