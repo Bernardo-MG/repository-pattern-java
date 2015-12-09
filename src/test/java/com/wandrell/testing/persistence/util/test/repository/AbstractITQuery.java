@@ -38,7 +38,7 @@ import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.testing.persistence.util.model.JPATestEntity;
 import com.wandrell.testing.persistence.util.model.TestEntity;
-import com.wandrell.testing.persistence.util.model.TestEntityRepository;
+import com.wandrell.testing.persistence.util.model.repository.TestEntityRepository;
 
 /**
  * Abstract integration tests for persistence repositories checking query

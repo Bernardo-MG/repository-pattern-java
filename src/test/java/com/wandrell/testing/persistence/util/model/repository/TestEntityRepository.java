@@ -22,10 +22,11 @@
  * SOFTWARE.
  */
 
-package com.wandrell.testing.persistence.util.model;
+package com.wandrell.testing.persistence.util.model.repository;
 
 import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
+import com.wandrell.testing.persistence.util.model.JPATestEntity;
 
 /**
  * Interface for a repository which uses {@link JPATestEntity}.

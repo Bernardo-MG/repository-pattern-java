@@ -22,17 +22,19 @@
  * SOFTWARE.
  */
 
-package com.wandrell.testing.persistence.util.model;
+package com.wandrell.testing.persistence.util.model.repository;
 
 import java.util.Collection;
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.persistence.repository.SpringJDBCRepository;
+import com.wandrell.testing.persistence.util.model.JPATestEntity;
 
 /**
  * Test repository based on the {@link SpringJDBCRepository}, and using
@@ -42,7 +44,7 @@ import com.wandrell.persistence.repository.SpringJDBCRepository;
  * 
  * @author Bernardo Martínez Garrido
  */
-@org.springframework.stereotype.Repository
+@Repository
 public final class SpringJDBCTestRepository implements TestEntityRepository {
 
     /**

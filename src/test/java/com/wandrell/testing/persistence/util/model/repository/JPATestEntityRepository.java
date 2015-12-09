@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.testing.persistence.util.model;
+package com.wandrell.testing.persistence.util.model.repository;
 
 import java.util.Collection;
 
@@ -35,6 +35,7 @@ import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.persistence.repository.JPARepository;
+import com.wandrell.testing.persistence.util.model.JPATestEntity;
 
 /**
  * Test repository based on the {@link TestEntityRepository}, and using
