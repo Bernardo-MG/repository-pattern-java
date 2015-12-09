@@ -29,6 +29,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -66,18 +67,14 @@ public abstract class AbstractITQuery
     /**
      * Query for acquiring an entity by it's id.
      */
-    private final String         selectByIdQuery;
+    @Value("${query.byId}")
+    private String               selectByIdQuery;
 
     /**
      * Constructs an {@code AbstractITModify} with the specified query.
-     * 
-     * @param selectByIdQuery
-     *            a query for acquiring an entity by it's id
      */
-    public AbstractITQuery(final String selectByIdQuery) {
+    public AbstractITQuery() {
         super();
-
-        this.selectByIdQuery = selectByIdQuery;
     }
 
     /**

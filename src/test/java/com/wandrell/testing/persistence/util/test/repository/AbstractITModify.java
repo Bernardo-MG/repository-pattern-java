@@ -24,12 +24,11 @@
 
 package com.wandrell.testing.persistence.util.test.repository;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -67,20 +66,14 @@ public abstract class AbstractITModify
     /**
      * Query for acquiring an entity by it's id.
      */
-    private final String         selectByIdQuery;
+    @Value("${query.byId}")
+    private String               selectByIdQuery;
 
     /**
      * Constructs an {@code AbstractITModify} with the specified query.
-     * 
-     * @param selectByIdQuery
-     *            a query for acquiring an entity by it's id
      */
-    public AbstractITModify(final String selectByIdQuery) {
+    public AbstractITModify() {
         super();
-
-        checkNotNull(selectByIdQuery, "Received a null pointer as query");
-
-        this.selectByIdQuery = selectByIdQuery;
     }
 
     /**

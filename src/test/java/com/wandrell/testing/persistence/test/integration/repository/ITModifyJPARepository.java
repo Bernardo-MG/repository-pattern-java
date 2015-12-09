@@ -44,7 +44,7 @@ public final class ITModifyJPARepository extends AbstractITModify {
      * Default constructor.
      */
     public ITModifyJPARepository() {
-        super("SELECT entity FROM TestEntity entity WHERE id = :id");
+        super();
     }
 
 }

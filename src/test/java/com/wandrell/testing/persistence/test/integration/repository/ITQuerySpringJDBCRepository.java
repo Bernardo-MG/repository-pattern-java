@@ -45,7 +45,7 @@ public final class ITQuerySpringJDBCRepository extends AbstractITQuery {
      * Default constructor.
      */
     public ITQuerySpringJDBCRepository() {
-        super("SELECT * FROM test_entities WHERE id = :id");
+        super();
     }
 
 }

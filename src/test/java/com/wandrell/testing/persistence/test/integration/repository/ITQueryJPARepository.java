@@ -43,7 +43,7 @@ public final class ITQueryJPARepository extends AbstractITQuery {
      * Default constructor.
      */
     public ITQueryJPARepository() {
-        super("SELECT entity FROM TestEntity entity WHERE id = :id");
+        super();
     }
 
 }

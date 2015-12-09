@@ -45,7 +45,7 @@ public final class ITModifySpringJDBCRepository extends AbstractITModify {
      * Default constructor.
      */
     public ITModifySpringJDBCRepository() {
-        super("SELECT * FROM test_entities WHERE id = :id");
+        super();
     }
 
 }
