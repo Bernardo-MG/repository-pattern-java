@@ -26,16 +26,15 @@ package com.wandrell.testing.persistence.test.integration.repository;
 
 import org.springframework.test.context.ContextConfiguration;
 
-import com.wandrell.pattern.parser.xml.FilteredEntriesXMLFileParser;
 import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
 
 /**
  * Integration tests for
  * {@link com.wandrell.persistence.repository.SpringJDBCRepository
  * SpringJDBCRepository} implementing {@code AbstractITQuery}.
- * 
+ *
  * @author Bernardo Martínez Garrido
- * @see FilteredEntriesXMLFileParser
+ * @see com.wandrell.pattern.parser.xml.FilteredEntriesXMLFileParser FilteredEntriesXMLFileParser
  */
 @ContextConfiguration(
         locations = { "classpath:spring/persistence-spring-jdbc.xml" })
