@@ -62,11 +62,18 @@
 				Updated project configuration.
 			</action>
 		</release>
-        <release version="0.1.8" date="2015-12-8"
-            description="Set parent POM">
-            <action dev="bmg" type="update">
-                Set the new base POM as the parent POM.
-            </action>
-        </release>
+		<release version="0.1.8" date="2015-12-8" description="Set parent POM">
+			<action dev="bmg" type="update">
+				Set the new base POM as the parent POM.
+			</action>
+		</release>
+		<release version="0.1.9" date="2015-12-8" description="Updates">
+			<action dev="bmg" type="fix">
+				Set the JavaEE API to the provided scope.
+			</action>
+			<action dev="bmg" type="update">
+				Updated dependencies.
+			</action>
+		</release>
 	</body>
 </document>
