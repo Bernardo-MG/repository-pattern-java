@@ -34,7 +34,7 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
  * implementing {@code AbstractITQuery}.
  *
  * @author Bernardo Martínez Garrido
- * @see com.wandrell.pattern.parser.xml.FilteredEntriesXMLFileParser FilteredEntriesXMLFileParser
+ * @see com.wandrell.persistence.repository.JPARepository JPARepository
  */
 @ContextConfiguration(locations = { "classpath:spring/persistence-jpa.xml" })
 public final class ITQueryJPARepository extends AbstractITQuery {

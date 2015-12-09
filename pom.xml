@@ -215,7 +215,6 @@
 		<spring.version>4.2.2.RELEASE</spring.version>
 		<testng.version>6.9.8</testng.version>
 		<wandrell.patterns.version>0.5.0</wandrell.patterns.version>
-		<wandrell.patterns.file.version>0.1.0</wandrell.patterns.file.version>
 		<!-- Plugins versions -->
         <plugin.changes.version>2.11</plugin.changes.version>
         <plugin.site.velocity.version>1.7</plugin.site.velocity.version>
@@ -241,12 +240,6 @@
 			<groupId>com.wandrell</groupId>
 			<artifactId>java-patterns</artifactId>
 			<version>${wandrell.patterns.version}</version>
-		</dependency>
-		<dependency>
-			<!-- Java Patterns for Files -->
-			<groupId>com.wandrell</groupId>
-			<artifactId>java-patterns-files</artifactId>
-			<version>${wandrell.patterns.file.version}</version>
 		</dependency>
         <dependency>
             <!-- Spring Beans -->

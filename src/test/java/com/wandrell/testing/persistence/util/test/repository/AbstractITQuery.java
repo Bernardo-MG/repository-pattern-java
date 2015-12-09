@@ -33,7 +33,6 @@ import org.springframework.test.context.testng.AbstractTransactionalTestNGSpring
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.wandrell.pattern.parser.xml.NotValidatedXMLFileParser;
 import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.testing.persistence.util.model.JPATestEntity;
@@ -55,7 +54,6 @@ import com.wandrell.testing.persistence.util.model.TestEntityRepository;
  * repository and all it's requirements.
  * 
  * @author Bernardo Martínez Garrido
- * @see NotValidatedXMLFileParser
  */
 public abstract class AbstractITQuery
         extends AbstractTransactionalTestNGSpringContextTests {

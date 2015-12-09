@@ -175,8 +175,8 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
     @Override
     public final void add(final V entity) {
         final BeanPropertySqlParameterSource parameterSource; // Bean-based
- // parameters
- // source
+        // parameters
+        // source
         final Number newKey;    // Key assigned to the new entity
 
         checkNotNull(entity, "Received a null pointer as the entity");
@@ -257,8 +257,8 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
     @Override
     public final void remove(final V entity) {
         final BeanPropertySqlParameterSource parameterSource; // Bean-based
- // parameters
- // source
+        // parameters
+        // source
 
         parameterSource = new BeanPropertySqlParameterSource(entity);
 

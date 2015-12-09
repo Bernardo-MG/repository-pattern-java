@@ -34,7 +34,8 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
  * SpringJDBCRepository} implementing {@code AbstractITModify}.
  *
  * @author Bernardo Martínez Garrido
- * @see com.wandrell.pattern.parser.xml.FilteredEntriesXMLFileParser FilteredEntriesXMLFileParser
+ * @see com.wandrell.persistence.repository.SpringJDBCRepository
+ *      SpringJDBCRepository
  */
 @ContextConfiguration(
         locations = { "classpath:spring/persistence-spring-jdbc-modify.xml" })
