@@ -22,29 +22,36 @@
  * SOFTWARE.
  */
 
-package com.wandrell.testing.persistence.test.integration.repository;
-
-import org.springframework.test.context.ContextConfiguration;
-
-import com.wandrell.testing.persistence.util.config.ContextConfig;
-import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
+package com.wandrell.testing.persistence.util.config;
 
 /**
- * Integration tests for
- * {@link com.wandrell.persistence.repository.SpringJDBCRepository
- * SpringJDBCRepository} implementing {@code AbstractITModify}.
- *
+ * Configuration class for the test context files.
+ * 
  * @author Bernardo Martínez Garrido
- * @see com.wandrell.persistence.repository.SpringJDBCRepository
- *      SpringJDBCRepository
  */
-@ContextConfiguration(locations = { ContextConfig.JDBC_H2_MODIFIABLE })
-public final class ITModifySpringJDBCRepository extends AbstractITModify {
+public final class ContextConfig {
 
     /**
-     * Default constructor.
+     * JDBC context using an H2 database.
      */
-    public ITModifySpringJDBCRepository() {
+    public static final String JDBC_H2            = "classpath:spring/persistence-spring-jdbc-h2.xml";
+    /**
+     * JDBC context using an H2 database for modification tests.
+     */
+    public static final String JDBC_H2_MODIFIABLE = "classpath:spring/persistence-spring-jdbc-h2-modify.xml";
+    /**
+     * JPA context using an H2 database.
+     */
+    public static final String JPA_H2             = "classpath:spring/persistence-jpa-h2.xml";
+    /**
+     * JPA context using an H2 database for modification tests.
+     */
+    public static final String JPA_H2_MODIFIABLE  = "classpath:spring/persistence-jpa-h2-modify.xml";
+
+    /**
+     * Private constructor to avoid initialization.
+     */
+    private ContextConfig() {
         super();
     }
 

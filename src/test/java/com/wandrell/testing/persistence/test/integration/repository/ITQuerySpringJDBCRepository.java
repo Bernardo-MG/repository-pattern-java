@@ -26,6 +26,7 @@ package com.wandrell.testing.persistence.test.integration.repository;
 
 import org.springframework.test.context.ContextConfiguration;
 
+import com.wandrell.testing.persistence.util.config.ContextConfig;
 import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
 
 /**
@@ -37,8 +38,7 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
  * @see com.wandrell.persistence.repository.SpringJDBCRepository
  *      SpringJDBCRepository
  */
-@ContextConfiguration(
-        locations = { "classpath:spring/persistence-spring-jdbc.xml" })
+@ContextConfiguration(locations = { ContextConfig.JDBC_H2 })
 public final class ITQuerySpringJDBCRepository extends AbstractITQuery {
 
     /**

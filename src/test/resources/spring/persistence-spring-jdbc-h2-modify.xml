@@ -15,7 +15,7 @@
 
 	<!-- Configuration -->
 	<context:property-placeholder
-		location="classpath:spring/persistence-spring-jdbc-modify.properties" />
+		location="classpath:spring/persistence-spring-jdbc-h2.properties" />
 
 	<!-- Repository -->
 	<bean id="repository" class="${repository.class}" />

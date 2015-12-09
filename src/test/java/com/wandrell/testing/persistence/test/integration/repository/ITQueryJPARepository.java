@@ -26,6 +26,7 @@ package com.wandrell.testing.persistence.test.integration.repository;
 
 import org.springframework.test.context.ContextConfiguration;
 
+import com.wandrell.testing.persistence.util.config.ContextConfig;
 import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
 
 /**
@@ -36,7 +37,7 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.persistence.repository.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { "classpath:spring/persistence-jpa.xml" })
+@ContextConfiguration(locations = { ContextConfig.JPA_H2 })
 public final class ITQueryJPARepository extends AbstractITQuery {
 
     /**
