@@ -1,4 +1,4 @@
-DROP TABLE test_entities IF EXISTS;
+DROP TABLE IF EXISTS test_entities;
 
 CREATE TABLE test_entities (
 	id		INTEGER IDENTITY PRIMARY KEY,

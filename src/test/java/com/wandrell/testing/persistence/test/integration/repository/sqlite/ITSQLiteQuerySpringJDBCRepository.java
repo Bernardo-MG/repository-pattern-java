@@ -22,44 +22,30 @@
  * SOFTWARE.
  */
 
-package com.wandrell.testing.persistence.util.config;
+package com.wandrell.testing.persistence.test.integration.repository.sqlite;
+
+import org.springframework.test.context.ContextConfiguration;
+
+import com.wandrell.testing.persistence.util.config.ContextConfig;
+import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
 
 /**
- * Configuration class for the test context files.
- * 
+ * Integration tests for
+ * {@link com.wandrell.persistence.repository.SpringJDBCRepository
+ * SpringJDBCRepository} implementing {@code AbstractITQuery} using an H2
+ * in-memory database.
+ *
  * @author Bernardo Martínez Garrido
+ * @see com.wandrell.persistence.repository.SpringJDBCRepository
+ *      SpringJDBCRepository
  */
-public final class ContextConfig {
+@ContextConfiguration(locations = { ContextConfig.JDBC_SQLITE })
+public final class ITSQLiteQuerySpringJDBCRepository extends AbstractITQuery {
 
     /**
-     * JDBC context using an H2 database.
+     * Default constructor.
      */
-    public static final String JDBC_H2            = "classpath:spring/persistence-spring-jdbc-h2.xml";
-    /**
-     * JDBC context using an H2 database for modification tests.
-     */
-    public static final String JDBC_H2_MODIFIABLE = "classpath:spring/persistence-spring-jdbc-h2-modify.xml";
-    /**
-     * JDBC context using a SQLite database.
-     */
-    public static final String JDBC_SQLITE        = "classpath:spring/persistence-spring-jdbc-sqlite.xml";
-    /**
-     * JPA context using an H2 database.
-     */
-    public static final String JPA_H2             = "classpath:spring/persistence-jpa-h2.xml";
-    /**
-     * JPA context using an H2 database for modification tests.
-     */
-    public static final String JPA_H2_MODIFIABLE  = "classpath:spring/persistence-jpa-h2-modify.xml";
-    /**
-     * JPA context using a SQLite database.
-     */
-    public static final String JPA_SQLITE         = "classpath:spring/persistence-jpa-sqlite.xml";
-
-    /**
-     * Private constructor to avoid initialization.
-     */
-    private ContextConfig() {
+    public ITSQLiteQuerySpringJDBCRepository() {
         super();
     }
 
