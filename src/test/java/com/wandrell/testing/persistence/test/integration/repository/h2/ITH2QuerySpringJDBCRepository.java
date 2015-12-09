@@ -22,29 +22,30 @@
  * SOFTWARE.
  */
 
-package com.wandrell.testing.persistence.test.integration.repository;
+package com.wandrell.testing.persistence.test.integration.repository.h2;
 
 import org.springframework.test.context.ContextConfiguration;
 
 import com.wandrell.testing.persistence.util.config.ContextConfig;
-import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
+import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
 
 /**
  * Integration tests for
  * {@link com.wandrell.persistence.repository.SpringJDBCRepository
- * SpringJDBCRepository} implementing {@code AbstractITModify}.
+ * SpringJDBCRepository} implementing {@code AbstractITQuery} using an H2
+ * in-memory database.
  *
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.persistence.repository.SpringJDBCRepository
  *      SpringJDBCRepository
  */
-@ContextConfiguration(locations = { ContextConfig.JDBC_H2_MODIFIABLE })
-public final class ITModifySpringJDBCRepository extends AbstractITModify {
+@ContextConfiguration(locations = { ContextConfig.JDBC_H2 })
+public final class ITH2QuerySpringJDBCRepository extends AbstractITQuery {
 
     /**
      * Default constructor.
      */
-    public ITModifySpringJDBCRepository() {
+    public ITH2QuerySpringJDBCRepository() {
         super();
     }
 

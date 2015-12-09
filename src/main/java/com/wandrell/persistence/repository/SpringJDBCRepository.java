@@ -114,7 +114,8 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
     private final String                     updateQuery;
 
     /**
-     * Constructs a {@code JPARepository} with the specified data and queries.
+     * Constructs a {@code SpringJDBCRepository} with the specified data and
+     * queries.
      * <p>
      * It will require a templated query both for updating and deleting an
      * entity.

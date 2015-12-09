@@ -47,6 +47,10 @@ public final class ContextConfig {
      * JPA context using an H2 database for modification tests.
      */
     public static final String JPA_H2_MODIFIABLE  = "classpath:spring/persistence-jpa-h2-modify.xml";
+    /**
+     * JPA context using an H2 database.
+     */
+    public static final String JPA_SQLITE         = "classpath:spring/persistence-jpa-sqlite.xml";
 
     /**
      * Private constructor to avoid initialization.
