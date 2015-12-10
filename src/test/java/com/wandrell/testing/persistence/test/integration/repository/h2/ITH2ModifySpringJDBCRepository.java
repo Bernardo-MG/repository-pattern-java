@@ -39,7 +39,7 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
  * @see com.wandrell.persistence.repository.SpringJDBCRepository
  *      SpringJDBCRepository
  */
-@ContextConfiguration(locations = { ContextConfig.JDBC_H2_MODIFIABLE })
+@ContextConfiguration(locations = { ContextConfig.JDBC_H2_MODIFY })
 public final class ITH2ModifySpringJDBCRepository extends AbstractITModify {
 
     /**

@@ -105,7 +105,6 @@ public abstract class AbstractITModify extends
      * repository.
      */
     @Test
-    @Rollback(true)
     public final void testAdd_Remove() {
         final JPATestEntity entity; // Entity being tested
         final JPATestEntity entityQueried; // Entity taken from the repo

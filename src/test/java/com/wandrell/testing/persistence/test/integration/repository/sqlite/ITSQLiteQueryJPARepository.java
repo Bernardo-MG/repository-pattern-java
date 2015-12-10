@@ -31,13 +31,11 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
 
 /**
  * Integration tests for
- * {@link com.wandrell.persistence.repository.SpringJDBCRepository
- * SpringJDBCRepository} implementing {@code AbstractITQuery} using a SQLite
- * database and Spring JDBC.
+ * {@link com.wandrell.persistence.repository.JPARepository JPARepository}
+ * implementing {@code AbstractITQuery} using a SQLite database and Spring JDBC.
  *
  * @author Bernardo Martínez Garrido
- * @see com.wandrell.persistence.repository.SpringJDBCRepository
- *      SpringJDBCRepository
+ * @see com.wandrell.persistence.repository.JPARepository JPARepository
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_SQLITE })
 public final class ITSQLiteQueryJPARepository extends AbstractITQuery {
