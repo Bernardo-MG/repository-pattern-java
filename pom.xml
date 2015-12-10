@@ -213,7 +213,6 @@
         <hibernate.version>5.0.2.Final</hibernate.version>
         <hikari.version>2.3.12</hikari.version>
         <log4j.version>2.4.1</log4j.version>
-        <servlet.api.version>3.1.0</servlet.api.version>
         <spring.version>4.2.2.RELEASE</spring.version>
         <sqlite.version>3.8.11.2</sqlite.version>
         <testng.version>6.9.8</testng.version>
@@ -324,13 +323,6 @@
             <version>${log4j.version}</version>
         </dependency>
         <dependency>
-            <!-- Servlet API -->
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet.api.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <!-- Spring Framework Context -->
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -348,13 +340,6 @@
             <!-- Spring Test -->
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <!-- Spring Web -->
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>

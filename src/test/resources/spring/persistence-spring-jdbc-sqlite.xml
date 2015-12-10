@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context-4.0.xsd
         http://www.springframework.org/schema/jdbc
         http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
-        http://www.springframework.org/schema/util 
+        http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
-	<!-- ============================= CONFIGURATION ============================= -->
+    <!-- ============================= CONFIGURATION ============================= -->
 
-	<!-- Configuration -->
-	<context:property-placeholder
-		location="classpath:spring/persistence-spring-jdbc-sqlite.properties" />
+    <!-- Configuration -->
+    <context:property-placeholder
+        location="classpath:spring/persistence-spring-jdbc-sqlite.properties" />
 
-	<!-- Repository -->
-	<bean id="repository" class="${repository.class}" />
+    <!-- Repository -->
+    <bean id="repository" class="${repository.class}" />
 
-	<!-- ============================== DATASOURCE =============================== -->
+    <!-- ============================== DATASOURCE =============================== -->
 
-	<!-- Data source -->
-	<bean id="dataSource" class="${dataSource.class}">
-		<constructor-arg ref="dataSourceConfig" />
-	</bean>
+    <!-- Data source -->
+    <bean id="dataSource" class="${dataSource.class}">
+        <constructor-arg ref="dataSourceConfig" />
+    </bean>
 
-	<!-- Data source config -->
-	<bean id="dataSourceConfig" class="${dataSource.class}">
-		<property name="driverClassName" value="${jdbc.driver}" />
-		<property name="jdbcUrl" value="${jdbc.url}" />
-		<property name="username" value="${jdbc.username}" />
-		<property name="password" value="${jdbc.password}" />
-	</bean>
+    <!-- Data source config -->
+    <bean id="dataSourceConfig" class="${dataSource.class}">
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="jdbcUrl" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+    </bean>
 
-	<!-- Database initializer. -->
-	<jdbc:initialize-database data-source="dataSource">
-		<jdbc:script location="${jdbc.initLocation}" />
-		<jdbc:script location="${jdbc.dataLocation}" />
-	</jdbc:initialize-database>
+    <!-- Database initializer. -->
+    <jdbc:initialize-database data-source="dataSource">
+        <jdbc:script location="${jdbc.initLocation}" />
+        <jdbc:script location="${jdbc.dataLocation}" />
+    </jdbc:initialize-database>
 
 </beans>

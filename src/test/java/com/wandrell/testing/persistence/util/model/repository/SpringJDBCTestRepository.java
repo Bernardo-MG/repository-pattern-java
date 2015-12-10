@@ -41,7 +41,7 @@ import com.wandrell.testing.persistence.util.model.JPATestEntity;
  * {@link JPATestEntity} as the stored entities.
  * <p>
  * It is also prepared to work on Spring, to ease setting up the environment.
- * 
+ *
  * @author Bernardo Martínez Garrido
  */
 @Repository
@@ -54,7 +54,7 @@ public final class SpringJDBCTestRepository implements TestEntityRepository {
 
     /**
      * Constructs a {@code SpringJDBCTestRepository}.
-     * 
+     *
      * @param dataSource
      *            the data source
      */
@@ -81,8 +81,7 @@ public final class SpringJDBCTestRepository implements TestEntityRepository {
     }
 
     @Override
-    public final Collection<JPATestEntity>
-            getCollection(final QueryData query) {
+    public final Collection<JPATestEntity> getCollection(final QueryData query) {
         return getBaseRepository().getCollection(query);
     }
 
@@ -101,8 +100,7 @@ public final class SpringJDBCTestRepository implements TestEntityRepository {
         getBaseRepository().update(entity);
     }
 
-    private final FilteredRepository<JPATestEntity, QueryData>
-            getBaseRepository() {
+    private final FilteredRepository<JPATestEntity, QueryData> getBaseRepository() {
         return baseRepo;
     }
 

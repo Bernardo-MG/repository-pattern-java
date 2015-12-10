@@ -83,46 +83,6 @@ public abstract class AbstractITModify extends
      */
     @Test
     @Rollback(true)
-    public final void testAdd_Remove() {
-        final JPATestEntity entity; // Entity being tested
-        final JPATestEntity entityQueried; // Entity taken from the repo
-        final Integer size; // Total number of entities
-        final Map<String, Object> parameters; // Params for the query
-        final QueryData query; // Query for retrieving the entity
-
-        // Creates the test entity
-        entity = new JPATestEntity();
-        entity.setName("test_entity");
-
-        // Adds the entity
-        getRepository().add(entity);
-
-        // Checks the ID set to the entity
-        size = getRepository().getAll().size();
-        Assert.assertEquals(entity.getId(), size);
-
-        // Removes the entity
-        getRepository().remove(entity);
-
-        // Checks that the entity has been removed
-        Assert.assertEquals(getRepository().getAll().size(), size - 1);
-
-        // Tries to retrieve the removed entity
-        parameters = new LinkedHashMap<>();
-        parameters.put("id", size);
-        query = new DefaultQueryData(selectByIdQuery, parameters);
-        entityQueried = getRepository().getEntity(query);
-
-        // The entity is now null
-        Assert.assertNull(entityQueried);
-    }
-
-    /**
-     * Tests that adding and then removing an entity changes the contents of the
-     * repository.
-     */
-    @Test
-    @Rollback(true)
     public final void testAdd() {
         final JPATestEntity entity; // Entity being tested
         final Integer size; // Total number of entities
@@ -138,6 +98,53 @@ public abstract class AbstractITModify extends
 
         // Checks the ID set to the entity
         Assert.assertTrue(size < getRepository().getAll().size());
+    }
+
+    /**
+     * Tests that adding and then removing an entity changes the contents of the
+     * repository.
+     */
+    @Test
+    @Rollback(true)
+    public final void testAdd_Remove() {
+        final JPATestEntity entity; // Entity being tested
+        final JPATestEntity entityQueried; // Entity taken from the repo
+        final Integer size; // Total number of entities
+        final Integer sizeAfter; // Total number of entities
+        final Map<String, Object> parameters; // Params for the query
+        final QueryData query; // Query for retrieving the entity
+
+        // Creates the test entity
+        entity = new JPATestEntity();
+        entity.setName("test_entity");
+
+        size = getRepository().getAll().size();
+
+        // Adds the entity
+        getRepository().add(entity);
+
+        // Checks that the id has been assigned
+        Assert.assertNotNull(entity.getId());
+        Assert.assertTrue(entity.getId() >= 0);
+
+        // Checks the number of entities has increased
+        sizeAfter = getRepository().getAll().size();
+        Assert.assertEquals(size, (Integer) (sizeAfter - 1));
+
+        // Removes the entity
+        getRepository().remove(entity);
+
+        // Checks that the number of entities has returned to the original
+        Assert.assertEquals((Integer) getRepository().getAll().size(), size);
+
+        // Tries to retrieve the removed entity
+        parameters = new LinkedHashMap<>();
+        parameters.put("id", entity.getId());
+        query = new DefaultQueryData(selectByIdQuery, parameters);
+        entityQueried = getRepository().getEntity(query);
+
+        // The entity is now null
+        Assert.assertNull(entityQueried);
     }
 
     /**
