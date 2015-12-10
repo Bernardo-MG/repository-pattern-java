@@ -250,6 +250,12 @@
             <version>${spring.version}</version>
         </dependency>
         <dependency>
+            <!-- Spring Core -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
             <!-- Spring JDBC -->
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
