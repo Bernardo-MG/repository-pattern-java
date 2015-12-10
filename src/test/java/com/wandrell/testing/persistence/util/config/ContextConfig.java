@@ -44,9 +44,17 @@ public final class ContextConfig {
      */
     public static final String JDBC_SQLITE = "classpath:spring/repository/sqlite/spring-jdbc-sqlite.xml";
     /**
+     * JDBC context using a SQLite database for modification tests.
+     */
+    public static final String JDBC_SQLITE_MODIFY = "classpath:spring/repository/sqlite/spring-jdbc-sqlite-modify.xml";
+    /**
      * JPA context using an H2 database.
      */
     public static final String JPA_H2 = "classpath:spring/repository/h2/jpa-h2.xml";
+    /**
+     * JPA context using a SQLite database.
+     */
+    public static final String JPA_SQLITE = "classpath:spring/repository/sqlite/jpa-sqlite.xml";
     /**
      * JPA context using an H2 database for modification tests.
      */

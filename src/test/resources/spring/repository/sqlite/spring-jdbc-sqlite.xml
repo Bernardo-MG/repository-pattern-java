@@ -24,11 +24,6 @@
 
     <!-- Data source -->
     <bean id="dataSource" class="${dataSource.class}">
-        <constructor-arg ref="dataSourceConfig" />
-    </bean>
-
-    <!-- Data source config -->
-    <bean id="dataSourceConfig" class="${dataSource.class}">
         <property name="driverClassName" value="${jdbc.driver}" />
         <property name="jdbcUrl" value="${jdbc.url}" />
         <property name="username" value="${jdbc.username}" />
