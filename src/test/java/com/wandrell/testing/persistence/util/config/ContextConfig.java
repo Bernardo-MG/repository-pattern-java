@@ -34,31 +34,23 @@ public final class ContextConfig {
     /**
      * JDBC context using an H2 database.
      */
-    public static final String JDBC_H2 = "classpath:spring/persistence-spring-jdbc-h2.xml";
+    public static final String JDBC_H2 = "classpath:spring/repository/h2/spring-jdbc-h2.xml";
     /**
      * JDBC context using an H2 database for modification tests.
      */
-    public static final String JDBC_H2_MODIFIABLE = "classpath:spring/persistence-spring-jdbc-h2-modify.xml";
+    public static final String JDBC_H2_MODIFIABLE = "classpath:spring/repository/h2/spring-jdbc-h2-modify.xml";
     /**
      * JDBC context using a SQLite database.
      */
-    public static final String JDBC_SQLITE = "classpath:spring/persistence-spring-jdbc-sqlite.xml";
-    /**
-     * JDBC context using a SQLite database for modification tests.
-     */
-    public static final String JDBC_SQLITE_MODIFIABLE = "classpath:spring/persistence-spring-jdbc-sqlite-modify.xml";
+    public static final String JDBC_SQLITE = "classpath:spring/repository/sqlite/spring-jdbc-sqlite.xml";
     /**
      * JPA context using an H2 database.
      */
-    public static final String JPA_H2 = "classpath:spring/persistence-jpa-h2.xml";
+    public static final String JPA_H2 = "classpath:spring/repository/h2/jpa-h2.xml";
     /**
      * JPA context using an H2 database for modification tests.
      */
-    public static final String JPA_H2_MODIFIABLE = "classpath:spring/persistence-jpa-h2-modify.xml";
-    /**
-     * JPA context using a SQLite database.
-     */
-    public static final String JPA_SQLITE = "classpath:spring/persistence-jpa-sqlite.xml";
+    public static final String JPA_H2_MODIFIABLE = "classpath:spring/repository/h2/jpa-h2-modify.xml";
 
     /**
      * Private constructor to avoid initialization.

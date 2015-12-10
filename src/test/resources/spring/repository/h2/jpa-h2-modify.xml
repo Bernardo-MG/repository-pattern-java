@@ -16,7 +16,7 @@
 
     <!-- Configuration -->
     <context:property-placeholder
-        location="classpath:spring/persistence-jpa-h2-modify.properties" />
+        location="classpath:spring/repository/h2/jpa-h2-modify.properties" />
 
     <!-- Repository -->
     <bean id="repository" class="${repository.class}" />
