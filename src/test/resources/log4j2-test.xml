@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Configuration status="WARN">
 
-	<Properties>
-		<Property name="filename">persistence_utils_test.log</Property>
-	</Properties>
+    <Properties>
+        <Property name="filename">persistence_utils_test.log</Property>
+    </Properties>
 
-	<Appenders>
-		<Console name="console" target="SYSTEM_OUT">
-			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
-		</Console>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
 
-		<File name="file" fileName="${filename}">
-			<PatternLayout>
-				<Pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
-				</Pattern>
-			</PatternLayout>
-		</File>
-	</Appenders>
+        <File name="file" fileName="${filename}">
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
+                </Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
 
-	<Loggers>
-		<Logger name="com.wandrell" level="debug" additivity="false">
-			<AppenderRef ref="file" />
-		</Logger>
+    <Loggers>
+        <Logger name="com.wandrell" level="debug" additivity="false">
+            <AppenderRef ref="file" />
+        </Logger>
 
-		<Root level="error">
-			<AppenderRef ref="console" />
-		</Root>
-	</Loggers>
+        <Logger name="org.springframework.jdbc" level="debug"
+            additivity="false" >
+            <AppenderRef ref="console" />
+        </Logger>
+
+        <Root level="error">
+            <AppenderRef ref="console" />
+        </Root>
+    </Loggers>
 
 </Configuration>

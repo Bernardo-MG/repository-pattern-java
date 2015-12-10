@@ -80,10 +80,10 @@
     <profiles>
         <profile>
             <!-- Profile for the Eclipse Maven plugin -->
-            <!-- Sets the POM so this plugin does not give the usual unregistered 
+            <!-- Sets the POM so this plugin does not give the usual unregistered
                 goals errors -->
-            <!-- It will be activated automatically on Eclipse if this has 
-                the m2e plugin, by detecting the version property -->
+            <!-- It will be activated automatically on Eclipse if this has the m2e
+                plugin, by detecting the version property -->
             <id>eclipse-maven</id>
             <activation>
                 <property>
@@ -95,10 +95,9 @@
                     <plugins>
                         <plugin>
                             <!-- m2e lifecycle mapping -->
-                            <!-- This is used to configure the Maven plugin 
-                                for Eclipse. -->
-                            <!-- Among other things, it allows registering 
-                                goals, which Eclipse would otherwise reject. -->
+                            <!-- This is used to configure the Maven plugin for Eclipse. -->
+                            <!-- Among other things, it allows registering goals,
+                                which Eclipse would otherwise reject. -->
                             <!-- It has no real effect on Maven. -->
                             <groupId>org.eclipse.m2e</groupId>
                             <artifactId>lifecycle-mapping</artifactId>
@@ -108,21 +107,21 @@
                                     <pluginExecutions>
                                         <pluginExecution>
                                             <!-- jacoco plugin configuration -->
-                                            <!-- Fixes the errors with Eclipse 
-                                                not recognizing the plugin configuration -->
+                                            <!-- Fixes the errors with Eclipse not
+                                                recognizing the plugin configuration -->
                                             <pluginExecutionFilter>
                                                 <groupId>org.jacoco</groupId>
                                                 <artifactId>jacoco-maven-plugin</artifactId>
                                                 <versionRange>[0.5,)</versionRange>
                                                 <goals>
-                                                    <!-- The 'prepare-agent' 
-                                                        goal is registered to m2e. -->
+                                                    <!-- The 'prepare-agent' goal
+                                                        is registered to m2e. -->
                                                     <goal>prepare-agent</goal>
                                                 </goals>
                                             </pluginExecutionFilter>
                                             <action>
-                                                <!-- As m2e doesn't know 
-                                                    what to do with jacoco, it is ignored to avoid error warnings. -->
+                                                <!-- As m2e doesn't know what to
+                                                    do with jacoco, it is ignored to avoid error warnings. -->
                                                 <ignore />
                                             </action>
                                         </pluginExecution>
@@ -214,6 +213,7 @@
         <hibernate.version>5.0.2.Final</hibernate.version>
         <hikari.version>2.3.12</hikari.version>
         <log4j.version>2.4.1</log4j.version>
+        <servlet.api.version>3.1.0</servlet.api.version>
         <spring.version>4.2.2.RELEASE</spring.version>
         <sqlite.version>3.8.11.2</sqlite.version>
         <testng.version>6.9.8</testng.version>
@@ -318,6 +318,19 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <!-- Log4j Commons Logging Bridge -->
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-jcl</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <!-- Servlet API -->
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${servlet.api.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <!-- Spring Framework Context -->
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -335,6 +348,13 @@
             <!-- Spring Test -->
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <!-- Spring Web -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
@@ -371,22 +391,20 @@
         </extensions>
         <pluginManagement>
             <plugins>
-                <!-- The following plugins always appear on the plugins list, 
-                    even when they have not been added to the project. -->
-                <!-- This configuration block allows keeping them always 
-                    updated. -->
+                <!-- The following plugins always appear on the plugins list, even
+                    when they have not been added to the project. -->
+                <!-- This configuration block allows keeping them always updated. -->
                 <plugin>
                     <!-- Dependency -->
-                    <!-- Takes care of dependencies, both copying and showing 
-                        their info. -->
+                    <!-- Takes care of dependencies, both copying and showing their
+                        info. -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
                     <version>${plugin.dependency.version}</version>
                 </plugin>
                 <plugin>
                     <!-- Assembly -->
-                    <!-- Builds a distributable file from all the project 
-                        components. -->
+                    <!-- Builds a distributable file from all the project components. -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
                     <version>${plugin.assembly.version}</version>
@@ -438,8 +456,8 @@
             </plugin>
             <plugin>
                 <!-- Enforcer -->
-                <!-- Stops the project from being built if it does not comply 
-                    with a set of rules. -->
+                <!-- Stops the project from being built if it does not comply with
+                    a set of rules. -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
                 <version>${plugin.enforcer.version}</version>
@@ -449,8 +467,8 @@
                         <configuration>
                             <rules>
                                 <!-- Dependencies convergence. -->
-                                <!-- This variant of the rule requires less 
-                                    configuration, making use of Maven's dependency resolver. -->
+                                <!-- This variant of the rule requires less configuration,
+                                    making use of Maven's dependency resolver. -->
                                 <requireUpperBoundDeps />
                                 <!-- Not obsolete JDK. -->
                                 <requireJavaVersion>
@@ -459,7 +477,8 @@
                                 <!-- No plugin without version. -->
                                 <requirePluginVersions>
                                     <message>Best Practice is to always
-                                        define plugin versions!</message>
+                                        define
+                                        plugin versions!</message>
                                     <banLatest>true</banLatest>
                                     <banRelease>true</banRelease>
                                     <banSnapshots>true</banSnapshots>
@@ -469,19 +488,23 @@
                                 <requireProperty>
                                     <property>project.build.sourceEncoding</property>
                                     <message>Indicate the source
-                                        encoding for the project.</message>
+                                        encoding for the
+                                        project.</message>
                                     <regex>.*</regex>
                                     <regexMessage>It should be a valid
-                                        text encoding format.</regexMessage>
+                                        text
+                                        encoding format.</regexMessage>
                                 </requireProperty>
                                 <!-- Report output encoding should be set. -->
                                 <requireProperty>
                                     <property>project.reporting.outputEncoding</property>
                                     <message>Indicate the encoding for
-                                        the reporting output.</message>
+                                        the
+                                        reporting output.</message>
                                     <regex>.*</regex>
                                     <regexMessage>It should be a valid
-                                        text encoding format.</regexMessage>
+                                        text
+                                        encoding format.</regexMessage>
                                 </requireProperty>
                                 <!-- Source JDK should be set. -->
                                 <requireProperty>
@@ -489,7 +512,8 @@
                                     <message>Indicate the source JDK.</message>
                                     <regex>\d+\.\d+[\.\d+]?.*</regex>
                                     <regexMessage>It should be a valid
-                                        JDK version.</regexMessage>
+                                        JDK
+                                        version.</regexMessage>
                                 </requireProperty>
                                 <!-- Target JDK should be set. -->
                                 <requireProperty>
@@ -497,7 +521,8 @@
                                     <message>Indicate the target JDK.</message>
                                     <regex>\d+\.\d+[\.\d+]?.*</regex>
                                     <regexMessage>It should be a valid
-                                        JDK version.</regexMessage>
+                                        JDK
+                                        version.</regexMessage>
                                 </requireProperty>
                                 <!-- Manifest name should be given. -->
                                 <requireProperty>
@@ -620,8 +645,7 @@
                     </dependency>
                 </dependencies>
                 <configuration>
-                    <!-- Relativizing the links has a tendency to end breaking 
-                        them -->
+                    <!-- Relativizing the links has a tendency to end breaking them -->
                     <relativizeDecorationLinks>false</relativizeDecorationLinks>
                 </configuration>
             </plugin>
@@ -659,8 +683,7 @@
             <plugin>
                 <!-- Deploy -->
                 <!-- Takes care of the deployment phase -->
-                <!-- It is set to generate and deploy a POM file along the 
-                    artifact -->
+                <!-- It is set to generate and deploy a POM file along the artifact -->
                 <artifactId>maven-deploy-plugin</artifactId>
                 <version>${plugin.deploy.version}</version>
                 <executions>
@@ -714,8 +737,8 @@
                 <configuration>
                     <properties>
                         <property>
-                            <!-- Default listeners disabled to avoid conflicts 
-                                with TestNG -->
+                            <!-- Default listeners disabled to avoid conflicts with
+                                TestNG -->
                             <name>usedefaultlisteners</name>
                             <key>false</key>
                         </property>
@@ -763,8 +786,7 @@
             </plugin>
             <plugin>
                 <!-- JXR -->
-                <!-- Generates references to the source files, used by other 
-                    reports -->
+                <!-- Generates references to the source files, used by other reports -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jxr-plugin</artifactId>
                 <version>${plugin.jxr.version}</version>
@@ -806,8 +828,7 @@
             </plugin>
             <plugin>
                 <!-- Taglist -->
-                <!-- Generates a report of all the temporal tags still on 
-                    the code -->
+                <!-- Generates a report of all the temporal tags still on the code -->
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>taglist-maven-plugin</artifactId>
                 <version>${plugin.taglist.version}</version>
@@ -872,8 +893,8 @@
             </plugin>
             <plugin>
                 <!-- PMD -->
-                <!-- Checks that the code complies with a series of code 
-                    quality rules -->
+                <!-- Checks that the code complies with a series of code quality
+                    rules -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>${plugin.pmd.version}</version>

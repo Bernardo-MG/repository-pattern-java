@@ -29,6 +29,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -52,11 +53,11 @@ import com.wandrell.testing.persistence.util.model.repository.TestEntityReposito
  * <p>
  * This is meant to be used along a Spring context, which will set up the
  * repository and all it's requirements.
- * 
+ *
  * @author Bernardo Martínez Garrido
  */
-public abstract class AbstractITModify
-        extends AbstractTransactionalTestNGSpringContextTests {
+public abstract class AbstractITModify extends
+        AbstractTransactionalTestNGSpringContextTests {
 
     /**
      * The repository being tested.
@@ -67,7 +68,7 @@ public abstract class AbstractITModify
      * Query for acquiring an entity by it's id.
      */
     @Value("${query.byId}")
-    private String               selectByIdQuery;
+    private String selectByIdQuery;
 
     /**
      * Constructs an {@code AbstractITModify} with the specified query.
@@ -81,12 +82,13 @@ public abstract class AbstractITModify
      * repository.
      */
     @Test
+    @Rollback(true)
     public final void testAdd_Remove() {
-        final JPATestEntity entity;        // Entity being tested
+        final JPATestEntity entity; // Entity being tested
         final JPATestEntity entityQueried; // Entity taken from the repo
-        final Integer size;                // Total number of entities
+        final Integer size; // Total number of entities
         final Map<String, Object> parameters; // Params for the query
-        final QueryData query;             // Query for retrieving the entity
+        final QueryData query; // Query for retrieving the entity
 
         // Creates the test entity
         entity = new JPATestEntity();
@@ -103,7 +105,7 @@ public abstract class AbstractITModify
         getRepository().remove(entity);
 
         // Checks that the entity has been removed
-        Assert.assertEquals(repository.getAll().size(), size - 1);
+        Assert.assertEquals(getRepository().getAll().size(), size - 1);
 
         // Tries to retrieve the removed entity
         parameters = new LinkedHashMap<>();
@@ -116,25 +118,26 @@ public abstract class AbstractITModify
     }
 
     /**
-     * Tests that removing an entity not in the repository does nothing.
+     * Tests that adding and then removing an entity changes the contents of the
+     * repository.
      */
     @Test
-    public final void testRemove_NotPersisted() {
+    @Rollback(true)
+    public final void testAdd() {
         final JPATestEntity entity; // Entity being tested
-        final Integer size;         // Total number of entities
+        final Integer size; // Total number of entities
 
-        // Creates the entity
+        // Creates the test entity
         entity = new JPATestEntity();
         entity.setName("test_entity");
 
-        // Retrieves the number of entities
         size = getRepository().getAll().size();
 
-        // Tries to remove the entity
-        getRepository().remove(entity);
+        // Adds the entity
+        getRepository().add(entity);
 
-        // Checks the number of entities
-        Assert.assertEquals((Integer) repository.getAll().size(), size);
+        // Checks the ID set to the entity
+        Assert.assertTrue(size < getRepository().getAll().size());
     }
 
     /**
@@ -143,9 +146,9 @@ public abstract class AbstractITModify
     @Test
     public final void testUpdate() {
         final Map<String, Object> parameters; // Params for the query
-        final QueryData query;    // Query for retrieving the entity
-        final String nameChange;  // Name set on the entity
-        JPATestEntity entity;     // The entity being tested
+        final QueryData query; // Query for retrieving the entity
+        final String nameChange; // Name set on the entity
+        JPATestEntity entity; // The entity being tested
 
         // Acquires the entity
         parameters = new LinkedHashMap<>();
@@ -167,7 +170,7 @@ public abstract class AbstractITModify
 
     /**
      * Returns the repository being tested.
-     * 
+     *
      * @return the repository being tested.
      */
     protected final TestEntityRepository getRepository() {
