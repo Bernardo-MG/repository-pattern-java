@@ -52,6 +52,10 @@ public final class ContextConfig {
      */
     public static final String JPA_H2 = "classpath:spring/repository/h2/jpa-h2.xml";
     /**
+     * JPA context using an H2 database for modification tests.
+     */
+    public static final String JPA_H2_MODIFY = "classpath:spring/repository/h2/jpa-h2-modify.xml";
+    /**
      * JPA context using a SQLite database.
      */
     public static final String JPA_SQLITE = "classpath:spring/repository/sqlite/jpa-sqlite.xml";
@@ -59,10 +63,6 @@ public final class ContextConfig {
      * JPA context using a SQLite database.
      */
     public static final String JPA_SQLITE_MODIFY = "classpath:spring/repository/sqlite/jpa-sqlite-modify.xml";
-    /**
-     * JPA context using an H2 database for modification tests.
-     */
-    public static final String JPA_H2_MODIFY = "classpath:spring/repository/h2/jpa-h2-modify.xml";
 
     /**
      * Private constructor to avoid initialization.

@@ -38,63 +38,62 @@ import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.persistence.PersistenceEntity;
 
 /**
- * Implementation of {@code FilteredRepository} prepared to work with basic JPA
- * classes.
+ * {@code FilteredRepository} for working with basic JPA classes.
  * <p>
- * This repository uses JPQL queries, applying a simple JPA templating
- * mechanism.
- * <p>
- * For example, a query could be like this:
+ * Entities are acquired with the use of JPQL queries such as this:
  * <p>
  * {@code SELECT employee FROM Employee employee WHERE id = :id}
  * <p>
- * Meaning that the query expects a parameter {@code id}, which will take the
- * place of the {@code :id} placeholder.
+ * Where the {@code :id} placeholder will be swapped for an {@code id}
+ * parameter.
  * <p>
- * Both the query and the parameters will be received on a {@code QueryData}
- * object, which comes from the
- * <a href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
- * library</a>.
+ * For these queries a {@code QueryData} object, which comes from the <a
+ * href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
+ * library</a>, will be received by the repository. This will contain both the
+ * query to be used and the parameters to apply.
  * <p>
- * An initial query is required, this will be used when acquiring all the
- * values, and could be something like:
- * <p>
- * {@code SELECT employee FROM Employee employee"}
- * <p>
- * As note to take into consideration, when using the
- * {@link #add(PersistenceEntity) add} and the {@link #update(PersistenceEntity)
- * update} methods both will work the same. If the received entity lacks a code
- * it will be added into the database, otherwise the stored entity will be
- * updated.
- * 
+ * When using the {@link #add(PersistenceEntity) add} and the
+ * {@link #update(PersistenceEntity) update} methods it should be noted that
+ * both will work the same. If the received entity lacks an identifier said
+ * entity will be added into the database, otherwise the entity will be updated
+ * in the data source.
+ *
  * @author Bernardo Martínez Garrido
  * @param <V>
  *            the type stored on the repository
  * @see QueryData
  * @see PersistenceEntity
  */
-public final class JPARepository<V extends PersistenceEntity>
-        implements FilteredRepository<V, QueryData> {
+public final class JPARepository<V extends PersistenceEntity> implements
+        FilteredRepository<V, QueryData> {
 
-    /**
-     * Query for acquiring all the entities.
-     */
-    private final QueryData     allValuesQuery;
     /**
      * Entity manager in charge of handling the persistence process.
      */
-    private final EntityManager manager;
+    private final EntityManager emanager;
+    /**
+     * JPQL query for acquiring all the entities.
+     * <p>
+     * It will be received by the constructor, and would be something like:
+     * <p>
+     * {@code SELECT employee FROM Employee employee}
+     */
+    private final String selectAllQuery;
 
     /**
      * Constructs a {@code JPARepository} with the specified all-data query.
-     * 
+     * <p>
+     * The query for retrieving all the entities should be something like this:
+     * <p>
+     * {@code SELECT employee FROM Employee employee}
+     *
      * @param entityManager
      *            {@code EntityManager} for the repository
      * @param allQuery
      *            query for retrieving all the entities from the repository
      */
     public JPARepository(final EntityManager entityManager,
-            final QueryData allQuery) {
+            final String allQuery) {
         super();
 
         checkNotNull(entityManager,
@@ -102,29 +101,32 @@ public final class JPARepository<V extends PersistenceEntity>
         checkNotNull(allQuery,
                 "Received a null pointer as the all-values query");
 
-        manager = entityManager;
-        allValuesQuery = allQuery;
+        emanager = entityManager;
+        selectAllQuery = allQuery;
     }
 
     /**
-     * Adds an entity to the repository.
+     * Adds an entity to the repository, or updates it if it already exists.
      * <p>
      * Note that both the {@code add} and the {@link #update(PersistenceEntity)
-     * update} methods work the same, as if the entity does not exist it will be
+     * update} methods work the same. If the entity does not exist it will be
      * added, but if it already exists then it will be updated.
-     * 
+     * <p>
+     * If the entity is to be updated, then the update query received on the
+     * constructor will be used.
+     * <p>
+     * If it is inserted, a query generated from the data received by the
+     * constructor will be used.
+     *
      * @param entity
      *            the entity to add
      */
     @Override
     public final void add(final V entity) {
-        final PersistenceEntity persist; // The entity casted
 
         checkNotNull(entity, "Received a null pointer as the entity");
 
-        persist = entity;
-
-        if ((persist.getId() == null) || (persist.getId() < 0)) {
+        if ((entity.getId() == null) || (entity.getId() < 0)) {
             // No ID has been assigned
             // It is a new entity
             getEntityManager().persist(entity);
@@ -137,12 +139,21 @@ public final class JPARepository<V extends PersistenceEntity>
 
     /**
      * Returns all the entities contained in the repository.
-     * 
+     * <p>
+     * The query used for this operation is the one received by the constructor.
+     *
      * @return all the entities contained in the repository
      */
+    @SuppressWarnings("unchecked")
     @Override
     public final Collection<V> getAll() {
-        return getCollection(getAllValuesQuery());
+        final Query builtQuery; // Query created from the query data
+
+        // Builds the query
+        builtQuery = getEntityManager().createQuery(getAllValuesQuery());
+
+        // Processes the query
+        return builtQuery.getResultList();
     }
 
     /**
@@ -150,7 +161,7 @@ public final class JPARepository<V extends PersistenceEntity>
      * <p>
      * The collection is created by building a query from the received
      * {@code QueryData} and executing it.
-     * 
+     *
      * @param query
      *            the query user to acquire the entities
      * @return the queried subset of entities
@@ -158,15 +169,11 @@ public final class JPARepository<V extends PersistenceEntity>
     @SuppressWarnings("unchecked")
     @Override
     public final Collection<V> getCollection(final QueryData query) {
-        final Query builtQuery;      // Query created from the query data
 
         checkNotNull(query, "Received a null pointer as the query");
 
-        // Builds the query
-        builtQuery = buildQuery(query);
-
         // Processes the query
-        return builtQuery.getResultList();
+        return buildQuery(query).getResultList();
     }
 
     /**
@@ -174,7 +181,7 @@ public final class JPARepository<V extends PersistenceEntity>
      * <p>
      * The entity is acquired by building a query from the received
      * {@code QueryData} and executing it.
-     * 
+     *
      * @param query
      *            the query user to acquire the entities
      * @return the queried entity
@@ -183,7 +190,7 @@ public final class JPARepository<V extends PersistenceEntity>
     @Override
     public final V getEntity(final QueryData query) {
         final Query builtQuery; // Query created from the query data
-        V entity;               // Entity acquired from the query
+        V entity; // Entity acquired from the query
 
         checkNotNull(query, "Received a null pointer as the query");
 
@@ -202,7 +209,7 @@ public final class JPARepository<V extends PersistenceEntity>
 
     /**
      * Removes an entity from the repository.
-     * 
+     *
      * @param entity
      *            the entity to remove
      */
@@ -212,12 +219,18 @@ public final class JPARepository<V extends PersistenceEntity>
     }
 
     /**
-     * Adds an entity to the repository.
+     * Updates an entity on the repository, or adds it if missing.
      * <p>
      * Note that both the {@link #add(PersistenceEntity) add} and the
      * {@code update} methods work the same, as if the entity does not exist it
      * will be added, but if it already exists then it will be updated.
-     * 
+     * <p>
+     * If the entity is to be updated, then the update query received on the
+     * constructor will be used.
+     * <p>
+     * If it is inserted, a query generated from the data received by the
+     * constructor will be used.
+     *
      * @param entity
      *            the entity to add
      */
@@ -233,7 +246,7 @@ public final class JPARepository<V extends PersistenceEntity>
      * The string query contained on the {@code QueryData} will be transformed
      * into the {@code Query}, to which the parameters contained on that same
      * received object will be applied.
-     * 
+     *
      * @param query
      *            the base query
      * @return a {@code Query} created from the received {@code QueryData}
@@ -254,22 +267,21 @@ public final class JPARepository<V extends PersistenceEntity>
     }
 
     /**
-     * Returns the {@code QueryData} used to acquire all the entities on the
-     * repository.
-     * 
-     * @return the {@code QueryData} used to acquire all the entities
+     * Returns the query used for retrieving all the entities on the repository.
+     *
+     * @return the query for retrieving all the entities
      */
-    private final QueryData getAllValuesQuery() {
-        return allValuesQuery;
+    private final String getAllValuesQuery() {
+        return selectAllQuery;
     }
 
     /**
      * Returns the {@code EntityManager} in charge of the persistence.
-     * 
+     *
      * @return the {@code EntityManager} in charge of the persistence
      */
     private final EntityManager getEntityManager() {
-        return manager;
+        return emanager;
     }
 
 }

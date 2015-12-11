@@ -77,8 +77,9 @@ public class SQLiteDialect extends Dialect {
                 StandardBasicTypes.STRING));
     }
 
-    public boolean supportsIdentityColumns() {
-        return true;
+    @Override
+    public boolean dropConstraints() {
+        return false;
     }
 
     /*
@@ -86,8 +87,8 @@ public class SQLiteDialect extends Dialect {
      * specify in NHibernate dialect }
      */
 
-    public boolean hasDataTypeInIdentityColumn() {
-        return false; // As specify in NHibernate dialect
+    public boolean dropTemporaryTableAfterUse() {
+        return false;
     }
 
     /*
@@ -97,78 +98,12 @@ public class SQLiteDialect extends Dialect {
      * append("; ").append(getIdentitySelectString()). toString(); }
      */
 
-    public String getIdentityColumnString() {
-        // return "integer primary key autoincrement";
-        return "integer";
-    }
-
-    public String getIdentitySelectString() {
-        return "select last_insert_rowid()";
-    }
-
-    public boolean supportsLimit() {
-        return true;
-    }
-
-    public String getLimitString(String query, boolean hasOffset) {
-        return new StringBuffer(query.length() + 20).append(query)
-                .append(hasOffset ? " limit ? offset ?" : " limit ?")
-                .toString();
-    }
-
-    public boolean supportsTemporaryTables() {
-        return true;
-    }
-
-    public String getCreateTemporaryTableString() {
-        return "create temporary table if not exists";
-    }
-
-    public boolean dropTemporaryTableAfterUse() {
-        return false;
-    }
-
-    public boolean supportsCurrentTimestampSelection() {
-        return true;
-    }
-
-    public boolean isCurrentTimestampSelectStringCallable() {
-        return false;
-    }
-
-    public String getCurrentTimestampSelectString() {
-        return "select current_timestamp";
-    }
-
-    public boolean supportsUnionAll() {
-        return true;
-    }
-
-    public boolean hasAlterTable() {
-        return false; // As specify in NHibernate dialect
-    }
-
-    public boolean dropConstraints() {
-        return false;
-    }
-
+    @Override
     public String getAddColumnString() {
         return "add column";
     }
 
-    public String getForUpdateString() {
-        return "";
-    }
-
-    public boolean supportsOuterJoinForUpdate() {
-        return false;
-    }
-
-    public String getDropForeignKeyString() {
-        throw new UnsupportedOperationException(
-                "No drop foreign key syntax supported by SQLiteDialect");
-    }
-
+    @Override
     public String getAddForeignKeyConstraintString(String constraintName,
             String[] foreignKey, String referencedTable, String[] primaryKey,
             boolean referencesPrimaryKey) {
@@ -176,16 +111,101 @@ public class SQLiteDialect extends Dialect {
                 "No add foreign key syntax supported by SQLiteDialect");
     }
 
+    @Override
     public String getAddPrimaryKeyConstraintString(String constraintName) {
         throw new UnsupportedOperationException(
                 "No add primary key syntax supported by SQLiteDialect");
     }
 
+    public String getCreateTemporaryTableString() {
+        return "create temporary table if not exists";
+    }
+
+    @Override
+    public String getCurrentTimestampSelectString() {
+        return "select current_timestamp";
+    }
+
+    @Override
+    public String getDropForeignKeyString() {
+        throw new UnsupportedOperationException(
+                "No drop foreign key syntax supported by SQLiteDialect");
+    }
+
+    @Override
+    public String getForUpdateString() {
+        return "";
+    }
+
+    @Override
+    public String getIdentityColumnString() {
+        // return "integer primary key autoincrement";
+        return "integer";
+    }
+
+    @Override
+    public String getIdentitySelectString() {
+        return "select last_insert_rowid()";
+    }
+
+    @Override
+    public String getLimitString(String query, boolean hasOffset) {
+        return new StringBuffer(query.length() + 20).append(query)
+                .append(hasOffset ? " limit ? offset ?" : " limit ?")
+                .toString();
+    }
+
+    @Override
+    public boolean hasAlterTable() {
+        return false; // As specify in NHibernate dialect
+    }
+
+    @Override
+    public boolean hasDataTypeInIdentityColumn() {
+        return false; // As specify in NHibernate dialect
+    }
+
+    @Override
+    public boolean isCurrentTimestampSelectStringCallable() {
+        return false;
+    }
+
+    @Override
+    public boolean supportsCascadeDelete() {
+        return false;
+    }
+
+    @Override
+    public boolean supportsCurrentTimestampSelection() {
+        return true;
+    }
+
+    @Override
+    public boolean supportsIdentityColumns() {
+        return true;
+    }
+
+    @Override
     public boolean supportsIfExistsBeforeTableName() {
         return true;
     }
 
-    public boolean supportsCascadeDelete() {
+    @Override
+    public boolean supportsLimit() {
+        return true;
+    }
+
+    @Override
+    public boolean supportsOuterJoinForUpdate() {
         return false;
+    }
+
+    public boolean supportsTemporaryTables() {
+        return true;
+    }
+
+    @Override
+    public boolean supportsUnionAll() {
+        return true;
     }
 }

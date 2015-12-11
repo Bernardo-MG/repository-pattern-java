@@ -31,7 +31,6 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
-import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.persistence.repository.JPARepository;
@@ -42,7 +41,7 @@ import com.wandrell.testing.persistence.util.model.JPATestEntity;
  * {@link JPATestEntity} as the stored entities.
  * <p>
  * It is also prepared to work on Spring, to ease setting up the environment.
- * 
+ *
  * @author Bernardo Martínez Garrido
  */
 @Repository
@@ -68,8 +67,7 @@ public final class JPATestEntityRepository implements TestEntityRepository {
     }
 
     @Override
-    public final Collection<JPATestEntity>
-            getCollection(final QueryData filter) {
+    public final Collection<JPATestEntity> getCollection(final QueryData filter) {
         return getBaseRepository().getCollection(filter);
     }
 
@@ -86,7 +84,7 @@ public final class JPATestEntityRepository implements TestEntityRepository {
     @PersistenceContext
     public final void setEntityManager(final EntityManager entityManager) {
         repository = new JPARepository<JPATestEntity>(entityManager,
-                new DefaultQueryData("SELECT entity FROM TestEntity entity"));
+                "SELECT entity FROM TestEntity entity");
     }
 
     @Override
@@ -94,8 +92,7 @@ public final class JPATestEntityRepository implements TestEntityRepository {
         getBaseRepository().update(entity);
     }
 
-    private final FilteredRepository<JPATestEntity, QueryData>
-            getBaseRepository() {
+    private final FilteredRepository<JPATestEntity, QueryData> getBaseRepository() {
         return repository;
     }
 

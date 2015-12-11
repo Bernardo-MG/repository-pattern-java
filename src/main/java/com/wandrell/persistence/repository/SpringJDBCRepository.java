@@ -44,8 +44,8 @@ import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.persistence.PersistenceEntity;
 
 /**
- * Implementation of {@code FilteredRepository} prepared to work with Spring's
- * JDBC framework.
+ * {@code FilteredRepository} for working with Spring's JDBC framework and Java
+ * beans.
  * <p>
  * Entities are acquired with the use of templated SQL queries such as this:
  * <p>
@@ -59,10 +59,6 @@ import com.wandrell.persistence.PersistenceEntity;
  * href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
  * library</a>, will be received by the repository. This will contain both the
  * query to be used and the parameters to apply.
- * <p>
- * The only other place where queries are required is the constructor, and they
- * will be used for those cases where the query templates never change, such as
- * update and delete queries.
  * <p>
  * When using the {@link #add(PersistenceEntity) add} and the
  * {@link #update(PersistenceEntity) update} methods it should be noted that
@@ -91,7 +87,7 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
      * This is a string template for generating delete SQL queries. For example,
      * it could be something like:
      * <p>
-     * {@code DELETE FROM table WHERE id = :id}
+     * {@code DELETE FROM employees WHERE id = :id}
      * <p>
      * The use of named parameters instead of the {@code ?} placeholder is
      * thanks to Spring's classes.
@@ -120,7 +116,7 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
      * It will be generated from the parameters received by the constructor, and
      * would be something like:
      * <p>
-     * {@code SELECT * FROM table}
+     * {@code SELECT * FROM employees}
      */
     private final String selectAllQuery;
     /**
@@ -223,12 +219,14 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
         parameterSource = new BeanPropertySqlParameterSource(entity);
 
         if ((entity.getId() == null) || (entity.getId() < 0)) {
-            // The entity has no id assigned, it is new
+            // No ID has been assigned
+            // It is a new entity
             newKey = getInsertHandler().executeAndReturnKey(parameterSource);
 
             entity.setId(newKey.intValue());
         } else {
-            // The entity is already registered, it is updated
+            // ID already assigned
+            // It is an existing entity
             getTemplate().update(getUpdateQueryTemplate(), parameterSource);
         }
     }
@@ -243,7 +241,7 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
      */
     @Override
     public final Collection<V> getAll() {
-        return getTemplate().query(selectAllValuesQuery(),
+        return getTemplate().query(getSelectAllValuesQuery(),
                 BeanPropertyRowMapper.newInstance(getType()));
     }
 
@@ -259,6 +257,7 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
      */
     @Override
     public final Collection<V> getCollection(final QueryData query) {
+
         checkNotNull(query, "Received a null pointer as the query");
 
         return getTemplate().query(query.getQuery(), query.getParameters(),
@@ -338,7 +337,7 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
      * Thanks to Spring's classes this query can make use of named parameters
      * such as this:
      * <p>
-     * {@code DELETE FROM table WHERE id = :id}
+     * {@code DELETE FROM employees WHERE id = :id}
      *
      * @return the query template for deleting an entity
      */
@@ -355,6 +354,15 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
      */
     private final SimpleJdbcInsertOperations getInsertHandler() {
         return insertHandler;
+    }
+
+    /**
+     * Returns the query used for retrieving all the entities on the repository.
+     *
+     * @return the query for retrieving all the entities
+     */
+    private final String getSelectAllValuesQuery() {
+        return selectAllQuery;
     }
 
     /**
@@ -390,15 +398,6 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
      */
     private final String getUpdateQueryTemplate() {
         return updateQueryTemplate;
-    }
-
-    /**
-     * Returns the query used for retrieving all the entities.
-     *
-     * @return the query for retrieving all the entities
-     */
-    private final String selectAllValuesQuery() {
-        return selectAllQuery;
     }
 
 }
