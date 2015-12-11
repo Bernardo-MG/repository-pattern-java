@@ -35,8 +35,8 @@ import org.hibernate.type.StandardBasicTypes;
 /**
  * Hibernate dialect for SQLite.
  * <p>
- * Taken from <a href="https://github.com/autocompaste/AutoComPaste"
- * >AutoComPaste</a>.
+ * Taken from
+ * <a href="https://github.com/autocompaste/AutoComPaste" >AutoComPaste</a>.
  *
  * @author Bernardo Martínez Garrido
  */
@@ -69,12 +69,12 @@ public class SQLiteDialect extends Dialect {
 
         registerFunction("concat", new VarArgsSQLFunction(
                 StandardBasicTypes.STRING, "", "||", ""));
-        registerFunction("mod", new SQLFunctionTemplate(
-                StandardBasicTypes.INTEGER, "?1 % ?2"));
-        registerFunction("substr", new StandardSQLFunction("substr",
-                StandardBasicTypes.STRING));
-        registerFunction("substring", new StandardSQLFunction("substr",
-                StandardBasicTypes.STRING));
+        registerFunction("mod",
+                new SQLFunctionTemplate(StandardBasicTypes.INTEGER, "?1 % ?2"));
+        registerFunction("substr",
+                new StandardSQLFunction("substr", StandardBasicTypes.STRING));
+        registerFunction("substring",
+                new StandardSQLFunction("substr", StandardBasicTypes.STRING));
     }
 
     @Override
@@ -94,8 +94,8 @@ public class SQLiteDialect extends Dialect {
     /*
      * public String appendIdentitySelectToInsert(String insertString) { return
      * new StringBuffer(insertString.length()+30). // As specify in NHibernate
-     * dialect append(insertString).
-     * append("; ").append(getIdentitySelectString()). toString(); }
+     * dialect append(insertString). append("; "
+     * ).append(getIdentitySelectString()). toString(); }
      */
 
     @Override

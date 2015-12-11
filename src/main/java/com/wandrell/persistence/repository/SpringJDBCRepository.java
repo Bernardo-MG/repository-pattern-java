@@ -55,8 +55,8 @@ import com.wandrell.persistence.PersistenceEntity;
  * parameter. The use of named parameters instead of the {@code ?} placeholder
  * is thanks to Spring's classes.
  * <p>
- * For these queries a {@code QueryData} object, which comes from the <a
- * href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
+ * For these queries a {@code QueryData} object, which comes from the
+ * <a href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
  * library</a>, will be received by the repository. This will contain both the
  * query to be used and the parameters to apply.
  * <p>
@@ -72,15 +72,15 @@ import com.wandrell.persistence.PersistenceEntity;
  * @see QueryData
  * @see PersistenceEntity
  */
-public final class SpringJDBCRepository<V extends PersistenceEntity> implements
-        FilteredRepository<V, QueryData> {
+public final class SpringJDBCRepository<V extends PersistenceEntity>
+        implements FilteredRepository<V, QueryData> {
 
     /**
      * The class of the objects to be returned by the repository.
      * <p>
      * This is used by Spring's classes to transform query results.
      */
-    private final Class<V> classType;
+    private final Class<V>                     classType;
     /**
      * SQL query template for deleting entities.
      * <p>
@@ -95,14 +95,14 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
      * The template will be used, along a received entity, to build and execute
      * the actual query.
      */
-    private final String deleteQueryTemplate;
+    private final String                       deleteQueryTemplate;
     /**
      * Insert operation handler.
      * <p>
      * This takes care of inserting entities into the database, and is generated
      * from the parameters received by the constructor.
      */
-    private final SimpleJdbcInsertOperations insertHandler;
+    private final SimpleJdbcInsertOperations   insertHandler;
     /**
      * Named JDBC operations handler.
      * <p>
@@ -118,7 +118,7 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
      * <p>
      * {@code SELECT * FROM employees}
      */
-    private final String selectAllQuery;
+    private final String                       selectAllQuery;
     /**
      * SQL query template for updating entities.
      * <p>
@@ -133,7 +133,7 @@ public final class SpringJDBCRepository<V extends PersistenceEntity> implements
      * The template will be used, along a received entity, to build and execute
      * the actual query.
      */
-    private final String updateQueryTemplate;
+    private final String                       updateQueryTemplate;
 
     /**
      * Constructs a {@code SpringJDBCRepository} with the specified data and

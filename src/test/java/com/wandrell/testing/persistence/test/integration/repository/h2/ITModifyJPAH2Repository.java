@@ -38,12 +38,12 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
  * @see com.wandrell.persistence.repository.JPARepository JPARepository
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_H2_MODIFY })
-public final class ITH2ModifyJPARepository extends AbstractITModify {
+public final class ITModifyJPAH2Repository extends AbstractITModify {
 
     /**
      * Default constructor.
      */
-    public ITH2ModifyJPARepository() {
+    public ITModifyJPAH2Repository() {
         super();
     }
 

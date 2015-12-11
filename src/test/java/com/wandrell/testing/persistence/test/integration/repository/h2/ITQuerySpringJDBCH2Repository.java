@@ -40,12 +40,12 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
  *      SpringJDBCRepository
  */
 @ContextConfiguration(locations = { ContextConfig.JDBC_H2 })
-public final class ITH2QuerySpringJDBCRepository extends AbstractITQuery {
+public final class ITQuerySpringJDBCH2Repository extends AbstractITQuery {
 
     /**
      * Default constructor.
      */
-    public ITH2QuerySpringJDBCRepository() {
+    public ITQuerySpringJDBCH2Repository() {
         super();
     }
 

@@ -27,23 +27,24 @@ package com.wandrell.testing.persistence.test.integration.repository.sqlite;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.wandrell.testing.persistence.util.config.ContextConfig;
-import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
+import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
 
 /**
  * Integration tests for
  * {@link com.wandrell.persistence.repository.JPARepository JPARepository}
- * implementing {@code AbstractITQuery} using a SQLite database and Spring JDBC.
+ * implementing {@code AbstractITModify} using a SQLite database and Spring
+ * JDBC.
  *
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.persistence.repository.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_SQLITE })
-public final class ITSQLiteQueryJPARepository extends AbstractITQuery {
+@ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_SQLITE_MODIFY })
+public final class ITModifyJPASQLiteRepository extends AbstractITModify {
 
     /**
      * Default constructor.
      */
-    public ITSQLiteQueryJPARepository() {
+    public ITModifyJPASQLiteRepository() {
         super();
     }
 

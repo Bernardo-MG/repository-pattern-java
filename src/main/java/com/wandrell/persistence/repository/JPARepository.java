@@ -47,8 +47,8 @@ import com.wandrell.persistence.PersistenceEntity;
  * Where the {@code :id} placeholder will be swapped for an {@code id}
  * parameter.
  * <p>
- * For these queries a {@code QueryData} object, which comes from the <a
- * href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
+ * For these queries a {@code QueryData} object, which comes from the
+ * <a href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
  * library</a>, will be received by the repository. This will contain both the
  * query to be used and the parameters to apply.
  * <p>
@@ -64,8 +64,8 @@ import com.wandrell.persistence.PersistenceEntity;
  * @see QueryData
  * @see PersistenceEntity
  */
-public final class JPARepository<V extends PersistenceEntity> implements
-        FilteredRepository<V, QueryData> {
+public final class JPARepository<V extends PersistenceEntity>
+        implements FilteredRepository<V, QueryData> {
 
     /**
      * Entity manager in charge of handling the persistence process.
@@ -78,7 +78,7 @@ public final class JPARepository<V extends PersistenceEntity> implements
      * <p>
      * {@code SELECT employee FROM Employee employee}
      */
-    private final String selectAllQuery;
+    private final String        selectAllQuery;
 
     /**
      * Constructs a {@code JPARepository} with the specified all-data query.

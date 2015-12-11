@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.testing.persistence.test.integration.repository.h2;
+package com.wandrell.testing.persistence.test.integration.repository.sqlite;
 
 import org.springframework.test.context.ContextConfiguration;
 
@@ -32,20 +32,20 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
 /**
  * Integration tests for
  * {@link com.wandrell.persistence.repository.SpringJDBCRepository
- * SpringJDBCRepository} implementing {@code AbstractITModify} using an H2
- * in-memory database and Spring JDBC.
+ * SpringJDBCRepository} implementing {@code AbstractITQuery} using a SQLite
+ * database and JPA.
  *
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.persistence.repository.SpringJDBCRepository
  *      SpringJDBCRepository
  */
-@ContextConfiguration(locations = { ContextConfig.JDBC_H2_MODIFY })
-public final class ITH2ModifySpringJDBCRepository extends AbstractITModify {
+@ContextConfiguration(locations = { ContextConfig.JDBC_SQLITE_MODIFY })
+public final class ITModifySpringJDBCSQLiteRepository extends AbstractITModify {
 
     /**
      * Default constructor.
      */
-    public ITH2ModifySpringJDBCRepository() {
+    public ITModifySpringJDBCSQLiteRepository() {
         super();
     }
 

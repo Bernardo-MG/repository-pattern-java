@@ -56,8 +56,8 @@ import com.wandrell.testing.persistence.util.model.JPATestEntity;
  *
  * @author Bernardo Martínez Garrido
  */
-public abstract class AbstractITModify extends
-        AbstractTransactionalTestNGSpringContextTests {
+public abstract class AbstractITModify
+        extends AbstractTransactionalTestNGSpringContextTests {
 
     /**
      * The repository being tested.
@@ -68,7 +68,7 @@ public abstract class AbstractITModify extends
      * Query for acquiring an entity by it's id.
      */
     @Value("${query.byId}")
-    private String selectByIdQuery;
+    private String                                       selectByIdQuery;
 
     /**
      * Constructs an {@code AbstractITModify} with the specified query.
@@ -179,7 +179,8 @@ public abstract class AbstractITModify extends
      *
      * @return the repository being tested.
      */
-    protected final FilteredRepository<JPATestEntity, QueryData> getRepository() {
+    protected final FilteredRepository<JPATestEntity, QueryData>
+            getRepository() {
         return repository;
     }
 
