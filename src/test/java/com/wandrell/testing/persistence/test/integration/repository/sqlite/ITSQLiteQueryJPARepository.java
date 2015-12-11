@@ -37,7 +37,7 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.persistence.repository.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_SQLITE })
+@ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_SQLITE })
 public final class ITSQLiteQueryJPARepository extends AbstractITQuery {
 
     /**

@@ -48,21 +48,23 @@ public final class ContextConfig {
      */
     public static final String JDBC_SQLITE_MODIFY = "classpath:spring/repository/sqlite/spring-jdbc-sqlite-modify.xml";
     /**
-     * JPA context using an H2 database.
+     * JPA context using an H2 and the Hibernate framework database.
      */
-    public static final String JPA_H2 = "classpath:spring/repository/h2/jpa-h2.xml";
+    public static final String JPA_HIBERNATE_H2 = "classpath:spring/repository/h2/jpa-hibernate-h2.xml";
     /**
-     * JPA context using an H2 database for modification tests.
+     * JPA context using an H2 database and the Hibernate framework for
+     * modification tests.
      */
-    public static final String JPA_H2_MODIFY = "classpath:spring/repository/h2/jpa-h2-modify.xml";
+    public static final String JPA_HIBERNATE_H2_MODIFY = "classpath:spring/repository/h2/jpa-hibernate-h2-modify.xml";
     /**
-     * JPA context using a SQLite database.
+     * JPA context using a SQLite database and the Hibernate framework.
      */
-    public static final String JPA_SQLITE = "classpath:spring/repository/sqlite/jpa-sqlite.xml";
+    public static final String JPA_HIBERNATE_SQLITE = "classpath:spring/repository/sqlite/jpa-hibernate-sqlite.xml";
     /**
-     * JPA context using a SQLite database.
+     * JPA context using a SQLite database and the Hibernate framework for
+     * modification tests.
      */
-    public static final String JPA_SQLITE_MODIFY = "classpath:spring/repository/sqlite/jpa-sqlite-modify.xml";
+    public static final String JPA_HIBERNATE_SQLITE_MODIFY = "classpath:spring/repository/sqlite/jpa-hibernate-sqlite-modify.xml";
 
     /**
      * Private constructor to avoid initialization.
