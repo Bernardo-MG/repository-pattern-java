@@ -35,10 +35,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.wandrell.pattern.repository.DefaultQueryData;
+import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.testing.persistence.util.model.JPATestEntity;
 import com.wandrell.testing.persistence.util.model.TestEntity;
-import com.wandrell.testing.persistence.util.model.repository.TestEntityRepository;
 
 /**
  * Abstract integration tests for persistence repositories checking query
@@ -53,22 +53,22 @@ import com.wandrell.testing.persistence.util.model.repository.TestEntityReposito
  * <p>
  * This is meant to be used along a Spring context, which will set up the
  * repository and all it's requirements.
- * 
+ *
  * @author Bernardo Martínez Garrido
  */
-public abstract class AbstractITQuery
-        extends AbstractTransactionalTestNGSpringContextTests {
+public abstract class AbstractITQuery extends
+        AbstractTransactionalTestNGSpringContextTests {
 
     /**
      * The repository being tested.
      */
     @Autowired
-    private TestEntityRepository repository;
+    private FilteredRepository<JPATestEntity, QueryData> repository;
     /**
      * Query for acquiring an entity by it's id.
      */
     @Value("${query.byId}")
-    private String               selectByIdQuery;
+    private String selectByIdQuery;
 
     /**
      * Constructs an {@code AbstractITModify} with the specified query.
@@ -94,10 +94,10 @@ public abstract class AbstractITQuery
      */
     @Test
     public final void testGetEntity_Existing() {
-        final QueryData query;                // Query for the entity
+        final QueryData query; // Query for the entity
         final Map<String, Object> parameters; // Query params
-        final Integer id;                     // Entity ID
-        final JPATestEntity entity;           // Tested entity
+        final Integer id; // Entity ID
+        final JPATestEntity entity; // Tested entity
 
         id = 1;
 
@@ -115,10 +115,10 @@ public abstract class AbstractITQuery
      */
     @Test
     public final void testGetEntity_NotExisting() {
-        final QueryData query;                // Query for the entity
+        final QueryData query; // Query for the entity
         final Map<String, Object> parameters; // Query params
-        final Integer id;                     // Entity ID
-        final JPATestEntity entity;           // Tested entity
+        final Integer id; // Entity ID
+        final JPATestEntity entity; // Tested entity
 
         id = 123;
 
@@ -133,10 +133,10 @@ public abstract class AbstractITQuery
 
     /**
      * Returns the repository being tested.
-     * 
+     *
      * @return the repository being tested.
      */
-    protected final TestEntityRepository getRepository() {
+    protected final FilteredRepository<JPATestEntity, QueryData> getRepository() {
         return repository;
     }
 

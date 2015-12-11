@@ -15,10 +15,10 @@
 
     <!-- Configuration -->
     <context:property-placeholder
-        location="classpath:spring/repository/sqlite/spring-jdbc-sqlite-modify.properties" />
+        location="classpath:spring/repository/sqlite/spring-jdbc-sqlite-modify.properties, classpath:spring/repository/spring-jdbc-repository.properties" />
 
     <!-- Repository -->
-    <bean id="repository" class="${repository.class}" />
+    <import resource="classpath:spring/repository/spring-jdbc-repository.xml" />
 
     <!-- ============================== DATASOURCE =============================== -->
 

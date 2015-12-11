@@ -35,9 +35,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.wandrell.pattern.repository.DefaultQueryData;
+import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.testing.persistence.util.model.JPATestEntity;
-import com.wandrell.testing.persistence.util.model.repository.TestEntityRepository;
 
 /**
  * Abstract integration tests for persistence repositories checking modifier
@@ -63,7 +63,7 @@ public abstract class AbstractITModify extends
      * The repository being tested.
      */
     @Autowired
-    private TestEntityRepository repository;
+    private FilteredRepository<JPATestEntity, QueryData> repository;
     /**
      * Query for acquiring an entity by it's id.
      */
@@ -179,7 +179,7 @@ public abstract class AbstractITModify extends
      *
      * @return the repository being tested.
      */
-    protected final TestEntityRepository getRepository() {
+    protected final FilteredRepository<JPATestEntity, QueryData> getRepository() {
         return repository;
     }
 

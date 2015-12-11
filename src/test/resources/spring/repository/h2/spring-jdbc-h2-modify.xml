@@ -15,10 +15,10 @@
 
     <!-- Configuration -->
     <context:property-placeholder
-        location="classpath:spring/repository/h2/spring-jdbc-h2-modify.properties" />
+        location="classpath:spring/repository/h2/spring-jdbc-h2-modify.properties, classpath:spring/repository/spring-jdbc-repository.properties" />
 
     <!-- Repository -->
-    <bean id="repository" class="${repository.class}" />
+    <import resource="classpath:spring/repository/spring-jdbc-repository.xml" />
 
     <!-- ============================== DATASOURCE =============================== -->
 
