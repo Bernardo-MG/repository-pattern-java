@@ -28,10 +28,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Collection;
 
-import javax.sql.DataSource;
-
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -169,12 +168,12 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
      *            primary keys of the table
      */
     public SpringJDBCRepository(final Class<V> type,
-            final DataSource dataSource, final String update,
+            final JdbcTemplate template, final String update,
             final String delete, final String table, final String... keys) {
         super();
 
         checkNotNull(type, "Received a null pointer as the class type");
-        checkNotNull(dataSource, "Received a null pointer as the data source");
+        checkNotNull(template, "Received a null pointer as the JDBC template");
         checkNotNull(update, "Received a null pointer as the update query");
         checkNotNull(delete, "Received a null pointer as the delete query");
         checkNotNull(table, "Received a null pointer as the table");
@@ -187,10 +186,10 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
         updateQueryTemplate = update;
         deleteQueryTemplate = delete;
 
-        insertHandler = new SimpleJdbcInsert(dataSource).withTableName(table)
+        insertHandler = new SimpleJdbcInsert(template).withTableName(table)
                 .usingGeneratedKeyColumns(keys);
 
-        jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
+        jdbcTemplate = new NamedParameterJdbcTemplate(template);
     }
 
     /**
