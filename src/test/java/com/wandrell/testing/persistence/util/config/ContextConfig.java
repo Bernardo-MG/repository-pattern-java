@@ -52,6 +52,11 @@ public final class ContextConfig {
      */
     public static final String JPA_ECLIPSELINK_H2          = "classpath:spring/repository/h2/jpa-eclipselink-h2.xml";
     /**
+     * JPA context using an H2 and the Hibernate framework database for
+     * modification tests.
+     */
+    public static final String JPA_ECLIPSELINK_H2_MODIFY   = "classpath:spring/repository/h2/jpa-eclipselink-h2-modify.xml";
+    /**
      * JPA context using an H2 and the Hibernate framework database.
      */
     public static final String JPA_HIBERNATE_H2            = "classpath:spring/repository/h2/jpa-hibernate-h2.xml";

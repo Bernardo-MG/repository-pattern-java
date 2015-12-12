@@ -37,13 +37,13 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.persistence.repository.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_H2_MODIFY })
-public final class ITModifyJPAH2Repository extends AbstractITModify {
+@ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_H2_MODIFY })
+public final class ITModifyJPAH2EclipselinkRepository extends AbstractITModify {
 
     /**
      * Default constructor.
      */
-    public ITModifyJPAH2Repository() {
+    public ITModifyJPAH2EclipselinkRepository() {
         super();
     }
 
