@@ -27,6 +27,12 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
+    <!-- Transaction Manager -->
+    <!-- Used to allow rolling back transactions after tests -->
+    <bean id="transactionManager" class="${transactionManager.class}">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
     <!-- ============================== DATASOURCE =============================== -->
 
     <!-- Data source -->
