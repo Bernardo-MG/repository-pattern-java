@@ -13,7 +13,7 @@
     <!-- Data source -->
     <bean id="repository" class="${repository.class}">
         <constructor-arg value="${repository.entity.class}" />
-        <constructor-arg ref="dataSource" />
+        <constructor-arg ref="jdbcTemplate" />
         <constructor-arg value="${query.update}" />
         <constructor-arg value="${query.delete}" />
         <constructor-arg value="${repository.table}" />

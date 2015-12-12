@@ -20,6 +20,13 @@
     <!-- Repository -->
     <import resource="classpath:spring/repository/spring-jdbc-repository.xml" />
 
+    <!-- ================================= JDBC ================================== -->
+
+    <!-- JDBC Template -->
+    <bean id="jdbcTemplate" class="${jdbcTemplate.class}">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
     <!-- ============================== DATASOURCE =============================== -->
 
     <!-- Data source -->
