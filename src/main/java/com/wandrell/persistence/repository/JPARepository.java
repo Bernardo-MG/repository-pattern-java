@@ -42,7 +42,7 @@ import com.wandrell.persistence.PersistenceEntity;
  * <p>
  * Entities are acquired with the use of JPQL queries such as this:
  * <p>
- * {@code SELECT employee FROM Employee employee WHERE id = :id}
+ * {@code SELECT employee FROM Employee employee WHERE employee.id = :id}
  * <p>
  * Where the {@code :id} placeholder will be swapped for an {@code id}
  * parameter.
@@ -190,7 +190,7 @@ public final class JPARepository<V extends PersistenceEntity>
     @Override
     public final V getEntity(final QueryData query) {
         final Query builtQuery; // Query created from the query data
-        V entity; // Entity acquired from the query
+        V entity;               // Entity acquired from the query
 
         checkNotNull(query, "Received a null pointer as the query");
 

@@ -85,7 +85,7 @@ public abstract class AbstractITModify
     @Rollback(true)
     public final void testAdd() {
         final JPATestEntity entity; // Entity being tested
-        final Integer size; // Total number of entities
+        final Integer size;         // Total number of entities
 
         // Creates the test entity
         entity = new JPATestEntity();
@@ -106,12 +106,12 @@ public abstract class AbstractITModify
      */
     @Test
     public final void testAdd_Remove() {
-        final JPATestEntity entity; // Entity being tested
-        final JPATestEntity entityQueried; // Entity taken from the repo
-        final Integer size; // Total number of entities
-        final Integer sizeAfter; // Total number of entities
+        final JPATestEntity entity;           // Entity being tested
+        final JPATestEntity entityQueried;    // Entity taken from the repo
+        final Integer size;                   // Total number of entities
+        final Integer sizeAfter;              // Total number of entities
         final Map<String, Object> parameters; // Params for the query
-        final QueryData query; // Query for retrieving the entity
+        final QueryData query;                // Query for retrieving the entity
 
         // Creates the test entity
         entity = new JPATestEntity();
@@ -152,9 +152,9 @@ public abstract class AbstractITModify
     @Test
     public final void testUpdate() {
         final Map<String, Object> parameters; // Params for the query
-        final QueryData query; // Query for retrieving the entity
-        final String nameChange; // Name set on the entity
-        JPATestEntity entity; // The entity being tested
+        final QueryData query;                // Query for retrieving the entity
+        final String nameChange;              // Name set on the entity
+        JPATestEntity entity;                 // The entity being tested
 
         // Acquires the entity
         parameters = new LinkedHashMap<>();

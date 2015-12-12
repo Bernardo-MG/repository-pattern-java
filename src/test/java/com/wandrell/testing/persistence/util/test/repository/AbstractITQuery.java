@@ -94,9 +94,9 @@ public abstract class AbstractITQuery
      */
     @Test
     public final void testGetEntity_Existing() {
-        final QueryData query; // Query for the entity
+        final QueryData query;                // Query for the entity
         final Map<String, Object> parameters; // Query params
-        final Integer id; // Entity ID
+        final Integer id;                     // Entity ID
         final JPATestEntity entity; // Tested entity
 
         id = 1;
@@ -115,10 +115,10 @@ public abstract class AbstractITQuery
      */
     @Test
     public final void testGetEntity_NotExisting() {
-        final QueryData query; // Query for the entity
+        final QueryData query;                // Query for the entity
         final Map<String, Object> parameters; // Query params
-        final Integer id; // Entity ID
-        final JPATestEntity entity; // Tested entity
+        final Integer id;                     // Entity ID
+        final JPATestEntity entity;           // Tested entity
 
         id = 123;
 

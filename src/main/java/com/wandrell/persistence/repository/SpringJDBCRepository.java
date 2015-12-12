@@ -212,7 +212,7 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
     @Override
     public final void add(final V entity) {
         final SqlParameterSource parameterSource; // Parameters source
-        final Number newKey; // Key assigned to the new entity
+        final Number newKey;                      // Key assigned to the new entity
 
         checkNotNull(entity, "Received a null pointer as the entity");
 
