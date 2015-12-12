@@ -97,7 +97,7 @@ public abstract class AbstractITQuery
         final QueryData query;                // Query for the entity
         final Map<String, Object> parameters; // Query params
         final Integer id;                     // Entity ID
-        final JPATestEntity entity; // Tested entity
+        final JPATestEntity entity;           // Tested entity
 
         id = 1;
 

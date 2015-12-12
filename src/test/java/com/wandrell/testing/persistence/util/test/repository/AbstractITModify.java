@@ -45,8 +45,8 @@ import com.wandrell.testing.persistence.util.model.JPATestEntity;
  * <p>
  * Checks the following cases:
  * <ol>
- * <li>Adding and then removing an entity changes the contents of the
- * repository.</li>
+ * <li>Adding an entity changes the contents of the repository.</li>
+ * <li>Removing an entity changes the contents of the repository.</li>
  * <li>Removing an entity not in the repository does nothing.</li>
  * <li>Updating an entity changes it.</li>
  * </ol>
@@ -78,8 +78,7 @@ public abstract class AbstractITModify
     }
 
     /**
-     * Tests that adding and then removing an entity changes the contents of the
-     * repository.
+     * Tests that adding an entity changes the contents of the repository.
      */
     @Test
     @Transactional
@@ -102,37 +101,29 @@ public abstract class AbstractITModify
     }
 
     /**
-     * Tests that adding and then removing an entity changes the contents of the
-     * repository.
+     * Tests that removing an entity changes the contents of the repository.
      */
     @Test
     @Transactional
-    public final void testAdd_Remove() {
+    public final void testRemove() {
         final JPATestEntity entity;           // Entity being tested
         final JPATestEntity entityQueried;    // Entity taken from the repo
         final Map<String, Object> parameters; // Params for the query
         final QueryData query;                // Query for retrieving the entity
 
-        // Creates the test entity
-        entity = new JPATestEntity();
-        entity.setName("test_entity");
-
-        // Adds the entity
-        getRepository().add(entity);
-
-        // Checks the number of entities has increased
-        Assert.assertEquals(getRepository().getAll().size(), 5);
+        // Acquires the entity
+        parameters = new LinkedHashMap<>();
+        parameters.put("id", 1);
+        query = new DefaultQueryData(selectByIdQuery, parameters);
+        entity = getRepository().getEntity(query);
 
         // Removes the entity
         getRepository().remove(entity);
 
-        // Checks that the number of entities has returned to the original
-        Assert.assertEquals(getRepository().getAll().size(), 4);
+        // Checks that the number of entities has decreased
+        Assert.assertEquals(getRepository().getAll().size(), 3);
 
         // Tries to retrieve the removed entity
-        parameters = new LinkedHashMap<>();
-        parameters.put("id", entity.getId());
-        query = new DefaultQueryData(selectByIdQuery, parameters);
         entityQueried = getRepository().getEntity(query);
 
         // The entity is now null
