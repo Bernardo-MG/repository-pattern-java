@@ -60,6 +60,11 @@ public abstract class AbstractITModify
         extends AbstractTransactionalTestNGSpringContextTests {
 
     /**
+     * Initial number of entities in the repository.
+     */
+    @Value("${entities.total}")
+    private Integer                                      entitiesCount;
+    /**
      * The repository being tested.
      */
     @Autowired
@@ -71,7 +76,7 @@ public abstract class AbstractITModify
     private String                                       selectByIdQuery;
 
     /**
-     * Constructs an {@code AbstractITModify} with the specified query.
+     * Default constructor.
      */
     public AbstractITModify() {
         super();
@@ -93,7 +98,7 @@ public abstract class AbstractITModify
         getRepository().add(entity);
 
         // Checks the entity has been added
-        Assert.assertEquals(getRepository().getAll().size(), 5);
+        Assert.assertEquals(getRepository().getAll().size(), entitiesCount + 1);
 
         // Checks that the id has been assigned
         Assert.assertNotNull(entity.getId());
@@ -121,7 +126,7 @@ public abstract class AbstractITModify
         getRepository().remove(entity);
 
         // Checks that the number of entities has decreased
-        Assert.assertEquals(getRepository().getAll().size(), 3);
+        Assert.assertEquals(getRepository().getAll().size(), entitiesCount - 1);
 
         // Tries to retrieve the removed entity
         entityQueried = getRepository().getEntity(query);

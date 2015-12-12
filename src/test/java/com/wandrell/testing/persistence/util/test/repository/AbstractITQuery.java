@@ -71,7 +71,7 @@ public abstract class AbstractITQuery
     private String                                       selectByIdQuery;
 
     /**
-     * Constructs an {@code AbstractITModify} with the specified query.
+     * Default constructor.
      */
     public AbstractITQuery() {
         super();
