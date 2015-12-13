@@ -75,6 +75,10 @@ public final class ContextConfig {
      */
     public static final String JPA_HIBERNATE_H2_MODIFY       = "classpath:context/test/h2/jpa-hibernate-h2-modify.xml";
     /**
+     * JPA context using an H2 and the Hibernate framework database.
+     */
+    public static final String JPA_HIBERNATE_MYSQL           = "classpath:context/test/mysql/jpa-hibernate-mysql.xml";
+    /**
      * JPA context using a SQLite database and the Hibernate framework.
      */
     public static final String JPA_HIBERNATE_SQLITE          = "classpath:context/test/sqlite/jpa-hibernate-sqlite.xml";

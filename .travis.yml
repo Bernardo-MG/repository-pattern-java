@@ -3,6 +3,8 @@ jdk:
 #  - oraclejdk8
 #  - oraclejdk7
   - openjdk7
+services:
+  - mysql
 matrix:
   include:
     # Code artifacts deployed with JDK7
@@ -11,7 +13,7 @@ matrix:
     # Documentation deployed with JDK8
     - jdk: oraclejdk8
       env: DEPLOY_DOCS=true
-    
+
 before_install:
   # Sets the deployment flags
   - export PULL_REQUEST=$TRAVIS_PULL_REQUEST
