@@ -24,33 +24,22 @@
 
 package com.wandrell.testing.persistence.util.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 /**
- * Test class serving as a JPA persistence entity.
+ * Test class serving as a persistence entity bean.
  * <p>
  * This is to be used on the repositories tests.
  * 
  * @author Bernardo Martínez Garrido
  */
-@Entity(name = "TestEntity")
-@Table(name = "test_entities")
-public final class JPATestEntity implements TestEntity {
+public final class TestEntityBean implements TestEntity {
 
     /**
      * Serialization ID.
      */
-    private static final long serialVersionUID = 1328776989450853491L;
+    private static final long serialVersionUID = 2002146016444401073L;
     /**
      * Entity's ID.
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id = null;
     /**
      * Name of the entity.
@@ -58,14 +47,18 @@ public final class JPATestEntity implements TestEntity {
      * This is to have additional data apart from the id, to be used on the
      * tests.
      */
-    @Column(name = "name")
     private String  name = "";
 
     /**
      * Constructs a {@code JPATestEntity}.
      */
-    public JPATestEntity() {
+    public TestEntityBean() {
         super();
+    }
+
+    @Override
+    public final Integer getId() {
+        return id;
     }
 
     @Override
@@ -84,18 +77,13 @@ public final class JPATestEntity implements TestEntity {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        JPATestEntity other = (JPATestEntity) obj;
+        TestEntityBean other = (TestEntityBean) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
         } else if (!id.equals(other.id))
             return false;
         return true;
-    }
-
-    @Override
-    public final Integer getId() {
-        return id;
     }
 
     @Override

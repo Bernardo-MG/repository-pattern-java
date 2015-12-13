@@ -37,7 +37,6 @@ import org.testng.annotations.Test;
 import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
-import com.wandrell.testing.persistence.util.model.JPATestEntity;
 import com.wandrell.testing.persistence.util.model.TestEntity;
 
 /**
@@ -63,7 +62,7 @@ public abstract class AbstractITQuery
      * The repository being tested.
      */
     @Autowired
-    private FilteredRepository<JPATestEntity, QueryData> repository;
+    private FilteredRepository<TestEntity, QueryData> repository;
     /**
      * Query for acquiring an entity by it's id.
      */
@@ -97,7 +96,7 @@ public abstract class AbstractITQuery
         final QueryData query;                // Query for the entity
         final Map<String, Object> parameters; // Query params
         final Integer id;                     // Entity ID
-        final JPATestEntity entity;           // Tested entity
+        final TestEntity entity;              // Tested entity
 
         id = 1;
 
@@ -118,7 +117,7 @@ public abstract class AbstractITQuery
         final QueryData query;                // Query for the entity
         final Map<String, Object> parameters; // Query params
         final Integer id;                     // Entity ID
-        final JPATestEntity entity;           // Tested entity
+        final TestEntity entity;              // Tested entity
 
         id = 123;
 
@@ -136,7 +135,7 @@ public abstract class AbstractITQuery
      *
      * @return the repository being tested.
      */
-    protected final FilteredRepository<JPATestEntity, QueryData>
+    protected final FilteredRepository<TestEntity, QueryData>
             getRepository() {
         return repository;
     }

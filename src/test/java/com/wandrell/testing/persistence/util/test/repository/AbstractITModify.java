@@ -28,6 +28,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,7 +38,7 @@ import org.testng.annotations.Test;
 import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
-import com.wandrell.testing.persistence.util.model.JPATestEntity;
+import com.wandrell.testing.persistence.util.model.TestEntity;
 
 /**
  * Abstract integration tests for persistence repositories checking modifier
@@ -68,12 +69,18 @@ public abstract class AbstractITModify
      * The repository being tested.
      */
     @Autowired
-    private FilteredRepository<JPATestEntity, QueryData> repository;
+    private FilteredRepository<TestEntity, QueryData> repository;
     /**
      * Query for acquiring an entity by it's id.
      */
     @Value("${query.byId}")
     private String                                       selectByIdQuery;
+    /**
+     * Entity for the addition test.
+     */
+    @Autowired
+    @Qualifier("newEntity")
+    private TestEntity newEntity;
 
     /**
      * Default constructor.
@@ -88,21 +95,18 @@ public abstract class AbstractITModify
     @Test
     @Transactional
     public final void testAdd() {
-        final JPATestEntity entity; // Entity being tested
-
-        // Creates the test entity
-        entity = new JPATestEntity();
-        entity.setName("test_entity");
+        // Checks that the id has not been assigned
+        Assert.assertNull(newEntity.getId());
 
         // Adds the entity
-        getRepository().add(entity);
+        getRepository().add(newEntity);
 
         // Checks the entity has been added
         Assert.assertEquals(getRepository().getAll().size(), entitiesCount + 1);
 
         // Checks that the id has been assigned
-        Assert.assertNotNull(entity.getId());
-        Assert.assertTrue(entity.getId() >= 0);
+        Assert.assertNotNull(newEntity.getId());
+        Assert.assertTrue(newEntity.getId() >= 0);
     }
 
     /**
@@ -111,8 +115,8 @@ public abstract class AbstractITModify
     @Test
     @Transactional
     public final void testRemove() {
-        final JPATestEntity entity;           // Entity being tested
-        final JPATestEntity entityQueried;    // Entity taken from the repo
+        final TestEntity entity;              // Entity being tested
+        final TestEntity entityQueried;       // Entity taken from the repo
         final Map<String, Object> parameters; // Params for the query
         final QueryData query;                // Query for retrieving the entity
 
@@ -143,7 +147,7 @@ public abstract class AbstractITModify
         final Map<String, Object> parameters; // Params for the query
         final QueryData query;                // Query for retrieving the entity
         final String nameChange;              // Name set on the entity
-        JPATestEntity entity;                 // The entity being tested
+        TestEntity entity;                    // The entity being tested
 
         // Acquires the entity
         parameters = new LinkedHashMap<>();
@@ -168,7 +172,7 @@ public abstract class AbstractITModify
      *
      * @return the repository being tested.
      */
-    protected final FilteredRepository<JPATestEntity, QueryData>
+    protected final FilteredRepository<TestEntity, QueryData>
             getRepository() {
         return repository;
     }
