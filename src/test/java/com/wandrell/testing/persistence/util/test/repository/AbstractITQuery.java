@@ -67,7 +67,7 @@ public abstract class AbstractITQuery
      * Query for acquiring an entity by it's id.
      */
     @Value("${query.byId}")
-    private String                                       selectByIdQuery;
+    private String                                    selectByIdQuery;
 
     /**
      * Default constructor.
@@ -135,8 +135,7 @@ public abstract class AbstractITQuery
      *
      * @return the repository being tested.
      */
-    protected final FilteredRepository<TestEntity, QueryData>
-            getRepository() {
+    protected final FilteredRepository<TestEntity, QueryData> getRepository() {
         return repository;
     }
 

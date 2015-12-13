@@ -31,19 +31,21 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
 
 /**
  * Integration tests for
- * {@link com.wandrell.persistence.repository.JPARepository JPARepository}
- * implementing {@code AbstractITModify} using an H2 in-memory database and JPA.
+ * {@link com.wandrell.persistence.repository.SpringJDBCRepository
+ * SpringJDBCRepository} implementing {@code AbstractITModify} using an H2
+ * in-memory database and Spring JDBC.
  *
  * @author Bernardo Martínez Garrido
- * @see com.wandrell.persistence.repository.JPARepository JPARepository
+ * @see com.wandrell.persistence.repository.SpringJDBCRepository
+ *      SpringJDBCRepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_H2_MODIFY })
-public final class ITModifyJPAH2HibernateRepository extends AbstractITModify {
+@ContextConfiguration(locations = { ContextConfig.JDBC_H2_MODIFY })
+public final class ITModifyH2SpringJDBCRepository extends AbstractITModify {
 
     /**
      * Default constructor.
      */
-    public ITModifyJPAH2HibernateRepository() {
+    public ITModifyH2SpringJDBCRepository() {
         super();
     }
 

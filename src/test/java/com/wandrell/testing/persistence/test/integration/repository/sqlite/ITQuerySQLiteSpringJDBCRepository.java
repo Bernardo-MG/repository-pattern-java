@@ -27,7 +27,7 @@ package com.wandrell.testing.persistence.test.integration.repository.sqlite;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.wandrell.testing.persistence.util.config.ContextConfig;
-import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
+import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
 
 /**
  * Integration tests for
@@ -39,13 +39,13 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
  * @see com.wandrell.persistence.repository.SpringJDBCRepository
  *      SpringJDBCRepository
  */
-@ContextConfiguration(locations = { ContextConfig.JDBC_SQLITE_MODIFY })
-public final class ITModifySpringJDBCSQLiteRepository extends AbstractITModify {
+@ContextConfiguration(locations = { ContextConfig.JDBC_SQLITE })
+public final class ITQuerySQLiteSpringJDBCRepository extends AbstractITQuery {
 
     /**
      * Default constructor.
      */
-    public ITModifySpringJDBCSQLiteRepository() {
+    public ITQuerySQLiteSpringJDBCRepository() {
         super();
     }
 

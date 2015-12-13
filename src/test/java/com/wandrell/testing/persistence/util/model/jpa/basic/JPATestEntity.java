@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.testing.persistence.util.model;
+package com.wandrell.testing.persistence.util.model.jpa.basic;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,6 +30,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.wandrell.testing.persistence.util.model.TestEntity;
 
 /**
  * Test class serving as a JPA persistence entity.
@@ -51,7 +53,7 @@ public final class JPATestEntity implements TestEntity {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id = null;
+    private Integer           id               = null;
     /**
      * Name of the entity.
      * <p>
@@ -59,21 +61,13 @@ public final class JPATestEntity implements TestEntity {
      * tests.
      */
     @Column(name = "name")
-    private String  name = "";
+    private String            name             = "";
 
     /**
      * Constructs a {@code JPATestEntity}.
      */
     public JPATestEntity() {
         super();
-    }
-
-    @Override
-    public final int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        return result;
     }
 
     @Override
@@ -101,6 +95,14 @@ public final class JPATestEntity implements TestEntity {
     @Override
     public final String getName() {
         return name;
+    }
+
+    @Override
+    public final int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
     }
 
     @Override

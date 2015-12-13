@@ -22,24 +22,39 @@
  * SOFTWARE.
  */
 
-package com.wandrell.testing.persistence.util.model;
+package com.wandrell.testing.persistence.util.model.jpa.sqlite;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import com.wandrell.testing.persistence.util.model.TestEntity;
 
 /**
- * Test class serving as a persistence entity bean.
+ * Test class serving as a JPA persistence entity.
  * <p>
  * This is to be used on the repositories tests.
  * 
  * @author Bernardo Martínez Garrido
  */
-public final class TestEntityBean implements TestEntity {
+@Entity(name = "TestEntity")
+@Table(name = "test_entities")
+public final class IdGeneratedJPATestEntity implements TestEntity {
 
     /**
      * Serialization ID.
      */
-    private static final long serialVersionUID = 2002146016444401073L;
+    private static final long serialVersionUID = 1328776989450853491L;
     /**
      * Entity's ID.
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "test_seq")
+    @SequenceGenerator(name = "test_seq", sequenceName = "test_seq")
     private Integer           id               = null;
     /**
      * Name of the entity.
@@ -47,12 +62,13 @@ public final class TestEntityBean implements TestEntity {
      * This is to have additional data apart from the id, to be used on the
      * tests.
      */
+    @Column(name = "name")
     private String            name             = "";
 
     /**
      * Constructs a {@code JPATestEntity}.
      */
-    public TestEntityBean() {
+    public IdGeneratedJPATestEntity() {
         super();
     }
 
@@ -64,7 +80,7 @@ public final class TestEntityBean implements TestEntity {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        TestEntityBean other = (TestEntityBean) obj;
+        IdGeneratedJPATestEntity other = (IdGeneratedJPATestEntity) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
