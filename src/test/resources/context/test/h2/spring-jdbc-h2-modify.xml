@@ -15,12 +15,15 @@
 
     <!-- Properties -->
     <context:property-placeholder
-        location="classpath:spring/repository/jpa-hibernate.properties, classpath:spring/repository/jpa-repository.properties, classpath:spring/repository/h2/jpa-hibernate-h2.properties" />
+        location="classpath:context/persistence/spring-jdbc.properties, classpath:context/repository/spring-jdbc-repository.properties, classpath:context/test/h2/spring-jdbc-h2-modify.properties" />
 
     <!-- Repository -->
-    <import resource="classpath:spring/repository/jpa-repository.xml" />
+    <import resource="classpath:context/repository/spring-jdbc-repository.xml" />
 
     <!-- Base configuration -->
-    <import resource="classpath:spring/repository/jpa-hibernate.xml" />
+    <import resource="classpath:context/persistence/spring-jdbc.xml" />
+
+    <!-- Entity -->
+    <bean id="newEntity" class="${entity.class}" scope="prototype" />
 
 </beans>

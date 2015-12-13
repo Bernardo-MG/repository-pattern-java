@@ -15,13 +15,13 @@
 
     <!-- Properties -->
     <context:property-placeholder
-        location="classpath:spring/repository/jpa-eclipselink.properties, classpath:spring/repository/jpa-repository.properties, classpath:spring/repository/h2/jpa-eclipselink-h2-modify.properties" />
+        location="classpath:context/persistence/jpa-eclipselink.properties, classpath:context/repository/jpa-repository.properties, classpath:context/test/h2/jpa-eclipselink-h2-modify.properties" />
 
     <!-- Repository -->
-    <import resource="classpath:spring/repository/jpa-repository.xml" />
+    <import resource="classpath:context/repository/jpa-repository.xml" />
     
     <!-- Base configuration -->
-    <import resource="classpath:spring/repository/jpa-eclipselink.xml" />
+    <import resource="classpath:context/persistence/jpa-eclipselink.xml" />
 
     <!-- Entity -->
     <bean id="newEntity" class="${entity.class}" scope="prototype" />

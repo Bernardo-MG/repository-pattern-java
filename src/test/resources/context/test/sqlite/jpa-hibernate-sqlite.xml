@@ -13,17 +13,14 @@
 
     <!-- ============================= CONFIGURATION ============================= -->
 
-    <!-- Configuration -->
+    <!-- Properties -->
     <context:property-placeholder
-        location="classpath:spring/repository/jpa-hibernate.properties, classpath:spring/repository/jpa-repository.properties, classpath:spring/repository/sqlite/jpa-hibernate-sqlite-modify.properties" />
+        location="classpath:context/persistence/jpa-hibernate.properties, classpath:context/repository/jpa-repository.properties,classpath:context/test/sqlite/jpa-hibernate-sqlite.properties" />
 
     <!-- Repository -->
-    <import resource="classpath:spring/repository/jpa-repository.xml" />
+    <import resource="classpath:context/repository/jpa-repository.xml" />
 
     <!-- Base configuration -->
-    <import resource="classpath:spring/repository/jpa-hibernate.xml" />
-
-    <!-- Entity -->
-    <bean id="newEntity" class="${entity.class}" scope="prototype" />
+    <import resource="classpath:context/persistence/jpa-hibernate.xml" />
 
 </beans>
