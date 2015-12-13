@@ -27,7 +27,6 @@ package com.wandrell.testing.persistence.test.integration.repository.sqlite;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.wandrell.testing.persistence.util.config.ContextConfig;
-import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
 
 /**
  * Integration tests for
@@ -40,8 +39,7 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
  */
 @ContextConfiguration(
         locations = { ContextConfig.JPA_ECLIPSELINK_SQLITE_MODIFY })
-public final class ITModifySQLiteEclipselinkJPARepository
-        extends AbstractITModify {
+public final class ITModifySQLiteEclipselinkJPARepository {
 
     /**
      * Default constructor.

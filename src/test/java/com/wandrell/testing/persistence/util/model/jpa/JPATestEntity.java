@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.testing.persistence.util.model.jpa.basic;
+package com.wandrell.testing.persistence.util.model.jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
