@@ -7,7 +7,7 @@
     <!-- ================================= JDBC ================================== -->
 
     <!-- JDBC Template -->
-    <bean id="jdbcTemplate" class="${jdbcTemplate.class}">
+    <bean id="jdbcTemplate" class="${jdbc.template.class}">
         <property name="dataSource" ref="dataSource" />
     </bean>
 
@@ -19,7 +19,7 @@
 
     <!-- Transaction manager -->
     <!-- Required for rolling back and handling tests -->
-    <bean id="transactionManager" class="${transactionManager.class}">
+    <bean id="transactionManager" class="${jdbc.transactionManager.class}">
         <property name="dataSource" ref="dataSource" />
     </bean>
 

@@ -9,7 +9,7 @@
     <!-- ================================== JPA ================================== -->
 
     <!-- JPA EntityManagerFactory -->
-    <bean id="entityManagerFactory" class="${entityManagerFactory.class}">
+    <bean id="entityManagerFactory" class="${jpa.entityManagerFactory.class}">
         <property name="jpaVendorAdapter" ref="jpaAdapter" />
         <property name="dataSource" ref="dataSource" />
         <property name="persistenceUnitName" value="${jpa.persistenceUnitName}" />
@@ -18,13 +18,13 @@
     </bean>
 
     <!-- JPA Adapter -->
-    <bean id="jpaAdapter" class="${jpaAdapter.class}">
+    <bean id="jpaAdapter" class="${jpa.adapter.class}">
         <property name="database" value="${jpa.database}" />
         <property name="showSql" value="${jpa.showSql}" />
     </bean>
 
     <!-- Entity manager -->
-    <bean id="entityManager" class="${entityManager.class}">
+    <bean id="entityManager" class="${jpa.entityManager.class}">
         <property name="entityManagerFactory" ref="entityManagerFactory" />
     </bean>
 
@@ -45,7 +45,7 @@
 
     <!-- Transaction manager -->
     <!-- Required for rolling back and handling tests -->
-    <bean id="transactionManager" class="${transactionManager.class}">
+    <bean id="transactionManager" class="${jpa.transactionManager.class}">
         <property name="entityManagerFactory" ref="entityManagerFactory" />
     </bean>
 
