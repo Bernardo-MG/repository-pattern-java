@@ -15,8 +15,9 @@ matrix:
       env: DEPLOY_DOCS=true
 
 before_install:
-  # Creates testing databases
+  # Creates test databases
   - mysql -e "create database IF NOT EXISTS test_jpa_hibernate;" -uroot
+  - mysql -e "create database IF NOT EXISTS test_jpa_hibernate_modify;" -uroot
   # Sets the deployment flags
   - export PULL_REQUEST=$TRAVIS_PULL_REQUEST
   # Default values for deployment flags
