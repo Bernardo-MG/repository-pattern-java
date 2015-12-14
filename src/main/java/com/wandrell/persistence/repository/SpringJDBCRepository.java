@@ -28,6 +28,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Collection;
 
+import javax.sql.DataSource;
+
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -54,8 +56,8 @@ import com.wandrell.persistence.PersistenceEntity;
  * parameter. The use of named parameters instead of the {@code ?} placeholder
  * is thanks to Spring's classes.
  * <p>
- * For these queries a {@code QueryData} object, which comes from the
- * <a href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
+ * For these queries a {@code QueryData} object, which comes from the <a
+ * href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
  * library</a>, will be received by the repository. This will contain both the
  * query to be used and the parameters to apply.
  * <p>
@@ -71,15 +73,15 @@ import com.wandrell.persistence.PersistenceEntity;
  * @see QueryData
  * @see PersistenceEntity
  */
-public final class SpringJDBCRepository<V extends PersistenceEntity>
-        implements FilteredRepository<V, QueryData> {
+public final class SpringJDBCRepository<V extends PersistenceEntity> implements
+        FilteredRepository<V, QueryData> {
 
     /**
      * The class of the objects to be returned by the repository.
      * <p>
      * This is used by Spring's classes to transform query results.
      */
-    private final Class<V>                     classType;
+    private final Class<V> classType;
     /**
      * SQL query template for deleting entities.
      * <p>
@@ -94,14 +96,14 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
      * The template will be used, along a received entity, to build and execute
      * the actual query.
      */
-    private final String                       deleteQueryTemplate;
+    private final String deleteQueryTemplate;
     /**
      * Insert operation handler.
      * <p>
      * This takes care of inserting entities into the database, and is generated
      * from the parameters received by the constructor.
      */
-    private final SimpleJdbcInsertOperations   insertHandler;
+    private final SimpleJdbcInsertOperations insertHandler;
     /**
      * Named JDBC operations handler.
      * <p>
@@ -117,7 +119,7 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
      * <p>
      * {@code SELECT * FROM employees}
      */
-    private final String                       selectAllQuery;
+    private final String selectAllQuery;
     /**
      * SQL query template for updating entities.
      * <p>
@@ -132,7 +134,7 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
      * The template will be used, along a received entity, to build and execute
      * the actual query.
      */
-    private final String                       updateQueryTemplate;
+    private final String updateQueryTemplate;
 
     /**
      * Constructs a {@code SpringJDBCRepository} with the specified data and
@@ -156,8 +158,66 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
      *
      * @param type
      *            the class of the objects to be returned
-     * @param dataSource
+     * @param source
      *            source of the data
+     * @param update
+     *            query template for updating an entity on the database
+     * @param delete
+     *            query template for deleting an entity on the database
+     * @param table
+     *            table linked to the repository's entities
+     * @param keys
+     *            primary keys of the table
+     */
+    public SpringJDBCRepository(final Class<V> type, final DataSource source,
+            final String update, final String delete, final String table,
+            final String... keys) {
+        super();
+
+        checkNotNull(type, "Received a null pointer as the class type");
+        checkNotNull(source, "Received a null pointer as the data source");
+        checkNotNull(update, "Received a null pointer as the update query");
+        checkNotNull(delete, "Received a null pointer as the delete query");
+        checkNotNull(table, "Received a null pointer as the table");
+        checkNotNull(keys, "Received a null pointer as the key columns");
+
+        classType = type;
+
+        // Queries
+        selectAllQuery = String.format("SELECT * FROM %s", table);
+        updateQueryTemplate = update;
+        deleteQueryTemplate = delete;
+
+        insertHandler = new SimpleJdbcInsert(source).withTableName(table)
+                .usingGeneratedKeyColumns(keys);
+
+        jdbcTemplate = new NamedParameterJdbcTemplate(source);
+    }
+
+    /**
+     * Constructs a {@code SpringJDBCRepository} with the specified data and
+     * queries.
+     * <p>
+     * It will require templated queries for the update and delete operations.
+     * The parameters for these queries will be acquired automatically from the
+     * entity received for each of the operations.
+     * <p>
+     * The recommended delete query just requires knowing the ID of the entity,
+     * so it can be similar to this:
+     * <p>
+     * {@code DELETE FROM employees WHERE id = :id"}
+     * <p>
+     * The update query requires all the columns which will be updated:
+     * <p>
+     * {@code UPDATE employees SET name = :name WHERE id = :id}
+     * <p>
+     * Any additional query which may be required, such as one for acquiring all
+     * the entities, will be built from the received data.
+     *
+     * @param type
+     *            the class of the objects to be returned
+     * @param template
+     *            JDBC template with access to the data
      * @param update
      *            query template for updating an entity on the database
      * @param delete
@@ -211,8 +271,8 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
     @Override
     public final void add(final V entity) {
         final SqlParameterSource parameterSource; // Parameters source
-        final Number newKey;                      // Key assigned to the new
-                                                  // entity
+        final Number newKey; // Key assigned to the new
+                             // entity
 
         checkNotNull(entity, "Received a null pointer as the entity");
 
