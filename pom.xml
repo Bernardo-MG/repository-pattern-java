@@ -246,33 +246,36 @@
             <artifactId>java-patterns</artifactId>
             <version>${wandrell.patterns.version}</version>
         </dependency>
+        <!-- ============================================== -->
+        <!-- =========== OPTIONAL DEPENDENCIES ============ -->
+        <!-- ============================================== -->
         <dependency>
             <!-- Spring Beans -->
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
             <version>${spring.version}</version>
-            <scope>optional</scope>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <!-- Spring Core -->
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
             <version>${spring.version}</version>
-            <scope>optional</scope>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <!-- Spring JDBC -->
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>${spring.version}</version>
-            <scope>optional</scope>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <!-- Spring Transactions -->
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
             <version>${spring.version}</version>
-            <scope>optional</scope>
+            <optional>true</optional>
         </dependency>
         <!-- ============================================== -->
         <!-- =========== PROVIDED DEPENDENCIES ============ -->
