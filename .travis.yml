@@ -21,6 +21,7 @@ before_install:
   - mysql -e "create database IF NOT EXISTS test_spring_jdbc;" -uroot
   - mysql -e "create database IF NOT EXISTS test_spring_jdbc_modify;" -uroot
   - mysql -e "create database IF NOT EXISTS test_jpa_eclipselink;" -uroot
+  - mysql -e "create database IF NOT EXISTS test_jpa_eclipselink_modify;" -uroot
   # Sets the deployment flags
   - export PULL_REQUEST=$TRAVIS_PULL_REQUEST
   # Default values for deployment flags

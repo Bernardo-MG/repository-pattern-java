@@ -33,7 +33,7 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
  * Integration tests for
  * {@link com.wandrell.persistence.repository.JPARepository JPARepository}
  * implementing {@code AbstractITModify}, using a SQLite database and
- * Eclipselink-based JPA.
+ * Hibernate-based JPA.
  *
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.persistence.repository.JPARepository JPARepository

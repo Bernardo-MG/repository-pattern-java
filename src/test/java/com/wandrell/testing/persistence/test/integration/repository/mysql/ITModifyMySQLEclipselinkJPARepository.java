@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.testing.persistence.test.integration.repository.h2;
+package com.wandrell.testing.persistence.test.integration.repository.mysql;
 
 import org.springframework.test.context.ContextConfiguration;
 
@@ -32,19 +32,20 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
 /**
  * Integration tests for
  * {@link com.wandrell.persistence.repository.JPARepository JPARepository}
- * implementing {@code AbstractITModify}, using an H2 in-memory database and
+ * implementing {@code AbstractITModify}, using a MySQL in-memory database and
  * Eclipselink-based JPA.
  *
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.persistence.repository.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_H2_MODIFY })
-public final class ITModifyH2EclipselinkJPARepository extends AbstractITModify {
+@ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_MYSQL_MODIFY })
+public final class ITModifyMySQLEclipselinkJPARepository extends
+        AbstractITModify {
 
     /**
      * Default constructor.
      */
-    public ITModifyH2EclipselinkJPARepository() {
+    public ITModifyMySQLEclipselinkJPARepository() {
         super();
     }
 

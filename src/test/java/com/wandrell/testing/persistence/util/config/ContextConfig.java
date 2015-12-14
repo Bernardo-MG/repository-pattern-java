@@ -64,6 +64,11 @@ public final class ContextConfig {
      */
     public static final String JPA_ECLIPSELINK_MYSQL = "classpath:context/test/mysql/jpa-eclipselink-mysql.xml";
     /**
+     * JPA context using a MySQL database and the Eclipselink framework for
+     * modification tests.
+     */
+    public static final String JPA_ECLIPSELINK_MYSQL_MODIFY = "classpath:context/test/mysql/jpa-eclipselink-mysql-modify.xml";
+    /**
      * JPA context using an H2 database and the Eclipselink framework for
      * modification tests.
      */
