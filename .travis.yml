@@ -18,6 +18,7 @@ before_install:
   # Creates test databases
   - mysql -e "create database IF NOT EXISTS test_jpa_hibernate;" -uroot
   - mysql -e "create database IF NOT EXISTS test_jpa_hibernate_modify;" -uroot
+  - mysql -e "create database IF NOT EXISTS test_spring_jdbc;" -uroot
   # Sets the deployment flags
   - export PULL_REQUEST=$TRAVIS_PULL_REQUEST
   # Default values for deployment flags
