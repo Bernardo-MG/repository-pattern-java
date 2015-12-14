@@ -36,6 +36,10 @@ public final class ContextConfig {
      */
     public static final String JDBC_H2 = "classpath:context/test/h2/spring-jdbc-h2.xml";
     /**
+     * JDBC context using an HSQLDB database.
+     */
+    public static final String JDBC_HSQLDB = "classpath:context/test/hsqldb/spring-jdbc-hsqldb.xml";
+    /**
      * JDBC context using an H2 database for modification tests.
      */
     public static final String JDBC_H2_MODIFY = "classpath:context/test/h2/spring-jdbc-h2-modify.xml";
@@ -60,6 +64,15 @@ public final class ContextConfig {
      */
     public static final String JPA_ECLIPSELINK_H2 = "classpath:context/test/h2/jpa-eclipselink-h2.xml";
     /**
+     * JPA context using an HSQLDB database and the Eclipselink framework.
+     */
+    public static final String JPA_ECLIPSELINK_HSQLDB = "classpath:context/test/hsqldb/jpa-eclipselink-hsqldb.xml";
+    /**
+     * JPA context using an H2 database and the Eclipselink framework for
+     * modification tests.
+     */
+    public static final String JPA_ECLIPSELINK_H2_MODIFY = "classpath:context/test/h2/jpa-eclipselink-h2-modify.xml";
+    /**
      * JPA context using a MySQL database and the Eclipselink framework.
      */
     public static final String JPA_ECLIPSELINK_MYSQL = "classpath:context/test/mysql/jpa-eclipselink-mysql.xml";
@@ -68,11 +81,6 @@ public final class ContextConfig {
      * modification tests.
      */
     public static final String JPA_ECLIPSELINK_MYSQL_MODIFY = "classpath:context/test/mysql/jpa-eclipselink-mysql-modify.xml";
-    /**
-     * JPA context using an H2 database and the Eclipselink framework for
-     * modification tests.
-     */
-    public static final String JPA_ECLIPSELINK_H2_MODIFY = "classpath:context/test/h2/jpa-eclipselink-h2-modify.xml";
     /**
      * JPA context using a SQLite database and the Eclipselink framework.
      */
@@ -86,6 +94,10 @@ public final class ContextConfig {
      * JPA context using an H2 database and the Hibernate framework.
      */
     public static final String JPA_HIBERNATE_H2 = "classpath:context/test/h2/jpa-hibernate-h2.xml";
+    /**
+     * JPA context using an HSQLDB database and the Hibernate framework.
+     */
+    public static final String JPA_HIBERNATE_HSQLDB = "classpath:context/test/hsqldb/jpa-hibernate-hsqldb.xml";
     /**
      * JPA context using an H2 database and the Hibernate framework for
      * modification tests.

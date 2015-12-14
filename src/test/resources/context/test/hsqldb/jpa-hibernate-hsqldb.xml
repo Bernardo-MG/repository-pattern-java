@@ -10,12 +10,12 @@
 
     <!-- Properties -->
     <context:property-placeholder
-        location="classpath:context/persistence/jpa-eclipselink.properties, classpath:context/repository/jpa-repository.properties, classpath:context/test/h2/jpa-eclipselink-h2.properties" />
+        location="classpath:context/persistence/jpa-hibernate.properties, classpath:context/repository/jpa-repository.properties, classpath:context/test/hsqldb/jpa-hibernate-hsqldb.properties" />
 
     <!-- Repository -->
     <import resource="classpath:context/repository/jpa-repository.xml" />
 
     <!-- Base configuration -->
-    <import resource="classpath:context/persistence/jpa-eclipselink.xml" />
+    <import resource="classpath:context/persistence/jpa-hibernate.xml" />
 
 </beans>
