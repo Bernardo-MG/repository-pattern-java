@@ -11,14 +11,16 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <!-- Transaction Manager -->
-    <!-- Used to allow rolling back transactions after tests -->
+    <!-- ============================== DATASOURCE =============================== -->
+
+    <import resource="classpath:context/persistence/datasource.xml" />
+
+    <!-- ============================= TEST CONFIG =============================== -->
+
+    <!-- Transaction manager -->
+    <!-- Required for rolling back and handling tests -->
     <bean id="transactionManager" class="${transactionManager.class}">
         <property name="dataSource" ref="dataSource" />
     </bean>
-
-    <!-- ============================== DATASOURCE =============================== -->
-    
-    <import resource="classpath:context/persistence/datasource.xml" />
 
 </beans>

@@ -8,6 +8,11 @@
 
     <!-- ================================== JPA ================================== -->
 
+    <!-- Entity manager -->
+    <bean id="entityManager" class="${entityManager.class}">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+
     <!-- JPA EntityManagerFactory -->
     <bean id="entityManagerFactory" class="${entityManagerFactory.class}">
         <property name="jpaVendorAdapter" ref="jpaAdapter" />
@@ -27,26 +32,24 @@
         <property name="showSql" value="${jpa.showSql}" />
     </bean>
 
-    <!-- Entity manager -->
-    <bean id="entityManager" class="${entityManager.class}">
-        <property name="entityManagerFactory" ref="entityManagerFactory" />
-    </bean>
-
     <!-- JPA Properties -->
     <util:map id="jpaProperties">
         <entry key="eclipselink.cache.shared.default" value="${eclipselink.cache.shared.default}" />
         <entry key="eclipselink.weaving" value="${eclipselink.weaving}" />
-        <entry key="eclipselink.ddl-generation" value="create-tables" />
-        <entry key="eclipselink.ddl-generation.output-mode" value="database" />
+        <entry key="eclipselink.ddl-generation" value="${eclipselink.ddl-generation}" />
+        <entry key="eclipselink.ddl-generation.output-mode" value="${eclipselink.ddl-generation.output-mode}" />
     </util:map>
-
-    <!-- Transaction manager -->
-    <bean id="transactionManager" class="${transactionManager.class}">
-        <property name="entityManagerFactory" ref="entityManagerFactory" />
-    </bean>
 
     <!-- ============================== DATASOURCE =============================== -->
 
     <import resource="classpath:context/persistence/datasource.xml" />
+
+    <!-- ============================= TEST CONFIG =============================== -->
+
+    <!-- Transaction manager -->
+    <!-- Required for rolling back and handling tests -->
+    <bean id="transactionManager" class="${transactionManager.class}">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
 
 </beans>
