@@ -37,7 +37,7 @@ import com.wandrell.testing.persistence.util.model.TestEntity;
  * Test class serving as a JPA persistence entity.
  * <p>
  * This is to be used on the repositories tests.
- * 
+ *
  * @author Bernardo Martínez Garrido
  */
 @Entity(name = "TestEntity")
@@ -53,15 +53,15 @@ public final class JPATestEntity implements TestEntity {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer           id               = null;
+    private Integer id = null;
     /**
      * Name of the entity.
      * <p>
      * This is to have additional data apart from the id, to be used on the
      * tests.
      */
-    @Column(name = "name")
-    private String            name             = "";
+    @Column(name = "name", nullable = false)
+    private String name = "";
 
     /**
      * Constructs a {@code JPATestEntity}.
