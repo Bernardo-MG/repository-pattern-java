@@ -44,6 +44,10 @@ public final class ContextConfig {
      */
     public static final String JDBC_MYSQL = "classpath:context/test/mysql/spring-jdbc-mysql.xml";
     /**
+     * JDBC context using a MySQL database for modification tests.
+     */
+    public static final String JDBC_MYSQL_MODIFY = "classpath:context/test/mysql/spring-jdbc-mysql-modify.xml";
+    /**
      * JDBC context using a SQLite database.
      */
     public static final String JDBC_SQLITE = "classpath:context/test/sqlite/spring-jdbc-sqlite.xml";
