@@ -24,7 +24,6 @@
 
 package com.wandrell.testing.persistence.util.test.repository;
 
-import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -40,7 +39,7 @@ import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.testing.persistence.util.model.TestEntity;
 
 /**
- * Abstract integration tests for persistence repositories checking query
+ * Abstract integration tests for a {@link FilteredRepository} testing query
  * methods.
  * <p>
  * Checks the following cases:
@@ -51,12 +50,13 @@ import com.wandrell.testing.persistence.util.model.TestEntity;
  * </ol>
  * <p>
  * This is meant to be used along a Spring context, which will set up the
- * repository and all it's requirements.
+ * repository and all of it's requirements.
  *
  * @author Bernardo Martínez Garrido
+ * @see FilteredRepository
  */
-public abstract class AbstractITQuery
-        extends AbstractTransactionalTestNGSpringContextTests {
+public abstract class AbstractITQuery extends
+        AbstractTransactionalTestNGSpringContextTests {
 
     /**
      * The repository being tested.
@@ -67,7 +67,7 @@ public abstract class AbstractITQuery
      * Query for acquiring an entity by it's id.
      */
     @Value("${query.byId}")
-    private String                                    selectByIdQuery;
+    private String selectByIdQuery;
 
     /**
      * Default constructor.
@@ -81,11 +81,7 @@ public abstract class AbstractITQuery
      */
     @Test
     public final void testGetAll() {
-        final Collection<? extends TestEntity> entities; // The entities
-
-        entities = repository.getAll();
-
-        Assert.assertEquals(entities.size(), 4);
+        Assert.assertEquals(repository.getAll().size(), 4);
     }
 
     /**
@@ -98,6 +94,7 @@ public abstract class AbstractITQuery
         final Integer id;                     // Entity ID
         final TestEntity entity;              // Tested entity
 
+        // Entity's id
         id = 1;
 
         // Acquires the entity
@@ -106,6 +103,7 @@ public abstract class AbstractITQuery
         query = new DefaultQueryData(selectByIdQuery, parameters);
         entity = getRepository().getEntity(query);
 
+        // The entity's id is the correct one
         Assert.assertEquals(entity.getId(), id);
     }
 
@@ -116,9 +114,10 @@ public abstract class AbstractITQuery
     public final void testGetEntity_NotExisting() {
         final QueryData query;                // Query for the entity
         final Map<String, Object> parameters; // Query params
-        final Integer id;                     // Entity ID
+        final Integer id;                     // Invalid entity ID
         final TestEntity entity;              // Tested entity
 
+        // Invalid entity id
         id = 123;
 
         // Tries to acquire the entity
@@ -127,6 +126,7 @@ public abstract class AbstractITQuery
         query = new DefaultQueryData(selectByIdQuery, parameters);
         entity = getRepository().getEntity(query);
 
+        // The entity is null
         Assert.assertEquals(entity, null);
     }
 

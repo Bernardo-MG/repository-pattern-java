@@ -40,6 +40,10 @@ public final class ContextConfig {
      */
     public static final String JDBC_H2_MODIFY = "classpath:context/test/h2/spring-jdbc-h2-modify.xml";
     /**
+     * JDBC context using a MySQL database.
+     */
+    public static final String JDBC_MYSQL = "classpath:context/test/mysql/spring-jdbc-mysql.xml";
+    /**
      * JDBC context using a SQLite database.
      */
     public static final String JDBC_SQLITE = "classpath:context/test/sqlite/spring-jdbc-sqlite.xml";
@@ -48,25 +52,25 @@ public final class ContextConfig {
      */
     public static final String JDBC_SQLITE_MODIFY = "classpath:context/test/sqlite/spring-jdbc-sqlite-modify.xml";
     /**
-     * JPA context using an H2 and the Hibernate framework database.
+     * JPA context using an H2 database and the Eclipselink framework.
      */
     public static final String JPA_ECLIPSELINK_H2 = "classpath:context/test/h2/jpa-eclipselink-h2.xml";
     /**
-     * JPA context using an H2 and the Hibernate framework database for
+     * JPA context using an H2 database and the Eclipselink framework for
      * modification tests.
      */
     public static final String JPA_ECLIPSELINK_H2_MODIFY = "classpath:context/test/h2/jpa-eclipselink-h2-modify.xml";
     /**
-     * JPA context using a SQLite database and the Hibernate framework.
+     * JPA context using a SQLite database and the Eclipselink framework.
      */
     public static final String JPA_ECLIPSELINK_SQLITE = "classpath:context/test/sqlite/jpa-eclipselink-sqlite.xml";
     /**
-     * JPA context using a SQLite database and the Hibernate framework for
+     * JPA context using a SQLite database and the Eclipselink framework for
      * modification tests.
      */
     public static final String JPA_ECLIPSELINK_SQLITE_MODIFY = "classpath:context/test/sqlite/jpa-eclipselink-sqlite-modify.xml";
     /**
-     * JPA context using an H2 and the Hibernate framework database.
+     * JPA context using an H2 database and the Hibernate framework.
      */
     public static final String JPA_HIBERNATE_H2 = "classpath:context/test/h2/jpa-hibernate-h2.xml";
     /**
@@ -75,11 +79,11 @@ public final class ContextConfig {
      */
     public static final String JPA_HIBERNATE_H2_MODIFY = "classpath:context/test/h2/jpa-hibernate-h2-modify.xml";
     /**
-     * JPA context using an H2 and the Hibernate framework database.
+     * JPA context using an H2 database and the Hibernate framework.
      */
     public static final String JPA_HIBERNATE_MYSQL = "classpath:context/test/mysql/jpa-hibernate-mysql.xml";
     /**
-     * JPA context using an H2 and the Hibernate framework database.
+     * JPA context using an H2 database and the Hibernate framework.
      */
     public static final String JPA_HIBERNATE_MYSQL_MODIFY = "classpath:context/test/mysql/jpa-hibernate-mysql-modify.xml";
     /**

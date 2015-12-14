@@ -32,8 +32,8 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
 /**
  * Integration tests for
  * {@link com.wandrell.persistence.repository.SpringJDBCRepository
- * SpringJDBCRepository} implementing {@code AbstractITQuery} using a SQLite
- * database and JPA.
+ * SpringJDBCRepository} implementing {@code AbstractITQuery}, using a SQLite
+ * database and Spring JDBC.
  *
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.persistence.repository.SpringJDBCRepository

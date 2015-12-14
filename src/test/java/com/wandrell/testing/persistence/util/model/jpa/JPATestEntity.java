@@ -36,7 +36,7 @@ import com.wandrell.testing.persistence.util.model.TestEntity;
 /**
  * Test class serving as a JPA persistence entity.
  * <p>
- * This is to be used on the repositories tests.
+ * This is to be used on the JPA repositories tests.
  *
  * @author Bernardo Martínez Garrido
  */

@@ -27,8 +27,8 @@ package com.wandrell.testing.persistence.util.model;
 /**
  * Test class serving as a persistence entity bean.
  * <p>
- * This is to be used on the repositories tests.
- * 
+ * This is to be used on the non-JPA repositories tests.
+ *
  * @author Bernardo Martínez Garrido
  */
 public final class TestEntityBean implements TestEntity {
@@ -40,14 +40,14 @@ public final class TestEntityBean implements TestEntity {
     /**
      * Entity's ID.
      */
-    private Integer           id               = null;
+    private Integer id = null;
     /**
      * Name of the entity.
      * <p>
      * This is to have additional data apart from the id, to be used on the
      * tests.
      */
-    private String            name             = "";
+    private String name = "";
 
     /**
      * Constructs a {@code JPATestEntity}.

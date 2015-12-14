@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.testing.persistence.test.integration.repository.h2;
+package com.wandrell.testing.persistence.test.integration.repository.mysql;
 
 import org.springframework.test.context.ContextConfiguration;
 
@@ -31,20 +31,21 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
 
 /**
  * Integration tests for
- * {@link com.wandrell.persistence.repository.JPARepository JPARepository}
- * implementing {@code AbstractITQuery}, using an H2 in-memory database and
- * Hibernate-based JPA.
+ * {@link com.wandrell.persistence.repository.SpringJDBCRepository
+ * SpringJDBCRepository} implementing {@code AbstractITQuery}, using a MySQL
+ * in-memory database and Spring JDBC.
  *
  * @author Bernardo Martínez Garrido
- * @see com.wandrell.persistence.repository.JPARepository JPARepository
+ * @see com.wandrell.persistence.repository.SpringJDBCRepository
+ *      SpringJDBCRepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_H2 })
-public final class ITQueryH2HibernateJPARepository extends AbstractITQuery {
+@ContextConfiguration(locations = { ContextConfig.JDBC_MYSQL })
+public final class ITQueryMySQLSpringJDBCRepository extends AbstractITQuery {
 
     /**
      * Default constructor.
      */
-    public ITQueryH2HibernateJPARepository() {
+    public ITQueryMySQLSpringJDBCRepository() {
         super();
     }
 

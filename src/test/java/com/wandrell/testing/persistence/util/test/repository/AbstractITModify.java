@@ -41,36 +41,36 @@ import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.testing.persistence.util.model.TestEntity;
 
 /**
- * Abstract integration tests for persistence repositories checking modifier
+ * Abstract integration tests for a {@link FilteredRepository} testing modifier
  * methods.
  * <p>
  * Checks the following cases:
  * <ol>
  * <li>Adding an entity changes the contents of the repository.</li>
  * <li>Removing an entity changes the contents of the repository.</li>
- * <li>Removing an entity not in the repository does nothing.</li>
  * <li>Updating an entity changes it.</li>
  * </ol>
  * <p>
  * This is meant to be used along a Spring context, which will set up the
- * repository and all it's requirements.
+ * repository and all of it's requirements.
  *
  * @author Bernardo Martínez Garrido
+ * @see FilteredRepository
  */
-public abstract class AbstractITModify
-        extends AbstractTransactionalTestNGSpringContextTests {
+public abstract class AbstractITModify extends
+        AbstractTransactionalTestNGSpringContextTests {
 
     /**
      * Initial number of entities in the repository.
      */
     @Value("${entities.total}")
-    private Integer                                   entitiesCount;
+    private Integer entitiesCount;
     /**
      * Entity for the addition test.
      */
     @Autowired
     @Qualifier("newEntity")
-    private TestEntity                                newEntity;
+    private TestEntity newEntity;
     /**
      * The repository being tested.
      */
@@ -80,7 +80,7 @@ public abstract class AbstractITModify
      * Query for acquiring an entity by it's id.
      */
     @Value("${query.byId}")
-    private String                                    selectByIdQuery;
+    private String selectByIdQuery;
 
     /**
      * Default constructor.
@@ -116,7 +116,6 @@ public abstract class AbstractITModify
     @Transactional
     public final void testRemove() {
         final TestEntity entity;              // Entity being tested
-        final TestEntity entityQueried;       // Entity taken from the repo
         final Map<String, Object> parameters; // Params for the query
         final QueryData query;                // Query for retrieving the entity
 
@@ -133,10 +132,8 @@ public abstract class AbstractITModify
         Assert.assertEquals(getRepository().getAll().size(), entitiesCount - 1);
 
         // Tries to retrieve the removed entity
-        entityQueried = getRepository().getEntity(query);
-
         // The entity is now null
-        Assert.assertNull(entityQueried);
+        Assert.assertNull(getRepository().getEntity(query));
     }
 
     /**

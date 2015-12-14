@@ -32,7 +32,8 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
 /**
  * Integration tests for
  * {@link com.wandrell.persistence.repository.JPARepository JPARepository}
- * implementing {@code AbstractITQuery} using an H2 in-memory database and JPA.
+ * implementing {@code AbstractITQuery}, using a MySQL database and
+ * Hibernate-based JPA.
  *
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.persistence.repository.JPARepository JPARepository

@@ -32,7 +32,8 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
 /**
  * Integration tests for
  * {@link com.wandrell.persistence.repository.JPARepository JPARepository}
- * implementing {@code AbstractITModify} using an H2 in-memory database and JPA.
+ * implementing {@code AbstractITModify}, using an H2 in-memory database and
+ * Eclipselink-based JPA.
  *
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.persistence.repository.JPARepository JPARepository

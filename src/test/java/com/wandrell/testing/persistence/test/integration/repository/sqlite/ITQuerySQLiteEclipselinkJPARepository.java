@@ -32,14 +32,15 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
 /**
  * Integration tests for
  * {@link com.wandrell.persistence.repository.JPARepository JPARepository}
- * implementing {@code AbstractITQuery} using a SQLite database and Spring JDBC.
+ * implementing {@code AbstractITQuery}, using a SQLite database and
+ * Eclipselink-based JPA.
  *
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.persistence.repository.JPARepository JPARepository
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_SQLITE })
-public final class ITQuerySQLiteEclipselinkJPARepository
-        extends AbstractITQuery {
+public final class ITQuerySQLiteEclipselinkJPARepository extends
+        AbstractITQuery {
 
     /**
      * Default constructor.
