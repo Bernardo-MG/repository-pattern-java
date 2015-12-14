@@ -18,4 +18,7 @@
     <!-- Base configuration -->
     <import resource="classpath:context/persistence/spring-jdbc.xml" />
 
+    <!-- Entity -->
+    <bean id="newEntity" class="${entity.class}" scope="prototype" />
+
 </beans>
