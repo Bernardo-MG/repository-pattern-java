@@ -57,6 +57,7 @@
 			<item name="Acquire" href="./acquire.html" />
 			<item name="Persistence entity" href="./persistence_entity.html" />
 			<item name="Repositories" href="./repositories.html" />
+            <item name="Configuration examples" href="./configs.html" />
 		</menu>
 		<menu name="Info and reports" inherit="bottom">
 			<item name="Info" href="./info.html" />
