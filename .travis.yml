@@ -25,6 +25,10 @@ before_install:
   - mysql -e "create database IF NOT EXISTS test_jpa_eclipselink_modify;" -uroot
   - psql -c 'create database test_jpa_hibernate;' -U postgres
   - psql -c 'create database test_jpa_hibernate_modify;' -U postgres
+  - psql -c 'create database test_spring_jdbc;' -U postgres
+  - psql -c 'create database test_spring_jdbc_modify;' -U postgres
+  - psql -c 'create database test_jpa_eclipselink;' -U postgres
+  - psql -c 'create database test_jpa_eclipselink_modify;' -U postgres
   # Sets the deployment flags
   - export PULL_REQUEST=$TRAVIS_PULL_REQUEST
   # Default values for deployment flags
