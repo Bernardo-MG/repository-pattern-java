@@ -18,4 +18,7 @@
     <!-- Base configuration -->
     <import resource="classpath:context/persistence/jpa-hibernate.xml" />
 
+    <!-- Entity -->
+    <bean id="newEntity" class="${entity.class}" scope="prototype" />
+
 </beans>
