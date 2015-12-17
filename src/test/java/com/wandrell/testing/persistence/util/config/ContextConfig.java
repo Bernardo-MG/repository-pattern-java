@@ -58,11 +58,11 @@ public final class ContextConfig {
     /**
      * JDBC context using a PostgreSQL database.
      */
-    public static final String JDBC_POSTGRESQL = "classpath:context/test/h2/spring-jdbc-postgresql.xml";
+    public static final String JDBC_POSTGRESQL = "classpath:context/test/postgresql/spring-jdbc-postgresql.xml";
     /**
      * JDBC context using a PostgreSQL database for modification tests.
      */
-    public static final String JDBC_POSTGRESQL_MODIFY = "classpath:context/test/h2/spring-jdbc-postgresql-modify.xml";
+    public static final String JDBC_POSTGRESQL_MODIFY = "classpath:context/test/postgresql/spring-jdbc-postgresql-modify.xml";
     /**
      * JDBC context using a SQLite database.
      */
@@ -101,12 +101,12 @@ public final class ContextConfig {
     /**
      * JPA context using a PostgreSQL database and the Eclipselink framework.
      */
-    public static final String JPA_ECLIPSELINK_POSTGRESQL = "classpath:context/test/h2/jpa-eclipselink-postgresql.xml";
+    public static final String JPA_ECLIPSELINK_POSTGRESQL = "classpath:context/test/postgresql/jpa-eclipselink-postgresql.xml";
     /**
      * JPA context using a PostgreSQL database and the Eclipselink framework for
      * modification tests.
      */
-    public static final String JPA_ECLIPSELINK_POSTGRESQL_MODIFY = "classpath:context/test/h2/jpa-eclipselink-postgresql-modify.xml";
+    public static final String JPA_ECLIPSELINK_POSTGRESQL_MODIFY = "classpath:context/test/postgresql/jpa-eclipselink-postgresql-modify.xml";
     /**
      * JPA context using a SQLite database and the Eclipselink framework.
      */
