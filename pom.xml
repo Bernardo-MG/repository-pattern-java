@@ -216,7 +216,7 @@
         <hsqldb.version>2.3.3</hsqldb.version>
         <log4j.version>2.4.1</log4j.version>
         <mysql.version>5.1.37</mysql.version>
-        <postgresql.version>9.4-1206-jdbc42</postgresql.version>
+        <postgresql.version>9.4-1206-jdbc4</postgresql.version>
         <spring.version>4.2.2.RELEASE</spring.version>
         <sqlite.version>3.8.11.2</sqlite.version>
         <testng.version>6.9.8</testng.version>
