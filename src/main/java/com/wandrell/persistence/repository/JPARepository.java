@@ -135,8 +135,6 @@ public final class JPARepository<V extends PersistenceEntity>
             // It is an existing entity
             getEntityManager().merge(entity);
         }
-
-        getEntityManager().flush();
     }
 
     /**

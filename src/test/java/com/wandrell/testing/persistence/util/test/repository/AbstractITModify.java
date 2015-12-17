@@ -27,6 +27,8 @@ package com.wandrell.testing.persistence.util.test.repository;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import javax.persistence.EntityManager;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -81,6 +83,11 @@ public abstract class AbstractITModify extends
      */
     @Value("${query.byId}")
     private String selectByIdQuery;
+    /**
+     * The entity manager for the test context.
+     */
+    @Autowired(required = false)
+    private EntityManager emanager;
 
     /**
      * Default constructor.
@@ -100,6 +107,11 @@ public abstract class AbstractITModify extends
 
         // Adds the entity
         getRepository().add(newEntity);
+
+        if (emanager != null) {
+            // Flushed to force updating ids
+            emanager.flush();
+        }
 
         // Checks the entity has been added
         Assert.assertEquals(getRepository().getAll().size(), entitiesCount + 1);
