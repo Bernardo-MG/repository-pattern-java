@@ -118,11 +118,16 @@ public final class ContextConfig {
      */
     public static final String JPA_HIBERNATE_HSQLDB_MODIFY = "classpath:context/test/hsqldb/jpa-hibernate-hsqldb-modify.xml";
     /**
-     * JPA context using an H2 database and the Hibernate framework.
+     * JPA context using a MySQL database and the Hibernate framework.
      */
     public static final String JPA_HIBERNATE_MYSQL = "classpath:context/test/mysql/jpa-hibernate-mysql.xml";
     /**
-     * JPA context using an H2 database and the Hibernate framework.
+     * JPA context using a PostgreSQL database and the Hibernate framework.
+     */
+    public static final String JPA_HIBERNATE_POSTGRESQL = "classpath:context/test/postgresql/jpa-hibernate-postgresql.xml";
+    /**
+     * JPA context using a MySQL database and the Hibernate framework for
+     * modification tests.
      */
     public static final String JPA_HIBERNATE_MYSQL_MODIFY = "classpath:context/test/mysql/jpa-hibernate-mysql-modify.xml";
     /**
