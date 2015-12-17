@@ -56,6 +56,14 @@ public final class ContextConfig {
      */
     public static final String JDBC_MYSQL_MODIFY = "classpath:context/test/mysql/spring-jdbc-mysql-modify.xml";
     /**
+     * JDBC context using a PostgreSQL database.
+     */
+    public static final String JDBC_POSTGRESQL = "classpath:context/test/h2/spring-jdbc-postgresql.xml";
+    /**
+     * JDBC context using a PostgreSQL database for modification tests.
+     */
+    public static final String JDBC_POSTGRESQL_MODIFY = "classpath:context/test/h2/spring-jdbc-postgresql-modify.xml";
+    /**
      * JDBC context using a SQLite database.
      */
     public static final String JDBC_SQLITE = "classpath:context/test/sqlite/spring-jdbc-sqlite.xml";
@@ -90,6 +98,15 @@ public final class ContextConfig {
      * modification tests.
      */
     public static final String JPA_ECLIPSELINK_MYSQL_MODIFY = "classpath:context/test/mysql/jpa-eclipselink-mysql-modify.xml";
+    /**
+     * JPA context using a PostgreSQL database and the Eclipselink framework.
+     */
+    public static final String JPA_ECLIPSELINK_POSTGRESQL = "classpath:context/test/h2/jpa-eclipselink-postgresql.xml";
+    /**
+     * JPA context using a PostgreSQL database and the Eclipselink framework for
+     * modification tests.
+     */
+    public static final String JPA_ECLIPSELINK_POSTGRESQL_MODIFY = "classpath:context/test/h2/jpa-eclipselink-postgresql-modify.xml";
     /**
      * JPA context using a SQLite database and the Eclipselink framework.
      */

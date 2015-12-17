@@ -27,24 +27,25 @@ package com.wandrell.testing.persistence.test.integration.repository.postgresql;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.wandrell.testing.persistence.util.config.ContextConfig;
-import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
+import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
 
 /**
  * Integration tests for
  * {@link com.wandrell.persistence.repository.JPARepository JPARepository}
  * implementing {@code AbstractITQuery}, using a PostgreSQL database and
- * Hibernate-based JPA.
+ * Eclipselink-based JPA.
  *
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.persistence.repository.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_POSTGRESQL_MODIFY })
-public final class ITModifyMySQLHibernateJPARepository extends AbstractITModify {
+@ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_POSTGRESQL })
+public final class ITQueryPostgreSQLEclipselinkJPARepository extends
+        AbstractITQuery {
 
     /**
      * Default constructor.
      */
-    public ITModifyMySQLHibernateJPARepository() {
+    public ITQueryPostgreSQLEclipselinkJPARepository() {
         super();
     }
 

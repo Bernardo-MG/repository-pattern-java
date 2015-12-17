@@ -10,15 +10,12 @@
 
     <!-- Properties -->
     <context:property-placeholder
-        location="classpath:context/test/test-jpa-basic.properties, classpath:context/persistence/jpa-eclipselink.properties, classpath:context/repository/jpa-repository.properties, classpath:context/test/mysql/jpa-eclipselink-mysql-modify.properties" />
+        location="classpath:context/test/test-spring-jdbc-basic.properties, classpath:context/persistence/spring-jdbc.properties, classpath:context/repository/spring-jdbc-repository.properties, classpath:context/test/postgresql/spring-jdbc-postgresql.properties" />
 
     <!-- Repository -->
-    <import resource="classpath:context/repository/jpa-repository.xml" />
+    <import resource="classpath:context/repository/spring-jdbc-repository.xml" />
 
     <!-- Base configuration -->
-    <import resource="classpath:context/persistence/jpa-eclipselink.xml" />
-
-    <!-- Entity -->
-    <bean id="newEntity" class="${entity.class}" scope="prototype" />
+    <import resource="classpath:context/persistence/spring-jdbc.xml" />
 
 </beans>
