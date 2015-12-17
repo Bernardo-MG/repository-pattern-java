@@ -10,7 +10,7 @@
 
     <!-- Properties -->
     <context:property-placeholder
-        location="classpath:context/persistence/jpa-eclipselink.properties, classpath:context/repository/jpa-repository.properties, classpath:context/test/hsqldb/jpa-eclipselink-hsqldb.properties" />
+        location="classpath:context/test/test-jpa-basic.properties, classpath:context/persistence/jpa-eclipselink.properties, classpath:context/repository/jpa-repository.properties, classpath:context/test/hsqldb/jpa-eclipselink-hsqldb.properties" />
 
     <!-- Repository -->
     <import resource="classpath:context/repository/jpa-repository.xml" />

@@ -10,7 +10,7 @@
 
     <!-- Properties -->
     <context:property-placeholder
-        location="classpath:context/persistence/jpa-hibernate.properties, classpath:context/repository/jpa-repository.properties, classpath:context/test/sqlite/jpa-hibernate-sqlite-modify.properties" />
+        location="classpath:context/test/test-jpa-basic.properties, classpath:context/persistence/jpa-hibernate.properties, classpath:context/repository/jpa-repository.properties, classpath:context/test/sqlite/jpa-hibernate-sqlite-modify.properties" />
 
     <!-- Repository -->
     <import resource="classpath:context/repository/jpa-repository.xml" />
