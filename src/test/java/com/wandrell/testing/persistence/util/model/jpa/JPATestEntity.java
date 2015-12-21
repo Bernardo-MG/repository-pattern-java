@@ -30,6 +30,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.wandrell.testing.persistence.util.model.TestEntity;
 
@@ -47,6 +48,7 @@ public final class JPATestEntity implements TestEntity {
     /**
      * Serialization ID.
      */
+    @Transient
     private static final long serialVersionUID = 1328776989450853491L;
     /**
      * Entity's ID.
