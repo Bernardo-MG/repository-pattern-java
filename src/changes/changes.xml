@@ -67,7 +67,11 @@
                 POM.
             </action>
         </release>
-        <release version="0.1.9" date="2015-12-8" description="Updates">
+        <release version="0.1.9" date="2015-12-8" description="Prepared relocation.">
+            <action dev="bmg" type="update">
+                Prepared relocation, setting the id to
+                repository-pattern.
+            </action>
             <action dev="bmg" type="fix">
                 Set the JavaEE API to the provided
                 scope.
@@ -75,9 +79,6 @@
             <action dev="bmg" type="fix">
                 Set the Spring dependencies to the
                 optional scope.
-            </action>
-            <action dev="bmg" type="update">
-                Updated dependencies.
             </action>
             <action dev="bmg" type="add">
                 Included tests for several databases.
