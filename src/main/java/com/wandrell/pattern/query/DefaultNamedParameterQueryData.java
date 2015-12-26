@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.pattern.repository.query;
+package com.wandrell.pattern.query;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -31,25 +31,28 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Default implementation of {@link QueryData}.
+ * Default implementation of {@link NamedParameterQueryData}.
  * <p>
- * This is an immutable class, which will just store the data to be used in a
- * query, not allowing it to be edited.
+ * This is a partially immutable class, as the base query used to build the
+ * final query can't be edited, but parameters may be modified.
  * 
  * @author Bernardo Martínez Garrido
  */
-public final class DefaultQueryData implements QueryData {
+public final class DefaultNamedParameterQueryData
+        implements NamedParameterQueryData {
 
     /**
      * Parameters for the query.
      * <p>
-     * These will be set into the query string inside the
-     * {@code com.wandrell.pattern.repository.Repository Repository}, adapting
-     * it to the API being used.
+     * These are the parameters for a named query, and will be used to replace
+     * placeholders on the query string when building the final string.
      */
     private final Map<String, Object> params;
     /**
-     * The string for the query.
+     * The base query.
+     * <p>
+     * If there is any parameter, these will be applied to this string to build
+     * the final query.
      */
     private final String              queryStr;
 
@@ -59,22 +62,23 @@ public final class DefaultQueryData implements QueryData {
      * @param query
      *            the query string
      */
-    public DefaultQueryData(final String query) {
+    public DefaultNamedParameterQueryData(final String query) {
         this(query, new LinkedHashMap<String, Object>());
     }
 
     /**
-     * Constructs a {@code DefaultQuery} with the specified query's data.
+     * Constructs a {@code DefaultQuery} with the specified query and
+     * parameters.
      * <p>
-     * Parameters are pairs of keys on the query and the object which will be
-     * used to substitute them.
+     * The parameters are the parameters for a named query, and will be used to
+     * replace placeholders on the query string when building the final string.
      * 
      * @param query
      *            the query string
      * @param parameters
      *            the query's parameters
      */
-    public DefaultQueryData(final String query,
+    public DefaultNamedParameterQueryData(final String query,
             final Map<String, Object> parameters) {
         super();
 

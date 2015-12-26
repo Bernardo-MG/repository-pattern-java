@@ -22,36 +22,31 @@
  * SOFTWARE.
  */
 
-package com.wandrell.pattern.repository.query;
+package com.wandrell.pattern.query;
 
 import java.util.Map;
 
 /**
- * Interface for filtering a
- * {@link com.wandrell.pattern.repository.FilteredRepository FilteredRepository}
- * when queries are required.
+ * Interface for storing the data required to build a query with named
+ * parameters. The query which can be built from this is meant to be something
+ * similar to a SQL query, which will contain the body of said query and a set
+ * of parameters.
  * <p>
- * Usually this will be a {@code FilteredRepository} taking data from an SQL
- * database.
+ * The parameters are the parameters for a named query, and will be used to
+ * replace placeholders on the query string when building the final string.
  * <p>
- * The query and it's parameters are separated. That way the actual query to be
- * used will be built inside the {@code FilteredRepository}, using whatever API
- * or implementation it requires.
- * <p>
- * Parameters will be used to substitute codes on the query string. Each key
- * should match a code on the string, and the value for that key will be used to
- * create the string which will take the code's place.
+ * Classes implementing this interface are not expected to build the final
+ * query, just to keep the data for building it wherever it may be required.
  * 
  * @author Bernardo Martínez Garrido
- * @see com.wandrell.pattern.repository.Repository Repository
  */
-public interface QueryData {
+public interface NamedParameterQueryData {
 
     /**
      * Adds a parameter.
      * <p>
      * If a parameter with the specified key already exists the new one will
-     * take it's place.
+     * take its place.
      * 
      * @param key
      *            key for the parameter
@@ -64,7 +59,7 @@ public interface QueryData {
      * Adds a collection of parameters.
      * <p>
      * If any parameter with one of the specified keys already exists the new
-     * one will take it's place.
+     * one will take its place.
      * 
      * @param parameters
      *            {@code Map} with all the parameter pairs
@@ -74,17 +69,20 @@ public interface QueryData {
     /**
      * The parameters to be applied to the query.
      * <p>
-     * The parameters are a collection of pairs, where the key is a code in the
-     * query, and the value the object which will take that code's place.
+     * This is a collection of named parameters, where the names are not allowed
+     * to be repeated.
      * 
      * @return the query's parameters
      */
     public Map<String, Object> getParameters();
 
     /**
-     * The query for creating a subset of the {@code Repository} entities.
+     * The base query.
+     * <p>
+     * If there are no parameters this should be an useable query. Otherwise the
+     * parameters should be applied when building the final query.
      * 
-     * @return the query for acquiring the entities subset
+     * @return the base query for building the final query
      */
     public String getQuery();
 

@@ -33,9 +33,9 @@ import org.springframework.test.context.testng.AbstractTransactionalTestNGSpring
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.wandrell.pattern.query.DefaultNamedParameterQueryData;
+import com.wandrell.pattern.query.NamedParameterQueryData;
 import com.wandrell.pattern.repository.FilteredRepository;
-import com.wandrell.pattern.repository.query.DefaultQueryData;
-import com.wandrell.pattern.repository.query.QueryData;
 import com.wandrell.testing.persistence.util.model.TestEntity;
 
 /**
@@ -62,12 +62,12 @@ public abstract class AbstractITQuery
      * The repository being tested.
      */
     @Autowired
-    private FilteredRepository<TestEntity, QueryData> repository;
+    private FilteredRepository<TestEntity, NamedParameterQueryData> repository;
     /**
      * Query for acquiring an entity by it's id.
      */
     @Value("${query.byId}")
-    private String                                    selectByIdQuery;
+    private String                                                  selectByIdQuery;
 
     /**
      * Default constructor.
@@ -89,7 +89,8 @@ public abstract class AbstractITQuery
      */
     @Test
     public final void testGetEntity_Existing() {
-        final QueryData query;                // Query for the entity
+        final NamedParameterQueryData query;                // Query for the
+                                                            // entity
         final Map<String, Object> parameters; // Query params
         final Integer id;                     // Entity ID
         final TestEntity entity;              // Tested entity
@@ -100,7 +101,7 @@ public abstract class AbstractITQuery
         // Acquires the entity
         parameters = new LinkedHashMap<>();
         parameters.put("id", id);
-        query = new DefaultQueryData(selectByIdQuery, parameters);
+        query = new DefaultNamedParameterQueryData(selectByIdQuery, parameters);
         entity = getRepository().getEntity(query);
 
         // The entity's id is the correct one
@@ -112,7 +113,8 @@ public abstract class AbstractITQuery
      */
     @Test
     public final void testGetEntity_NotExisting() {
-        final QueryData query;                // Query for the entity
+        final NamedParameterQueryData query;                // Query for the
+                                                            // entity
         final Map<String, Object> parameters; // Query params
         final Integer id;                     // Invalid entity ID
         final TestEntity entity;              // Tested entity
@@ -123,7 +125,7 @@ public abstract class AbstractITQuery
         // Tries to acquire the entity
         parameters = new LinkedHashMap<>();
         parameters.put("id", id);
-        query = new DefaultQueryData(selectByIdQuery, parameters);
+        query = new DefaultNamedParameterQueryData(selectByIdQuery, parameters);
         entity = getRepository().getEntity(query);
 
         // The entity is null
@@ -135,7 +137,8 @@ public abstract class AbstractITQuery
      *
      * @return the repository being tested.
      */
-    protected final FilteredRepository<TestEntity, QueryData> getRepository() {
+    protected final FilteredRepository<TestEntity, NamedParameterQueryData>
+            getRepository() {
         return repository;
     }
 

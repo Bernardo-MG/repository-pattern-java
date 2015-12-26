@@ -33,9 +33,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
+import com.wandrell.pattern.query.NamedParameterQueryData;
 import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.entity.PersistenceEntity;
-import com.wandrell.pattern.repository.query.QueryData;
 
 /**
  * {@code FilteredRepository} for working with basic JPA classes.
@@ -47,25 +47,24 @@ import com.wandrell.pattern.repository.query.QueryData;
  * Where the {@code :id} placeholder will be swapped for an {@code id}
  * parameter.
  * <p>
- * For these queries a {@code QueryData} object, which comes from the
- * <a href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
- * library</a>, will be received by the repository. This will contain both the
- * query to be used and the parameters to apply.
+ * For these queries a {@code NamedParameterQueryData} object will be received
+ * by the repository. This will contain both the query to be used and the
+ * parameters to apply.
  * <p>
  * When using the {@link #add(PersistenceEntity) add} and the
  * {@link #update(PersistenceEntity) update} methods it should be noted that
- * both will work the same. If the received entity lacks an identifier said
+ * both will work the same way. If the received entity lacks an identifier said
  * entity will be added into the database, otherwise the entity will be updated
  * in the data source.
  *
  * @author Bernardo Martínez Garrido
  * @param <V>
  *            the type stored on the repository
- * @see QueryData
+ * @see NamedParameterQueryData
  * @see PersistenceEntity
  */
 public final class JPARepository<V extends PersistenceEntity>
-        implements FilteredRepository<V, QueryData> {
+        implements FilteredRepository<V, NamedParameterQueryData> {
 
     /**
      * Entity manager in charge of handling the persistence process.
@@ -168,7 +167,8 @@ public final class JPARepository<V extends PersistenceEntity>
      */
     @SuppressWarnings("unchecked")
     @Override
-    public final Collection<V> getCollection(final QueryData query) {
+    public final Collection<V>
+            getCollection(final NamedParameterQueryData query) {
 
         checkNotNull(query, "Received a null pointer as the query");
 
@@ -188,7 +188,7 @@ public final class JPARepository<V extends PersistenceEntity>
      */
     @SuppressWarnings("unchecked")
     @Override
-    public final V getEntity(final QueryData query) {
+    public final V getEntity(final NamedParameterQueryData query) {
         final Query builtQuery; // Query created from the query data
         V entity;               // Entity acquired from the query
 
@@ -251,7 +251,7 @@ public final class JPARepository<V extends PersistenceEntity>
      *            the base query
      * @return a {@code Query} created from the received {@code QueryData}
      */
-    private final Query buildQuery(final QueryData query) {
+    private final Query buildQuery(final NamedParameterQueryData query) {
         final Query builtQuery; // Query created from the query data
 
         // Builds the base query

@@ -40,9 +40,9 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsertOperations;
 
+import com.wandrell.pattern.query.NamedParameterQueryData;
 import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.entity.PersistenceEntity;
-import com.wandrell.pattern.repository.query.QueryData;
 
 /**
  * {@code FilteredRepository} for working with Spring's JDBC framework and Java
@@ -56,10 +56,9 @@ import com.wandrell.pattern.repository.query.QueryData;
  * parameter. The use of named parameters instead of the {@code ?} placeholder
  * is thanks to Spring's classes.
  * <p>
- * For these queries a {@code QueryData} object, which comes from the
- * <a href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
- * library</a>, will be received by the repository. This will contain both the
- * query to be used and the parameters to apply.
+ * For these queries a {@code NamedParameterQueryData} object will be received
+ * by the repository. This will contain both the query to be used and the
+ * parameters to apply.
  * <p>
  * When using the {@link #add(PersistenceEntity) add} and the
  * {@link #update(PersistenceEntity) update} methods it should be noted that
@@ -70,11 +69,11 @@ import com.wandrell.pattern.repository.query.QueryData;
  * @author Bernardo Martínez Garrido
  * @param <V>
  *            the type stored on the repository
- * @see QueryData
+ * @see NamedParameterQueryData
  * @see PersistenceEntity
  */
 public final class SpringJDBCRepository<V extends PersistenceEntity>
-        implements FilteredRepository<V, QueryData> {
+        implements FilteredRepository<V, NamedParameterQueryData> {
 
     /**
      * The class of the objects to be returned by the repository.
@@ -316,7 +315,8 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
      * @return the queried subset of entities
      */
     @Override
-    public final Collection<V> getCollection(final QueryData query) {
+    public final Collection<V>
+            getCollection(final NamedParameterQueryData query) {
 
         checkNotNull(query, "Received a null pointer as the query");
 
@@ -335,7 +335,7 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
      * @return the queried entity
      */
     @Override
-    public final V getEntity(final QueryData query) {
+    public final V getEntity(final NamedParameterQueryData query) {
         V entity; // Entity acquired from the query
 
         checkNotNull(query, "Received a null pointer as the query");

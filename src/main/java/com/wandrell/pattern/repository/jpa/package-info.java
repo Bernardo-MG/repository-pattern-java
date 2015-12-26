@@ -22,6 +22,13 @@
  * SOFTWARE.
  */
 /**
- * Provides JPA-bases implementations of the {@code Repository} interface.
+ * Provides JPA-based implementations of the {@code Repository} interface.
+ * <p>
+ * These are meant to be used along a framework such as Hibernate or
+ * Eclipselink.
+ * <h2>Implementations</h2>
+ * <p>
+ * Only the {@link com.wandrell.pattern.repository.jpa.JPARepository
+ * JPARepository} is offered.
  */
 package com.wandrell.pattern.repository.jpa;

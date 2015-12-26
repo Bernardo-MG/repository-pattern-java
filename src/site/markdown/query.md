@@ -8,6 +8,6 @@ It is meant to be used on repositories which depend on a database, usually an SQ
 
 To ease it's use a basic implementation, [DefaultQueryData][default_query_data], is included.
 
-[query_data]: ./apidocs/com/wandrell/pattern/repository/query/QueryData.html
+[query_data]: ./apidocs/com/wandrell/pattern/query/QueryData.html
+[default_query_data]: ./apidocs/com/wandrell/pattern/query/DefaultQueryData.html
 [query_data-class_tree]: ./images/query_class_tree.png
-[default_query_data]: ./apidocs/com/wandrell/pattern/repository/query/DefaultQueryData.html

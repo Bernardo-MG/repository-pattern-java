@@ -24,9 +24,9 @@
 /**
  * Provides interfaces for entities to be used on the repositories.
  * <p>
- * Only the {@link com.wandrell.pattern.repository.entity.PersistenceEntity
- * PersistenceEntity} interface is offered. This serves as a root for the
- * entities which the repositories contained at the
- * {@link com.wandrell.pattern.repository repository} package will use.
+ * The {@link com.wandrell.pattern.repository.entity.PersistenceEntity
+ * PersistenceEntity} interface serves as a root for the entities which the
+ * repositories contained at the {@link com.wandrell.pattern.repository
+ * repository} package will use.
  */
 package com.wandrell.pattern.repository.entity;

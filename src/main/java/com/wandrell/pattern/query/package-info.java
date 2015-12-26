@@ -23,17 +23,17 @@
  */
 /**
  * Provides interfaces and basic implementations for a query class, meant to
- * ease creating filters for the
- * {@link com.wandrell.pattern.repository.FilteredRepository FilteredRepository}
- * .
+ * ease sending and creating data queries.
+ * <p>
+ * These queries are meant to be something similar to a SQL query.
  * <h2>Interfaces</h2> The
- * {@link com.wandrell.pattern.repository.query.QueryData QueryData} interface
- * is the root for these queries, and helps to store data for generating queries
- * similar to the SQL ones.
+ * {@link com.wandrell.pattern.query.NamedParameterQueryData
+ * NamedParameterQueryData} interface gives the methods required for storing the
+ * data needed to build a named query.
  * <h2>Implementations</h2>
  * <p>
- * There is a default implementation of {@code QueryData},
- * {@link com.wandrell.pattern.repository.query.DefaultQueryData
- * DefaultQueryData}, which just serves to ease using said interface.
+ * {@link com.wandrell.pattern.query.DefaultNamedParameterQueryData
+ * DefaultNamedParameterQueryData} is the default implementation of
+ * {@code NamedParameterQueryData}.
  */
-package com.wandrell.pattern.repository.query;
+package com.wandrell.pattern.query;

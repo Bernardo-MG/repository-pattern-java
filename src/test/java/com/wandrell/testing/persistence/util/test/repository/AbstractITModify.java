@@ -37,9 +37,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.wandrell.pattern.query.DefaultNamedParameterQueryData;
+import com.wandrell.pattern.query.NamedParameterQueryData;
 import com.wandrell.pattern.repository.FilteredRepository;
-import com.wandrell.pattern.repository.query.DefaultQueryData;
-import com.wandrell.pattern.repository.query.QueryData;
 import com.wandrell.testing.persistence.util.model.TestEntity;
 
 /**
@@ -66,28 +66,28 @@ public abstract class AbstractITModify
      * The entity manager for the test context.
      */
     @Autowired(required = false)
-    private EntityManager                             emanager;
+    private EntityManager                                           emanager;
     /**
      * Initial number of entities in the repository.
      */
     @Value("${entities.total}")
-    private Integer                                   entitiesCount;
+    private Integer                                                 entitiesCount;
     /**
      * Entity for the addition test.
      */
     @Autowired
     @Qualifier("newEntity")
-    private TestEntity                                newEntity;
+    private TestEntity                                              newEntity;
     /**
      * The repository being tested.
      */
     @Autowired
-    private FilteredRepository<TestEntity, QueryData> repository;
+    private FilteredRepository<TestEntity, NamedParameterQueryData> repository;
     /**
      * Query for acquiring an entity by it's id.
      */
     @Value("${query.byId}")
-    private String                                    selectByIdQuery;
+    private String                                                  selectByIdQuery;
 
     /**
      * Default constructor.
@@ -129,12 +129,14 @@ public abstract class AbstractITModify
     public final void testRemove() {
         final TestEntity entity;              // Entity being tested
         final Map<String, Object> parameters; // Params for the query
-        final QueryData query;                // Query for retrieving the entity
+        final NamedParameterQueryData query;                // Query for
+                                                            // retrieving the
+                                                            // entity
 
         // Acquires the entity
         parameters = new LinkedHashMap<>();
         parameters.put("id", 1);
-        query = new DefaultQueryData(selectByIdQuery, parameters);
+        query = new DefaultNamedParameterQueryData(selectByIdQuery, parameters);
         entity = getRepository().getEntity(query);
 
         // Removes the entity
@@ -154,14 +156,16 @@ public abstract class AbstractITModify
     @Test
     public final void testUpdate() {
         final Map<String, Object> parameters; // Params for the query
-        final QueryData query;                // Query for retrieving the entity
+        final NamedParameterQueryData query;                // Query for
+                                                            // retrieving the
+                                                            // entity
         final String nameChange;              // Name set on the entity
         TestEntity entity;                    // The entity being tested
 
         // Acquires the entity
         parameters = new LinkedHashMap<>();
         parameters.put("id", 1);
-        query = new DefaultQueryData(selectByIdQuery, parameters);
+        query = new DefaultNamedParameterQueryData(selectByIdQuery, parameters);
         entity = getRepository().getEntity(query);
 
         // Changes the entity name
@@ -181,7 +185,8 @@ public abstract class AbstractITModify
      *
      * @return the repository being tested.
      */
-    protected final FilteredRepository<TestEntity, QueryData> getRepository() {
+    protected final FilteredRepository<TestEntity, NamedParameterQueryData>
+            getRepository() {
         return repository;
     }
 

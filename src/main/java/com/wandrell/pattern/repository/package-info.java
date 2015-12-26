@@ -38,23 +38,12 @@
  * <p>
  * But the {@link com.wandrell.pattern.repository.FilteredRepository
  * FilteredRepository} additionally allows acquiring just a subset of data from
- * the repository, with the use of the
- * {@link com.wandrell.pattern.repository.FilteredRepository#getCollection(Object)
- * getCollection} and the
- * {@link com.wandrell.pattern.repository.FilteredRepository#getEntity(Object)
- * getEntity} methods. Both of them require a filter class, the difference being
- * that {@code getCollection} returns a collection of entities, while
- * {@code getEntity} returns just a single entity.
+ * the repository, with the use of a filter class.
  * <h2>Implementations</h2>
  * <p>
  * A basic implementation of the {@code FilteredRepository},
  * {@link com.wandrell.pattern.repository.CollectionRepository
- * CollectionRepository}, offers a simple and fast way of creating the simplest
- * possible repository.
- * <p>
- * It stores entities inside a {@code Collection}, and filters them through
- * Guava classes, specifically it requires a <a href=
- * "http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/base/Predicate.html"
- * >Predicate</a> which the entities to be returned should validate.
+ * CollectionRepository}, serves as a working stub, allowing to use a repository
+ * witout setting up any persistence system.
  */
 package com.wandrell.pattern.repository;

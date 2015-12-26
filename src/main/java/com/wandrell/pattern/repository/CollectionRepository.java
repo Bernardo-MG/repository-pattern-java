@@ -36,14 +36,18 @@ import com.google.common.base.Predicate;
  * {@link com.wandrell.pattern.repository.FilteredRepository FilteredRepository}
  * .
  * <p>
- * This is meant to be the most basic form of {@code Repository}, used when
- * there is no need of anything fancy such as persistence.
+ * This is meant to be the most basic form of {@code Repository}, meant to be
+ * used as a stub. It works like any {@code Repository} is expected to work, but
+ * lacks any optimization, and all the entities will be kept in memory.
+ * <p>
+ * For this reason it is not recommended using it for any other reason than
+ * testing or stubbing.
  * <p>
  * The filters required by the {@code FilteredRepository} interfaces are
  * instances of the Guava <a href=
  * "http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/base/Predicate.html">
- * Predicate</a> class. All the entities validating the predicate being used as
- * filter will be returned.
+ * Predicate</a> class. When using the query methods all the entities validating
+ * the predicate received as filter will be returned.
  * 
  * @author Bernardo Martínez Garrido
  * @param <V>
@@ -54,6 +58,9 @@ public final class CollectionRepository<V>
 
     /**
      * The entities stored in the repository.
+     * <p>
+     * This is just a collection kept in memory. There is no optimization
+     * applied by default.
      */
     private final Collection<V> data;
 
@@ -68,9 +75,13 @@ public final class CollectionRepository<V>
     /**
      * Constructs a {@code CollectionRepository} with the specified
      * {@code Collection}.
+     * <p>
+     * The repository will use the received {@code Collection} to keep all the
+     * entities. If this {@code Collection} already contains any entity these
+     * will be kept.
      * 
      * @param collection
-     *            the data to store
+     *            the {@code Collection} to use for storing the entities
      */
     public CollectionRepository(final Collection<V> collection) {
         super();
@@ -82,6 +93,8 @@ public final class CollectionRepository<V>
 
     @Override
     public final void add(final V entity) {
+        checkNotNull(entity, "Received a null pointer as entity");
+
         getData().add(entity);
     }
 
@@ -93,6 +106,8 @@ public final class CollectionRepository<V>
     @Override
     public final Collection<V> getCollection(final Predicate<V> filter) {
         final Collection<V> result;
+
+        checkNotNull(filter, "Received a null pointer as filter");
 
         result = new LinkedList<V>();
         for (final V entity : getData()) {
@@ -108,6 +123,8 @@ public final class CollectionRepository<V>
     public final V getEntity(final Predicate<V> filter) {
         final Collection<V> entities;
         final V entity;
+
+        checkNotNull(filter, "Received a null pointer as filter");
 
         entities = getCollection(filter);
 
@@ -127,6 +144,8 @@ public final class CollectionRepository<V>
 
     @Override
     public final void update(final V entity) {
+        checkNotNull(entity, "Received a null pointer as entity");
+
         if (getData().contains(entity)) {
             remove(entity);
             add(entity);
