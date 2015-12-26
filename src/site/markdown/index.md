@@ -16,11 +16,13 @@ For this reason the repositories used may differ a bit from what other people ex
 
 Most of the classes on this library are repositories:
 
-- [Repository for the basic JPA API][repositories].
-- [Repository for Spring's JDBC API][repositories].
+- Basic [Repository pattern][repository] classes.
+- [Repository for the basic JPA API][repository_impl].
+- [Repository for Spring's JDBC API][repository_impl].
 
 But some are helper classes:
 
+- [Query][query] interface for filtering.
 - Root [interface for persistent entities][persistence_entity].
 
 And there are a few examples for setting up the repositories and various persistence configs:
@@ -29,4 +31,6 @@ And there are a few examples for setting up the repositories and various persist
 
 [example_configs]: ./configs.html
 [persistence_entity]: ./persistence_entity.html
-[repositories]: ./repositories.html
+[repository]: ./repository.html
+[repository_impl]: ./repository_impl.html
+[query]: ./query.html

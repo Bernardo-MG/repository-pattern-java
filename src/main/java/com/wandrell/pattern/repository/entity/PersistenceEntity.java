@@ -22,35 +22,38 @@
  * SOFTWARE.
  */
 
-package com.wandrell.testing.persistence.util.model;
-
-import java.io.Serializable;
-
-import com.wandrell.pattern.repository.entity.PersistenceEntity;
+package com.wandrell.pattern.repository.entity;
 
 /**
- * Interface representing an entity to be used on the tests.
+ * Interface for a persistence entity. Gives methods to query and modify the
+ * entity's ID.
  * <p>
- * It just implements {@link PersistenceEntity}, adding a name field as
- * additional data for the tests.
+ * This is meant to be used with the repositories included on this library.
+ * <p>
+ * The ID will be the value contained on the key column for the row where the
+ * entity's data is contained.
  * 
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Martínez Garrido.
+ * @see com.wandrell.pattern.repository repository package
  */
-public interface TestEntity extends PersistenceEntity, Serializable {
+public interface PersistenceEntity {
 
     /**
-     * Returns the name of the entity
+     * Returns the ID assigned to this entity.
+     * <p>
+     * If no ID has been assigned yet, then the value will be {@code null} or
+     * lower than zero.
      * 
-     * @return the entity's name
+     * @return the entity's ID
      */
-    public String getName();
+    public Integer getId();
 
     /**
-     * Changes the name of the entity
+     * Sets the ID assigned to this entity.
      * 
-     * @param name
-     *            the name to set on the entity
+     * @param identifier
+     *            the ID for the entity
      */
-    public void setName(final String name);
+    public void setId(final Integer identifier);
 
 }

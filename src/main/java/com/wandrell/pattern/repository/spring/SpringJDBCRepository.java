@@ -40,9 +40,9 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsertOperations;
 
-import com.wandrell.pattern.PersistenceEntity;
 import com.wandrell.pattern.repository.FilteredRepository;
-import com.wandrell.pattern.repository.QueryData;
+import com.wandrell.pattern.repository.entity.PersistenceEntity;
+import com.wandrell.pattern.repository.query.QueryData;
 
 /**
  * {@code FilteredRepository} for working with Spring's JDBC framework and Java

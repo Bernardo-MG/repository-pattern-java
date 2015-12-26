@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.pattern.repository;
+package com.wandrell.pattern.repository.query;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

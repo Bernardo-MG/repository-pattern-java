@@ -37,9 +37,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.FilteredRepository;
-import com.wandrell.pattern.repository.QueryData;
+import com.wandrell.pattern.repository.query.DefaultQueryData;
+import com.wandrell.pattern.repository.query.QueryData;
 import com.wandrell.testing.persistence.util.model.TestEntity;
 
 /**

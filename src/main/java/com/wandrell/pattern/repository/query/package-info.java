@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  * <p>
- * Copyright (c) 2015 the original author or authors.
+ * Copyright (c) 2014-2015 the original author or authors.
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,15 +22,18 @@
  * SOFTWARE.
  */
 /**
- * Provides various interfaces and classes for using persistence APIs.
+ * Provides interfaces and basic implementations for a query class, meant to
+ * ease creating filters for the
+ * {@link com.wandrell.pattern.repository.FilteredRepository FilteredRepository}
+ * .
+ * <h2>Interfaces</h2> The
+ * {@link com.wandrell.pattern.repository.query.QueryData QueryData} interface
+ * is the root for these queries, and helps to store data for generating queries
+ * similar to the SQL ones.
+ * <h2>Implementations</h2>
  * <p>
- * At the root level only the {@link com.wandrell.pattern.PersistenceEntity
- * PersistenceEntity} interface is offered. This serves as a root for the
- * entities which the repositories contained at the
- * {@link com.wandrell.pattern.repository repository} package will use.
- * <p>
- * These repositories implement the {@code Repository} interface, from the
- * <a href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
- * library</a>, adapting it for common persistence systems.
+ * There is a default implementation of {@code QueryData},
+ * {@link com.wandrell.pattern.repository.query.DefaultQueryData
+ * DefaultQueryData}, which just serves to ease using said interface.
  */
-package com.wandrell.pattern;
+package com.wandrell.pattern.repository.query;

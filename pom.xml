@@ -217,10 +217,10 @@
         <log4j.version>2.4.1</log4j.version>
         <mysql.version>5.1.37</mysql.version>
         <postgresql.version>9.4-1206-jdbc4</postgresql.version>
+        <slf4j.version>1.7.13</slf4j.version>
         <spring.version>4.2.2.RELEASE</spring.version>
         <sqlite.version>3.8.11.2</sqlite.version>
         <testng.version>6.9.8</testng.version>
-        <wandrell.patterns.version>0.5.0</wandrell.patterns.version>
         <!-- Plugins versions -->
         <plugin.changes.version>2.11</plugin.changes.version>
         <plugin.site.velocity.version>1.7</plugin.site.velocity.version>
@@ -242,10 +242,10 @@
             <version>${guava.version}</version>
         </dependency>
         <dependency>
-            <!-- Java Patterns -->
-            <groupId>com.wandrell</groupId>
-            <artifactId>java-patterns</artifactId>
-            <version>${wandrell.patterns.version}</version>
+            <!-- SLF4J API -->
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
         <!-- ============================================== -->
         <!-- =========== OPTIONAL DEPENDENCIES ============ -->
