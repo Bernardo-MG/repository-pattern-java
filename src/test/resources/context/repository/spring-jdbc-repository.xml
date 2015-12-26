@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Data source -->
+    <bean id="repository" class="${repository.class}">
+        <constructor-arg value="${repository.entity.class}" />
+        <constructor-arg ref="jdbcTemplate" />
+        <constructor-arg value="${query.update}" />
+        <constructor-arg value="${query.delete}" />
+        <constructor-arg value="${repository.table}" />
+        <constructor-arg value="${repository.key}" />
+    </bean>
+
+</beans>

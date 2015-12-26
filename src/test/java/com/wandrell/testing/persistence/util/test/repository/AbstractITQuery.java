@@ -21,26 +21,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
 package com.wandrell.testing.persistence.util.test.repository;
 
-import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.wandrell.pattern.parser.xml.NotValidatedXMLFileParser;
 import com.wandrell.pattern.repository.DefaultQueryData;
+import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
-import com.wandrell.testing.persistence.util.model.JPATestEntity;
 import com.wandrell.testing.persistence.util.model.TestEntity;
-import com.wandrell.testing.persistence.util.model.TestEntityRepository;
 
 /**
- * Abstract integration tests for persistence repositories checking query
+ * Abstract integration tests for a {@link FilteredRepository} testing query
  * methods.
  * <p>
  * Checks the following cases:
@@ -51,34 +50,30 @@ import com.wandrell.testing.persistence.util.model.TestEntityRepository;
  * </ol>
  * <p>
  * This is meant to be used along a Spring context, which will set up the
- * repository and all it's requirements.
- * 
+ * repository and all of it's requirements.
+ *
  * @author Bernardo Martínez Garrido
- * @see NotValidatedXMLFileParser
+ * @see FilteredRepository
  */
-public abstract class AbstractITQuery
-        extends AbstractTransactionalTestNGSpringContextTests {
+public abstract class AbstractITQuery extends
+        AbstractTransactionalTestNGSpringContextTests {
 
     /**
      * The repository being tested.
      */
     @Autowired
-    private TestEntityRepository repository;
+    private FilteredRepository<TestEntity, QueryData> repository;
     /**
      * Query for acquiring an entity by it's id.
      */
-    private final String         selectByIdQuery;
+    @Value("${query.byId}")
+    private String selectByIdQuery;
 
     /**
-     * Constructs an {@code AbstractITModify} with the specified query.
-     * 
-     * @param selectByIdQuery
-     *            a query for acquiring an entity by it's id
+     * Default constructor.
      */
-    public AbstractITQuery(final String selectByIdQuery) {
+    public AbstractITQuery() {
         super();
-
-        this.selectByIdQuery = selectByIdQuery;
     }
 
     /**
@@ -86,11 +81,7 @@ public abstract class AbstractITQuery
      */
     @Test
     public final void testGetAll() {
-        final Collection<? extends TestEntity> entities; // The entities
-
-        entities = repository.getAll();
-
-        Assert.assertEquals(entities.size(), 4);
+        Assert.assertEquals(repository.getAll().size(), 4);
     }
 
     /**
@@ -101,8 +92,9 @@ public abstract class AbstractITQuery
         final QueryData query;                // Query for the entity
         final Map<String, Object> parameters; // Query params
         final Integer id;                     // Entity ID
-        final JPATestEntity entity;           // Tested entity
+        final TestEntity entity;              // Tested entity
 
+        // Entity's id
         id = 1;
 
         // Acquires the entity
@@ -111,6 +103,7 @@ public abstract class AbstractITQuery
         query = new DefaultQueryData(selectByIdQuery, parameters);
         entity = getRepository().getEntity(query);
 
+        // The entity's id is the correct one
         Assert.assertEquals(entity.getId(), id);
     }
 
@@ -121,9 +114,10 @@ public abstract class AbstractITQuery
     public final void testGetEntity_NotExisting() {
         final QueryData query;                // Query for the entity
         final Map<String, Object> parameters; // Query params
-        final Integer id;                     // Entity ID
-        final JPATestEntity entity;           // Tested entity
+        final Integer id;                     // Invalid entity ID
+        final TestEntity entity;              // Tested entity
 
+        // Invalid entity id
         id = 123;
 
         // Tries to acquire the entity
@@ -132,15 +126,16 @@ public abstract class AbstractITQuery
         query = new DefaultQueryData(selectByIdQuery, parameters);
         entity = getRepository().getEntity(query);
 
+        // The entity is null
         Assert.assertEquals(entity, null);
     }
 
     /**
      * Returns the repository being tested.
-     * 
+     *
      * @return the repository being tested.
      */
-    protected final TestEntityRepository getRepository() {
+    protected final FilteredRepository<TestEntity, QueryData> getRepository() {
         return repository;
     }
 

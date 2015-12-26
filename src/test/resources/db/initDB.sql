@@ -1,6 +1,0 @@
-DROP TABLE test_entities IF EXISTS;
-
-CREATE TABLE test_entities (
-	id		INTEGER IDENTITY PRIMARY KEY,
-	name	VARCHAR(30)
-);

@@ -21,128 +21,131 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.wandrell.testing.persistence.util.test.repository;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+package com.wandrell.testing.persistence.util.test.repository;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import javax.persistence.EntityManager;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
+import org.springframework.transaction.annotation.Transactional;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.wandrell.pattern.parser.xml.NotValidatedXMLFileParser;
 import com.wandrell.pattern.repository.DefaultQueryData;
+import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
-import com.wandrell.testing.persistence.util.model.JPATestEntity;
-import com.wandrell.testing.persistence.util.model.TestEntityRepository;
+import com.wandrell.testing.persistence.util.model.TestEntity;
 
 /**
- * Abstract integration tests for persistence repositories checking modifier
+ * Abstract integration tests for a {@link FilteredRepository} testing modifier
  * methods.
  * <p>
  * Checks the following cases:
  * <ol>
- * <li>Adding and then removing an entity changes the contents of the
- * repository.</li>
- * <li>Removing an entity not in the repository does nothing.</li>
+ * <li>Adding an entity changes the contents of the repository.</li>
+ * <li>Removing an entity changes the contents of the repository.</li>
  * <li>Updating an entity changes it.</li>
  * </ol>
  * <p>
  * This is meant to be used along a Spring context, which will set up the
- * repository and all it's requirements.
- * 
+ * repository and all of it's requirements.
+ *
  * @author Bernardo Martínez Garrido
- * @see NotValidatedXMLFileParser
+ * @see FilteredRepository
  */
-public abstract class AbstractITModify
-        extends AbstractTransactionalTestNGSpringContextTests {
+public abstract class AbstractITModify extends
+        AbstractTransactionalTestNGSpringContextTests {
 
+    /**
+     * Initial number of entities in the repository.
+     */
+    @Value("${entities.total}")
+    private Integer entitiesCount;
+    /**
+     * Entity for the addition test.
+     */
+    @Autowired
+    @Qualifier("newEntity")
+    private TestEntity newEntity;
     /**
      * The repository being tested.
      */
     @Autowired
-    private TestEntityRepository repository;
+    private FilteredRepository<TestEntity, QueryData> repository;
     /**
      * Query for acquiring an entity by it's id.
      */
-    private final String         selectByIdQuery;
+    @Value("${query.byId}")
+    private String selectByIdQuery;
+    /**
+     * The entity manager for the test context.
+     */
+    @Autowired(required = false)
+    private EntityManager emanager;
 
     /**
-     * Constructs an {@code AbstractITModify} with the specified query.
-     * 
-     * @param selectByIdQuery
-     *            a query for acquiring an entity by it's id
+     * Default constructor.
      */
-    public AbstractITModify(final String selectByIdQuery) {
+    public AbstractITModify() {
         super();
-
-        checkNotNull(selectByIdQuery, "Received a null pointer as query");
-
-        this.selectByIdQuery = selectByIdQuery;
     }
 
     /**
-     * Tests that adding and then removing an entity changes the contents of the
-     * repository.
+     * Tests that adding an entity changes the contents of the repository.
      */
     @Test
-    public final void testAdd_Remove() {
-        final JPATestEntity entity;        // Entity being tested
-        final JPATestEntity entityQueried; // Entity taken from the repo
-        final Integer size;                // Total number of entities
-        final Map<String, Object> parameters; // Params for the query
-        final QueryData query;             // Query for retrieving the entity
-
-        // Creates the test entity
-        entity = new JPATestEntity();
-        entity.setName("test_entity");
+    @Transactional
+    public final void testAdd() {
+        // Checks that the id has not been assigned
+        Assert.assertNull(newEntity.getId());
 
         // Adds the entity
-        getRepository().add(entity);
+        getRepository().add(newEntity);
 
-        // Checks the ID set to the entity
-        size = getRepository().getAll().size();
-        Assert.assertEquals(entity.getId(), size);
+        if (emanager != null) {
+            // Flushed to force updating ids
+            emanager.flush();
+        }
+
+        // Checks the entity has been added
+        Assert.assertEquals(getRepository().getAll().size(), entitiesCount + 1);
+
+        // Checks that the id has been assigned
+        Assert.assertNotNull(newEntity.getId());
+        Assert.assertTrue(newEntity.getId() >= 0);
+    }
+
+    /**
+     * Tests that removing an entity changes the contents of the repository.
+     */
+    @Test
+    @Transactional
+    public final void testRemove() {
+        final TestEntity entity;              // Entity being tested
+        final Map<String, Object> parameters; // Params for the query
+        final QueryData query;                // Query for retrieving the entity
+
+        // Acquires the entity
+        parameters = new LinkedHashMap<>();
+        parameters.put("id", 1);
+        query = new DefaultQueryData(selectByIdQuery, parameters);
+        entity = getRepository().getEntity(query);
 
         // Removes the entity
         getRepository().remove(entity);
 
-        // Checks that the entity has been removed
-        Assert.assertEquals(repository.getAll().size(), size - 1);
+        // Checks that the number of entities has decreased
+        Assert.assertEquals(getRepository().getAll().size(), entitiesCount - 1);
 
         // Tries to retrieve the removed entity
-        parameters = new LinkedHashMap<>();
-        parameters.put("id", size);
-        query = new DefaultQueryData(selectByIdQuery, parameters);
-        entityQueried = getRepository().getEntity(query);
-
         // The entity is now null
-        Assert.assertNull(entityQueried);
-    }
-
-    /**
-     * Tests that removing an entity not in the repository does nothing.
-     */
-    @Test
-    public final void testRemove_NotPersisted() {
-        final JPATestEntity entity; // Entity being tested
-        final Integer size;         // Total number of entities
-
-        // Creates the entity
-        entity = new JPATestEntity();
-        entity.setName("test_entity");
-
-        // Retrieves the number of entities
-        size = getRepository().getAll().size();
-
-        // Tries to remove the entity
-        getRepository().remove(entity);
-
-        // Checks the number of entities
-        Assert.assertEquals((Integer) repository.getAll().size(), size);
+        Assert.assertNull(getRepository().getEntity(query));
     }
 
     /**
@@ -151,9 +154,9 @@ public abstract class AbstractITModify
     @Test
     public final void testUpdate() {
         final Map<String, Object> parameters; // Params for the query
-        final QueryData query;    // Query for retrieving the entity
-        final String nameChange;  // Name set on the entity
-        JPATestEntity entity;     // The entity being tested
+        final QueryData query;                // Query for retrieving the entity
+        final String nameChange;              // Name set on the entity
+        TestEntity entity;                    // The entity being tested
 
         // Acquires the entity
         parameters = new LinkedHashMap<>();
@@ -175,10 +178,10 @@ public abstract class AbstractITModify
 
     /**
      * Returns the repository being tested.
-     * 
+     *
      * @return the repository being tested.
      */
-    protected final TestEntityRepository getRepository() {
+    protected final FilteredRepository<TestEntity, QueryData> getRepository() {
         return repository;
     }
 

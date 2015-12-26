@@ -21,6 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
 package com.wandrell.persistence.repository;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -31,174 +32,277 @@ import javax.sql.DataSource;
 
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsertOperations;
 
-import com.wandrell.pattern.repository.DefaultQueryData;
 import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
 import com.wandrell.persistence.PersistenceEntity;
 
 /**
- * Implementation of {@code FilteredRepository} prepared to work with Spring's
- * JDBC API.
+ * {@code FilteredRepository} for working with Spring's JDBC framework and Java
+ * beans.
  * <p>
- * For this reason, it makes use of SQL queries, to which a simple JPA
- * templating mechanism will be applied.
- * <p>
- * For example, a query could be like this:
+ * Entities are acquired with the use of templated SQL queries such as this:
  * <p>
  * {@code SELECT name FROM employees WHERE id = :id}
  * <p>
- * Meaning that the query expects a parameter {@code id}, which will take the
- * place of the {@code :id} placeholder.
+ * Where the {@code :id} placeholder will be swapped for an {@code id}
+ * parameter. The use of named parameters instead of the {@code ?} placeholder
+ * is thanks to Spring's classes.
  * <p>
- * Both the query and the parameters will be received on a {@code QueryData}
- * object, which comes from the
- * <a href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
- * library</a>.
+ * For these queries a {@code QueryData} object, which comes from the <a
+ * href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
+ * library</a>, will be received by the repository. This will contain both the
+ * query to be used and the parameters to apply.
  * <p>
- * A few initial queries are required. These are for updating and deleting
- * entities. These should be created by the user, following a simple pattern.
- * <p>
- * The delete query is simple, it will just require knowing the ID of the
- * entity, so it can be something like this:
- * <p>
- * {@code DELETE FROM employees WHERE id = :id"}
- * <p>
- * The update query requires all the columns which will be updated, and could be
- * something like this:
- * <p>
- * {@code UPDATE employees SET name = :name WHERE id = :id}
- * <p>
- * As note to take into consideration, when using the
- * {@link #add(PersistenceEntity) add} and the {@link #update(PersistenceEntity)
- * update} methods both will work the same. If the received entity lacks a code
- * it will be added into the database, otherwise the stored entity will be
- * updated.
- * 
+ * When using the {@link #add(PersistenceEntity) add} and the
+ * {@link #update(PersistenceEntity) update} methods it should be noted that
+ * both will work the same. If the received entity lacks an identifier said
+ * entity will be added into the database, otherwise the entity will be updated
+ * in the data source.
+ *
  * @author Bernardo Martínez Garrido
  * @param <V>
  *            the type stored on the repository
  * @see QueryData
  * @see PersistenceEntity
  */
-public final class SpringJDBCRepository<V extends PersistenceEntity>
-        implements FilteredRepository<V, QueryData> {
+public final class SpringJDBCRepository<V extends PersistenceEntity> implements
+        FilteredRepository<V, QueryData> {
 
     /**
-     * The class of the objects to be returned.
+     * The class of the objects to be returned by the repository.
+     * <p>
+     * This is used by Spring's classes to transform query results.
      */
-    private final Class<V>                   classType;
+    private final Class<V> classType;
     /**
-     * Query for deleting entities.
+     * SQL query template for deleting entities.
+     * <p>
+     * This is a string template for generating delete SQL queries. For example,
+     * it could be something like:
+     * <p>
+     * {@code DELETE FROM employees WHERE id = :id}
+     * <p>
+     * The use of named parameters instead of the {@code ?} placeholder is
+     * thanks to Spring's classes.
+     * <p>
+     * The template will be used, along a received entity, to build and execute
+     * the actual query.
      */
-    private final String                     deleteQuery;
+    private final String deleteQueryTemplate;
     /**
-     * Query for acquiring all the entities.
+     * Insert operation handler.
+     * <p>
+     * This takes care of inserting entities into the database, and is generated
+     * from the parameters received by the constructor.
      */
-    private final QueryData                  getAllQuery;
+    private final SimpleJdbcInsertOperations insertHandler;
     /**
-     * Query for inserting entities.
+     * Named JDBC operations handler.
+     * <p>
+     * This takes care of the JDBC operations, allowing the use of named
+     * parameters instead of the {@code ?} placeholder.
      */
-    private final SimpleJdbcInsert           insert;
+    private final NamedParameterJdbcOperations jdbcTemplate;
     /**
-     * Template for running the queries.
+     * SQL query for acquiring all the entities.
+     * <p>
+     * It will be generated from the parameters received by the constructor, and
+     * would be something like:
+     * <p>
+     * {@code SELECT * FROM employees}
      */
-    private final NamedParameterJdbcTemplate jdbcTemplate;
+    private final String selectAllQuery;
     /**
-     * Query for updating entities.
+     * SQL query template for updating entities.
+     * <p>
+     * This is a string template for generating update SQL queries. For example,
+     * it could be something like:
+     * <p>
+     * {@code UPDATE table SET column = :col WHERE id = :id}
+     * <p>
+     * The use of named parameters instead of the {@code ?} placeholder is
+     * thanks to Spring's classes.
+     * <p>
+     * The template will be used, along a received entity, to build and execute
+     * the actual query.
      */
-    private final String                     updateQuery;
+    private final String updateQueryTemplate;
 
     /**
-     * Constructs a {@code JPARepository} with the specified data and queries.
+     * Constructs a {@code SpringJDBCRepository} with the specified data and
+     * queries.
      * <p>
-     * It will require a templated query both for updating and deleting an
-     * entity.
+     * It will require templated queries for the update and delete operations.
+     * The parameters for these queries will be acquired automatically from the
+     * entity received for each of the operations.
      * <p>
-     * An additional query, used for acquiring all the entities, will be built
-     * from the received table. And the keys, representing the table's primary
-     * keys, will be used to prepare the insert query for new entities.
-     * 
+     * The recommended delete query just requires knowing the ID of the entity,
+     * so it can be similar to this:
+     * <p>
+     * {@code DELETE FROM employees WHERE id = :id"}
+     * <p>
+     * The update query requires all the columns which will be updated:
+     * <p>
+     * {@code UPDATE employees SET name = :name WHERE id = :id}
+     * <p>
+     * Any additional query which may be required, such as one for acquiring all
+     * the entities, will be built from the received data.
+     *
      * @param type
      *            the class of the objects to be returned
-     * @param dataSource
-     *            JPA source of the data
+     * @param source
+     *            source of the data
      * @param update
-     *            query for updating an entity on the database
+     *            query template for updating an entity on the database
      * @param delete
-     *            query for deleting an entity on the database
+     *            query template for deleting an entity on the database
      * @param table
-     *            table where the repository will execute the queries
+     *            table linked to the repository's entities
      * @param keys
      *            primary keys of the table
      */
-    public SpringJDBCRepository(final Class<V> type,
-            final DataSource dataSource, final String update,
-            final String delete, final String table, final String... keys) {
+    public SpringJDBCRepository(final Class<V> type, final DataSource source,
+            final String update, final String delete, final String table,
+            final String... keys) {
         super();
 
         checkNotNull(type, "Received a null pointer as the class type");
-        checkNotNull(dataSource, "Received a null pointer as the data source");
+        checkNotNull(source, "Received a null pointer as the data source");
         checkNotNull(update, "Received a null pointer as the update query");
         checkNotNull(delete, "Received a null pointer as the delete query");
         checkNotNull(table, "Received a null pointer as the table");
         checkNotNull(keys, "Received a null pointer as the key columns");
 
-        this.classType = type;
+        classType = type;
 
         // Queries
-        getAllQuery = new DefaultQueryData(
-                String.format("SELECT * FROM %s", table));
-        this.updateQuery = update;
-        this.deleteQuery = delete;
+        selectAllQuery = String.format("SELECT * FROM %s", table);
+        updateQueryTemplate = update;
+        deleteQueryTemplate = delete;
 
-        insert = new SimpleJdbcInsert(dataSource).withTableName(table)
+        insertHandler = new SimpleJdbcInsert(source).withTableName(table)
                 .usingGeneratedKeyColumns(keys);
 
-        jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
+        jdbcTemplate = new NamedParameterJdbcTemplate(source);
     }
 
     /**
-     * Adds an entity to the repository.
+     * Constructs a {@code SpringJDBCRepository} with the specified data and
+     * queries.
+     * <p>
+     * It will require templated queries for the update and delete operations.
+     * The parameters for these queries will be acquired automatically from the
+     * entity received for each of the operations.
+     * <p>
+     * The recommended delete query just requires knowing the ID of the entity,
+     * so it can be similar to this:
+     * <p>
+     * {@code DELETE FROM employees WHERE id = :id"}
+     * <p>
+     * The update query requires all the columns which will be updated:
+     * <p>
+     * {@code UPDATE employees SET name = :name WHERE id = :id}
+     * <p>
+     * Any additional query which may be required, such as one for acquiring all
+     * the entities, will be built from the received data.
+     *
+     * @param type
+     *            the class of the objects to be returned
+     * @param template
+     *            JDBC template with access to the data
+     * @param update
+     *            query template for updating an entity on the database
+     * @param delete
+     *            query template for deleting an entity on the database
+     * @param table
+     *            table linked to the repository's entities
+     * @param keys
+     *            primary keys of the table
+     */
+    public SpringJDBCRepository(final Class<V> type,
+            final JdbcTemplate template, final String update,
+            final String delete, final String table, final String... keys) {
+        super();
+
+        checkNotNull(type, "Received a null pointer as the class type");
+        checkNotNull(template, "Received a null pointer as the JDBC template");
+        checkNotNull(update, "Received a null pointer as the update query");
+        checkNotNull(delete, "Received a null pointer as the delete query");
+        checkNotNull(table, "Received a null pointer as the table");
+        checkNotNull(keys, "Received a null pointer as the key columns");
+
+        classType = type;
+
+        // Queries
+        selectAllQuery = String.format("SELECT * FROM %s", table);
+        updateQueryTemplate = update;
+        deleteQueryTemplate = delete;
+
+        insertHandler = new SimpleJdbcInsert(template).withTableName(table)
+                .usingGeneratedKeyColumns(keys);
+
+        jdbcTemplate = new NamedParameterJdbcTemplate(template);
+    }
+
+    /**
+     * Adds an entity to the repository, or updates it if it already exists.
      * <p>
      * Note that both the {@code add} and the {@link #update(PersistenceEntity)
-     * update} methods work the same, as if the entity does not exist it will be
+     * update} methods work the same. If the entity does not exist it will be
      * added, but if it already exists then it will be updated.
-     * 
+     * <p>
+     * If the entity is to be updated, then the update query received on the
+     * constructor will be used.
+     * <p>
+     * If it is inserted, a query generated from the data received by the
+     * constructor will be used.
+     *
      * @param entity
      *            the entity to add
      */
     @Override
     public final void add(final V entity) {
-        final BeanPropertySqlParameterSource parameterSource; // Bean-based
- // parameters
- // source
-        final Number newKey;    // Key assigned to the new entity
+        final SqlParameterSource parameterSource; // Parameters source
+        final Number newKey; // Key assigned to the new
+                             // entity
 
         checkNotNull(entity, "Received a null pointer as the entity");
 
         parameterSource = new BeanPropertySqlParameterSource(entity);
 
         if ((entity.getId() == null) || (entity.getId() < 0)) {
-            newKey = getInsert().executeAndReturnKey(parameterSource);
+            // No ID has been assigned
+            // It is a new entity
+            newKey = getInsertHandler().executeAndReturnKey(parameterSource);
 
             entity.setId(newKey.intValue());
         } else {
-            getTemplate().update(getUpdateQuery(), parameterSource);
+            // ID already assigned
+            // It is an existing entity
+            getTemplate().update(getUpdateQueryTemplate(), parameterSource);
         }
     }
 
     /**
      * Returns all the entities contained in the repository.
-     * 
+     * <p>
+     * The query used for this operation just queries the table received by the
+     * constructor.
+     *
      * @return all the entities contained in the repository
      */
     @Override
     public final Collection<V> getAll() {
-        return getCollection(getAllValuesQuery());
+        return getTemplate().query(getSelectAllValuesQuery(),
+                BeanPropertyRowMapper.newInstance(getType()));
     }
 
     /**
@@ -206,13 +310,14 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
      * <p>
      * The collection is created by building a query from the received
      * {@code QueryData} and executing it.
-     * 
+     *
      * @param query
      *            the query user to acquire the entities
      * @return the queried subset of entities
      */
     @Override
     public final Collection<V> getCollection(final QueryData query) {
+
         checkNotNull(query, "Received a null pointer as the query");
 
         return getTemplate().query(query.getQuery(), query.getParameters(),
@@ -224,14 +329,14 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
      * <p>
      * The entity is acquired by building a query from the received
      * {@code QueryData} and executing it.
-     * 
+     *
      * @param query
      *            the query user to acquire the entities
      * @return the queried entity
      */
     @Override
     public final V getEntity(final QueryData query) {
-        V entity;  // Entity acquired from the query
+        V entity; // Entity acquired from the query
 
         checkNotNull(query, "Received a null pointer as the query");
 
@@ -249,28 +354,35 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
 
     /**
      * Removes an entity from the repository.
-     * 
+     * <p>
+     * For this operation the delete query received on the constructor will be
+     * used.
+     *
      * @param entity
      *            the entity to remove
      */
     @Override
     public final void remove(final V entity) {
-        final BeanPropertySqlParameterSource parameterSource; // Bean-based
- // parameters
- // source
+        final SqlParameterSource parameterSource; // Parameters source
 
         parameterSource = new BeanPropertySqlParameterSource(entity);
 
-        getTemplate().update(getDeleteQuery(), parameterSource);
+        getTemplate().update(getDeleteQueryTemplate(), parameterSource);
     }
 
     /**
-     * Adds an entity to the repository.
+     * Updates an entity on the repository, or adds it if missing.
      * <p>
      * Note that both the {@link #add(PersistenceEntity) add} and the
      * {@code update} methods work the same, as if the entity does not exist it
      * will be added, but if it already exists then it will be updated.
-     * 
+     * <p>
+     * If the entity is to be updated, then the update query received on the
+     * constructor will be used.
+     * <p>
+     * If it is inserted, a query generated from the data received by the
+     * constructor will be used.
+     *
      * @param entity
      *            the entity to add
      */
@@ -280,44 +392,54 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
     }
 
     /**
-     * Returns the query used to retrieving all the entities.
-     * 
+     * Returns the SQL query template used for deleting an entity.
+     * <p>
+     * Thanks to Spring's classes this query can make use of named parameters
+     * such as this:
+     * <p>
+     * {@code DELETE FROM employees WHERE id = :id}
+     *
+     * @return the query template for deleting an entity
+     */
+    private final String getDeleteQueryTemplate() {
+        return deleteQueryTemplate;
+    }
+
+    /**
+     * Returns the handler of the insert operations.
+     * <p>
+     * This takes care of inserting entities into the database.
+     *
+     * @return the handler of the insert operations
+     */
+    private final SimpleJdbcInsertOperations getInsertHandler() {
+        return insertHandler;
+    }
+
+    /**
+     * Returns the query used for retrieving all the entities on the repository.
+     *
      * @return the query for retrieving all the entities
      */
-    private final QueryData getAllValuesQuery() {
-        return getAllQuery;
-    }
-
-    /**
-     * Returns the query used for deleting an entity.
-     * 
-     * @return the query for deleting an entity
-     */
-    private final String getDeleteQuery() {
-        return deleteQuery;
-    }
-
-    /**
-     * Returns the query used for inserting an entity.
-     * 
-     * @return the query for inserting an entity
-     */
-    private final SimpleJdbcInsert getInsert() {
-        return insert;
+    private final String getSelectAllValuesQuery() {
+        return selectAllQuery;
     }
 
     /**
      * Returns the template used for executing the queries.
-     * 
+     *
      * @return the template for executing the queries
      */
-    private final NamedParameterJdbcTemplate getTemplate() {
+    private final NamedParameterJdbcOperations getTemplate() {
         return jdbcTemplate;
     }
 
     /**
      * Returns the class of the objects returned by the repository.
-     * 
+     * <p>
+     * This is to be used when executing a query, to transform the query
+     * results.
+     *
      * @return the class of the objects returned by the repository
      */
     private final Class<V> getType() {
@@ -326,11 +448,16 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
 
     /**
      * Returns the query used for updating an entity.
-     * 
+     * <p>
+     * Thanks to Spring's classes this query can make use of named parameters
+     * such as this:
+     * <p>
+     * {@code UPDATE table SET column = :col WHERE id = :id}
+     *
      * @return the query for updating an entity
      */
-    private final String getUpdateQuery() {
-        return updateQuery;
+    private final String getUpdateQueryTemplate() {
+        return updateQueryTemplate;
     }
 
 }

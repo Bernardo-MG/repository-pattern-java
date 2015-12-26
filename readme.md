@@ -19,6 +19,8 @@ Offers the following helpful classes:
 - Repository for the basic JPA API
 - Repository for Spring's JDBC API
 
+Additionally, it includes various examples for setting up a persistence layer.
+
 ## Documentation
 
 Documentation is always generated for the latest release, kept in the 'master' branch:

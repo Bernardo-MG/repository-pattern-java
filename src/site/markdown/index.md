@@ -23,5 +23,10 @@ But some are helper classes:
 
 - Root [interface for persistent entities][persistence_entity].
 
+And there are a few examples for setting up the repositories and various persistence configs:
+
+- [Example configurations][example_configs].
+
+[example_configs]: ./configs.html
 [persistence_entity]: ./persistence_entity.html
 [repositories]: ./repositories.html

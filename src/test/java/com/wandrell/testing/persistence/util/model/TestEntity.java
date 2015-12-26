@@ -21,7 +21,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
 package com.wandrell.testing.persistence.util.model;
+
+import java.io.Serializable;
 
 import com.wandrell.persistence.PersistenceEntity;
 
@@ -33,7 +36,7 @@ import com.wandrell.persistence.PersistenceEntity;
  * 
  * @author Bernardo Martínez Garrido
  */
-public interface TestEntity extends PersistenceEntity {
+public interface TestEntity extends PersistenceEntity, Serializable {
 
     /**
      * Returns the name of the entity
