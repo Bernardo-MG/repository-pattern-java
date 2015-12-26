@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.persistence.repository;
+package com.wandrell.pattern.repository.jpa;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -33,9 +33,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
+import com.wandrell.pattern.PersistenceEntity;
 import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.QueryData;
-import com.wandrell.persistence.PersistenceEntity;
 
 /**
  * {@code FilteredRepository} for working with basic JPA classes.

@@ -21,26 +21,39 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
+package com.wandrell.pattern;
+
 /**
- * Provides implementations of the {@code Repository} interface for common
- * persistence systems.
+ * Interface for a persistence entity. Gives methods to query and modify the
+ * entity's ID.
  * <p>
- * Implementations are offered for the following persistence systems:
- * <table summary= "Repositories by persistence item" border=1>
- * <tr>
- * <th>System</th>
- * <th>Repository</th>
- * </tr>
- * <tr>
- * <td>JPA</td>
- * <td>{@link com.wandrell.persistence.repository.JPARepository JPARepository}
- * </td>
- * </tr>
- * <tr>
- * <td>Spring JDBC</td>
- * <td>{@link com.wandrell.persistence.repository.SpringJDBCRepository
- * SpringJDBCRepository}</td>
- * </tr>
- * </table>
+ * This is meant to be used with the repositories included on this library.
+ * <p>
+ * The ID will be the value contained on the key column for the row where the
+ * entity's data is contained.
+ * 
+ * @author Bernardo Martínez Garrido.
+ * @see com.wandrell.pattern.repository repository package
  */
-package com.wandrell.persistence.repository;
+public interface PersistenceEntity {
+
+    /**
+     * Returns the ID assigned to this entity.
+     * <p>
+     * If no ID has been assigned yet, then the value will be {@code null} or
+     * lower than zero.
+     * 
+     * @return the entity's ID
+     */
+    public Integer getId();
+
+    /**
+     * Sets the ID assigned to this entity.
+     * 
+     * @param identifier
+     *            the ID for the entity
+     */
+    public void setId(final Integer identifier);
+
+}

@@ -31,16 +31,16 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
 
 /**
  * Integration tests for
- * {@link com.wandrell.persistence.repository.JPARepository JPARepository}
+ * {@link com.wandrell.pattern.repository.jpa.JPARepository JPARepository}
  * implementing {@code AbstractITModify}, using a SQLite database and
  * Hibernate-based JPA.
  *
  * @author Bernardo Martínez Garrido
- * @see com.wandrell.persistence.repository.JPARepository JPARepository
+ * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_SQLITE_MODIFY })
-public final class ITModifySQLiteHibernateJPARepository extends
-        AbstractITModify {
+public final class ITModifySQLiteHibernateJPARepository
+        extends AbstractITModify {
 
     /**
      * Default constructor.

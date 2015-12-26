@@ -59,20 +59,25 @@ import com.wandrell.testing.persistence.util.model.TestEntity;
  * @author Bernardo Martínez Garrido
  * @see FilteredRepository
  */
-public abstract class AbstractITModify extends
-        AbstractTransactionalTestNGSpringContextTests {
+public abstract class AbstractITModify
+        extends AbstractTransactionalTestNGSpringContextTests {
 
+    /**
+     * The entity manager for the test context.
+     */
+    @Autowired(required = false)
+    private EntityManager                             emanager;
     /**
      * Initial number of entities in the repository.
      */
     @Value("${entities.total}")
-    private Integer entitiesCount;
+    private Integer                                   entitiesCount;
     /**
      * Entity for the addition test.
      */
     @Autowired
     @Qualifier("newEntity")
-    private TestEntity newEntity;
+    private TestEntity                                newEntity;
     /**
      * The repository being tested.
      */
@@ -82,12 +87,7 @@ public abstract class AbstractITModify extends
      * Query for acquiring an entity by it's id.
      */
     @Value("${query.byId}")
-    private String selectByIdQuery;
-    /**
-     * The entity manager for the test context.
-     */
-    @Autowired(required = false)
-    private EntityManager emanager;
+    private String                                    selectByIdQuery;
 
     /**
      * Default constructor.

@@ -31,12 +31,12 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
 
 /**
  * Integration tests for
- * {@link com.wandrell.persistence.repository.SpringJDBCRepository
+ * {@link com.wandrell.pattern.repository.spring.SpringJDBCRepository
  * SpringJDBCRepository} implementing {@code AbstractITQuery}, using a SQLite
  * database and Spring JDBC.
  *
  * @author Bernardo Martínez Garrido
- * @see com.wandrell.persistence.repository.SpringJDBCRepository
+ * @see com.wandrell.pattern.repository.spring.SpringJDBCRepository
  *      SpringJDBCRepository
  */
 @ContextConfiguration(locations = { ContextConfig.JDBC_SQLITE_MODIFY })

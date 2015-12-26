@@ -31,17 +31,17 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITModify;
 
 /**
  * Integration tests for
- * {@link com.wandrell.persistence.repository.SpringJDBCRepository
+ * {@link com.wandrell.pattern.repository.spring.SpringJDBCRepository
  * SpringJDBCRepository} implementing {@code AbstractITModify}, using a
  * PostgreSQL in-memory database and Spring JDBC.
  *
  * @author Bernardo Martínez Garrido
- * @see com.wandrell.persistence.repository.SpringJDBCRepository
+ * @see com.wandrell.pattern.repository.spring.SpringJDBCRepository
  *      SpringJDBCRepository
  */
 @ContextConfiguration(locations = { ContextConfig.JDBC_POSTGRESQL_MODIFY })
-public final class ITModifyPostgreSQLSpringJDBCRepository extends
-        AbstractITModify {
+public final class ITModifyPostgreSQLSpringJDBCRepository
+        extends AbstractITModify {
 
     /**
      * Default constructor.

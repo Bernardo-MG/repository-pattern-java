@@ -31,12 +31,12 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
 
 /**
  * Integration tests for
- * {@link com.wandrell.persistence.repository.JPARepository JPARepository}
+ * {@link com.wandrell.pattern.repository.jpa.JPARepository JPARepository}
  * implementing {@code AbstractITQuery}, using an H2 in-memory database and
  * Eclipselink-based JPA.
  *
  * @author Bernardo Martínez Garrido
- * @see com.wandrell.persistence.repository.JPARepository JPARepository
+ * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_H2 })
 public final class ITQueryH2EclipselinkJPARepository extends AbstractITQuery {

@@ -31,16 +31,16 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
 
 /**
  * Integration tests for
- * {@link com.wandrell.persistence.repository.JPARepository JPARepository}
+ * {@link com.wandrell.pattern.repository.jpa.JPARepository JPARepository}
  * implementing {@code AbstractITQuery}, using a PostgreSQL database and
  * Eclipselink-based JPA.
  *
  * @author Bernardo Martínez Garrido
- * @see com.wandrell.persistence.repository.JPARepository JPARepository
+ * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_POSTGRESQL })
-public final class ITQueryPostgreSQLEclipselinkJPARepository extends
-        AbstractITQuery {
+public final class ITQueryPostgreSQLEclipselinkJPARepository
+        extends AbstractITQuery {
 
     /**
      * Default constructor.

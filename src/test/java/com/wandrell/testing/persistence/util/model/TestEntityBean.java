@@ -40,14 +40,14 @@ public final class TestEntityBean implements TestEntity {
     /**
      * Entity's ID.
      */
-    private Integer id = null;
+    private Integer           id               = null;
     /**
      * Name of the entity.
      * <p>
      * This is to have additional data apart from the id, to be used on the
      * tests.
      */
-    private String name = "";
+    private String            name             = "";
 
     /**
      * Constructs a {@code JPATestEntity}.

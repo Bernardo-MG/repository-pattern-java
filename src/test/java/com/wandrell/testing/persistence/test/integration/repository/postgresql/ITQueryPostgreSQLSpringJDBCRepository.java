@@ -31,17 +31,17 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
 
 /**
  * Integration tests for
- * {@link com.wandrell.persistence.repository.SpringJDBCRepository
+ * {@link com.wandrell.pattern.repository.spring.SpringJDBCRepository
  * SpringJDBCRepository} implementing {@code AbstractITQuery}, using a
  * PostgreSQL in-memory database and Spring JDBC.
  *
  * @author Bernardo Martínez Garrido
- * @see com.wandrell.persistence.repository.SpringJDBCRepository
+ * @see com.wandrell.pattern.repository.spring.SpringJDBCRepository
  *      SpringJDBCRepository
  */
 @ContextConfiguration(locations = { ContextConfig.JDBC_POSTGRESQL })
-public final class ITQueryPostgreSQLSpringJDBCRepository extends
-        AbstractITQuery {
+public final class ITQueryPostgreSQLSpringJDBCRepository
+        extends AbstractITQuery {
 
     /**
      * Default constructor.

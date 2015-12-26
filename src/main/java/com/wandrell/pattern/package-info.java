@@ -21,39 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
-package com.wandrell.persistence;
-
 /**
- * Interface for a persistence entity. Gives methods to query and modify the
- * entity's ID.
+ * Provides various interfaces and classes for using persistence APIs.
  * <p>
- * This is meant to be used with the repositories included on this library.
+ * At the root level only the {@link com.wandrell.pattern.PersistenceEntity
+ * PersistenceEntity} interface is offered. This serves as a root for the
+ * entities which the repositories contained at the
+ * {@link com.wandrell.pattern.repository repository} package will use.
  * <p>
- * The ID will be the value contained on the key column for the row where the
- * entity's data is contained.
- * 
- * @author Bernardo Martínez Garrido.
- * @see com.wandrell.persistence.repository repository package
+ * These repositories implement the {@code Repository} interface, from the
+ * <a href="https://github.com/Bernardo-MG/java-patterns">Java Patterns
+ * library</a>, adapting it for common persistence systems.
  */
-public interface PersistenceEntity {
-
-    /**
-     * Returns the ID assigned to this entity.
-     * <p>
-     * If no ID has been assigned yet, then the value will be {@code null} or
-     * lower than zero.
-     * 
-     * @return the entity's ID
-     */
-    public Integer getId();
-
-    /**
-     * Sets the ID assigned to this entity.
-     * 
-     * @param identifier
-     *            the ID for the entity
-     */
-    public void setId(final Integer identifier);
-
-}
+package com.wandrell.pattern;

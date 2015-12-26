@@ -31,12 +31,12 @@ import com.wandrell.testing.persistence.util.test.repository.AbstractITQuery;
 
 /**
  * Integration tests for
- * {@link com.wandrell.persistence.repository.SpringJDBCRepository
+ * {@link com.wandrell.pattern.repository.spring.SpringJDBCRepository
  * SpringJDBCRepository} implementing {@code AbstractITQuery}, using an H2
  * in-memory database and Spring JDBC.
  *
  * @author Bernardo Martínez Garrido
- * @see com.wandrell.persistence.repository.SpringJDBCRepository
+ * @see com.wandrell.pattern.repository.spring.SpringJDBCRepository
  *      SpringJDBCRepository
  */
 @ContextConfiguration(locations = { ContextConfig.JDBC_HSQLDB })

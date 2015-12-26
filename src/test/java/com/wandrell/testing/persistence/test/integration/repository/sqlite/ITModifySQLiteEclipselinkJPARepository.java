@@ -30,14 +30,15 @@ import com.wandrell.testing.persistence.util.config.ContextConfig;
 
 /**
  * Integration tests for
- * {@link com.wandrell.persistence.repository.JPARepository JPARepository}
+ * {@link com.wandrell.pattern.repository.jpa.JPARepository JPARepository}
  * implementing {@code AbstractITModify}, using a SQLite database and
  * Eclipselink-based JPA.
  *
  * @author Bernardo Martínez Garrido
- * @see com.wandrell.persistence.repository.JPARepository JPARepository
+ * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_SQLITE_MODIFY })
+@ContextConfiguration(
+        locations = { ContextConfig.JPA_ECLIPSELINK_SQLITE_MODIFY })
 public final class ITModifySQLiteEclipselinkJPARepository {
 
     /**
