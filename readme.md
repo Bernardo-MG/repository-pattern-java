@@ -1,11 +1,11 @@
-# Java Persistence Utils
+# Java Repository Pattern
 
-A micro library for easing the use of persistence on Java, mostly JPA.
+Interfaces and basic implementations of the repository pattern.
 
-This has been created for my own use. Mostly this serves to create JPA repositories, using the [Java Patterns][java_patterns] library.
+This help building a persistence layer, and offers repositories prepared for JPA and JDBC, along several sample Spring-based configurations, showing how to set them up for Hibernate, Eclipselink, Spring JDBC and several databases.
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.wandrell/persistence-utils.svg)][maven-repo]
-[![Bintray](https://api.bintray.com/packages/bernardo-mg/maven/persistence-utils/images/download.svg)][bintray-repo]
+[![Maven Central](https://img.shields.io/maven-central/v/com.wandrell/repository-pattern.svg)][maven-repo]
+[![Bintray](https://api.bintray.com/packages/bernardo-mg/maven/repository-pattern/images/download.svg)][bintray-repo]
 
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
 [![Development docs](https://img.shields.io/badge/docs-develop-blue.svg)][site-develop]
@@ -18,8 +18,7 @@ This has been created for my own use. Mostly this serves to create JPA repositor
 Offers the following helpful classes:
 - Repository for the basic JPA API
 - Repository for Spring's JDBC API
-
-Additionally, it includes various examples for setting up a persistence layer.
+- Spring-based examples, as part of the tests, showing how to set up a persistence layer for several databases
 
 ## Documentation
 
@@ -83,13 +82,12 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 
 The project has been released under the [MIT License][license].
 
-[bintray-repo]: https://bintray.com/bernardo-mg/maven/persistence-utils/view
-[maven-repo]: http://mvnrepository.com/artifact/com.wandrell/persistence-utils
-[java_patterns]: https://github.com/Bernardo-MG/java-patterns
-[issues]: https://github.com/bernardo-mg/persistence-utils-java/issues
-[javadoc-develop]: http://docs.wandrell.com/development/maven/persistence-utils/apidocs
-[javadoc-release]: http://docs.wandrell.com/maven/persistence-utils/apidocs
+[bintray-repo]: https://bintray.com/bernardo-mg/maven/repository-pattern/view
+[maven-repo]: http://mvnrepository.com/artifact/com.wandrell/repository-pattern
+[issues]: https://github.com/bernardo-mg/repository-pattern-java/issues
+[javadoc-develop]: http://docs.wandrell.com/development/maven/repository-pattern/apidocs
+[javadoc-release]: http://docs.wandrell.com/maven/repository-pattern/apidocs
 [license]: http://www.opensource.org/licenses/mit-license.php
-[scm]: https://github.com/bernardo-mg/persistence-utils-java
-[site-develop]: http://docs.wandrell.com/development/maven/persistence-utils
-[site-release]: http://docs.wandrell.com/maven/persistence-utils
+[scm]: https://github.com/bernardo-mg/repository-pattern-java
+[site-develop]: http://docs.wandrell.com/development/maven/repository-pattern
+[site-release]: http://docs.wandrell.com/maven/repository-pattern
