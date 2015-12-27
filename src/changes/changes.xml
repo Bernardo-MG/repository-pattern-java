@@ -84,7 +84,7 @@
                 Included tests for several databases.
             </action>
         </release>
-        <release version="0.2.0" date="2015-12-26" description="Pagination and Maven coordinates changes.">
+        <release version="0.2.0" date="2015-12-27" description="Pagination and Maven coordinates changes.">
             <action dev="bmg" type="add">
                 Added pagination support for the JPA repository.
             </action>
