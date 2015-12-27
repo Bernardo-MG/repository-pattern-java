@@ -26,7 +26,7 @@ package com.wandrell.testing.persistence.util.model;
 
 import java.io.Serializable;
 
-import com.wandrell.persistence.PersistenceEntity;
+import com.wandrell.pattern.repository.entity.PersistenceEntity;
 
 /**
  * Interface representing an entity to be used on the tests.

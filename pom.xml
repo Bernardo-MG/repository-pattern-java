@@ -19,13 +19,13 @@
     <!-- ********************************************** -->
 
     <groupId>com.wandrell</groupId>
-    <artifactId>persistence-utils</artifactId>
-    <version>0.1.9</version>
+    <artifactId>repository-pattern</artifactId>
+    <version>0.2.0</version>
     <packaging>jar</packaging>
 
-    <name>Java Persistence Utils</name>
-    <description>Repositories and helper classes for making use of persistence on Java.</description>
-    <url>https://github.com/bernardo-mg/persistence-utils-java</url>
+    <name>Repository Pattern</name>
+    <description>Interfaces and basic implementations for the repository pattern.</description>
+    <url>https://github.com/bernardo-mg/repository-pattern-java</url>
     <inceptionYear>2015</inceptionYear>
 
     <licenses>
@@ -41,32 +41,29 @@
     <!-- ********************************************** -->
 
     <scm>
-        <connection>scm:git:https://github.com/Bernardo-MG/persistence-utils-java.git</connection>
-        <developerConnection>scm:git:https://github.com/Bernardo-MG/persistence-utils-java.git</developerConnection>
+        <connection>scm:git:https://github.com/Bernardo-MG/repository-pattern-java.git</connection>
+        <developerConnection>scm:git:https://github.com/Bernardo-MG/repository-pattern-java.git</developerConnection>
         <tag>head</tag>
-        <url>https://www.github.com/Bernardo-MG/persistence-utils-java</url>
+        <url>https://www.github.com/Bernardo-MG/repository-pattern-java</url>
     </scm>
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://www.github.com/Bernardo-MG/persistence-utils-java/issues</url>
+        <url>https://www.github.com/Bernardo-MG/repository-pattern-java/issues</url>
     </issueManagement>
 
     <ciManagement>
         <system>Travis CI</system>
-        <url>https://travis-ci.org/Bernardo-MG/persistence-utils-java</url>
+        <url>https://travis-ci.org/Bernardo-MG/repository-pattern-java</url>
         <notifiers />
     </ciManagement>
 
     <distributionManagement>
-        <relocation>
-            <artifactId>repository-pattern</artifactId>
-        </relocation>
         <repository>
             <uniqueVersion>false</uniqueVersion>
             <id>releases</id>
             <name>Releases Repository</name>
-            <url>https://api.bintray.com/maven/bernardo-mg/maven/persistence-utils</url>
+            <url>https://api.bintray.com/maven/bernardo-mg/maven/repository-pattern</url>
         </repository>
         <snapshotRepository>
             <uniqueVersion>false</uniqueVersion>
@@ -150,7 +147,7 @@
                 <site>
                     <id>site</id>
                     <name>Project Documentation Site</name>
-                    <url>ftp://docs.wandrell.com/persistence-utils</url>
+                    <url>ftp://docs.wandrell.com/repository-pattern</url>
                 </site>
             </distributionManagement>
         </profile>
@@ -162,7 +159,7 @@
                 <site>
                     <id>site-development</id>
                     <name>Project Development Documentation Site</name>
-                    <url>ftp://docs.wandrell.com/persistence-utils</url>
+                    <url>ftp://docs.wandrell.com/repository-pattern</url>
                 </site>
             </distributionManagement>
         </profile>
@@ -208,7 +205,7 @@
 
     <properties>
         <!-- Manifest data -->
-        <manifest.name>com/wandrell/jpa/utils</manifest.name>
+        <manifest.name>com/wandrell/pattern/repository</manifest.name>
         <!-- Dependencies versions -->
         <eclipselink.version>2.6.1</eclipselink.version>
         <guava.version>18.0</guava.version>
@@ -220,17 +217,17 @@
         <log4j.version>2.4.1</log4j.version>
         <mysql.version>5.1.37</mysql.version>
         <postgresql.version>9.4-1206-jdbc4</postgresql.version>
+        <slf4j.version>1.7.13</slf4j.version>
         <spring.version>4.2.2.RELEASE</spring.version>
         <sqlite.version>3.8.11.2</sqlite.version>
         <testng.version>6.9.8</testng.version>
-        <wandrell.patterns.version>0.5.0</wandrell.patterns.version>
         <!-- Plugins versions -->
         <plugin.changes.version>2.11</plugin.changes.version>
         <plugin.site.velocity.version>1.7</plugin.site.velocity.version>
         <!-- Maven Site -->
         <site.skin.version>0.2.1</site.skin.version>
-        <bintrayURL>https://bintray.com/bernardo-mg/maven/persistence-utils/view</bintrayURL>
-        <mavenURL>http://mvnrepository.com/artifact/com.wandrell/persistence-utils</mavenURL>
+        <bintrayURL>https://bintray.com/bernardo-mg/maven/repository-pattern/view</bintrayURL>
+        <mavenURL>http://mvnrepository.com/artifact/com.wandrell/repository-pattern</mavenURL>
     </properties>
 
     <!-- ********************************************** -->
@@ -245,10 +242,10 @@
             <version>${guava.version}</version>
         </dependency>
         <dependency>
-            <!-- Java Patterns -->
-            <groupId>com.wandrell</groupId>
-            <artifactId>java-patterns</artifactId>
-            <version>${wandrell.patterns.version}</version>
+            <!-- SLF4J API -->
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
         <!-- ============================================== -->
         <!-- =========== OPTIONAL DEPENDENCIES ============ -->
