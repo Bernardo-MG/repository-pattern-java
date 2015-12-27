@@ -34,11 +34,13 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import com.wandrell.pattern.query.NamedParameterQueryData;
-import com.wandrell.pattern.repository.FilteredRepository;
+import com.wandrell.pattern.repository.PaginatedRepository;
 import com.wandrell.pattern.repository.entity.PersistenceEntity;
+import com.wandrell.pattern.repository.pagination.PaginationData;
 
 /**
- * {@code FilteredRepository} for working with basic JPA classes.
+ * {@code Repository} for working with JPA classes and allowing filtering and
+ * paginating results.
  * <p>
  * Entities are acquired with the use of JPQL queries such as this:
  * <p>
@@ -64,12 +66,12 @@ import com.wandrell.pattern.repository.entity.PersistenceEntity;
  * @see PersistenceEntity
  */
 public final class JPARepository<V extends PersistenceEntity>
-        implements FilteredRepository<V, NamedParameterQueryData> {
+        implements PaginatedRepository<V, NamedParameterQueryData> {
 
     /**
      * Entity manager in charge of handling the persistence process.
      */
-    private final EntityManager emanager;
+    private final EntityManager eManager;
     /**
      * JPQL query for acquiring all the entities.
      * <p>
@@ -100,7 +102,7 @@ public final class JPARepository<V extends PersistenceEntity>
         checkNotNull(allQuery,
                 "Received a null pointer as the all-values query");
 
-        emanager = entityManager;
+        eManager = entityManager;
         selectAllQuery = allQuery;
     }
 
@@ -156,6 +158,31 @@ public final class JPARepository<V extends PersistenceEntity>
     }
 
     /**
+     * Returns all the entities contained in the repository paginated.
+     * <p>
+     * The query used for this operation is the one received by the constructor.
+     *
+     * @return all the entities contained in the repository paginated
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public final Collection<V> getAll(final PaginationData pagination) {
+        final Query builtQuery; // Query created from the query data
+
+        checkNotNull(pagination,
+                "Received a null pointer as the pagination data");
+
+        // Builds the query
+        builtQuery = getEntityManager().createQuery(getAllValuesQuery());
+
+        // Sets the pagination
+        applyPagination(builtQuery, pagination);
+
+        // Processes the query
+        return builtQuery.getResultList();
+    }
+
+    /**
      * Queries the entities in the repository and returns a subset of them.
      * <p>
      * The collection is created by building a query from the received
@@ -174,6 +201,37 @@ public final class JPARepository<V extends PersistenceEntity>
 
         // Processes the query
         return buildQuery(query).getResultList();
+    }
+
+    /**
+     * Queries the entities in the repository and returns a paginated subset of
+     * them.
+     * <p>
+     * The collection is created by building a query from the received
+     * {@code QueryData} and executing it.
+     *
+     * @param query
+     *            the query user to acquire the entities
+     * @return the queried and paginated subset of entities
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public final Collection<V> getCollection(
+            final NamedParameterQueryData query,
+            final PaginationData pagination) {
+        final Query builtQuery; // Query created from the query data
+
+        checkNotNull(query, "Received a null pointer as the query");
+        checkNotNull(pagination,
+                "Received a null pointer as the pagination data");
+
+        builtQuery = buildQuery(query);
+
+        // Sets the pagination
+        applyPagination(builtQuery, pagination);
+
+        // Processes the query
+        return builtQuery.getResultList();
     }
 
     /**
@@ -239,6 +297,13 @@ public final class JPARepository<V extends PersistenceEntity>
         add(entity);
     }
 
+    private final void applyPagination(final Query query,
+            final PaginationData pagination) {
+        query.setFirstResult(
+                (pagination.getPageNumber() - 1) * pagination.getPageSize());
+        query.setMaxResults(pagination.getPageSize());
+    }
+
     /**
      * Creates a {@code Query} from the data contained on the received
      * {@code QueryData}.
@@ -281,7 +346,7 @@ public final class JPARepository<V extends PersistenceEntity>
      * @return the {@code EntityManager} in charge of the persistence
      */
     private final EntityManager getEntityManager() {
-        return emanager;
+        return eManager;
     }
 
 }
