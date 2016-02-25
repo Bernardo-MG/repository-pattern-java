@@ -41,6 +41,7 @@ import org.hibernate.type.StandardBasicTypes;
  * @author Bernardo Martínez Garrido
  */
 public class SQLiteDialect extends Dialect {
+
     public SQLiteDialect() {
         super();
         registerColumnType(Types.BIT, "integer");

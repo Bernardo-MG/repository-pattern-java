@@ -26,7 +26,10 @@ package com.wandrell.testing.persistence.test.integration.repository.access.h2.h
 
 import org.springframework.test.context.ContextConfiguration;
 
-import com.wandrell.testing.persistence.util.config.ContextConfig;
+import com.wandrell.testing.persistence.util.config.context.ContextConfig;
+import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
+import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
+import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 import com.wandrell.testing.persistence.util.test.repository.access.AbstractITModify;
 
 /**
@@ -38,7 +41,9 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_H2_MODIFY })
+@ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_H2_MODIFY,
+        TestContextConfig.ENTITY_MODIFIABLE, PersistenceContextConfig.HIBERNATE,
+        RepositoryContextConfig.JPA })
 public final class ITModifyH2HibernateJPARepository extends AbstractITModify {
 
     /**

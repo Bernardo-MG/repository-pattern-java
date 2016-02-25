@@ -31,4 +31,5 @@
  * Only the {@link com.wandrell.pattern.repository.jpa.JPARepository
  * JPARepository} is offered.
  */
+
 package com.wandrell.pattern.repository.jpa;

@@ -26,7 +26,9 @@ package com.wandrell.testing.persistence.test.integration.repository.pagination.
 
 import org.springframework.test.context.ContextConfiguration;
 
-import com.wandrell.testing.persistence.util.config.ContextConfig;
+import com.wandrell.testing.persistence.util.config.context.ContextConfig;
+import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
+import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.test.repository.pagination.AbstractITPagination;
 
 /**
@@ -38,7 +40,8 @@ import com.wandrell.testing.persistence.util.test.repository.pagination.Abstract
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_POSTGRESQL })
+@ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_POSTGRESQL,
+        PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
 public final class ITPaginationPostgreSQLEclipselinkJPARepository
         extends AbstractITPagination {
 

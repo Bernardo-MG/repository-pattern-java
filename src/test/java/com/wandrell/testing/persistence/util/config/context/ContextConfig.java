@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.testing.persistence.util.config;
+package com.wandrell.testing.persistence.util.config.context;
 
 /**
  * Configuration class for the test context files.

@@ -46,4 +46,5 @@
  * CollectionRepository}, serves as a working stub, allowing to use a repository
  * witout setting up any persistence system.
  */
+
 package com.wandrell.pattern.repository;

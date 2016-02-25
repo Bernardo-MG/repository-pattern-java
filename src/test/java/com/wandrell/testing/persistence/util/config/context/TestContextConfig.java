@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  * <p>
- * Copyright (c) 2015 the original author or authors.
+ * Copyright (c) 2016 the original author or authors.
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,32 +22,31 @@
  * SOFTWARE.
  */
 
-package com.wandrell.testing.persistence.test.integration.repository.access.hsqldb.hibernate;
-
-import org.springframework.test.context.ContextConfiguration;
-
-import com.wandrell.testing.persistence.util.config.context.ContextConfig;
-import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
-import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
-import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQuery;
+package com.wandrell.testing.persistence.util.config.context;
 
 /**
- * Integration tests for
- * {@link com.wandrell.pattern.repository.jpa.JPARepository JPARepository}
- * implementing {@code AbstractITQuery}, using an HSQLDB in-memory database and
- * Hibernate-based JPA.
+ * Configuration class for miscelany test context files.
  *
  * @author Bernardo Martínez Garrido
- * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_HSQLDB,
-        PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
-public final class ITQueryHSQLDBHibernateJPARepository extends AbstractITQuery {
+public class TestContextConfig {
 
     /**
-     * Default constructor.
+     * Default context file.
+     * <p>
+     * For those test which don't need any context configuration but require
+     * loading Spring properties.
      */
-    public ITQueryHSQLDBHibernateJPARepository() {
+    public static final String DEFAULT           = "classpath:context/test-default.xml";
+    /**
+     * Entity prototype context.
+     */
+    public static final String ENTITY_MODIFIABLE = "classpath:context/entity/entity-modifiable.xml";
+
+    /**
+     * Private constructor to avoid initialization.
+     */
+    private TestContextConfig() {
         super();
     }
 

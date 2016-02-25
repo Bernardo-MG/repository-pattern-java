@@ -26,7 +26,10 @@ package com.wandrell.testing.persistence.test.integration.repository.access.sqli
 
 import org.springframework.test.context.ContextConfiguration;
 
-import com.wandrell.testing.persistence.util.config.ContextConfig;
+import com.wandrell.testing.persistence.util.config.context.ContextConfig;
+import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
+import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
+import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 
 /**
  * Integration tests for
@@ -37,8 +40,9 @@ import com.wandrell.testing.persistence.util.config.ContextConfig;
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(
-        locations = { ContextConfig.JPA_ECLIPSELINK_SQLITE_MODIFY })
+@ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_SQLITE_MODIFY,
+        TestContextConfig.ENTITY_MODIFIABLE,
+        PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
 public final class ITModifySQLiteEclipselinkJPARepository {
 
     /**

@@ -26,7 +26,9 @@ package com.wandrell.testing.persistence.test.integration.repository.access.h2.h
 
 import org.springframework.test.context.ContextConfiguration;
 
-import com.wandrell.testing.persistence.util.config.ContextConfig;
+import com.wandrell.testing.persistence.util.config.context.ContextConfig;
+import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
+import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQuery;
 
 /**
@@ -38,7 +40,8 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_H2 })
+@ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_H2,
+        PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
 public final class ITQueryH2HibernateJPARepository extends AbstractITQuery {
 
     /**

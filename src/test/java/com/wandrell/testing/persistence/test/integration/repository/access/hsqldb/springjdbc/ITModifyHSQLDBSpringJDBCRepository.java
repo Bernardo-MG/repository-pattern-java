@@ -26,7 +26,10 @@ package com.wandrell.testing.persistence.test.integration.repository.access.hsql
 
 import org.springframework.test.context.ContextConfiguration;
 
-import com.wandrell.testing.persistence.util.config.ContextConfig;
+import com.wandrell.testing.persistence.util.config.context.ContextConfig;
+import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
+import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
+import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 import com.wandrell.testing.persistence.util.test.repository.access.AbstractITModify;
 
 /**
@@ -39,7 +42,10 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
  * @see com.wandrell.pattern.repository.spring.SpringJDBCRepository
  *      SpringJDBCRepository
  */
-@ContextConfiguration(locations = { ContextConfig.JDBC_HSQLDB_MODIFY })
+@ContextConfiguration(locations = { ContextConfig.JDBC_HSQLDB_MODIFY,
+        TestContextConfig.ENTITY_MODIFIABLE,
+        PersistenceContextConfig.SPRING_JDBC,
+        RepositoryContextConfig.SPRING_JDBC })
 public final class ITModifyHSQLDBSpringJDBCRepository extends AbstractITModify {
 
     /**

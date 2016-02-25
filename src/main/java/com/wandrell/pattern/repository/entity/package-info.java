@@ -29,4 +29,5 @@
  * repositories contained at the {@link com.wandrell.pattern.repository
  * repository} package will use.
  */
+
 package com.wandrell.pattern.repository.entity;

@@ -26,7 +26,9 @@ package com.wandrell.testing.persistence.test.integration.repository.pagination.
 
 import org.springframework.test.context.ContextConfiguration;
 
-import com.wandrell.testing.persistence.util.config.ContextConfig;
+import com.wandrell.testing.persistence.util.config.context.ContextConfig;
+import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
+import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 
 /**
  * Integration tests checking pagination for
@@ -37,7 +39,8 @@ import com.wandrell.testing.persistence.util.config.ContextConfig;
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_SQLITE })
+@ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_SQLITE,
+        PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
 public final class ITPaginationSQLiteHibernateJPARepository {
 
     /**

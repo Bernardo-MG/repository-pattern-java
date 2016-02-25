@@ -39,4 +39,5 @@
  * {@link com.wandrell.pattern.repository.pagination.DefaultPaginationData
  * DefaultPaginationData}, is contained in the package.
  */
+
 package com.wandrell.pattern.repository.pagination;

@@ -26,7 +26,9 @@ package com.wandrell.testing.persistence.test.integration.repository.access.post
 
 import org.springframework.test.context.ContextConfiguration;
 
-import com.wandrell.testing.persistence.util.config.ContextConfig;
+import com.wandrell.testing.persistence.util.config.context.ContextConfig;
+import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
+import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQuery;
 
 /**
@@ -39,7 +41,9 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
  * @see com.wandrell.pattern.repository.spring.SpringJDBCRepository
  *      SpringJDBCRepository
  */
-@ContextConfiguration(locations = { ContextConfig.JDBC_POSTGRESQL })
+@ContextConfiguration(locations = { ContextConfig.JDBC_POSTGRESQL,
+        PersistenceContextConfig.SPRING_JDBC,
+        RepositoryContextConfig.SPRING_JDBC })
 public final class ITQueryPostgreSQLSpringJDBCRepository
         extends AbstractITQuery {
 

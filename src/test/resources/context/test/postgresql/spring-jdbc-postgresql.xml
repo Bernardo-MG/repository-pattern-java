@@ -12,10 +12,4 @@
     <context:property-placeholder
         location="classpath:context/test/test-spring-jdbc-basic.properties, classpath:context/persistence/spring-jdbc.properties, classpath:context/repository/spring-jdbc-repository.properties, classpath:context/test/postgresql/spring-jdbc-postgresql.properties" />
 
-    <!-- Repository -->
-    <import resource="classpath:context/repository/spring-jdbc-repository.xml" />
-
-    <!-- Base configuration -->
-    <import resource="classpath:context/persistence/spring-jdbc.xml" />
-
 </beans>
