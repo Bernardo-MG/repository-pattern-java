@@ -38,7 +38,7 @@ The documentation site sources come along the source code (as it is a Maven site
 $ mvn verify site
 ```
 
-The verify phase is required, as otherwise some of the reports won't be created.
+Pay attention to the fact that while the verify phase is required for creating all the reports, some of the integration test will not run if the environment is not correctly set. For this reason it can be removed from the command if needed.
 
 ## Usage
 
@@ -62,6 +62,10 @@ If for some reason manual installation is necessary, just use the following Mave
 ```
 $ mvn install
 ```
+
+### Testing
+
+Several of the integration tests included in the project require running databases. While these are taken care by the continuous integration environment, when running the project in local they should be prepared manually, and so it is not recommended trying to run the integration tests, as this may end with several failure warnings.
 
 ## Collaborate
 

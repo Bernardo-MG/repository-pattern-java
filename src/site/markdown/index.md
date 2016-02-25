@@ -29,6 +29,10 @@ And there are a few examples for setting up the repositories and various persist
 
 - [Example configurations][example_configs].
 
+## Integration tests
+
+Several of the integration tests included in the project require running databases. While these are taken care by the continuous integration environment, when running the project in local they should be prepared manually, and so it is not recommended trying to run the integration tests, as this may end with several failure warnings.
+
 [example_configs]: ./configs.html
 [persistence_entity]: ./persistence_entity.html
 [repository]: ./repository.html

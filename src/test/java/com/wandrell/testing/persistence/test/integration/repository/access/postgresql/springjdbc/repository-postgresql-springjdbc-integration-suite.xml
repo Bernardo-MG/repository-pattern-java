@@ -4,7 +4,7 @@
 
 	<test name="all" verbose="2">
 		<packages>
-			<package name="com.wandrell.testing.persistence.test.integration.repository.access.postgresql.*" />
+			<package name="com.wandrell.testing.persistence.test.integration.repository.access.postgresql.springjdbc" />
 		</packages>
 	</test>
 
