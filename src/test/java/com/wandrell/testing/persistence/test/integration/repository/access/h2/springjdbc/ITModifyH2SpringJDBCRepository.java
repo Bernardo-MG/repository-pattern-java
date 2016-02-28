@@ -33,6 +33,7 @@ import com.wandrell.testing.persistence.util.config.context.RepositoryContextCon
 import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.TestPropertiesConfig;
 import com.wandrell.testing.persistence.util.test.repository.access.AbstractITModify;
 
 /**
@@ -50,7 +51,7 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
         PersistenceContextConfig.SPRING_JDBC,
         RepositoryContextConfig.SPRING_JDBC })
 @TestPropertySource({ PersistencePropertiesConfig.JDBC_QUERY,
-        RepositoryPropertiesConfig.SPRING_JDBC })
+        RepositoryPropertiesConfig.SPRING_JDBC, TestPropertiesConfig.ENTITY })
 public final class ITModifyH2SpringJDBCRepository extends AbstractITModify {
 
     /**

@@ -5,7 +5,7 @@
 
     <!-- Data source -->
     <bean id="repository" class="${repository.class}">
-        <constructor-arg value="${repository.entity.class}" />
+        <constructor-arg value="${entity.class}" />
         <constructor-arg ref="jdbcTemplate" />
         <constructor-arg value="${query.update}" />
         <constructor-arg value="${query.delete}" />
