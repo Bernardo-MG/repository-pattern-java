@@ -10,6 +10,6 @@
 
     <!-- Properties -->
     <context:property-placeholder
-        location="classpath:context/persistence/spring-jdbc.properties, classpath:context/test/hsqldb/spring-jdbc-hsqldb.properties" />
+        location=" classpath:context/test/hsqldb/spring-jdbc-hsqldb.properties" />
 
 </beans>

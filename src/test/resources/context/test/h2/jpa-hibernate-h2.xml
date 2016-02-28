@@ -10,6 +10,6 @@
 
     <!-- Properties -->
     <context:property-placeholder
-        location="classpath:context/persistence/jpa-hibernate.properties, classpath:context/test/h2/jpa-hibernate-h2.properties" />
+        location=" classpath:context/test/h2/jpa-hibernate-h2.properties" />
 
 </beans>

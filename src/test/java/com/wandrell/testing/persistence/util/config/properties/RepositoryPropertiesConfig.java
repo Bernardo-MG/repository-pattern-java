@@ -48,4 +48,5 @@ public class RepositoryPropertiesConfig {
     private RepositoryPropertiesConfig() {
         super();
     }
+
 }

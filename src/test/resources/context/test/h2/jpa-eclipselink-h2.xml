@@ -10,6 +10,6 @@
 
     <!-- Properties -->
     <context:property-placeholder
-        location="classpath:context/persistence/jpa-eclipselink.properties, classpath:context/test/h2/jpa-eclipselink-h2.properties" />
+        location=" classpath:context/test/h2/jpa-eclipselink-h2.properties" />
 
 </beans>

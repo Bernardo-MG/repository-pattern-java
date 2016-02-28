@@ -32,6 +32,7 @@ import com.wandrell.testing.persistence.util.config.context.PersistenceContextCo
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.TestPropertiesConfig;
 
@@ -47,8 +48,9 @@ import com.wandrell.testing.persistence.util.config.properties.TestPropertiesCon
 @ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_SQLITE_MODIFY,
         TestContextConfig.ENTITY_MODIFIABLE,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
-@TestPropertySource({ PersistencePropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA })
+@TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
+        RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
+        PersistencePropertiesConfig.ECLIPSELINK })
 public final class ITModifySQLiteEclipselinkJPARepository {
 
     /**

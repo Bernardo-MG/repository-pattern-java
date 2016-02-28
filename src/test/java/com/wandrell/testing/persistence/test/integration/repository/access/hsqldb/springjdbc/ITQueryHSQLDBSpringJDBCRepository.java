@@ -31,6 +31,7 @@ import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.TestPropertiesConfig;
 import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQuery;
@@ -48,8 +49,9 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
 @ContextConfiguration(locations = { ContextConfig.JDBC_HSQLDB,
         PersistenceContextConfig.SPRING_JDBC,
         RepositoryContextConfig.SPRING_JDBC })
-@TestPropertySource({ PersistencePropertiesConfig.JDBC_QUERY,
-        RepositoryPropertiesConfig.SPRING_JDBC, TestPropertiesConfig.ENTITY })
+@TestPropertySource({ QueryPropertiesConfig.JDBC_QUERY,
+        RepositoryPropertiesConfig.SPRING_JDBC, TestPropertiesConfig.ENTITY,
+        PersistencePropertiesConfig.SPRING_JDBC })
 public final class ITQueryHSQLDBSpringJDBCRepository extends AbstractITQuery {
 
     /**

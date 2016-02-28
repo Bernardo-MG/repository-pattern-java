@@ -10,6 +10,6 @@
 
     <!-- Properties -->
     <context:property-placeholder
-        location="classpath:context/persistence/jpa-eclipselink.properties,  classpath:context/test/mysql/jpa-eclipselink-mysql.properties" />
+        location="  classpath:context/test/mysql/jpa-eclipselink-mysql.properties" />
 
 </beans>

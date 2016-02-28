@@ -34,13 +34,17 @@ package com.wandrell.testing.persistence.util.config.properties;
 public class PersistencePropertiesConfig {
 
     /**
-     * Properties file with JPA queries.
+     * Eclipselink JPA persistence properties file.
      */
-    public static final String JDBC_QUERY = "classpath:config/persistence/test-jdbc-query.properties";
+    public static final String ECLIPSELINK = "classpath:config/persistence/jpa-eclipselink.properties";
     /**
-     * Properties file with JPA queries.
+     * Hibernate JPA persistence properties file.
      */
-    public static final String JPA_QUERY  = "classpath:config/persistence/test-jpa-query.properties";
+    public static final String HIBERNATE   = "classpath:config/persistence/jpa-hibernate.properties";
+    /**
+     * Spring JDBC persistence properties file.
+     */
+    public static final String SPRING_JDBC = "classpath:config/persistence/spring-jdbc.properties";
 
     /**
      * Private constructor to avoid initialization.
@@ -48,4 +52,5 @@ public class PersistencePropertiesConfig {
     private PersistencePropertiesConfig() {
         super();
     }
+
 }

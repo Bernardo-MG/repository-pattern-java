@@ -10,6 +10,6 @@
 
     <!-- Properties -->
     <context:property-placeholder
-        location="classpath:context/persistence/jpa-eclipselink.properties, classpath:context/test/sqlite/jpa-eclipselink-sqlite.properties" />
+        location=" classpath:context/test/sqlite/jpa-eclipselink-sqlite.properties" />
 
 </beans>

@@ -25,27 +25,27 @@
 package com.wandrell.testing.persistence.util.config.properties;
 
 /**
- * Configuration class for the test properties files.
+ * Configuration class for the test query properties files.
  * <p>
  * These contain generic data required in several tests.
  *
  * @author Bernardo Martínez Garrido
  */
-public class TestPropertiesConfig {
+public class QueryPropertiesConfig {
 
     /**
-     * Properties file for the test entity.
+     * Properties file with JPA queries.
      */
-    public static final String ENTITY     = "classpath:config/entity/test-entity.properties";
+    public static final String JDBC_QUERY = "classpath:config/persistence/test-jdbc-query.properties";
     /**
-     * Properties file for the test JPA entity.
+     * Properties file with JPA queries.
      */
-    public static final String ENTITY_JPA = "classpath:config/entity/test-entity-jpa.properties";
+    public static final String JPA_QUERY  = "classpath:config/persistence/test-jpa-query.properties";
 
     /**
      * Private constructor to avoid initialization.
      */
-    private TestPropertiesConfig() {
+    private QueryPropertiesConfig() {
         super();
     }
 
