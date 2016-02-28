@@ -25,25 +25,29 @@
 package com.wandrell.testing.persistence.util.config.properties;
 
 /**
- * Configuration class for the test query properties files.
+ * Configuration class for the test username and password properties files.
  *
  * @author Bernardo Martínez Garrido
  */
-public class QueryPropertiesConfig {
+public class UsernamePropertiesConfig {
 
     /**
-     * Properties file with JPA queries.
+     * Properties file for the default test username and password.
      */
-    public static final String JDBC_QUERY = "classpath:config/persistence/test-jdbc-query.properties";
+    public static final String DEFAULT     = "classpath:config/connection/username-default.properties";
     /**
-     * Properties file with JPA queries.
+     * Properties file for the MySQL test username and password.
      */
-    public static final String JPA_QUERY  = "classpath:config/persistence/test-jpa-query.properties";
+    public static final String MYSQL     = "classpath:config/connection/username-mysql.properties";
+    /**
+     * Properties file for the Postgres test username and password.
+     */
+    public static final String POSTGRES     = "classpath:config/connection/username-postgres.properties";
 
     /**
      * Private constructor to avoid initialization.
      */
-    private QueryPropertiesConfig() {
+    private UsernamePropertiesConfig() {
         super();
     }
 

@@ -35,6 +35,7 @@ import com.wandrell.testing.persistence.util.config.properties.PersistenceProper
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.TestPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.UsernamePropertiesConfig;
 import com.wandrell.testing.persistence.util.test.repository.access.AbstractITModify;
 
 /**
@@ -51,7 +52,7 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
         RepositoryContextConfig.JPA })
 @TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
         RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
-        PersistencePropertiesConfig.HIBERNATE })
+        PersistencePropertiesConfig.HIBERNATE, UsernamePropertiesConfig.MYSQL })
 public final class ITModifyMySQLHibernateJPARepository
         extends AbstractITModify {
 

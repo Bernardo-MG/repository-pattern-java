@@ -35,6 +35,7 @@ import com.wandrell.testing.persistence.util.config.properties.PersistenceProper
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.TestPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.UsernamePropertiesConfig;
 
 /**
  * Integration tests for
@@ -50,7 +51,7 @@ import com.wandrell.testing.persistence.util.config.properties.TestPropertiesCon
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
 @TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
         RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
-        PersistencePropertiesConfig.ECLIPSELINK })
+        PersistencePropertiesConfig.ECLIPSELINK, UsernamePropertiesConfig.DEFAULT })
 public final class ITModifySQLiteEclipselinkJPARepository {
 
     /**

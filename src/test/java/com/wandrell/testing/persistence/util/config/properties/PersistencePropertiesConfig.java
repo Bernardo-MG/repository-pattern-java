@@ -26,8 +26,6 @@ package com.wandrell.testing.persistence.util.config.properties;
 
 /**
  * Configuration class for the persistence test properties files.
- * <p>
- * These contain generic data required in several tests.
  *
  * @author Bernardo Martínez Garrido
  */
