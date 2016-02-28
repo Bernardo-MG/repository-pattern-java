@@ -10,7 +10,7 @@
 
     <!-- Properties -->
     <context:property-placeholder
-        location="classpath:context/test/test-jpa-basic.properties, classpath:context/persistence/jpa-eclipselink.properties, classpath:context/repository/jpa-repository.properties, classpath:context/test/h2/jpa-eclipselink-h2-modify.properties" />
+        location=" classpath:context/persistence/jpa-eclipselink.properties, classpath:context/test/h2/jpa-eclipselink-h2-modify.properties" />
 
 
 </beans>

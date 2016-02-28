@@ -25,11 +25,14 @@
 package com.wandrell.testing.persistence.test.integration.repository.access.h2.eclipselink;
 
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 
 import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
+import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 import com.wandrell.testing.persistence.util.test.repository.access.AbstractITModify;
 
 /**
@@ -44,6 +47,8 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
 @ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_H2_MODIFY,
         TestContextConfig.ENTITY_MODIFIABLE,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
+@TestPropertySource({ PersistencePropertiesConfig.JPA_QUERY,
+        RepositoryPropertiesConfig.JPA })
 public final class ITModifyH2EclipselinkJPARepository extends AbstractITModify {
 
     /**

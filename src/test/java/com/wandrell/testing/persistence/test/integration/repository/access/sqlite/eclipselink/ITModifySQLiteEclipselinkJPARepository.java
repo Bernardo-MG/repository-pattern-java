@@ -25,11 +25,14 @@
 package com.wandrell.testing.persistence.test.integration.repository.access.sqlite.eclipselink;
 
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 
 import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
+import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 
 /**
  * Integration tests for
@@ -43,6 +46,8 @@ import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 @ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_SQLITE_MODIFY,
         TestContextConfig.ENTITY_MODIFIABLE,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
+@TestPropertySource({ PersistencePropertiesConfig.JPA_QUERY,
+        RepositoryPropertiesConfig.JPA })
 public final class ITModifySQLiteEclipselinkJPARepository {
 
     /**

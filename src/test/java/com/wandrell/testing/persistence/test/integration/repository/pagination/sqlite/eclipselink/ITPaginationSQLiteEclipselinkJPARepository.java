@@ -25,10 +25,13 @@
 package com.wandrell.testing.persistence.test.integration.repository.pagination.sqlite.eclipselink;
 
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 
 import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
+import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 
 /**
  * Integration tests checking pagination for
@@ -41,6 +44,8 @@ import com.wandrell.testing.persistence.util.config.context.RepositoryContextCon
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_SQLITE,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
+@TestPropertySource({ PersistencePropertiesConfig.JPA_QUERY,
+        RepositoryPropertiesConfig.JPA })
 public final class ITPaginationSQLiteEclipselinkJPARepository {
 
     /**

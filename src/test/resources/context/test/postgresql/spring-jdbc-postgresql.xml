@@ -10,6 +10,6 @@
 
     <!-- Properties -->
     <context:property-placeholder
-        location="classpath:context/test/test-spring-jdbc-basic.properties, classpath:context/persistence/spring-jdbc.properties, classpath:context/repository/spring-jdbc-repository.properties, classpath:context/test/postgresql/spring-jdbc-postgresql.properties" />
+        location="classpath:context/repository/spring-jdbc-repository.properties, classpath:context/test/postgresql/spring-jdbc-postgresql.properties" />
 
 </beans>
