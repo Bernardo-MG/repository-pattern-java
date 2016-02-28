@@ -54,7 +54,8 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
         RepositoryContextConfig.SPRING_JDBC })
 @TestPropertySource({ QueryPropertiesConfig.JDBC_QUERY,
         RepositoryPropertiesConfig.SPRING_JDBC, TestPropertiesConfig.ENTITY,
-        PersistencePropertiesConfig.SPRING_JDBC, UsernamePropertiesConfig.POSTGRES })
+        PersistencePropertiesConfig.SPRING_JDBC,
+        UsernamePropertiesConfig.POSTGRES })
 public final class ITModifyPostgreSQLSpringJDBCRepository
         extends AbstractITModify {
 

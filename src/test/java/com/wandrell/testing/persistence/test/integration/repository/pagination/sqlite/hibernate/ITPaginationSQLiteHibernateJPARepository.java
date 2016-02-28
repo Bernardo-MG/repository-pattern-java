@@ -33,6 +33,7 @@ import com.wandrell.testing.persistence.util.config.context.RepositoryContextCon
 import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.UsernamePropertiesConfig;
 
 /**
  * Integration tests checking pagination for
@@ -46,7 +47,8 @@ import com.wandrell.testing.persistence.util.config.properties.RepositoryPropert
 @ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_SQLITE,
         PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
 @TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA, PersistencePropertiesConfig.HIBERNATE })
+        RepositoryPropertiesConfig.JPA, PersistencePropertiesConfig.HIBERNATE,
+        UsernamePropertiesConfig.DEFAULT })
 public final class ITPaginationSQLiteHibernateJPARepository {
 
     /**

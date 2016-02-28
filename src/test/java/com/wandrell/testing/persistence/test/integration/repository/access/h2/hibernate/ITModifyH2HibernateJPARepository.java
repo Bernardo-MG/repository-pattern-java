@@ -52,7 +52,8 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
         RepositoryContextConfig.JPA })
 @TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
         RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
-        PersistencePropertiesConfig.HIBERNATE, UsernamePropertiesConfig.DEFAULT })
+        PersistencePropertiesConfig.HIBERNATE,
+        UsernamePropertiesConfig.DEFAULT })
 public final class ITModifyH2HibernateJPARepository extends AbstractITModify {
 
     /**

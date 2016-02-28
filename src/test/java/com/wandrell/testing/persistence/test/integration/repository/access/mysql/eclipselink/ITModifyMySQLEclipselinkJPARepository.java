@@ -52,7 +52,8 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
 @TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
         RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
-        PersistencePropertiesConfig.ECLIPSELINK, UsernamePropertiesConfig.MYSQL })
+        PersistencePropertiesConfig.ECLIPSELINK,
+        UsernamePropertiesConfig.MYSQL })
 public final class ITModifyMySQLEclipselinkJPARepository
         extends AbstractITModify {
 

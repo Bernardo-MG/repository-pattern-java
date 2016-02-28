@@ -48,8 +48,8 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
 @ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_POSTGRESQL,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
 @TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA,
-        PersistencePropertiesConfig.ECLIPSELINK, UsernamePropertiesConfig.POSTGRES })
+        RepositoryPropertiesConfig.JPA, PersistencePropertiesConfig.ECLIPSELINK,
+        UsernamePropertiesConfig.POSTGRES })
 public final class ITQueryPostgreSQLEclipselinkJPARepository
         extends AbstractITQuery {
 

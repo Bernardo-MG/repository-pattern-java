@@ -48,7 +48,8 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
 @ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_SQLITE,
         PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
 @TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA, PersistencePropertiesConfig.HIBERNATE, UsernamePropertiesConfig.DEFAULT })
+        RepositoryPropertiesConfig.JPA, PersistencePropertiesConfig.HIBERNATE,
+        UsernamePropertiesConfig.DEFAULT })
 public final class ITQuerySQLiteHibernateJPARepository extends AbstractITQuery {
 
     /**

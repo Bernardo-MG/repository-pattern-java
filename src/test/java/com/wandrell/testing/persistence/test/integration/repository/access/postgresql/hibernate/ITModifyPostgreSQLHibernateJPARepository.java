@@ -53,7 +53,8 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
         RepositoryContextConfig.JPA })
 @TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
         RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
-        PersistencePropertiesConfig.HIBERNATE, UsernamePropertiesConfig.POSTGRES })
+        PersistencePropertiesConfig.HIBERNATE,
+        UsernamePropertiesConfig.POSTGRES })
 public final class ITModifyPostgreSQLHibernateJPARepository
         extends AbstractITModify {
 

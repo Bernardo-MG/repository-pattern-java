@@ -34,15 +34,15 @@ public class UsernamePropertiesConfig {
     /**
      * Properties file for the default test username and password.
      */
-    public static final String DEFAULT     = "classpath:config/connection/username-default.properties";
+    public static final String DEFAULT  = "classpath:config/connection/username-default.properties";
     /**
      * Properties file for the MySQL test username and password.
      */
-    public static final String MYSQL     = "classpath:config/connection/username-mysql.properties";
+    public static final String MYSQL    = "classpath:config/connection/username-mysql.properties";
     /**
      * Properties file for the Postgres test username and password.
      */
-    public static final String POSTGRES     = "classpath:config/connection/username-postgres.properties";
+    public static final String POSTGRES = "classpath:config/connection/username-postgres.properties";
 
     /**
      * Private constructor to avoid initialization.

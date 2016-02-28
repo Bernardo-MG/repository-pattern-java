@@ -48,7 +48,8 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
 @ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_POSTGRESQL,
         PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
 @TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA, PersistencePropertiesConfig.HIBERNATE, UsernamePropertiesConfig.POSTGRES })
+        RepositoryPropertiesConfig.JPA, PersistencePropertiesConfig.HIBERNATE,
+        UsernamePropertiesConfig.POSTGRES })
 public final class ITQueryPostgreSQLHibernateJPARepository
         extends AbstractITQuery {
 

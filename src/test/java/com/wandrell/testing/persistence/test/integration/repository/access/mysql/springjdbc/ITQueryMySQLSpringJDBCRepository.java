@@ -52,7 +52,8 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
         RepositoryContextConfig.SPRING_JDBC })
 @TestPropertySource({ QueryPropertiesConfig.JDBC_QUERY,
         RepositoryPropertiesConfig.SPRING_JDBC, TestPropertiesConfig.ENTITY,
-        PersistencePropertiesConfig.SPRING_JDBC, UsernamePropertiesConfig.MYSQL })
+        PersistencePropertiesConfig.SPRING_JDBC,
+        UsernamePropertiesConfig.MYSQL })
 public final class ITQueryMySQLSpringJDBCRepository extends AbstractITQuery {
 
     /**

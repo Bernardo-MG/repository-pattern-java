@@ -51,7 +51,8 @@ import com.wandrell.testing.persistence.util.config.properties.UsernamePropertie
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
 @TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
         RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
-        PersistencePropertiesConfig.ECLIPSELINK, UsernamePropertiesConfig.DEFAULT })
+        PersistencePropertiesConfig.ECLIPSELINK,
+        UsernamePropertiesConfig.DEFAULT })
 public final class ITModifySQLiteEclipselinkJPARepository {
 
     /**

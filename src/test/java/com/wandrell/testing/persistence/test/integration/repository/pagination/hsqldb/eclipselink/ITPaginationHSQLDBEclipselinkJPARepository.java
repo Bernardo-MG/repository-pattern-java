@@ -33,6 +33,7 @@ import com.wandrell.testing.persistence.util.config.context.RepositoryContextCon
 import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.UsernamePropertiesConfig;
 import com.wandrell.testing.persistence.util.test.repository.pagination.AbstractITPagination;
 
 /**
@@ -47,8 +48,8 @@ import com.wandrell.testing.persistence.util.test.repository.pagination.Abstract
 @ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_HSQLDB,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
 @TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA,
-        PersistencePropertiesConfig.ECLIPSELINK })
+        RepositoryPropertiesConfig.JPA, PersistencePropertiesConfig.ECLIPSELINK,
+        UsernamePropertiesConfig.DEFAULT })
 public final class ITPaginationHSQLDBEclipselinkJPARepository
         extends AbstractITPagination {
 
