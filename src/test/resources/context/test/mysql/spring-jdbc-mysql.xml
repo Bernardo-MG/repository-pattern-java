@@ -10,6 +10,6 @@
 
     <!-- Properties -->
     <context:property-placeholder
-        location="classpath:context/repository/spring-jdbc-repository.properties, classpath:context/test/mysql/spring-jdbc-mysql.properties" />
+        location="classpath:context/test/mysql/spring-jdbc-mysql.properties" />
 
 </beans>
