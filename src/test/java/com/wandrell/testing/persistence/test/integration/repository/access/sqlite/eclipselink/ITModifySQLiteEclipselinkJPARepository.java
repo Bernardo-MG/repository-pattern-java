@@ -31,6 +31,7 @@ import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
+import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
@@ -52,7 +53,8 @@ import com.wandrell.testing.persistence.util.config.properties.UsernamePropertie
 @TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
         RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
         PersistencePropertiesConfig.ECLIPSELINK,
-        UsernamePropertiesConfig.DEFAULT })
+        UsernamePropertiesConfig.DEFAULT,
+        DatabaseScriptsPropertiesConfig.SIMPLE })
 public final class ITModifySQLiteEclipselinkJPARepository {
 
     /**

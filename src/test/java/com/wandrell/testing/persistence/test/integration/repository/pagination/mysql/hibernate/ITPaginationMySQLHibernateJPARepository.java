@@ -30,6 +30,7 @@ import org.springframework.test.context.TestPropertySource;
 import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
+import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
@@ -49,7 +50,7 @@ import com.wandrell.testing.persistence.util.test.repository.pagination.Abstract
         PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
 @TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
         RepositoryPropertiesConfig.JPA, PersistencePropertiesConfig.HIBERNATE,
-        UsernamePropertiesConfig.MYSQL })
+        UsernamePropertiesConfig.MYSQL, DatabaseScriptsPropertiesConfig.MYSQL })
 public final class ITPaginationMySQLHibernateJPARepository
         extends AbstractITPagination {
 
