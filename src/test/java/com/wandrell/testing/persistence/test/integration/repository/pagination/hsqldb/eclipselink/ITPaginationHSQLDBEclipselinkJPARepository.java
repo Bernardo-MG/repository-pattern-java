@@ -32,6 +32,7 @@ import com.wandrell.testing.persistence.util.config.context.PersistenceContextCo
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.JPAPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
@@ -53,10 +54,10 @@ import com.wandrell.testing.persistence.util.test.repository.pagination.Abstract
         RepositoryPropertiesConfig.JPA,
         PersistenceProviderPropertiesConfig.ECLIPSELINK,
         UsernamePropertiesConfig.DEFAULT,
-        DatabaseScriptsPropertiesConfig.MSSQL, JDBCPropertiesConfig.HSQLDB },
-        properties = {
-                "jpa.persistenceUnitName=test_model_jpa_eclipselink_hsqldb",
-                "jdbc.url=jdbc:hsqldb:mem:test_jpa_eclipselink" })
+        DatabaseScriptsPropertiesConfig.MSSQL, JDBCPropertiesConfig.HSQLDB,
+        JPAPropertiesConfig.HSQLDB }, properties = {
+        "jpa.persistenceUnitName=test_model_jpa_eclipselink_hsqldb",
+        "jdbc.url=jdbc:hsqldb:mem:test_jpa_eclipselink" })
 public final class ITPaginationHSQLDBEclipselinkJPARepository extends
         AbstractITPagination {
 

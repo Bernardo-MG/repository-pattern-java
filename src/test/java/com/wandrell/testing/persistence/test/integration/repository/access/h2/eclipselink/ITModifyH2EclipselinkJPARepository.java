@@ -33,6 +33,7 @@ import com.wandrell.testing.persistence.util.config.context.RepositoryContextCon
 import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.JPAPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
@@ -58,7 +59,8 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
                 TestPropertiesConfig.ENTITY_JPA,
                 PersistenceProviderPropertiesConfig.ECLIPSELINK,
                 UsernamePropertiesConfig.DEFAULT,
-                DatabaseScriptsPropertiesConfig.MSSQL, JDBCPropertiesConfig.H2 },
+                DatabaseScriptsPropertiesConfig.MSSQL, JDBCPropertiesConfig.H2,
+                JPAPropertiesConfig.H2 },
         properties = {
                 "jpa.persistenceUnitName=test_model_jpa_eclipselink_h2_modify",
                 "jdbc.url=jdbc:h2:mem:test_jpa_eclipselink_modify;DB_CLOSE_ON_EXIT=FALSE" })

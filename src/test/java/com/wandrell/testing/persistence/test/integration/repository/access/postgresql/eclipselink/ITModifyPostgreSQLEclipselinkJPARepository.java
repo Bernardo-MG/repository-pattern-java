@@ -33,6 +33,7 @@ import com.wandrell.testing.persistence.util.config.context.RepositoryContextCon
 import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.JPAPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
@@ -60,7 +61,7 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
                 PersistenceProviderPropertiesConfig.ECLIPSELINK,
                 UsernamePropertiesConfig.POSTGRES,
                 DatabaseScriptsPropertiesConfig.POSTGRES,
-                JDBCPropertiesConfig.POSTGRESQL },
+                JDBCPropertiesConfig.POSTGRESQL, JPAPropertiesConfig.POSTGRESQL },
         properties = {
                 "jpa.persistenceUnitName=test_model_jpa_eclipselink_postgresql_modify",
                 "jdbc.url=jdbc:postgresql://localhost:5432/test_jpa_eclipselink_modify" })

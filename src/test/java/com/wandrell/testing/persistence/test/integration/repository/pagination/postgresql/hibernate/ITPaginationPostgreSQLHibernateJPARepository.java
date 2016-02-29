@@ -32,6 +32,7 @@ import com.wandrell.testing.persistence.util.config.context.PersistenceContextCo
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.JPAPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
@@ -49,14 +50,16 @@ import com.wandrell.testing.persistence.util.test.repository.pagination.Abstract
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_POSTGRESQL,
         PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
-@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA,
-        PersistenceProviderPropertiesConfig.HIBERNATE,
-        UsernamePropertiesConfig.POSTGRES,
-        DatabaseScriptsPropertiesConfig.POSTGRES,
-        JDBCPropertiesConfig.POSTGRESQL }, properties = {
-        "jpa.persistenceUnitName=test_model_jpa_hibernate_postgresql",
-        "jdbc.url=jdbc:postgresql://localhost:5432/test_jpa_hibernate" })
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JPA_QUERY,
+                RepositoryPropertiesConfig.JPA,
+                PersistenceProviderPropertiesConfig.HIBERNATE,
+                UsernamePropertiesConfig.POSTGRES,
+                DatabaseScriptsPropertiesConfig.POSTGRES,
+                JDBCPropertiesConfig.POSTGRESQL, JPAPropertiesConfig.POSTGRESQL },
+        properties = {
+                "jpa.persistenceUnitName=test_model_jpa_hibernate_postgresql",
+                "jdbc.url=jdbc:postgresql://localhost:5432/test_jpa_hibernate" })
 public final class ITPaginationPostgreSQLHibernateJPARepository extends
         AbstractITPagination {
 

@@ -32,6 +32,7 @@ import com.wandrell.testing.persistence.util.config.context.PersistenceContextCo
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.JPAPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
@@ -53,7 +54,7 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
         RepositoryPropertiesConfig.JPA,
         PersistenceProviderPropertiesConfig.HIBERNATE,
         UsernamePropertiesConfig.MYSQL, DatabaseScriptsPropertiesConfig.MYSQL,
-        JDBCPropertiesConfig.MYSQL }, properties = {
+        JDBCPropertiesConfig.MYSQL, JPAPropertiesConfig.MYSQL }, properties = {
         "jpa.persistenceUnitName=test_model_jpa_hibernate_mysql",
         "jdbc.url=jdbc:mysql://localhost:3306/test_jpa_hibernate" })
 public final class ITQueryMySQLHibernateJPARepository extends AbstractITQuery {

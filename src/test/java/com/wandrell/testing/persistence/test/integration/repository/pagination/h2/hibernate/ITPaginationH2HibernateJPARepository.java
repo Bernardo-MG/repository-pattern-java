@@ -32,6 +32,7 @@ import com.wandrell.testing.persistence.util.config.context.PersistenceContextCo
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.JPAPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
@@ -49,14 +50,14 @@ import com.wandrell.testing.persistence.util.test.repository.pagination.Abstract
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_H2,
         PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
-@TestPropertySource(
-        locations = { QueryPropertiesConfig.JPA_QUERY,
-                RepositoryPropertiesConfig.JPA,
-                PersistenceProviderPropertiesConfig.HIBERNATE,
-                UsernamePropertiesConfig.DEFAULT,
-                DatabaseScriptsPropertiesConfig.MSSQL, JDBCPropertiesConfig.H2 },
-        properties = { "jpa.persistenceUnitName=test_model_jpa_hibernate_h2",
-                "jdbc.url=jdbc:h2:mem:test_jpa_hibernate;DB_CLOSE_ON_EXIT=FALSE" })
+@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
+        RepositoryPropertiesConfig.JPA,
+        PersistenceProviderPropertiesConfig.HIBERNATE,
+        UsernamePropertiesConfig.DEFAULT,
+        DatabaseScriptsPropertiesConfig.MSSQL, JDBCPropertiesConfig.H2,
+        JPAPropertiesConfig.H2 }, properties = {
+        "jpa.persistenceUnitName=test_model_jpa_hibernate_h2",
+        "jdbc.url=jdbc:h2:mem:test_jpa_hibernate;DB_CLOSE_ON_EXIT=FALSE" })
 public final class ITPaginationH2HibernateJPARepository extends
         AbstractITPagination {
 
