@@ -48,11 +48,16 @@ import com.wandrell.testing.persistence.util.test.repository.pagination.Abstract
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_MYSQL,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
-@TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA, PersistencePropertiesConfig.ECLIPSELINK,
-        UsernamePropertiesConfig.MYSQL, DatabaseScriptsPropertiesConfig.MYSQL })
-public final class ITPaginationMySQLEclipselinkJPARepository
-        extends AbstractITPagination {
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JPA_QUERY,
+                RepositoryPropertiesConfig.JPA,
+                PersistencePropertiesConfig.ECLIPSELINK,
+                UsernamePropertiesConfig.MYSQL,
+                DatabaseScriptsPropertiesConfig.MYSQL }, properties = {
+                "jpa.persistenceUnitName=test_model_jpa_eclipselink_mysql",
+                "jdbc.url=jdbc:mysql://localhost:3306/test_jpa_eclipselink" })
+public final class ITPaginationMySQLEclipselinkJPARepository extends
+        AbstractITPagination {
 
     /**
      * Default constructor.

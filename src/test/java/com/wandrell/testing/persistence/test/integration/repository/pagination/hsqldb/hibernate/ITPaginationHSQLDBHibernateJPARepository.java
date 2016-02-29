@@ -48,12 +48,16 @@ import com.wandrell.testing.persistence.util.test.repository.pagination.Abstract
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_HSQLDB,
         PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
-@TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA, PersistencePropertiesConfig.HIBERNATE,
-        UsernamePropertiesConfig.DEFAULT,
-        DatabaseScriptsPropertiesConfig.MSSQL })
-public final class ITPaginationHSQLDBHibernateJPARepository
-        extends AbstractITPagination {
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JPA_QUERY,
+                RepositoryPropertiesConfig.JPA,
+                PersistencePropertiesConfig.HIBERNATE,
+                UsernamePropertiesConfig.DEFAULT,
+                DatabaseScriptsPropertiesConfig.MSSQL }, properties = {
+                "jpa.persistenceUnitName=test_model_jpa_hibernate_hsql",
+                "jdbc.url=jdbc:hsqldb:mem:test_jpa_hibernate" })
+public final class ITPaginationHSQLDBHibernateJPARepository extends
+        AbstractITPagination {
 
     /**
      * Default constructor.

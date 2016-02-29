@@ -48,12 +48,15 @@ import com.wandrell.testing.persistence.util.test.repository.pagination.Abstract
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_POSTGRESQL,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
-@TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA, PersistencePropertiesConfig.ECLIPSELINK,
+@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
+        RepositoryPropertiesConfig.JPA,
+        PersistencePropertiesConfig.ECLIPSELINK,
         UsernamePropertiesConfig.POSTGRES,
-        DatabaseScriptsPropertiesConfig.POSTGRES })
-public final class ITPaginationPostgreSQLEclipselinkJPARepository
-        extends AbstractITPagination {
+        DatabaseScriptsPropertiesConfig.POSTGRES }, properties = {
+        "jpa.persistenceUnitName=test_model_jpa_eclipselink_postgresql",
+        "jdbc.url=jdbc:postgresql://localhost:5432/test_jpa_eclipselink" })
+public final class ITPaginationPostgreSQLEclipselinkJPARepository extends
+        AbstractITPagination {
 
     /**
      * Default constructor.

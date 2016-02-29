@@ -47,10 +47,12 @@ import com.wandrell.testing.persistence.util.config.properties.UsernamePropertie
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_SQLITE,
         PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
-@TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
+@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
         RepositoryPropertiesConfig.JPA, PersistencePropertiesConfig.HIBERNATE,
         UsernamePropertiesConfig.DEFAULT,
-        DatabaseScriptsPropertiesConfig.SIMPLE })
+        DatabaseScriptsPropertiesConfig.SIMPLE }, properties = {
+        "jpa.persistenceUnitName=test_model_jpa_hibernate_sqlite",
+        "jdbc.url=jdbc:sqlite:target/sqlite_test_jpa_hibernate.db" })
 public final class ITPaginationSQLiteHibernateJPARepository {
 
     /**
