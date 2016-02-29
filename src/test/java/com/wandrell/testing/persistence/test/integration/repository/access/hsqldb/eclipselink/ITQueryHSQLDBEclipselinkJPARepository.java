@@ -48,12 +48,16 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_HSQLDB,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
-@TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA, PersistencePropertiesConfig.ECLIPSELINK,
-        UsernamePropertiesConfig.DEFAULT,
-        DatabaseScriptsPropertiesConfig.MSSQL })
-public final class ITQueryHSQLDBEclipselinkJPARepository
-        extends AbstractITQuery {
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JPA_QUERY,
+                RepositoryPropertiesConfig.JPA,
+                PersistencePropertiesConfig.ECLIPSELINK,
+                UsernamePropertiesConfig.DEFAULT,
+                DatabaseScriptsPropertiesConfig.MSSQL }, properties = {
+                "jpa.persistenceUnitName=test_model_jpa_eclipselink_hsqldb",
+                "jdbc.url=jdbc:hsqldb:mem:test_jpa_eclipselink" })
+public final class ITQueryHSQLDBEclipselinkJPARepository extends
+        AbstractITQuery {
 
     /**
      * Default constructor.

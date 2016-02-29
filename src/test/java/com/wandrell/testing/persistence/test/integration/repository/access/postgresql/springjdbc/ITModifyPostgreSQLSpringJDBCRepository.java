@@ -53,13 +53,16 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
         TestContextConfig.ENTITY_MODIFIABLE,
         PersistenceContextConfig.SPRING_JDBC,
         RepositoryContextConfig.SPRING_JDBC })
-@TestPropertySource({ QueryPropertiesConfig.JDBC_QUERY,
-        RepositoryPropertiesConfig.SPRING_JDBC, TestPropertiesConfig.ENTITY,
-        PersistencePropertiesConfig.SPRING_JDBC,
-        UsernamePropertiesConfig.POSTGRES,
-        DatabaseScriptsPropertiesConfig.POSTGRES })
-public final class ITModifyPostgreSQLSpringJDBCRepository
-        extends AbstractITModify {
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JDBC_QUERY,
+                RepositoryPropertiesConfig.SPRING_JDBC,
+                TestPropertiesConfig.ENTITY,
+                PersistencePropertiesConfig.SPRING_JDBC,
+                UsernamePropertiesConfig.POSTGRES,
+                DatabaseScriptsPropertiesConfig.POSTGRES },
+        properties = { "jdbc.url=jdbc:postgresql://localhost:5432/test_spring_jdbc_modify" })
+public final class ITModifyPostgreSQLSpringJDBCRepository extends
+        AbstractITModify {
 
     /**
      * Default constructor.

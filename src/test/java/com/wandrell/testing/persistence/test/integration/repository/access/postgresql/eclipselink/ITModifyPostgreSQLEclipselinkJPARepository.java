@@ -52,13 +52,18 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
         ContextConfig.JPA_ECLIPSELINK_POSTGRESQL_MODIFY,
         TestContextConfig.ENTITY_MODIFIABLE,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
-@TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
-        PersistencePropertiesConfig.ECLIPSELINK,
-        UsernamePropertiesConfig.POSTGRES,
-        DatabaseScriptsPropertiesConfig.POSTGRES })
-public final class ITModifyPostgreSQLEclipselinkJPARepository
-        extends AbstractITModify {
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JPA_QUERY,
+                RepositoryPropertiesConfig.JPA,
+                TestPropertiesConfig.ENTITY_JPA,
+                PersistencePropertiesConfig.ECLIPSELINK,
+                UsernamePropertiesConfig.POSTGRES,
+                DatabaseScriptsPropertiesConfig.POSTGRES },
+        properties = {
+                "jpa.persistenceUnitName=test_model_jpa_eclipselink_postgresql_modify",
+                "jdbc.url=jdbc:postgresql://localhost:5432/test_jpa_eclipselink_modify" })
+public final class ITModifyPostgreSQLEclipselinkJPARepository extends
+        AbstractITModify {
 
     /**
      * Default constructor.

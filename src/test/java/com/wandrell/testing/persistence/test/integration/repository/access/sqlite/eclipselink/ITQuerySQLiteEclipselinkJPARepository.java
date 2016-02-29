@@ -48,12 +48,15 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_SQLITE,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
-@TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA, PersistencePropertiesConfig.ECLIPSELINK,
+@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
+        RepositoryPropertiesConfig.JPA,
+        PersistencePropertiesConfig.ECLIPSELINK,
         UsernamePropertiesConfig.DEFAULT,
-        DatabaseScriptsPropertiesConfig.SIMPLE })
-public final class ITQuerySQLiteEclipselinkJPARepository
-        extends AbstractITQuery {
+        DatabaseScriptsPropertiesConfig.SIMPLE }, properties = {
+        "jpa.persistenceUnitName=test_model_jpa_eclipselink_sqlite",
+        "jdbc.url=jdbc:sqlite:target/sqlite_test_jpa_eclipselink.db" })
+public final class ITQuerySQLiteEclipselinkJPARepository extends
+        AbstractITQuery {
 
     /**
      * Default constructor.

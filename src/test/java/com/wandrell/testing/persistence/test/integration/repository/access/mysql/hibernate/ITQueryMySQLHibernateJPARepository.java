@@ -48,9 +48,14 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_MYSQL,
         PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
-@TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA, PersistencePropertiesConfig.HIBERNATE,
-        UsernamePropertiesConfig.MYSQL, DatabaseScriptsPropertiesConfig.MYSQL })
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JPA_QUERY,
+                RepositoryPropertiesConfig.JPA,
+                PersistencePropertiesConfig.HIBERNATE,
+                UsernamePropertiesConfig.MYSQL,
+                DatabaseScriptsPropertiesConfig.MYSQL }, properties = {
+                "jpa.persistenceUnitName=test_model_jpa_hibernate_mysql",
+                "jdbc.url=jdbc:mysql://localhost:3306/test_jpa_hibernate" })
 public final class ITQueryMySQLHibernateJPARepository extends AbstractITQuery {
 
     /**

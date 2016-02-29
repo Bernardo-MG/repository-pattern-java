@@ -49,14 +49,15 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_MYSQL_MODIFY,
-        TestContextConfig.ENTITY_MODIFIABLE, PersistenceContextConfig.HIBERNATE,
-        RepositoryContextConfig.JPA })
-@TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
+        TestContextConfig.ENTITY_MODIFIABLE,
+        PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
+@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
         RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
         PersistencePropertiesConfig.HIBERNATE, UsernamePropertiesConfig.MYSQL,
-        DatabaseScriptsPropertiesConfig.MYSQL })
-public final class ITModifyMySQLHibernateJPARepository
-        extends AbstractITModify {
+        DatabaseScriptsPropertiesConfig.MYSQL }, properties = {
+        "jpa.persistenceUnitName=test_model_jpa_hibernate_mysql_modify",
+        "jdbc.url=jdbc:mysql://localhost:3306/test_jpa_hibernate_modify" })
+public final class ITModifyMySQLHibernateJPARepository extends AbstractITModify {
 
     /**
      * Default constructor.

@@ -51,12 +51,18 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
 @ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_MYSQL_MODIFY,
         TestContextConfig.ENTITY_MODIFIABLE,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
-@TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
-        PersistencePropertiesConfig.ECLIPSELINK, UsernamePropertiesConfig.MYSQL,
-        DatabaseScriptsPropertiesConfig.MYSQL })
-public final class ITModifyMySQLEclipselinkJPARepository
-        extends AbstractITModify {
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JPA_QUERY,
+                RepositoryPropertiesConfig.JPA,
+                TestPropertiesConfig.ENTITY_JPA,
+                PersistencePropertiesConfig.ECLIPSELINK,
+                UsernamePropertiesConfig.MYSQL,
+                DatabaseScriptsPropertiesConfig.MYSQL },
+        properties = {
+                "jpa.persistenceUnitName=test_model_jpa_eclipselink_mysql_modify",
+                "jdbc.url=jdbc:mysql://localhost:3306/test_jpa_eclipselink_modify" })
+public final class ITModifyMySQLEclipselinkJPARepository extends
+        AbstractITModify {
 
     /**
      * Default constructor.

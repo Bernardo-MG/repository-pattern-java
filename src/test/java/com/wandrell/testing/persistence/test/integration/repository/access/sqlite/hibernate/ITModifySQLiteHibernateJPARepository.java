@@ -49,14 +49,17 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_SQLITE_MODIFY,
-        TestContextConfig.ENTITY_MODIFIABLE, PersistenceContextConfig.HIBERNATE,
-        RepositoryContextConfig.JPA })
-@TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
+        TestContextConfig.ENTITY_MODIFIABLE,
+        PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
+@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
         RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
-        PersistencePropertiesConfig.HIBERNATE, UsernamePropertiesConfig.DEFAULT,
-        DatabaseScriptsPropertiesConfig.SIMPLE })
-public final class ITModifySQLiteHibernateJPARepository
-        extends AbstractITModify {
+        PersistencePropertiesConfig.HIBERNATE,
+        UsernamePropertiesConfig.DEFAULT,
+        DatabaseScriptsPropertiesConfig.SIMPLE }, properties = {
+        "jpa.persistenceUnitName=test_model_jpa_hibernate_sqlite_modify",
+        "jdbc.url=jdbc:sqlite:target/sqlite_test_jpa_hibernate_modify.db" })
+public final class ITModifySQLiteHibernateJPARepository extends
+        AbstractITModify {
 
     /**
      * Default constructor.

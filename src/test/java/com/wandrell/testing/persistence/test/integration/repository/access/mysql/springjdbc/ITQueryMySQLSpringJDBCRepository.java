@@ -51,10 +51,14 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
 @ContextConfiguration(locations = { ContextConfig.JDBC_MYSQL,
         PersistenceContextConfig.SPRING_JDBC,
         RepositoryContextConfig.SPRING_JDBC })
-@TestPropertySource({ QueryPropertiesConfig.JDBC_QUERY,
-        RepositoryPropertiesConfig.SPRING_JDBC, TestPropertiesConfig.ENTITY,
-        PersistencePropertiesConfig.SPRING_JDBC, UsernamePropertiesConfig.MYSQL,
-        DatabaseScriptsPropertiesConfig.MYSQL })
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JDBC_QUERY,
+                RepositoryPropertiesConfig.SPRING_JDBC,
+                TestPropertiesConfig.ENTITY,
+                PersistencePropertiesConfig.SPRING_JDBC,
+                UsernamePropertiesConfig.MYSQL,
+                DatabaseScriptsPropertiesConfig.MYSQL },
+        properties = { "jdbc.url=jdbc:mysql://localhost:3306/test_spring_jdbc" })
 public final class ITQueryMySQLSpringJDBCRepository extends AbstractITQuery {
 
     /**

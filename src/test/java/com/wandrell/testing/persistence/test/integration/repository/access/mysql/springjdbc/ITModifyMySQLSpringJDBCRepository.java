@@ -53,10 +53,14 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
         TestContextConfig.ENTITY_MODIFIABLE,
         PersistenceContextConfig.SPRING_JDBC,
         RepositoryContextConfig.SPRING_JDBC })
-@TestPropertySource({ QueryPropertiesConfig.JDBC_QUERY,
-        RepositoryPropertiesConfig.SPRING_JDBC, TestPropertiesConfig.ENTITY,
-        PersistencePropertiesConfig.SPRING_JDBC, UsernamePropertiesConfig.MYSQL,
-        DatabaseScriptsPropertiesConfig.MYSQL })
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JDBC_QUERY,
+                RepositoryPropertiesConfig.SPRING_JDBC,
+                TestPropertiesConfig.ENTITY,
+                PersistencePropertiesConfig.SPRING_JDBC,
+                UsernamePropertiesConfig.MYSQL,
+                DatabaseScriptsPropertiesConfig.MYSQL },
+        properties = { "jdbc.url=jdbc:mysql://localhost:3306/test_spring_jdbc_modify" })
 public final class ITModifyMySQLSpringJDBCRepository extends AbstractITModify {
 
     /**

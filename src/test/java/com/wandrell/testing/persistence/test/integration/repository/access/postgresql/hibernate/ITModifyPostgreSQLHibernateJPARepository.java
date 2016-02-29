@@ -50,15 +50,17 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
  */
 @ContextConfiguration(locations = {
         ContextConfig.JPA_HIBERNATE_POSTGRESQL_MODIFY,
-        TestContextConfig.ENTITY_MODIFIABLE, PersistenceContextConfig.HIBERNATE,
-        RepositoryContextConfig.JPA })
-@TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
+        TestContextConfig.ENTITY_MODIFIABLE,
+        PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
+@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
         RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
         PersistencePropertiesConfig.HIBERNATE,
         UsernamePropertiesConfig.POSTGRES,
-        DatabaseScriptsPropertiesConfig.POSTGRES })
-public final class ITModifyPostgreSQLHibernateJPARepository
-        extends AbstractITModify {
+        DatabaseScriptsPropertiesConfig.POSTGRES }, properties = {
+        "jpa.persistenceUnitName=test_model_jpa_hibernate_postgresql_modify",
+        "jdbc.url=jdbc:postgresql://localhost:5432/test_jpa_hibernate_modify" })
+public final class ITModifyPostgreSQLHibernateJPARepository extends
+        AbstractITModify {
 
     /**
      * Default constructor.

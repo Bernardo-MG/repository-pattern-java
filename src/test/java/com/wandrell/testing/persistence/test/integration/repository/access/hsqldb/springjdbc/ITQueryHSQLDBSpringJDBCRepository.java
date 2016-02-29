@@ -51,11 +51,14 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
 @ContextConfiguration(locations = { ContextConfig.JDBC_HSQLDB,
         PersistenceContextConfig.SPRING_JDBC,
         RepositoryContextConfig.SPRING_JDBC })
-@TestPropertySource({ QueryPropertiesConfig.JDBC_QUERY,
-        RepositoryPropertiesConfig.SPRING_JDBC, TestPropertiesConfig.ENTITY,
-        PersistencePropertiesConfig.SPRING_JDBC,
-        UsernamePropertiesConfig.DEFAULT,
-        DatabaseScriptsPropertiesConfig.MSSQL })
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JDBC_QUERY,
+                RepositoryPropertiesConfig.SPRING_JDBC,
+                TestPropertiesConfig.ENTITY,
+                PersistencePropertiesConfig.SPRING_JDBC,
+                UsernamePropertiesConfig.DEFAULT,
+                DatabaseScriptsPropertiesConfig.MSSQL },
+        properties = { "jdbc.url=jdbc:hsqldb:mem:test_spring_jdbc" })
 public final class ITQueryHSQLDBSpringJDBCRepository extends AbstractITQuery {
 
     /**

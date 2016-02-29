@@ -47,14 +47,17 @@ import com.wandrell.testing.persistence.util.config.properties.UsernamePropertie
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_SQLITE_MODIFY,
+@ContextConfiguration(locations = {
+        ContextConfig.JPA_ECLIPSELINK_SQLITE_MODIFY,
         TestContextConfig.ENTITY_MODIFIABLE,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
-@TestPropertySource({ QueryPropertiesConfig.JPA_QUERY,
+@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
         RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
         PersistencePropertiesConfig.ECLIPSELINK,
         UsernamePropertiesConfig.DEFAULT,
-        DatabaseScriptsPropertiesConfig.SIMPLE })
+        DatabaseScriptsPropertiesConfig.SIMPLE }, properties = {
+        "jpa.persistenceUnitName=test_model_jpa_eclipselink_sqlite_modify",
+        "jdbc.url=jdbc:sqlite:target/sqlite_test_jpa_eclipselink_modify.db" })
 public final class ITModifySQLiteEclipselinkJPARepository {
 
     /**

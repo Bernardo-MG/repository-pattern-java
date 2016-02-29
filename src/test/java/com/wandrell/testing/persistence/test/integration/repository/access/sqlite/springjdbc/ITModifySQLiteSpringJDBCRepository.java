@@ -53,11 +53,14 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
         TestContextConfig.ENTITY_MODIFIABLE,
         PersistenceContextConfig.SPRING_JDBC,
         RepositoryContextConfig.SPRING_JDBC })
-@TestPropertySource({ QueryPropertiesConfig.JDBC_QUERY,
-        RepositoryPropertiesConfig.SPRING_JDBC, TestPropertiesConfig.ENTITY,
-        PersistencePropertiesConfig.SPRING_JDBC,
-        UsernamePropertiesConfig.DEFAULT,
-        DatabaseScriptsPropertiesConfig.SIMPLE })
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JDBC_QUERY,
+                RepositoryPropertiesConfig.SPRING_JDBC,
+                TestPropertiesConfig.ENTITY,
+                PersistencePropertiesConfig.SPRING_JDBC,
+                UsernamePropertiesConfig.DEFAULT,
+                DatabaseScriptsPropertiesConfig.SIMPLE },
+        properties = { "jdbc.url=jdbc:sqlite:target/sqlite_test_spring_jdbc_modify.db" })
 public final class ITModifySQLiteSpringJDBCRepository extends AbstractITModify {
 
     /**
