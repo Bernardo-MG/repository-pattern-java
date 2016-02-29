@@ -36,7 +36,7 @@ import com.wandrell.testing.persistence.util.config.properties.PersistenceProvid
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.TestPropertiesConfig;
-import com.wandrell.testing.persistence.util.config.properties.UsernamePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.UserPropertiesConfig;
 import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQuery;
 
 /**
@@ -57,8 +57,8 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
                 RepositoryPropertiesConfig.SPRING_JDBC,
                 TestPropertiesConfig.ENTITY,
                 PersistenceProviderPropertiesConfig.SPRING_JDBC,
-                UsernamePropertiesConfig.POSTGRES,
-                DatabaseScriptsPropertiesConfig.POSTGRES,
+                UserPropertiesConfig.POSTGRES,
+                DatabaseScriptsPropertiesConfig.POSTGRESQL,
                 JDBCPropertiesConfig.POSTGRESQL },
         properties = {
                 "jdbc.url=jdbc:postgresql://localhost:5432/test_spring_jdbc" })

@@ -37,7 +37,7 @@ import com.wandrell.testing.persistence.util.config.properties.JPAPropertiesConf
 import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
-import com.wandrell.testing.persistence.util.config.properties.UsernamePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.UserPropertiesConfig;
 import com.wandrell.testing.persistence.util.test.repository.pagination.AbstractITPagination;
 
 /**
@@ -55,7 +55,7 @@ import com.wandrell.testing.persistence.util.test.repository.pagination.Abstract
         locations = { QueryPropertiesConfig.JPA_QUERY,
                 RepositoryPropertiesConfig.JPA,
                 PersistenceProviderPropertiesConfig.HIBERNATE,
-                UsernamePropertiesConfig.DEFAULT,
+                UserPropertiesConfig.DEFAULT,
                 DatabaseScriptsPropertiesConfig.MSSQL, JDBCPropertiesConfig.H2,
                 JPAPropertiesConfig.H2, HibernateDialectPropertiesConfig.H2 },
         properties = { "jpa.persistenceUnitName=test_model_jpa_hibernate_h2",

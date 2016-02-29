@@ -42,11 +42,11 @@ public class DatabaseScriptsPropertiesConfig {
     /**
      * Properties file for the PostgreSQL test database scripts.
      */
-    public static final String POSTGRES = "classpath:config/db/script-postgres.properties";
+    public static final String POSTGRESQL = "classpath:config/db/script-postgresql.properties";
     /**
-     * Properties file for the MYSQL test database scripts.
+     * Properties file for the plain SQL test database scripts.
      */
-    public static final String SIMPLE   = "classpath:config/db/script-simple.properties";
+    public static final String PLAIN   = "classpath:config/db/script-plain.properties";
 
     /**
      * Private constructor to avoid initialization.

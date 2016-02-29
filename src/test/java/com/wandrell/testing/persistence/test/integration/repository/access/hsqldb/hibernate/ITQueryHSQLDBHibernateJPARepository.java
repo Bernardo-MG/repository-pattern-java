@@ -37,7 +37,7 @@ import com.wandrell.testing.persistence.util.config.properties.JPAPropertiesConf
 import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
-import com.wandrell.testing.persistence.util.config.properties.UsernamePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.UserPropertiesConfig;
 import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQuery;
 
 /**
@@ -55,7 +55,7 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
         locations = { QueryPropertiesConfig.JPA_QUERY,
                 RepositoryPropertiesConfig.JPA,
                 PersistenceProviderPropertiesConfig.HIBERNATE,
-                UsernamePropertiesConfig.DEFAULT,
+                UserPropertiesConfig.DEFAULT,
                 DatabaseScriptsPropertiesConfig.MSSQL,
                 JDBCPropertiesConfig.HSQLDB, JPAPropertiesConfig.HSQLDB,
                 HibernateDialectPropertiesConfig.HSQLDB },

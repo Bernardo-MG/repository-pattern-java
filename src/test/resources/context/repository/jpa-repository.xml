@@ -3,7 +3,11 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- Data source -->
+    <description>
+        JPA repository.
+    </description>
+    
+    <!-- Repository -->
     <bean id="repository" class="${repository.class}">
         <constructor-arg ref="entityManager" />
         <constructor-arg value="${query.select}" />

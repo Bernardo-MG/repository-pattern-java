@@ -36,7 +36,7 @@ import com.wandrell.testing.persistence.util.config.properties.PersistenceProvid
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.TestPropertiesConfig;
-import com.wandrell.testing.persistence.util.config.properties.UsernamePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.UserPropertiesConfig;
 import com.wandrell.testing.persistence.util.test.repository.access.AbstractITModify;
 
 /**
@@ -56,7 +56,7 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
 @TestPropertySource(locations = { QueryPropertiesConfig.JDBC_QUERY,
         RepositoryPropertiesConfig.SPRING_JDBC, TestPropertiesConfig.ENTITY,
         PersistenceProviderPropertiesConfig.SPRING_JDBC,
-        UsernamePropertiesConfig.DEFAULT, DatabaseScriptsPropertiesConfig.MSSQL,
+        UserPropertiesConfig.DEFAULT, DatabaseScriptsPropertiesConfig.MSSQL,
         JDBCPropertiesConfig.HSQLDB },
         properties = { "jdbc.url=jdbc:hsqldb:mem:test_spring_jdbc" })
 public final class ITModifyHSQLDBSpringJDBCRepository extends AbstractITModify {

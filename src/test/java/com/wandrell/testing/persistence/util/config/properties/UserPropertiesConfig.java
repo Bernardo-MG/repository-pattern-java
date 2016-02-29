@@ -29,25 +29,25 @@ package com.wandrell.testing.persistence.util.config.properties;
  *
  * @author Bernardo Martínez Garrido
  */
-public class UsernamePropertiesConfig {
+public class UserPropertiesConfig {
 
     /**
      * Properties file for the default test username and password.
      */
-    public static final String DEFAULT  = "classpath:config/db/username-default.properties";
+    public static final String DEFAULT  = "classpath:config/db/user-default.properties";
     /**
      * Properties file for the MySQL test username and password.
      */
-    public static final String MYSQL    = "classpath:config/db/username-mysql.properties";
+    public static final String MYSQL    = "classpath:config/db/user-mysql.properties";
     /**
      * Properties file for the Postgres test username and password.
      */
-    public static final String POSTGRES = "classpath:config/db/username-postgres.properties";
+    public static final String POSTGRES = "classpath:config/db/user-postgres.properties";
 
     /**
      * Private constructor to avoid initialization.
      */
-    private UsernamePropertiesConfig() {
+    private UserPropertiesConfig() {
         super();
     }
 

@@ -36,7 +36,7 @@ import com.wandrell.testing.persistence.util.config.properties.PersistenceProvid
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.TestPropertiesConfig;
-import com.wandrell.testing.persistence.util.config.properties.UsernamePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.UserPropertiesConfig;
 import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQuery;
 
 /**
@@ -55,7 +55,7 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
 @TestPropertySource(locations = { QueryPropertiesConfig.JDBC_QUERY,
         RepositoryPropertiesConfig.SPRING_JDBC, TestPropertiesConfig.ENTITY,
         PersistenceProviderPropertiesConfig.SPRING_JDBC,
-        UsernamePropertiesConfig.MYSQL, DatabaseScriptsPropertiesConfig.MYSQL,
+        UserPropertiesConfig.MYSQL, DatabaseScriptsPropertiesConfig.MYSQL,
         JDBCPropertiesConfig.MYSQL },
         properties = {
                 "jdbc.url=jdbc:mysql://localhost:3306/test_spring_jdbc" })

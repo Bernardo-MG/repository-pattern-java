@@ -36,7 +36,7 @@ import com.wandrell.testing.persistence.util.config.properties.JPAPropertiesConf
 import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
-import com.wandrell.testing.persistence.util.config.properties.UsernamePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.UserPropertiesConfig;
 
 /**
  * Integration tests checking pagination for
@@ -53,8 +53,8 @@ import com.wandrell.testing.persistence.util.config.properties.UsernamePropertie
         locations = { QueryPropertiesConfig.JPA_QUERY,
                 RepositoryPropertiesConfig.JPA,
                 PersistenceProviderPropertiesConfig.ECLIPSELINK,
-                UsernamePropertiesConfig.DEFAULT,
-                DatabaseScriptsPropertiesConfig.SIMPLE,
+                UserPropertiesConfig.DEFAULT,
+                DatabaseScriptsPropertiesConfig.PLAIN,
                 JDBCPropertiesConfig.SQLITE, JPAPropertiesConfig.SQLITE },
         properties = {
                 "jpa.persistenceUnitName=test_model_jpa_eclipselink_sqlite",
