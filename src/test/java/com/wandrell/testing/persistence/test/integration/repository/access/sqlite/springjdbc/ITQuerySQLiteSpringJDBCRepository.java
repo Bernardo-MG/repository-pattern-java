@@ -55,8 +55,8 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
 @TestPropertySource(locations = { QueryPropertiesConfig.JDBC_QUERY,
         RepositoryPropertiesConfig.SPRING_JDBC, TestPropertiesConfig.ENTITY,
         PersistenceProviderPropertiesConfig.SPRING_JDBC,
-        UserPropertiesConfig.DEFAULT,
-        DatabaseScriptsPropertiesConfig.PLAIN, JDBCPropertiesConfig.SQLITE },
+        UserPropertiesConfig.DEFAULT, DatabaseScriptsPropertiesConfig.PLAIN,
+        JDBCPropertiesConfig.SQLITE },
         properties = {
                 "jdbc.url=jdbc:sqlite:target/sqlite_test_spring_jdbc.db" })
 public final class ITQuerySQLiteSpringJDBCRepository extends AbstractITQuery {

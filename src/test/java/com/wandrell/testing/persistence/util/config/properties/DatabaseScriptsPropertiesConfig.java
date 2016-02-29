@@ -34,19 +34,19 @@ public class DatabaseScriptsPropertiesConfig {
     /**
      * Properties file for the MSSQL test database scripts.
      */
-    public static final String MSSQL    = "classpath:config/db/script-mssql.properties";
+    public static final String MSSQL      = "classpath:config/db/script/script-mssql.properties";
     /**
      * Properties file for the MYSQL test database scripts.
      */
-    public static final String MYSQL    = "classpath:config/db/script-mysql.properties";
-    /**
-     * Properties file for the PostgreSQL test database scripts.
-     */
-    public static final String POSTGRESQL = "classpath:config/db/script-postgresql.properties";
+    public static final String MYSQL      = "classpath:config/db/script/script-mysql.properties";
     /**
      * Properties file for the plain SQL test database scripts.
      */
-    public static final String PLAIN   = "classpath:config/db/script-plain.properties";
+    public static final String PLAIN      = "classpath:config/db/script/script-plain.properties";
+    /**
+     * Properties file for the PostgreSQL test database scripts.
+     */
+    public static final String POSTGRESQL = "classpath:config/db/script/script-postgresql.properties";
 
     /**
      * Private constructor to avoid initialization.
