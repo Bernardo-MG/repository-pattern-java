@@ -27,9 +27,9 @@ package com.wandrell.testing.persistence.test.integration.repository.pagination.
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 
-import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
+import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.HibernateDialectPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
@@ -48,7 +48,7 @@ import com.wandrell.testing.persistence.util.config.properties.UsernamePropertie
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_SQLITE,
+@ContextConfiguration(locations = { TestContextConfig.DEFAULT,
         PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
 @TestPropertySource(
         locations = { QueryPropertiesConfig.JPA_QUERY,
@@ -57,7 +57,8 @@ import com.wandrell.testing.persistence.util.config.properties.UsernamePropertie
                 UsernamePropertiesConfig.DEFAULT,
                 DatabaseScriptsPropertiesConfig.SIMPLE,
                 JDBCPropertiesConfig.SQLITE, JPAPropertiesConfig.SQLITE,
-                HibernateDialectPropertiesConfig.POSTGRESQL }, properties = {
+                HibernateDialectPropertiesConfig.POSTGRESQL },
+        properties = {
                 "jpa.persistenceUnitName=test_model_jpa_hibernate_sqlite",
                 "jdbc.url=jdbc:sqlite:target/sqlite_test_jpa_hibernate.db" })
 public final class ITPaginationSQLiteHibernateJPARepository {

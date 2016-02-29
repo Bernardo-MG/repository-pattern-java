@@ -27,7 +27,6 @@ package com.wandrell.testing.persistence.test.integration.repository.access.post
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 
-import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
@@ -51,21 +50,22 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(locations = {
-        ContextConfig.JPA_HIBERNATE_POSTGRESQL_MODIFY,
-        TestContextConfig.ENTITY_MODIFIABLE,
-        PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
-@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
-        PersistenceProviderPropertiesConfig.HIBERNATE,
-        UsernamePropertiesConfig.POSTGRES,
-        DatabaseScriptsPropertiesConfig.POSTGRES,
-        JDBCPropertiesConfig.POSTGRESQL, JPAPropertiesConfig.POSTGRESQL,
-        HibernateDialectPropertiesConfig.POSTGRESQL }, properties = {
-        "jpa.persistenceUnitName=test_model_jpa_hibernate_postgresql_modify",
-        "jdbc.url=jdbc:postgresql://localhost:5432/test_jpa_hibernate_modify" })
-public final class ITModifyPostgreSQLHibernateJPARepository extends
-        AbstractITModify {
+@ContextConfiguration(locations = { TestContextConfig.DEFAULT,
+        TestContextConfig.ENTITY_MODIFIABLE, PersistenceContextConfig.HIBERNATE,
+        RepositoryContextConfig.JPA })
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JPA_QUERY,
+                RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
+                PersistenceProviderPropertiesConfig.HIBERNATE,
+                UsernamePropertiesConfig.POSTGRES,
+                DatabaseScriptsPropertiesConfig.POSTGRES,
+                JDBCPropertiesConfig.POSTGRESQL, JPAPropertiesConfig.POSTGRESQL,
+                HibernateDialectPropertiesConfig.POSTGRESQL },
+        properties = {
+                "jpa.persistenceUnitName=test_model_jpa_hibernate_postgresql_modify",
+                "jdbc.url=jdbc:postgresql://localhost:5432/test_jpa_hibernate_modify" })
+public final class ITModifyPostgreSQLHibernateJPARepository
+        extends AbstractITModify {
 
     /**
      * Default constructor.

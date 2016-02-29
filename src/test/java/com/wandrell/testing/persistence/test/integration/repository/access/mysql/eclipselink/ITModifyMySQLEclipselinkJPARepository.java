@@ -27,7 +27,6 @@ package com.wandrell.testing.persistence.test.integration.repository.access.mysq
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 
-import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
@@ -50,18 +49,21 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_MYSQL_MODIFY,
+@ContextConfiguration(locations = { TestContextConfig.DEFAULT,
         TestContextConfig.ENTITY_MODIFIABLE,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
-@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
-        PersistenceProviderPropertiesConfig.ECLIPSELINK,
-        UsernamePropertiesConfig.MYSQL, DatabaseScriptsPropertiesConfig.MYSQL,
-        JDBCPropertiesConfig.MYSQL, JPAPropertiesConfig.MYSQL }, properties = {
-        "jpa.persistenceUnitName=test_model_jpa_eclipselink_mysql_modify",
-        "jdbc.url=jdbc:mysql://localhost:3306/test_jpa_eclipselink_modify" })
-public final class ITModifyMySQLEclipselinkJPARepository extends
-        AbstractITModify {
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JPA_QUERY,
+                RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
+                PersistenceProviderPropertiesConfig.ECLIPSELINK,
+                UsernamePropertiesConfig.MYSQL,
+                DatabaseScriptsPropertiesConfig.MYSQL,
+                JDBCPropertiesConfig.MYSQL, JPAPropertiesConfig.MYSQL },
+        properties = {
+                "jpa.persistenceUnitName=test_model_jpa_eclipselink_mysql_modify",
+                "jdbc.url=jdbc:mysql://localhost:3306/test_jpa_eclipselink_modify" })
+public final class ITModifyMySQLEclipselinkJPARepository
+        extends AbstractITModify {
 
     /**
      * Default constructor.

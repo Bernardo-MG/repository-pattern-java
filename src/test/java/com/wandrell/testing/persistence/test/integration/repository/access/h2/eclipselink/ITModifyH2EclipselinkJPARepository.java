@@ -27,7 +27,6 @@ package com.wandrell.testing.persistence.test.integration.repository.access.h2.e
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 
-import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
@@ -50,13 +49,12 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_H2_MODIFY,
+@ContextConfiguration(locations = { TestContextConfig.DEFAULT,
         TestContextConfig.ENTITY_MODIFIABLE,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
 @TestPropertySource(
         locations = { QueryPropertiesConfig.JPA_QUERY,
-                RepositoryPropertiesConfig.JPA,
-                TestPropertiesConfig.ENTITY_JPA,
+                RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
                 PersistenceProviderPropertiesConfig.ECLIPSELINK,
                 UsernamePropertiesConfig.DEFAULT,
                 DatabaseScriptsPropertiesConfig.MSSQL, JDBCPropertiesConfig.H2,

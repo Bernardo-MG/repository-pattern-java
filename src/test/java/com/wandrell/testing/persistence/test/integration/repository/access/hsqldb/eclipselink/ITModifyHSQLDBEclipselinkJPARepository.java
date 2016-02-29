@@ -27,7 +27,6 @@ package com.wandrell.testing.persistence.test.integration.repository.access.hsql
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 
-import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
@@ -50,20 +49,21 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(locations = {
-        ContextConfig.JPA_ECLIPSELINK_HSQLDB_MODIFY,
+@ContextConfiguration(locations = { TestContextConfig.DEFAULT,
         TestContextConfig.ENTITY_MODIFIABLE,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
-@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
-        PersistenceProviderPropertiesConfig.ECLIPSELINK,
-        UsernamePropertiesConfig.DEFAULT,
-        DatabaseScriptsPropertiesConfig.MSSQL, JDBCPropertiesConfig.HSQLDB,
-        JPAPropertiesConfig.HSQLDB }, properties = {
-        "jpa.persistenceUnitName=test_model_jpa_eclipselink_hsqldb",
-        "jdbc.url=jdbc:hsqldb:mem:test_jpa_eclipselink" })
-public final class ITModifyHSQLDBEclipselinkJPARepository extends
-        AbstractITModify {
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JPA_QUERY,
+                RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
+                PersistenceProviderPropertiesConfig.ECLIPSELINK,
+                UsernamePropertiesConfig.DEFAULT,
+                DatabaseScriptsPropertiesConfig.MSSQL,
+                JDBCPropertiesConfig.HSQLDB, JPAPropertiesConfig.HSQLDB },
+        properties = {
+                "jpa.persistenceUnitName=test_model_jpa_eclipselink_hsqldb",
+                "jdbc.url=jdbc:hsqldb:mem:test_jpa_eclipselink" })
+public final class ITModifyHSQLDBEclipselinkJPARepository
+        extends AbstractITModify {
 
     /**
      * Default constructor.

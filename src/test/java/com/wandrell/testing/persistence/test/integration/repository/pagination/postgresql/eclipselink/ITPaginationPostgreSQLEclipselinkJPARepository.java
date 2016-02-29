@@ -27,9 +27,9 @@ package com.wandrell.testing.persistence.test.integration.repository.pagination.
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 
-import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
+import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JPAPropertiesConfig;
@@ -48,7 +48,7 @@ import com.wandrell.testing.persistence.util.test.repository.pagination.Abstract
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_POSTGRESQL,
+@ContextConfiguration(locations = { TestContextConfig.DEFAULT,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
 @TestPropertySource(
         locations = { QueryPropertiesConfig.JPA_QUERY,
@@ -56,12 +56,13 @@ import com.wandrell.testing.persistence.util.test.repository.pagination.Abstract
                 PersistenceProviderPropertiesConfig.ECLIPSELINK,
                 UsernamePropertiesConfig.POSTGRES,
                 DatabaseScriptsPropertiesConfig.POSTGRES,
-                JDBCPropertiesConfig.POSTGRESQL, JPAPropertiesConfig.POSTGRESQL },
+                JDBCPropertiesConfig.POSTGRESQL,
+                JPAPropertiesConfig.POSTGRESQL },
         properties = {
                 "jpa.persistenceUnitName=test_model_jpa_eclipselink_postgresql",
                 "jdbc.url=jdbc:postgresql://localhost:5432/test_jpa_eclipselink" })
-public final class ITPaginationPostgreSQLEclipselinkJPARepository extends
-        AbstractITPagination {
+public final class ITPaginationPostgreSQLEclipselinkJPARepository
+        extends AbstractITPagination {
 
     /**
      * Default constructor.

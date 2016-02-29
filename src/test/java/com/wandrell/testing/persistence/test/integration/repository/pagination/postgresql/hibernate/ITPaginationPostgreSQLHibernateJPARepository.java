@@ -27,9 +27,9 @@ package com.wandrell.testing.persistence.test.integration.repository.pagination.
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 
-import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
+import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.HibernateDialectPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
@@ -49,19 +49,21 @@ import com.wandrell.testing.persistence.util.test.repository.pagination.Abstract
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_POSTGRESQL,
+@ContextConfiguration(locations = { TestContextConfig.DEFAULT,
         PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
-@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA,
-        PersistenceProviderPropertiesConfig.HIBERNATE,
-        UsernamePropertiesConfig.POSTGRES,
-        DatabaseScriptsPropertiesConfig.POSTGRES,
-        JDBCPropertiesConfig.POSTGRESQL, JPAPropertiesConfig.POSTGRESQL,
-        HibernateDialectPropertiesConfig.POSTGRESQL }, properties = {
-        "jpa.persistenceUnitName=test_model_jpa_hibernate_postgresql",
-        "jdbc.url=jdbc:postgresql://localhost:5432/test_jpa_hibernate" })
-public final class ITPaginationPostgreSQLHibernateJPARepository extends
-        AbstractITPagination {
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JPA_QUERY,
+                RepositoryPropertiesConfig.JPA,
+                PersistenceProviderPropertiesConfig.HIBERNATE,
+                UsernamePropertiesConfig.POSTGRES,
+                DatabaseScriptsPropertiesConfig.POSTGRES,
+                JDBCPropertiesConfig.POSTGRESQL, JPAPropertiesConfig.POSTGRESQL,
+                HibernateDialectPropertiesConfig.POSTGRESQL },
+        properties = {
+                "jpa.persistenceUnitName=test_model_jpa_hibernate_postgresql",
+                "jdbc.url=jdbc:postgresql://localhost:5432/test_jpa_hibernate" })
+public final class ITPaginationPostgreSQLHibernateJPARepository
+        extends AbstractITPagination {
 
     /**
      * Default constructor.

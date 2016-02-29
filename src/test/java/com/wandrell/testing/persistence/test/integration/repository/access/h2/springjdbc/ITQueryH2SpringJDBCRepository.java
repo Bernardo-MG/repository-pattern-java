@@ -27,9 +27,9 @@ package com.wandrell.testing.persistence.test.integration.repository.access.h2.s
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 
-import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
+import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
@@ -49,17 +49,16 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
  * @see com.wandrell.pattern.repository.spring.SpringJDBCRepository
  *      SpringJDBCRepository
  */
-@ContextConfiguration(locations = { ContextConfig.JDBC_H2,
+@ContextConfiguration(locations = { TestContextConfig.DEFAULT,
         PersistenceContextConfig.SPRING_JDBC,
         RepositoryContextConfig.SPRING_JDBC })
-@TestPropertySource(
-        locations = { QueryPropertiesConfig.JDBC_QUERY,
-                RepositoryPropertiesConfig.SPRING_JDBC,
-                TestPropertiesConfig.ENTITY,
-                PersistenceProviderPropertiesConfig.SPRING_JDBC,
-                UsernamePropertiesConfig.DEFAULT,
-                DatabaseScriptsPropertiesConfig.MSSQL, JDBCPropertiesConfig.H2 },
-        properties = { "jdbc.url=jdbc:h2:mem:test_spring_jdbc;DB_CLOSE_ON_EXIT=FALSE" })
+@TestPropertySource(locations = { QueryPropertiesConfig.JDBC_QUERY,
+        RepositoryPropertiesConfig.SPRING_JDBC, TestPropertiesConfig.ENTITY,
+        PersistenceProviderPropertiesConfig.SPRING_JDBC,
+        UsernamePropertiesConfig.DEFAULT, DatabaseScriptsPropertiesConfig.MSSQL,
+        JDBCPropertiesConfig.H2 },
+        properties = {
+                "jdbc.url=jdbc:h2:mem:test_spring_jdbc;DB_CLOSE_ON_EXIT=FALSE" })
 public final class ITQueryH2SpringJDBCRepository extends AbstractITQuery {
 
     /**

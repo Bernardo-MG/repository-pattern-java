@@ -27,7 +27,6 @@ package com.wandrell.testing.persistence.test.integration.repository.access.hsql
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 
-import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
@@ -51,13 +50,12 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_HSQLDB_MODIFY,
-        TestContextConfig.ENTITY_MODIFIABLE,
-        PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
+@ContextConfiguration(locations = { TestContextConfig.DEFAULT,
+        TestContextConfig.ENTITY_MODIFIABLE, PersistenceContextConfig.HIBERNATE,
+        RepositoryContextConfig.JPA })
 @TestPropertySource(
         locations = { QueryPropertiesConfig.JPA_QUERY,
-                RepositoryPropertiesConfig.JPA,
-                TestPropertiesConfig.ENTITY_JPA,
+                RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
                 PersistenceProviderPropertiesConfig.HIBERNATE,
                 UsernamePropertiesConfig.DEFAULT,
                 DatabaseScriptsPropertiesConfig.MSSQL,
@@ -66,8 +64,8 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
         properties = {
                 "jpa.persistenceUnitName=test_model_jpa_hibernate_hsqldb_modify",
                 "jdbc.url=jdbc:hsqldb:mem:test_jpa_hibernate_modify" })
-public final class ITModifyHSQLDBHibernateJPARepository extends
-        AbstractITModify {
+public final class ITModifyHSQLDBHibernateJPARepository
+        extends AbstractITModify {
 
     /**
      * Default constructor.

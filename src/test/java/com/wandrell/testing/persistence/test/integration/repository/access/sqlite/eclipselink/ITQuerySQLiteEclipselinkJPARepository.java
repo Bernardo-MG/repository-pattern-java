@@ -27,9 +27,9 @@ package com.wandrell.testing.persistence.test.integration.repository.access.sqli
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 
-import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
+import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JPAPropertiesConfig;
@@ -48,18 +48,20 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_SQLITE,
+@ContextConfiguration(locations = { TestContextConfig.DEFAULT,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
-@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA,
-        PersistenceProviderPropertiesConfig.ECLIPSELINK,
-        UsernamePropertiesConfig.DEFAULT,
-        DatabaseScriptsPropertiesConfig.SIMPLE, JDBCPropertiesConfig.SQLITE,
-        JPAPropertiesConfig.SQLITE }, properties = {
-        "jpa.persistenceUnitName=test_model_jpa_eclipselink_sqlite",
-        "jdbc.url=jdbc:sqlite:target/sqlite_test_jpa_eclipselink.db" })
-public final class ITQuerySQLiteEclipselinkJPARepository extends
-        AbstractITQuery {
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JPA_QUERY,
+                RepositoryPropertiesConfig.JPA,
+                PersistenceProviderPropertiesConfig.ECLIPSELINK,
+                UsernamePropertiesConfig.DEFAULT,
+                DatabaseScriptsPropertiesConfig.SIMPLE,
+                JDBCPropertiesConfig.SQLITE, JPAPropertiesConfig.SQLITE },
+        properties = {
+                "jpa.persistenceUnitName=test_model_jpa_eclipselink_sqlite",
+                "jdbc.url=jdbc:sqlite:target/sqlite_test_jpa_eclipselink.db" })
+public final class ITQuerySQLiteEclipselinkJPARepository
+        extends AbstractITQuery {
 
     /**
      * Default constructor.

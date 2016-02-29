@@ -27,7 +27,6 @@ package com.wandrell.testing.persistence.test.integration.repository.access.sqli
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 
-import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
@@ -49,18 +48,19 @@ import com.wandrell.testing.persistence.util.config.properties.UsernamePropertie
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(locations = {
-        ContextConfig.JPA_ECLIPSELINK_SQLITE_MODIFY,
+@ContextConfiguration(locations = { TestContextConfig.DEFAULT,
         TestContextConfig.ENTITY_MODIFIABLE,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
-@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
-        PersistenceProviderPropertiesConfig.ECLIPSELINK,
-        UsernamePropertiesConfig.DEFAULT,
-        DatabaseScriptsPropertiesConfig.SIMPLE, JDBCPropertiesConfig.SQLITE,
-        JPAPropertiesConfig.SQLITE }, properties = {
-        "jpa.persistenceUnitName=test_model_jpa_eclipselink_sqlite_modify",
-        "jdbc.url=jdbc:sqlite:target/sqlite_test_jpa_eclipselink_modify.db" })
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JPA_QUERY,
+                RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
+                PersistenceProviderPropertiesConfig.ECLIPSELINK,
+                UsernamePropertiesConfig.DEFAULT,
+                DatabaseScriptsPropertiesConfig.SIMPLE,
+                JDBCPropertiesConfig.SQLITE, JPAPropertiesConfig.SQLITE },
+        properties = {
+                "jpa.persistenceUnitName=test_model_jpa_eclipselink_sqlite_modify",
+                "jdbc.url=jdbc:sqlite:target/sqlite_test_jpa_eclipselink_modify.db" })
 public final class ITModifySQLiteEclipselinkJPARepository {
 
     /**

@@ -34,15 +34,15 @@ public class HibernateDialectPropertiesConfig {
     /**
      * H2 Hibernate dialect properties file.
      */
-    public static final String H2 = "classpath:config/persistence/hibernate/test-hibernate-dialect-h2.properties";
+    public static final String H2         = "classpath:config/persistence/hibernate/test-hibernate-dialect-h2.properties";
     /**
      * HSQLDB Hibernate dialect properties file.
      */
-    public static final String HSQLDB = "classpath:config/persistence/hibernate/test-hibernate-dialect-hsqldb.properties";
+    public static final String HSQLDB     = "classpath:config/persistence/hibernate/test-hibernate-dialect-hsqldb.properties";
     /**
      * MySQL Hibernate dialect properties file.
      */
-    public static final String MYSQL = "classpath:config/persistence/hibernate/test-hibernate-dialect-mysql.properties";
+    public static final String MYSQL      = "classpath:config/persistence/hibernate/test-hibernate-dialect-mysql.properties";
     /**
      * PostgreSQL Hibernate dialect properties file.
      */
@@ -50,7 +50,7 @@ public class HibernateDialectPropertiesConfig {
     /**
      * SQLite Hibernate dialect properties file.
      */
-    public static final String SQLITE = "classpath:config/persistence/hibernate/test-hibernate-dialect-sqlite.properties";
+    public static final String SQLITE     = "classpath:config/persistence/hibernate/test-hibernate-dialect-sqlite.properties";
 
     /**
      * Private constructor to avoid initialization.

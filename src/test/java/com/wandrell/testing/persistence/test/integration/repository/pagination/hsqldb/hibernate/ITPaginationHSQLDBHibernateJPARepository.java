@@ -27,9 +27,9 @@ package com.wandrell.testing.persistence.test.integration.repository.pagination.
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 
-import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
+import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.HibernateDialectPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
@@ -49,18 +49,20 @@ import com.wandrell.testing.persistence.util.test.repository.pagination.Abstract
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_HSQLDB,
+@ContextConfiguration(locations = { TestContextConfig.DEFAULT,
         PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
-@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA,
-        PersistenceProviderPropertiesConfig.HIBERNATE,
-        UsernamePropertiesConfig.DEFAULT,
-        DatabaseScriptsPropertiesConfig.MSSQL, JDBCPropertiesConfig.HSQLDB,
-        JPAPropertiesConfig.HSQLDB, HibernateDialectPropertiesConfig.HSQLDB },
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JPA_QUERY,
+                RepositoryPropertiesConfig.JPA,
+                PersistenceProviderPropertiesConfig.HIBERNATE,
+                UsernamePropertiesConfig.DEFAULT,
+                DatabaseScriptsPropertiesConfig.MSSQL,
+                JDBCPropertiesConfig.HSQLDB, JPAPropertiesConfig.HSQLDB,
+                HibernateDialectPropertiesConfig.HSQLDB },
         properties = { "jpa.persistenceUnitName=test_model_jpa_hibernate_hsql",
                 "jdbc.url=jdbc:hsqldb:mem:test_jpa_hibernate" })
-public final class ITPaginationHSQLDBHibernateJPARepository extends
-        AbstractITPagination {
+public final class ITPaginationHSQLDBHibernateJPARepository
+        extends AbstractITPagination {
 
     /**
      * Default constructor.

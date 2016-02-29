@@ -27,9 +27,9 @@ package com.wandrell.testing.persistence.test.integration.repository.access.mysq
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 
-import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
+import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.HibernateDialectPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
@@ -49,16 +49,18 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
  * @author Bernardo Martínez Garrido
  * @see com.wandrell.pattern.repository.jpa.JPARepository JPARepository
  */
-@ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_MYSQL,
+@ContextConfiguration(locations = { TestContextConfig.DEFAULT,
         PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
-@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA,
-        PersistenceProviderPropertiesConfig.HIBERNATE,
-        UsernamePropertiesConfig.MYSQL, DatabaseScriptsPropertiesConfig.MYSQL,
-        JDBCPropertiesConfig.MYSQL, JPAPropertiesConfig.MYSQL,
-        HibernateDialectPropertiesConfig.MYSQL }, properties = {
-        "jpa.persistenceUnitName=test_model_jpa_hibernate_mysql",
-        "jdbc.url=jdbc:mysql://localhost:3306/test_jpa_hibernate" })
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JPA_QUERY,
+                RepositoryPropertiesConfig.JPA,
+                PersistenceProviderPropertiesConfig.HIBERNATE,
+                UsernamePropertiesConfig.MYSQL,
+                DatabaseScriptsPropertiesConfig.MYSQL,
+                JDBCPropertiesConfig.MYSQL, JPAPropertiesConfig.MYSQL,
+                HibernateDialectPropertiesConfig.MYSQL },
+        properties = { "jpa.persistenceUnitName=test_model_jpa_hibernate_mysql",
+                "jdbc.url=jdbc:mysql://localhost:3306/test_jpa_hibernate" })
 public final class ITQueryMySQLHibernateJPARepository extends AbstractITQuery {
 
     /**
