@@ -31,7 +31,8 @@ import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
-import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.UsernamePropertiesConfig;
@@ -48,12 +49,12 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_HSQLDB,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
-@TestPropertySource(
-        locations = { QueryPropertiesConfig.JPA_QUERY,
-                RepositoryPropertiesConfig.JPA,
-                PersistencePropertiesConfig.ECLIPSELINK,
-                UsernamePropertiesConfig.DEFAULT,
-                DatabaseScriptsPropertiesConfig.MSSQL }, properties = {
+@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
+        RepositoryPropertiesConfig.JPA,
+        PersistenceProviderPropertiesConfig.ECLIPSELINK,
+        UsernamePropertiesConfig.DEFAULT,
+        DatabaseScriptsPropertiesConfig.MSSQL, JDBCPropertiesConfig.HSQLDB },
+        properties = {
                 "jpa.persistenceUnitName=test_model_jpa_eclipselink_hsqldb",
                 "jdbc.url=jdbc:hsqldb:mem:test_jpa_eclipselink" })
 public final class ITQueryHSQLDBEclipselinkJPARepository extends

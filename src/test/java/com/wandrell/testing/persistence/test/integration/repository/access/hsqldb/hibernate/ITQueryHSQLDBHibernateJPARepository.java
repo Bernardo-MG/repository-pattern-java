@@ -31,7 +31,8 @@ import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
-import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.UsernamePropertiesConfig;
@@ -48,13 +49,12 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_HSQLDB,
         PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
-@TestPropertySource(
-        locations = { QueryPropertiesConfig.JPA_QUERY,
-                RepositoryPropertiesConfig.JPA,
-                PersistencePropertiesConfig.HIBERNATE,
-                UsernamePropertiesConfig.DEFAULT,
-                DatabaseScriptsPropertiesConfig.MSSQL }, properties = {
-                "jpa.persistenceUnitName=test_model_jpa_hibernate_hsql",
+@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
+        RepositoryPropertiesConfig.JPA,
+        PersistenceProviderPropertiesConfig.HIBERNATE,
+        UsernamePropertiesConfig.DEFAULT,
+        DatabaseScriptsPropertiesConfig.MSSQL, JDBCPropertiesConfig.HSQLDB },
+        properties = { "jpa.persistenceUnitName=test_model_jpa_hibernate_hsql",
                 "jdbc.url=jdbc:hsqldb:mem:test_jpa_hibernate" })
 public final class ITQueryHSQLDBHibernateJPARepository extends AbstractITQuery {
 

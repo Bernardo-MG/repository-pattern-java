@@ -31,7 +31,8 @@ import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
-import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.UsernamePropertiesConfig;
@@ -48,14 +49,13 @@ import com.wandrell.testing.persistence.util.test.repository.pagination.Abstract
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_ECLIPSELINK_MYSQL,
         PersistenceContextConfig.ECLIPSELINK, RepositoryContextConfig.JPA })
-@TestPropertySource(
-        locations = { QueryPropertiesConfig.JPA_QUERY,
-                RepositoryPropertiesConfig.JPA,
-                PersistencePropertiesConfig.ECLIPSELINK,
-                UsernamePropertiesConfig.MYSQL,
-                DatabaseScriptsPropertiesConfig.MYSQL }, properties = {
-                "jpa.persistenceUnitName=test_model_jpa_eclipselink_mysql",
-                "jdbc.url=jdbc:mysql://localhost:3306/test_jpa_eclipselink" })
+@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
+        RepositoryPropertiesConfig.JPA,
+        PersistenceProviderPropertiesConfig.ECLIPSELINK,
+        UsernamePropertiesConfig.MYSQL, DatabaseScriptsPropertiesConfig.MYSQL,
+        JDBCPropertiesConfig.MYSQL }, properties = {
+        "jpa.persistenceUnitName=test_model_jpa_eclipselink_mysql",
+        "jdbc.url=jdbc:mysql://localhost:3306/test_jpa_eclipselink" })
 public final class ITPaginationMySQLEclipselinkJPARepository extends
         AbstractITPagination {
 

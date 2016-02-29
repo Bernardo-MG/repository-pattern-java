@@ -25,29 +25,37 @@
 package com.wandrell.testing.persistence.util.config.properties;
 
 /**
- * Configuration class for the persistence test properties files.
+ * Configuration class for the test JDBC properties files.
  *
  * @author Bernardo Martínez Garrido
  */
-public class PersistencePropertiesConfig {
+public class JDBCPropertiesConfig {
 
     /**
-     * Eclipselink JPA persistence properties file.
+     * H2 database properties file.
      */
-    public static final String ECLIPSELINK = "classpath:config/persistence/jpa-eclipselink.properties";
+    public static final String H2 = "classpath:config/persistence/jdbc/test-jdbc-h2.properties";
     /**
-     * Hibernate JPA persistence properties file.
+     * HSQLDB database properties file.
      */
-    public static final String HIBERNATE   = "classpath:config/persistence/jpa-hibernate.properties";
+    public static final String HSQLDB = "classpath:config/persistence/jdbc/test-jdbc-hsqldb.properties";
     /**
-     * Spring JDBC persistence properties file.
+     * MySQL database properties file.
      */
-    public static final String SPRING_JDBC = "classpath:config/persistence/spring-jdbc.properties";
+    public static final String MYSQL = "classpath:config/persistence/jdbc/test-jdbc-mysql.properties";
+    /**
+     * PostgreSQL database properties file.
+     */
+    public static final String POSTGRESQL = "classpath:config/persistence/jdbc/test-jdbc-postgresql.properties";
+    /**
+     * SQLite database properties file.
+     */
+    public static final String SQLITE = "classpath:config/persistence/jdbc/test-jdbc-sqlite.properties";
 
     /**
      * Private constructor to avoid initialization.
      */
-    private PersistencePropertiesConfig() {
+    private JDBCPropertiesConfig() {
         super();
     }
 

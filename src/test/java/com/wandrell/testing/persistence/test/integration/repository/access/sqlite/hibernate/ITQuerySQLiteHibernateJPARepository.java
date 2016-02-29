@@ -31,7 +31,8 @@ import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
-import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.UsernamePropertiesConfig;
@@ -49,11 +50,13 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
 @ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_SQLITE,
         PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
 @TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA, PersistencePropertiesConfig.HIBERNATE,
+        RepositoryPropertiesConfig.JPA,
+        PersistenceProviderPropertiesConfig.HIBERNATE,
         UsernamePropertiesConfig.DEFAULT,
-        DatabaseScriptsPropertiesConfig.SIMPLE }, properties = {
-        "jpa.persistenceUnitName=test_model_jpa_hibernate_sqlite",
-        "jdbc.url=jdbc:sqlite:target/sqlite_test_jpa_hibernate.db" })
+        DatabaseScriptsPropertiesConfig.SIMPLE, JDBCPropertiesConfig.SQLITE },
+        properties = {
+                "jpa.persistenceUnitName=test_model_jpa_hibernate_sqlite",
+                "jdbc.url=jdbc:sqlite:target/sqlite_test_jpa_hibernate.db" })
 public final class ITQuerySQLiteHibernateJPARepository extends AbstractITQuery {
 
     /**

@@ -32,7 +32,8 @@ import com.wandrell.testing.persistence.util.config.context.PersistenceContextCo
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
-import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.TestPropertiesConfig;
@@ -57,9 +58,10 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
         locations = { QueryPropertiesConfig.JDBC_QUERY,
                 RepositoryPropertiesConfig.SPRING_JDBC,
                 TestPropertiesConfig.ENTITY,
-                PersistencePropertiesConfig.SPRING_JDBC,
+                PersistenceProviderPropertiesConfig.SPRING_JDBC,
                 UsernamePropertiesConfig.MYSQL,
-                DatabaseScriptsPropertiesConfig.MYSQL },
+                DatabaseScriptsPropertiesConfig.MYSQL,
+                JDBCPropertiesConfig.MYSQL },
         properties = { "jdbc.url=jdbc:mysql://localhost:3306/test_spring_jdbc_modify" })
 public final class ITModifyMySQLSpringJDBCRepository extends AbstractITModify {
 

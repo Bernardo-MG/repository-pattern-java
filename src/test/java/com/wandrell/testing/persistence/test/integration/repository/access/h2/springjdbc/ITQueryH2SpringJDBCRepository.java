@@ -31,7 +31,8 @@ import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
-import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.TestPropertiesConfig;
@@ -55,9 +56,9 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
         locations = { QueryPropertiesConfig.JDBC_QUERY,
                 RepositoryPropertiesConfig.SPRING_JDBC,
                 TestPropertiesConfig.ENTITY,
-                PersistencePropertiesConfig.SPRING_JDBC,
+                PersistenceProviderPropertiesConfig.SPRING_JDBC,
                 UsernamePropertiesConfig.DEFAULT,
-                DatabaseScriptsPropertiesConfig.MSSQL },
+                DatabaseScriptsPropertiesConfig.MSSQL, JDBCPropertiesConfig.H2 },
         properties = { "jdbc.url=jdbc:h2:mem:test_spring_jdbc;DB_CLOSE_ON_EXIT=FALSE" })
 public final class ITQueryH2SpringJDBCRepository extends AbstractITQuery {
 

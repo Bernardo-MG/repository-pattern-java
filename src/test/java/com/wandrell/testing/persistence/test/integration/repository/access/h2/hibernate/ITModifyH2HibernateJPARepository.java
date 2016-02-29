@@ -32,7 +32,8 @@ import com.wandrell.testing.persistence.util.config.context.PersistenceContextCo
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
-import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.TestPropertiesConfig;
@@ -55,9 +56,9 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
         locations = { QueryPropertiesConfig.JPA_QUERY,
                 RepositoryPropertiesConfig.JPA,
                 TestPropertiesConfig.ENTITY_JPA,
-                PersistencePropertiesConfig.HIBERNATE,
+                PersistenceProviderPropertiesConfig.HIBERNATE,
                 UsernamePropertiesConfig.DEFAULT,
-                DatabaseScriptsPropertiesConfig.MSSQL },
+                DatabaseScriptsPropertiesConfig.MSSQL, JDBCPropertiesConfig.H2 },
         properties = {
                 "jpa.persistenceUnitName=test_model_jpa_hibernate_h2_modify",
                 "jdbc.url=jdbc:h2:mem:test_jpa_hibernate_modify;DB_CLOSE_ON_EXIT=FALSE" })

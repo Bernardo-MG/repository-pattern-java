@@ -31,7 +31,8 @@ import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
-import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.UsernamePropertiesConfig;
@@ -51,9 +52,9 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
 @TestPropertySource(
         locations = { QueryPropertiesConfig.JPA_QUERY,
                 RepositoryPropertiesConfig.JPA,
-                PersistencePropertiesConfig.ECLIPSELINK,
+                PersistenceProviderPropertiesConfig.ECLIPSELINK,
                 UsernamePropertiesConfig.DEFAULT,
-                DatabaseScriptsPropertiesConfig.MSSQL },
+                DatabaseScriptsPropertiesConfig.MSSQL, JDBCPropertiesConfig.H2 },
         properties = { "jpa.persistenceUnitName=test_model_jpa_eclipselink_h2",
                 "jdbc.url=jdbc:h2:mem:test_jpa_eclipselink;DB_CLOSE_ON_EXIT=FALSE" })
 public final class ITQueryH2EclipselinkJPARepository extends AbstractITQuery {

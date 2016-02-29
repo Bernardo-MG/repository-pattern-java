@@ -31,7 +31,8 @@ import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
-import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.TestPropertiesConfig;
@@ -55,9 +56,10 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITQu
         locations = { QueryPropertiesConfig.JDBC_QUERY,
                 RepositoryPropertiesConfig.SPRING_JDBC,
                 TestPropertiesConfig.ENTITY,
-                PersistencePropertiesConfig.SPRING_JDBC,
+                PersistenceProviderPropertiesConfig.SPRING_JDBC,
                 UsernamePropertiesConfig.POSTGRES,
-                DatabaseScriptsPropertiesConfig.POSTGRES },
+                DatabaseScriptsPropertiesConfig.POSTGRES,
+                JDBCPropertiesConfig.POSTGRESQL },
         properties = { "jdbc.url=jdbc:postgresql://localhost:5432/test_spring_jdbc" })
 public final class ITQueryPostgreSQLSpringJDBCRepository extends
         AbstractITQuery {

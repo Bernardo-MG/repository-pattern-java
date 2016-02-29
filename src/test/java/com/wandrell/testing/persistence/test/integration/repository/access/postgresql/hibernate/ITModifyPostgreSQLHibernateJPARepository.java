@@ -32,7 +32,8 @@ import com.wandrell.testing.persistence.util.config.context.PersistenceContextCo
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
-import com.wandrell.testing.persistence.util.config.properties.PersistencePropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.QueryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.RepositoryPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.TestPropertiesConfig;
@@ -54,9 +55,10 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
         PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
 @TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
         RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
-        PersistencePropertiesConfig.HIBERNATE,
+        PersistenceProviderPropertiesConfig.HIBERNATE,
         UsernamePropertiesConfig.POSTGRES,
-        DatabaseScriptsPropertiesConfig.POSTGRES }, properties = {
+        DatabaseScriptsPropertiesConfig.POSTGRES,
+        JDBCPropertiesConfig.POSTGRESQL }, properties = {
         "jpa.persistenceUnitName=test_model_jpa_hibernate_postgresql_modify",
         "jdbc.url=jdbc:postgresql://localhost:5432/test_jpa_hibernate_modify" })
 public final class ITModifyPostgreSQLHibernateJPARepository extends
