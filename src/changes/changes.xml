@@ -97,5 +97,16 @@
                 it is based on the repository pattern.
             </action>
         </release>
+        <release version="0.2.1" date="2016-2-29" description="Changes to tests.">
+            <action dev="bmg" type="update">
+                Tests now make use of Spring annotations instead of context files.
+            </action>
+            <action dev="bmg" type="update">
+                Removed Hibernate SQLite tests.
+            </action>
+            <action dev="bmg" type="update">
+                Updated dependencies.
+            </action>
+        </release>
     </body>
 </document>

@@ -207,20 +207,20 @@
         <!-- Manifest data -->
         <manifest.name>com/wandrell/pattern/repository</manifest.name>
         <!-- Dependencies versions -->
-        <eclipselink.version>2.6.1</eclipselink.version>
-        <guava.version>18.0</guava.version>
-        <h2.version>1.4.190</h2.version>
+        <eclipselink.version>2.6.2</eclipselink.version>
+        <guava.version>19.0</guava.version>
+        <h2.version>1.4.191</h2.version>
         <javaee.api.version>7.0</javaee.api.version>
-        <hibernate.version>5.0.2.Final</hibernate.version>
+        <hibernate.version>5.1.0.Final</hibernate.version>
         <hikari.version>2.3.12</hikari.version>
         <hsqldb.version>2.3.3</hsqldb.version>
-        <log4j.version>2.4.1</log4j.version>
-        <mysql.version>5.1.37</mysql.version>
-        <postgresql.version>9.4-1206-jdbc4</postgresql.version>
-        <slf4j.version>1.7.13</slf4j.version>
-        <spring.version>4.2.2.RELEASE</spring.version>
+        <log4j.version>2.5</log4j.version>
+        <mysql.version>5.1.38</mysql.version>
+        <postgresql.version>9.4.1208.jre7</postgresql.version>
+        <slf4j.version>1.7.18</slf4j.version>
+        <spring.version>4.2.5.RELEASE</spring.version>
         <sqlite.version>3.8.11.2</sqlite.version>
-        <testng.version>6.9.8</testng.version>
+        <testng.version>6.9.10</testng.version>
         <!-- Plugins versions -->
         <plugin.changes.version>2.11</plugin.changes.version>
         <plugin.site.velocity.version>1.7</plugin.site.velocity.version>
@@ -417,7 +417,7 @@
     <build>
         <defaultGoal>clean package install</defaultGoal>
         <plugins>
-            <plugin>
+        <plugin>
                 <!-- Changes -->
                 <!-- Takes care of the changes log -->
                 <!-- It is set to also validate the changes log file -->
