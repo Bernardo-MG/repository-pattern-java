@@ -31,6 +31,7 @@ import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.HibernateDialectPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JPAPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
@@ -54,7 +55,8 @@ import com.wandrell.testing.persistence.util.test.repository.pagination.Abstract
         RepositoryPropertiesConfig.JPA,
         PersistenceProviderPropertiesConfig.HIBERNATE,
         UsernamePropertiesConfig.MYSQL, DatabaseScriptsPropertiesConfig.MYSQL,
-        JDBCPropertiesConfig.MYSQL, JPAPropertiesConfig.MYSQL }, properties = {
+        JDBCPropertiesConfig.MYSQL, JPAPropertiesConfig.MYSQL,
+        HibernateDialectPropertiesConfig.MYSQL }, properties = {
         "jpa.persistenceUnitName=test_model_jpa_hibernate_mysql",
         "jdbc.url=jdbc:mysql://localhost:3306/test_jpa_hibernate" })
 public final class ITPaginationMySQLHibernateJPARepository extends

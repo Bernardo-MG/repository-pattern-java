@@ -32,6 +32,7 @@ import com.wandrell.testing.persistence.util.config.context.PersistenceContextCo
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.HibernateDialectPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JPAPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
@@ -57,7 +58,8 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
         RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
         PersistenceProviderPropertiesConfig.HIBERNATE,
         UsernamePropertiesConfig.MYSQL, DatabaseScriptsPropertiesConfig.MYSQL,
-        JDBCPropertiesConfig.MYSQL, JPAPropertiesConfig.MYSQL }, properties = {
+        JDBCPropertiesConfig.MYSQL, JPAPropertiesConfig.MYSQL,
+        HibernateDialectPropertiesConfig.MYSQL }, properties = {
         "jpa.persistenceUnitName=test_model_jpa_hibernate_mysql_modify",
         "jdbc.url=jdbc:mysql://localhost:3306/test_jpa_hibernate_modify" })
 public final class ITModifyMySQLHibernateJPARepository extends AbstractITModify {

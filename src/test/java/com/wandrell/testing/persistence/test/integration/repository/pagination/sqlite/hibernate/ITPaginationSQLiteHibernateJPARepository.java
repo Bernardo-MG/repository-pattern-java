@@ -31,6 +31,7 @@ import com.wandrell.testing.persistence.util.config.context.ContextConfig;
 import com.wandrell.testing.persistence.util.config.context.PersistenceContextConfig;
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.HibernateDialectPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JPAPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
@@ -49,14 +50,16 @@ import com.wandrell.testing.persistence.util.config.properties.UsernamePropertie
  */
 @ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_SQLITE,
         PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
-@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA,
-        PersistenceProviderPropertiesConfig.HIBERNATE,
-        UsernamePropertiesConfig.DEFAULT,
-        DatabaseScriptsPropertiesConfig.SIMPLE, JDBCPropertiesConfig.SQLITE,
-        JPAPropertiesConfig.SQLITE }, properties = {
-        "jpa.persistenceUnitName=test_model_jpa_hibernate_sqlite",
-        "jdbc.url=jdbc:sqlite:target/sqlite_test_jpa_hibernate.db" })
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JPA_QUERY,
+                RepositoryPropertiesConfig.JPA,
+                PersistenceProviderPropertiesConfig.HIBERNATE,
+                UsernamePropertiesConfig.DEFAULT,
+                DatabaseScriptsPropertiesConfig.SIMPLE,
+                JDBCPropertiesConfig.SQLITE, JPAPropertiesConfig.SQLITE,
+                HibernateDialectPropertiesConfig.POSTGRESQL }, properties = {
+                "jpa.persistenceUnitName=test_model_jpa_hibernate_sqlite",
+                "jdbc.url=jdbc:sqlite:target/sqlite_test_jpa_hibernate.db" })
 public final class ITPaginationSQLiteHibernateJPARepository {
 
     /**

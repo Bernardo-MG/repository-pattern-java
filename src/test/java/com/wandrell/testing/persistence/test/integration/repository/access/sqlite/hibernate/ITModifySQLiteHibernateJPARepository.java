@@ -32,6 +32,7 @@ import com.wandrell.testing.persistence.util.config.context.PersistenceContextCo
 import com.wandrell.testing.persistence.util.config.context.RepositoryContextConfig;
 import com.wandrell.testing.persistence.util.config.context.TestContextConfig;
 import com.wandrell.testing.persistence.util.config.properties.DatabaseScriptsPropertiesConfig;
+import com.wandrell.testing.persistence.util.config.properties.HibernateDialectPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JDBCPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.JPAPropertiesConfig;
 import com.wandrell.testing.persistence.util.config.properties.PersistenceProviderPropertiesConfig;
@@ -53,14 +54,18 @@ import com.wandrell.testing.persistence.util.test.repository.access.AbstractITMo
 @ContextConfiguration(locations = { ContextConfig.JPA_HIBERNATE_SQLITE_MODIFY,
         TestContextConfig.ENTITY_MODIFIABLE,
         PersistenceContextConfig.HIBERNATE, RepositoryContextConfig.JPA })
-@TestPropertySource(locations = { QueryPropertiesConfig.JPA_QUERY,
-        RepositoryPropertiesConfig.JPA, TestPropertiesConfig.ENTITY_JPA,
-        PersistenceProviderPropertiesConfig.HIBERNATE,
-        UsernamePropertiesConfig.DEFAULT,
-        DatabaseScriptsPropertiesConfig.SIMPLE, JDBCPropertiesConfig.SQLITE,
-        JPAPropertiesConfig.SQLITE }, properties = {
-        "jpa.persistenceUnitName=test_model_jpa_hibernate_sqlite_modify",
-        "jdbc.url=jdbc:sqlite:target/sqlite_test_jpa_hibernate_modify.db" })
+@TestPropertySource(
+        locations = { QueryPropertiesConfig.JPA_QUERY,
+                RepositoryPropertiesConfig.JPA,
+                TestPropertiesConfig.ENTITY_JPA,
+                PersistenceProviderPropertiesConfig.HIBERNATE,
+                UsernamePropertiesConfig.DEFAULT,
+                DatabaseScriptsPropertiesConfig.SIMPLE,
+                JDBCPropertiesConfig.SQLITE, JPAPropertiesConfig.SQLITE,
+                HibernateDialectPropertiesConfig.SQLITE },
+        properties = {
+                "jpa.persistenceUnitName=test_model_jpa_hibernate_sqlite_modify",
+                "jdbc.url=jdbc:sqlite:target/sqlite_test_jpa_hibernate_modify.db" })
 public final class ITModifySQLiteHibernateJPARepository extends
         AbstractITModify {
 
