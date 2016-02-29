@@ -47,10 +47,6 @@ public class HibernateDialectPropertiesConfig {
      * PostgreSQL Hibernate dialect properties file.
      */
     public static final String POSTGRESQL = "classpath:config/persistence/hibernate/test-hibernate-dialect-postgresql.properties";
-    /**
-     * SQLite Hibernate dialect properties file.
-     */
-    public static final String SQLITE     = "classpath:config/persistence/hibernate/test-hibernate-dialect-sqlite.properties";
 
     /**
      * Private constructor to avoid initialization.
