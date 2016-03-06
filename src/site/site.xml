@@ -58,6 +58,7 @@
 			<item name="Persistence entity" href="./persistence_entity.html" />
 			<item name="Repository" href="./repository.html" />
             <item name="Query" href="./query.html" />
+            <item name="Pagination" href="./pagination.html" />
             <item name="Repository implementations" href="./repository_impl.html" />
             <item name="Configuration examples" href="./configs.html" />
 		</menu>

@@ -33,8 +33,8 @@ import org.testng.annotations.Test;
 import com.wandrell.pattern.query.DefaultNamedParameterQueryData;
 import com.wandrell.pattern.query.NamedParameterQueryData;
 import com.wandrell.pattern.repository.FilteredRepository;
-import com.wandrell.pattern.repository.PaginatedRepository;
 import com.wandrell.pattern.repository.pagination.DefaultPaginationData;
+import com.wandrell.pattern.repository.pagination.PaginatedRepository;
 import com.wandrell.pattern.repository.pagination.PaginationData;
 import com.wandrell.testing.persistence.util.model.TestEntity;
 

@@ -22,11 +22,11 @@
  * SOFTWARE.
  */
 
-package com.wandrell.pattern.repository;
+package com.wandrell.pattern.repository.pagination;
 
 import java.util.Collection;
 
-import com.wandrell.pattern.repository.pagination.PaginationData;
+import com.wandrell.pattern.repository.FilteredRepository;
 
 /**
  * Extension of {@link com.wandrell.pattern.repository.FilteredRepository

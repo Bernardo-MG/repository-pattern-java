@@ -25,7 +25,7 @@
  * Provides interfaces and default implementations for handling pagination.
  * <p>
  * These are thought to be used with the
- * {@link com.wandrell.pattern.repository.PaginatedRepository
+ * {@link com.wandrell.pattern.repository.pagination.PaginatedRepository
  * PaginatedRepository}, allowing acquiring just a section of the data kept in
  * the repository, so this can be shown or handled in parts, and not all at
  * once.

@@ -34,8 +34,8 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import com.wandrell.pattern.query.NamedParameterQueryData;
-import com.wandrell.pattern.repository.PaginatedRepository;
 import com.wandrell.pattern.repository.entity.PersistenceEntity;
+import com.wandrell.pattern.repository.pagination.PaginatedRepository;
 import com.wandrell.pattern.repository.pagination.PaginationData;
 
 /**

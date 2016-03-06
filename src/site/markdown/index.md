@@ -23,6 +23,7 @@ Most of the classes on this library are repositories:
 But some are helper classes:
 
 - [Query][query] interface for filtering.
+- [Pagination][pagination] support.
 - Root [interface for persistent entities][persistence_entity].
 
 And there are a few examples for setting up the repositories and various persistence configs:
@@ -38,3 +39,4 @@ Several of the integration tests included in the project require running databas
 [repository]: ./repository.html
 [repository_impl]: ./repository_impl.html
 [query]: ./query.html
+[pagination]: ./pagination.html
