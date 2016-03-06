@@ -36,4 +36,5 @@
  * DefaultNamedParameterQueryData} is the default implementation of
  * {@code NamedParameterQueryData}.
  */
+
 package com.wandrell.pattern.query;

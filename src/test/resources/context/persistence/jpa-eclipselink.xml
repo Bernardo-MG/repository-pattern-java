@@ -6,7 +6,9 @@
         http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <!-- ================================== JPA ================================== -->
+    <description>
+        JPA Eclipselink persistence layer.
+    </description>
 
     <!-- Entity manager -->
     <bean id="entityManager" class="${jpa.entityManager.class}">

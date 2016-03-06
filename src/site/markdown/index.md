@@ -23,14 +23,20 @@ Most of the classes on this library are repositories:
 But some are helper classes:
 
 - [Query][query] interface for filtering.
+- [Pagination][pagination] support.
 - Root [interface for persistent entities][persistence_entity].
 
 And there are a few examples for setting up the repositories and various persistence configs:
 
 - [Example configurations][example_configs].
 
+## Integration tests
+
+Several of the integration tests included in the project require running databases. While these are taken care by the continuous integration environment, when running the project in local they should be prepared manually, and so it is not recommended trying to run the integration tests, as this may end with several failure warnings.
+
 [example_configs]: ./configs.html
 [persistence_entity]: ./persistence_entity.html
 [repository]: ./repository.html
 [repository_impl]: ./repository_impl.html
 [query]: ./query.html
+[pagination]: ./pagination.html

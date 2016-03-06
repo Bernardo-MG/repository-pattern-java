@@ -6,7 +6,9 @@
         http://www.springframework.org/schema/jdbc
         http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 
-    <!-- ============================== DATASOURCE =============================== -->
+    <description>
+        Persistence datasource.
+    </description>
 
     <!-- Data source -->
     <bean id="dataSource" class="${jdbc.dataSource.class}">

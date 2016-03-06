@@ -4,6 +4,10 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <description>
+        Spring JDBC persistence layer.
+    </description>
+    
     <!-- ================================= JDBC ================================== -->
 
     <!-- JDBC Template -->

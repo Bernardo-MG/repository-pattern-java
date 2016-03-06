@@ -31,4 +31,5 @@
  * Only the {@link com.wandrell.pattern.repository.spring.SpringJDBCRepository
  * SpringJDBCRepository} is offered.
  */
+
 package com.wandrell.pattern.repository.spring;

@@ -6,7 +6,9 @@
         http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <!-- ================================== JPA ================================== -->
+    <description>
+        JPA Hibernate persistence layer.
+    </description>
 
     <!-- JPA EntityManagerFactory -->
     <bean id="entityManagerFactory" class="${jpa.entityManagerFactory.class}">

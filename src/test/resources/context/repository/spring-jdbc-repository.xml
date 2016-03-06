@@ -3,9 +3,13 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- Data source -->
+    <description>
+        Spring JDBC repository.
+    </description>
+    
+    <!-- Repository -->
     <bean id="repository" class="${repository.class}">
-        <constructor-arg value="${repository.entity.class}" />
+        <constructor-arg value="${entity.class}" />
         <constructor-arg ref="jdbcTemplate" />
         <constructor-arg value="${query.update}" />
         <constructor-arg value="${query.delete}" />

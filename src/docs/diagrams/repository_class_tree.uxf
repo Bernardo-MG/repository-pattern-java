@@ -1,12 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="13.2">
+<diagram program="umlet" version="14.1.1">
   <zoom_level>10</zoom_level>
   <element>
-    <type>com.baselet.element.old.element.Class</type>
+    <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>260</y>
+      <x>350</x>
+      <y>360</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>220</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>100</y>
       <w>400</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>bg=cyan
+template=V: Object
+/Repository/
+--
+ 
+--
+/+add(entity: V)/
+/+getAll(): Collection&lt;V&gt;/
+/+remove(entity: V)/
+/+update(entity: V)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>260</y>
+      <w>430</w>
       <h>110</h>
     </coordinates>
     <panel_attributes>bg=cyan
@@ -20,9 +62,9 @@ template=V: Object, F: Object
     <additional_attributes/>
   </element>
   <element>
-    <type>com.baselet.element.old.element.Class</type>
+    <id>UMLClass</id>
     <coordinates>
-      <x>270</x>
+      <x>180</x>
       <y>420</y>
       <w>400</w>
       <h>180</h>
@@ -40,47 +82,5 @@ CollectionRepository
 +remove(entity: V)
 +update(entity: V)</panel_attributes>
     <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>440</x>
-      <y>360</y>
-      <w>30</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
-  </element>
-  <element>
-    <type>com.baselet.element.old.element.Class</type>
-    <coordinates>
-      <x>270</x>
-      <y>80</y>
-      <w>400</w>
-      <h>140</h>
-    </coordinates>
-    <panel_attributes>bg=cyan
-template=V: Object
-/Repository/
---
- 
---
-/+add(entity: V)/
-/+getAll(): Collection&lt;V&gt;/
-/+remove(entity: V)/
-/+update(entity: V)/</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>440</x>
-      <y>210</y>
-      <w>30</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
 </diagram>

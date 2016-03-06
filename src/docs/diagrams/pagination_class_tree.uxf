@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>40</y>
+      <w>400</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>bg=cyan
+template=V: Object, F: Object
+/FilteredRepository/
+--
+ 
+--
+/+getCollection(filter: F): Collection&lt;V&gt;/
+/+getEntity(filter: F): V/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>240</x>
+      <y>200</y>
+      <w>610</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>bg=cyan
+template=V: Object, F: Object
+/PaginatedRepository/
+--
+ 
+--
+/+getAll(pagination: PaginationData): Collection&lt;V&gt;/
+/+getCollection(filter: Predicate&lt;V&gt;, pagination: PaginationData): Collection&lt;V&gt;/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>490</x>
+      <y>140</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>400</y>
+      <w>190</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>bg=cyan
+/PaginationData/
+--
+ 
+--
+/+getPageNumber(): Integer/
+/+getPageSize(): Integer/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>490</x>
+      <y>310</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>540</y>
+      <w>190</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+DefaultPaginationData
+--
+ 
+--
++getPageNumber(): Integer
++getPageSize(): Integer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>490</x>
+      <y>480</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+</diagram>
