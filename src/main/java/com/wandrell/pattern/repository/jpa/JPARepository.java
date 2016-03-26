@@ -72,6 +72,7 @@ public final class JPARepository<V extends PersistenceEntity>
      * Entity manager in charge of handling the persistence process.
      */
     private final EntityManager eManager;
+
     /**
      * JPQL query for acquiring all the entities.
      * <p>

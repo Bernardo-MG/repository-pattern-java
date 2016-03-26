@@ -35,7 +35,8 @@ package com.wandrell.pattern.repository.pagination;
  * the same, the eleventh to fifteenth entities.
  * 
  * @author Bernardo Martínez Garrido
- * @see com.wandrell.pattern.repository.pagination.PaginatedRepository PaginatedRepository
+ * @see com.wandrell.pattern.repository.pagination.PaginatedRepository
+ *      PaginatedRepository
  */
 public interface PaginationData {
 

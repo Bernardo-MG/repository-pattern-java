@@ -81,6 +81,7 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
      * This is used by Spring's classes to transform query results.
      */
     private final Class<V>                     classType;
+
     /**
      * SQL query template for deleting entities.
      * <p>
@@ -96,6 +97,7 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
      * the actual query.
      */
     private final String                       deleteQueryTemplate;
+
     /**
      * Insert operation handler.
      * <p>
@@ -103,6 +105,7 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
      * from the parameters received by the constructor.
      */
     private final SimpleJdbcInsertOperations   insertHandler;
+
     /**
      * Named JDBC operations handler.
      * <p>
@@ -110,6 +113,7 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
      * parameters instead of the {@code ?} placeholder.
      */
     private final NamedParameterJdbcOperations jdbcTemplate;
+
     /**
      * SQL query for acquiring all the entities.
      * <p>
@@ -119,6 +123,7 @@ public final class SpringJDBCRepository<V extends PersistenceEntity>
      * {@code SELECT * FROM employees}
      */
     private final String                       selectAllQuery;
+
     /**
      * SQL query template for updating entities.
      * <p>

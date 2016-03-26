@@ -48,6 +48,7 @@ public final class DefaultNamedParameterQueryData
      * placeholders on the query string when building the final string.
      */
     private final Map<String, Object> params;
+
     /**
      * The base query.
      * <p>
