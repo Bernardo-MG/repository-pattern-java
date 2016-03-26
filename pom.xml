@@ -417,7 +417,7 @@
     <build>
         <defaultGoal>clean package install</defaultGoal>
         <plugins>
-        <plugin>
+            <plugin>
                 <!-- Changes -->
                 <!-- Takes care of the changes log -->
                 <!-- It is set to also validate the changes log file -->
