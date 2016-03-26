@@ -225,7 +225,7 @@
         <plugin.changes.version>2.11</plugin.changes.version>
         <plugin.site.velocity.version>1.7</plugin.site.velocity.version>
         <!-- Maven Site -->
-        <site.skin.version>0.2.3</site.skin.version>
+        <site.skin.version>0.2.4</site.skin.version>
         <bintrayURL>https://bintray.com/bernardo-mg/maven/repository-pattern/view</bintrayURL>
         <mavenURL>http://mvnrepository.com/artifact/com.wandrell/repository-pattern</mavenURL>
     </properties>
