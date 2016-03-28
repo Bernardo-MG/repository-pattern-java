@@ -52,7 +52,7 @@ public final class TestEntityBean implements TestEntity {
     private String name = "";
 
     /**
-     * Constructs a {@code JPATestEntity}.
+     * Default constructor.
      */
     public TestEntityBean() {
         super();

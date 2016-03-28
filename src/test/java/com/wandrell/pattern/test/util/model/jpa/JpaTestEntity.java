@@ -43,7 +43,7 @@ import com.wandrell.pattern.test.util.model.TestEntity;
  */
 @Entity(name = "TestEntity")
 @Table(name = "test_entities")
-public final class JPATestEntity implements TestEntity {
+public final class JpaTestEntity implements TestEntity {
 
     /**
      * Serialization ID.
@@ -68,9 +68,9 @@ public final class JPATestEntity implements TestEntity {
     private String name = "";
 
     /**
-     * Constructs a {@code JPATestEntity}.
+     * Default constructor.
      */
-    public JPATestEntity() {
+    public JpaTestEntity() {
         super();
     }
 
@@ -82,7 +82,7 @@ public final class JPATestEntity implements TestEntity {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        JPATestEntity other = (JPATestEntity) obj;
+        JpaTestEntity other = (JpaTestEntity) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
