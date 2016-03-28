@@ -56,7 +56,7 @@ public final class JPATestEntity implements TestEntity {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer           id               = null;
+    private Integer id = null;
 
     /**
      * Name of the entity.
@@ -65,7 +65,7 @@ public final class JPATestEntity implements TestEntity {
      * tests.
      */
     @Column(name = "name", nullable = false)
-    private String            name             = "";
+    private String name = "";
 
     /**
      * Constructs a {@code JPATestEntity}.

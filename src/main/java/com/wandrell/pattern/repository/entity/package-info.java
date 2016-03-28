@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 /**
- * Provides interfaces for entities to be used on the repositories.
+ * Entities to be used with the repositories.
  * <p>
  * The {@link com.wandrell.pattern.repository.entity.PersistenceEntity
  * PersistenceEntity} interface serves as a root for the entities which the

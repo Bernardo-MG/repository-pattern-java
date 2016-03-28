@@ -66,20 +66,20 @@ public abstract class AbstractITModify
      * The entity manager for the test context.
      */
     @Autowired(required = false)
-    private EntityManager                                           emanager;
+    private EntityManager emanager;
 
     /**
      * Initial number of entities in the repository.
      */
     @Value("${entities.total}")
-    private Integer                                                 entitiesCount;
+    private Integer entitiesCount;
 
     /**
      * Entity for the addition test.
      */
     @Autowired
     @Qualifier("newEntity")
-    private TestEntity                                              newEntity;
+    private TestEntity newEntity;
 
     /**
      * The repository being tested.
@@ -91,7 +91,7 @@ public abstract class AbstractITModify
      * Query for acquiring an entity by it's id.
      */
     @Value("${query.byId}")
-    private String                                                  selectByIdQuery;
+    private String selectByIdQuery;
 
     /**
      * Default constructor.
@@ -131,9 +131,9 @@ public abstract class AbstractITModify
     @Test
     @Transactional
     public final void testRemove() {
-        final TestEntity entity;              // Entity being tested
+        final TestEntity entity; // Entity being tested
         final Map<String, Object> parameters; // Params for the query
-        final NamedParameterQueryData query;  // Query for retrieving the entity
+        final NamedParameterQueryData query; // Query for retrieving the entity
 
         // Acquires the entity
         parameters = new LinkedHashMap<>();
@@ -158,9 +158,9 @@ public abstract class AbstractITModify
     @Test
     public final void testUpdate() {
         final Map<String, Object> parameters; // Params for the query
-        final NamedParameterQueryData query;  // Query for retrieving the entity
-        final String nameChange;              // Name set on the entity
-        TestEntity entity;                    // The entity being tested
+        final NamedParameterQueryData query; // Query for retrieving the entity
+        final String nameChange; // Name set on the entity
+        TestEntity entity; // The entity being tested
 
         // Acquires the entity
         parameters = new LinkedHashMap<>();
@@ -185,8 +185,7 @@ public abstract class AbstractITModify
      *
      * @return the repository being tested.
      */
-    protected final FilteredRepository<TestEntity, NamedParameterQueryData>
-            getRepository() {
+    protected final FilteredRepository<TestEntity, NamedParameterQueryData> getRepository() {
         return repository;
     }
 

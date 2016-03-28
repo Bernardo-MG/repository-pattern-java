@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  * <p>
- * Copyright (c) 2015 the original author or authors.
+ * Copyright (c) 2016 the original author or authors.
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,15 +21,39 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-/**
- * JPA-based repositories.
- * <p>
- * These are meant to be used along a framework such as Hibernate or
- * Eclipselink.
- * <h2>Implementations</h2>
- * <p>
- * Only the {@link com.wandrell.pattern.repository.jpa.JpaRepository
- * JPARepository} is offered.
- */
 
-package com.wandrell.pattern.repository.jpa;
+package com.wandrell.pattern.test.util.config.context;
+
+/**
+ * Paths to the test context files.
+ * <p>
+ * These are generic context configurations required by some of the tests.
+ *
+ * @author Bernardo Martínez Garrido
+ */
+public class TestContextPaths {
+
+    /**
+     * Default test context.
+     * <p>
+     * For those test which don't need any context configuration but require
+     * loading Spring properties.
+     */
+    public static final String DEFAULT = "classpath:context/test-default.xml";
+
+    /**
+     * Entity prototype context.
+     * <p>
+     * Allows generating a new instance of the tested entity each time it is
+     * required.
+     */
+    public static final String ENTITY_MODIFIABLE = "classpath:context/entity/entity-modifiable.xml";
+
+    /**
+     * Private constructor to avoid initialization.
+     */
+    private TestContextPaths() {
+        super();
+    }
+
+}

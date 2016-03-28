@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  * <p>
- * Copyright (c) 2015 the original author or authors.
+ * Copyright (c) 2016 the original author or authors.
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,15 +21,34 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-/**
- * JPA-based repositories.
- * <p>
- * These are meant to be used along a framework such as Hibernate or
- * Eclipselink.
- * <h2>Implementations</h2>
- * <p>
- * Only the {@link com.wandrell.pattern.repository.jpa.JpaRepository
- * JPARepository} is offered.
- */
 
-package com.wandrell.pattern.repository.jpa;
+package com.wandrell.pattern.test.util.config.properties;
+
+/**
+ * Paths to the repository properties files.
+ * <p>
+ * These files contain the vendor specific configuration data required for each
+ * type of tested repository.
+ *
+ * @author Bernardo Martínez Garrido
+ */
+public class RepositoryPropertiesPaths {
+
+    /**
+     * JPA repository.
+     */
+    public static final String JPA = "classpath:config/repository/jpa-repository.properties";
+
+    /**
+     * JDBC repository.
+     */
+    public static final String SPRING_JDBC = "classpath:config/repository/spring-jdbc-repository.properties";
+
+    /**
+     * Private constructor to avoid initialization.
+     */
+    private RepositoryPropertiesPaths() {
+        super();
+    }
+
+}

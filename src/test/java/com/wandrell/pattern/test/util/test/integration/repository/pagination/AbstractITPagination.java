@@ -76,13 +76,13 @@ public abstract class AbstractITPagination
      * Query for acquiring an entity by it's id.
      */
     @Value("${query.byId}")
-    private String                                                   selectByIdQuery;
+    private String selectByIdQuery;
 
     /**
      * Query for acquiring the second set of five entities.
      */
     @Value("${query.secondFive}")
-    private String                                                   selectSecondFiveQuery;
+    private String selectSecondFiveQuery;
 
     /**
      * Default constructor.
@@ -140,7 +140,7 @@ public abstract class AbstractITPagination
      */
     @Test
     public final void testGetCollection_LastPage_CorrectSize() {
-        final PaginationData pagination;     // Pagination data
+        final PaginationData pagination; // Pagination data
         final NamedParameterQueryData query; // Query for the entity
 
         pagination = new DefaultPaginationData(2, 3);
@@ -156,7 +156,7 @@ public abstract class AbstractITPagination
      */
     @Test
     public final void testGetCollection_SecondPage_CorrectFirstId() {
-        final PaginationData pagination;     // Pagination data
+        final PaginationData pagination; // Pagination data
         final NamedParameterQueryData query; // Query for the entity
 
         pagination = new DefaultPaginationData(2, 2);
@@ -172,7 +172,7 @@ public abstract class AbstractITPagination
      */
     @Test
     public final void testGetCollection_SecondPage_CorrectSize() {
-        final PaginationData pagination;     // Pagination data
+        final PaginationData pagination; // Pagination data
         final NamedParameterQueryData query; // Query for the entity
 
         pagination = new DefaultPaginationData(2, 2);
@@ -188,8 +188,7 @@ public abstract class AbstractITPagination
      *
      * @return the repository being tested.
      */
-    protected final PaginatedRepository<TestEntity, NamedParameterQueryData>
-            getRepository() {
+    protected final PaginatedRepository<TestEntity, NamedParameterQueryData> getRepository() {
         return repository;
     }
 

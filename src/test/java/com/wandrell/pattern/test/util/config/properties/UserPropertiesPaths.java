@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  * <p>
- * Copyright (c) 2015 the original author or authors.
+ * Copyright (c) 2016 the original author or authors.
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,15 +21,39 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-/**
- * JPA-based repositories.
- * <p>
- * These are meant to be used along a framework such as Hibernate or
- * Eclipselink.
- * <h2>Implementations</h2>
- * <p>
- * Only the {@link com.wandrell.pattern.repository.jpa.JpaRepository
- * JPARepository} is offered.
- */
 
-package com.wandrell.pattern.repository.jpa;
+package com.wandrell.pattern.test.util.config.properties;
+
+/**
+ * Paths to the user data properties files.
+ * <p>
+ * These files contain the authentication data required to access the test
+ * databases.
+ *
+ * @author Bernardo Martínez Garrido
+ */
+public class UserPropertiesPaths {
+
+    /**
+     * Default database authentication.
+     */
+    public static final String DEFAULT = "classpath:config/db/user/test-user-default.properties";
+
+    /**
+     * MySQL database authentication.
+     */
+    public static final String MYSQL = "classpath:config/db/user/test-user-mysql.properties";
+
+    /**
+     * Postgres database authentication.
+     */
+    public static final String POSTGRES = "classpath:config/db/user/test-user-postgres.properties";
+
+    /**
+     * Private constructor to avoid initialization.
+     */
+    private UserPropertiesPaths() {
+        super();
+    }
+
+}

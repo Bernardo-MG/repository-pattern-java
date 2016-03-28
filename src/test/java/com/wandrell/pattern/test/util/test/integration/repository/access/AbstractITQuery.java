@@ -64,7 +64,7 @@ public abstract class AbstractITQuery
      * Initial number of entities in the repository.
      */
     @Value("${entities.total}")
-    private Integer                                                 entitiesCount;
+    private Integer entitiesCount;
 
     /**
      * The repository being tested.
@@ -76,19 +76,19 @@ public abstract class AbstractITQuery
      * Query for acquiring an entity by it's id.
      */
     @Value("${query.byId}")
-    private String                                                  selectByIdQuery;
+    private String selectByIdQuery;
 
     /**
      * Query for acquiring a collection of entities which does not exist.
      */
     @Value("${query.notExistingCol}")
-    private String                                                  selectNotExistingColQuery;
+    private String selectNotExistingColQuery;
 
     /**
      * Query for acquiring the second set of five entities.
      */
     @Value("${query.secondFive}")
-    private String                                                  selectSecondFiveQuery;
+    private String selectSecondFiveQuery;
 
     /**
      * Default constructor.
@@ -111,7 +111,7 @@ public abstract class AbstractITQuery
      */
     @Test
     public final void testGetCollection_Existing_CorrectSize() {
-        final NamedParameterQueryData query;   // Query for the entity
+        final NamedParameterQueryData query; // Query for the entity
 
         // Creates the query
         query = new DefaultNamedParameterQueryData(selectSecondFiveQuery);
@@ -126,7 +126,7 @@ public abstract class AbstractITQuery
      */
     @Test
     public final void testGetCollection_NotExisting_Empty() {
-        final NamedParameterQueryData query;   // Query for the entity
+        final NamedParameterQueryData query; // Query for the entity
 
         // Creates the query
         query = new DefaultNamedParameterQueryData(selectNotExistingColQuery);
@@ -140,10 +140,10 @@ public abstract class AbstractITQuery
      */
     @Test
     public final void testGetEntity_Existing_Entity() {
-        final NamedParameterQueryData query;  // Query for the entity
+        final NamedParameterQueryData query; // Query for the entity
         final Map<String, Object> parameters; // Query params
-        final Integer id;                     // Entity ID
-        final TestEntity entity;              // Tested entity
+        final Integer id; // Entity ID
+        final TestEntity entity; // Tested entity
 
         // Entity's id
         id = 1;
@@ -163,10 +163,10 @@ public abstract class AbstractITQuery
      */
     @Test
     public final void testGetEntity_NotExisting_Null() {
-        final NamedParameterQueryData query;  // Query for the entity
+        final NamedParameterQueryData query; // Query for the entity
         final Map<String, Object> parameters; // Query params
-        final Integer id;                     // Invalid entity ID
-        final TestEntity entity;              // Tested entity
+        final Integer id; // Invalid entity ID
+        final TestEntity entity; // Tested entity
 
         // Invalid entity id
         id = 123;
@@ -186,8 +186,7 @@ public abstract class AbstractITQuery
      *
      * @return the repository being tested.
      */
-    protected final FilteredRepository<TestEntity, NamedParameterQueryData>
-            getRepository() {
+    protected final FilteredRepository<TestEntity, NamedParameterQueryData> getRepository() {
         return repository;
     }
 
