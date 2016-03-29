@@ -31,8 +31,8 @@ import com.wandrell.pattern.test.util.config.context.PersistenceContextPaths;
 import com.wandrell.pattern.test.util.config.context.RepositoryContextPaths;
 import com.wandrell.pattern.test.util.config.context.TestContextPaths;
 import com.wandrell.pattern.test.util.config.properties.DatabaseScriptsPropertiesPaths;
-import com.wandrell.pattern.test.util.config.properties.JDBCPropertiesPaths;
-import com.wandrell.pattern.test.util.config.properties.JPAPropertiesPaths;
+import com.wandrell.pattern.test.util.config.properties.JdbcPropertiesPaths;
+import com.wandrell.pattern.test.util.config.properties.JpaPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.PersistenceProviderPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.QueryPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.RepositoryPropertiesPaths;
@@ -55,7 +55,7 @@ import com.wandrell.pattern.test.util.config.properties.UserPropertiesPaths;
         RepositoryPropertiesPaths.JPA, TestPropertiesPaths.ENTITY_JPA,
         PersistenceProviderPropertiesPaths.ECLIPSELINK,
         UserPropertiesPaths.DEFAULT, DatabaseScriptsPropertiesPaths.PLAIN,
-        JDBCPropertiesPaths.SQLITE, JPAPropertiesPaths.SQLITE }, properties = {
+        JdbcPropertiesPaths.SQLITE, JpaPropertiesPaths.SQLITE }, properties = {
                 "jpa.persistenceUnitName=test_model_jpa_eclipselink_sqlite_modify",
                 "jdbc.url=jdbc:sqlite:target/sqlite_test_jpa_eclipselink_modify.db" })
 public final class ITModifySqliteEclipselinkJpaRepository {

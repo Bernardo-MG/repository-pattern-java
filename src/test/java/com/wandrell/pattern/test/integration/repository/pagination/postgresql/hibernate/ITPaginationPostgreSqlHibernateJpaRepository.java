@@ -32,8 +32,8 @@ import com.wandrell.pattern.test.util.config.context.RepositoryContextPaths;
 import com.wandrell.pattern.test.util.config.context.TestContextPaths;
 import com.wandrell.pattern.test.util.config.properties.DatabaseScriptsPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.HibernateDialectPropertiesPaths;
-import com.wandrell.pattern.test.util.config.properties.JDBCPropertiesPaths;
-import com.wandrell.pattern.test.util.config.properties.JPAPropertiesPaths;
+import com.wandrell.pattern.test.util.config.properties.JdbcPropertiesPaths;
+import com.wandrell.pattern.test.util.config.properties.JpaPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.PersistenceProviderPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.QueryPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.RepositoryPropertiesPaths;
@@ -55,7 +55,7 @@ import com.wandrell.pattern.test.util.test.integration.repository.pagination.Abs
         RepositoryPropertiesPaths.JPA,
         PersistenceProviderPropertiesPaths.HIBERNATE,
         UserPropertiesPaths.POSTGRES, DatabaseScriptsPropertiesPaths.POSTGRESQL,
-        JDBCPropertiesPaths.POSTGRESQL, JPAPropertiesPaths.POSTGRESQL,
+        JdbcPropertiesPaths.POSTGRESQL, JpaPropertiesPaths.POSTGRESQL,
         HibernateDialectPropertiesPaths.POSTGRESQL }, properties = {
                 "jpa.persistenceUnitName=test_model_jpa_hibernate_postgresql",
                 "jdbc.url=jdbc:postgresql://localhost:5432/test_jpa_hibernate" })

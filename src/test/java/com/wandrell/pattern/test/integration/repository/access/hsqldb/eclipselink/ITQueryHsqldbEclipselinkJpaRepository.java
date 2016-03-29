@@ -31,8 +31,8 @@ import com.wandrell.pattern.test.util.config.context.PersistenceContextPaths;
 import com.wandrell.pattern.test.util.config.context.RepositoryContextPaths;
 import com.wandrell.pattern.test.util.config.context.TestContextPaths;
 import com.wandrell.pattern.test.util.config.properties.DatabaseScriptsPropertiesPaths;
-import com.wandrell.pattern.test.util.config.properties.JDBCPropertiesPaths;
-import com.wandrell.pattern.test.util.config.properties.JPAPropertiesPaths;
+import com.wandrell.pattern.test.util.config.properties.JdbcPropertiesPaths;
+import com.wandrell.pattern.test.util.config.properties.JpaPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.PersistenceProviderPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.QueryPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.RepositoryPropertiesPaths;
@@ -54,7 +54,7 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
         RepositoryPropertiesPaths.JPA,
         PersistenceProviderPropertiesPaths.ECLIPSELINK,
         UserPropertiesPaths.DEFAULT, DatabaseScriptsPropertiesPaths.MSSQL,
-        JDBCPropertiesPaths.HSQLDB, JPAPropertiesPaths.HSQLDB }, properties = {
+        JdbcPropertiesPaths.HSQLDB, JpaPropertiesPaths.HSQLDB }, properties = {
                 "jpa.persistenceUnitName=test_model_jpa_eclipselink_hsqldb",
                 "jdbc.url=jdbc:hsqldb:mem:test_jpa_eclipselink" })
 public final class ITQueryHsqldbEclipselinkJpaRepository

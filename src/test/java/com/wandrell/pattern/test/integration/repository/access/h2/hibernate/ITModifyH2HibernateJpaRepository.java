@@ -32,8 +32,8 @@ import com.wandrell.pattern.test.util.config.context.RepositoryContextPaths;
 import com.wandrell.pattern.test.util.config.context.TestContextPaths;
 import com.wandrell.pattern.test.util.config.properties.DatabaseScriptsPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.HibernateDialectPropertiesPaths;
-import com.wandrell.pattern.test.util.config.properties.JDBCPropertiesPaths;
-import com.wandrell.pattern.test.util.config.properties.JPAPropertiesPaths;
+import com.wandrell.pattern.test.util.config.properties.JdbcPropertiesPaths;
+import com.wandrell.pattern.test.util.config.properties.JpaPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.PersistenceProviderPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.QueryPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.RepositoryPropertiesPaths;
@@ -57,7 +57,7 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
         RepositoryPropertiesPaths.JPA, TestPropertiesPaths.ENTITY_JPA,
         PersistenceProviderPropertiesPaths.HIBERNATE,
         UserPropertiesPaths.DEFAULT, DatabaseScriptsPropertiesPaths.MSSQL,
-        JDBCPropertiesPaths.H2, JPAPropertiesPaths.H2,
+        JdbcPropertiesPaths.H2, JpaPropertiesPaths.H2,
         HibernateDialectPropertiesPaths.H2 }, properties = {
                 "jpa.persistenceUnitName=test_model_jpa_hibernate_h2_modify",
                 "jdbc.url=jdbc:h2:mem:test_jpa_hibernate_modify;DB_CLOSE_ON_EXIT=FALSE" })

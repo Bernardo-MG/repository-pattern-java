@@ -25,43 +25,43 @@
 package com.wandrell.pattern.test.util.config.properties;
 
 /**
- * Paths to the JDBC persistence layer properties files.
+ * Paths to the JPA persistence layer properties files.
  * <p>
- * These files contain the vendor specific JDBC configuration data.
+ * These files contain the vendor specific JPA configuration data.
  *
  * @author Bernardo Martínez Garrido
  */
-public class JDBCPropertiesPaths {
+public class JpaPropertiesPaths {
 
     /**
-     * H2 JDBC configuration.
+     * H2 JPA configuration.
      */
-    public static final String H2 = "classpath:config/persistence/jdbc/test-jdbc-h2.properties";
+    public static final String H2 = "classpath:config/persistence/jpa/test-jpa-h2.properties";
 
     /**
-     * HSQLDB JDBC configuration.
+     * HSQLDB JPA configuration.
      */
-    public static final String HSQLDB = "classpath:config/persistence/jdbc/test-jdbc-hsqldb.properties";
+    public static final String HSQLDB = "classpath:config/persistence/jpa/test-jpa-hsqldb.properties";
 
     /**
-     * MySQL JDBC configuration.
+     * MySQL JPA configuration.
      */
-    public static final String MYSQL = "classpath:config/persistence/jdbc/test-jdbc-mysql.properties";
+    public static final String MYSQL = "classpath:config/persistence/jpa/test-jpa-mysql.properties";
 
     /**
-     * PostgreSQL JDBC configuration.
+     * PostgreSQL JPA configuration.
      */
-    public static final String POSTGRESQL = "classpath:config/persistence/jdbc/test-jdbc-postgresql.properties";
+    public static final String POSTGRESQL = "classpath:config/persistence/jpa/test-jpa-postgresql.properties";
 
     /**
-     * SQLite JDBC configuration.
+     * SQLite JPA configuration.
      */
-    public static final String SQLITE = "classpath:config/persistence/jdbc/test-jdbc-sqlite.properties";
+    public static final String SQLITE = "classpath:config/persistence/jpa/test-jpa-sqlite.properties";
 
     /**
      * Private constructor to avoid initialization.
      */
-    private JDBCPropertiesPaths() {
+    private JpaPropertiesPaths() {
         super();
     }
 

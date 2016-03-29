@@ -25,43 +25,43 @@
 package com.wandrell.pattern.test.util.config.properties;
 
 /**
- * Paths to the JPA persistence layer properties files.
+ * Paths to the JDBC persistence layer properties files.
  * <p>
- * These files contain the vendor specific JPA configuration data.
+ * These files contain the vendor specific JDBC configuration data.
  *
  * @author Bernardo Martínez Garrido
  */
-public class JPAPropertiesPaths {
+public class JdbcPropertiesPaths {
 
     /**
-     * H2 JPA configuration.
+     * H2 JDBC configuration.
      */
-    public static final String H2 = "classpath:config/persistence/jpa/test-jpa-h2.properties";
+    public static final String H2 = "classpath:config/persistence/jdbc/test-jdbc-h2.properties";
 
     /**
-     * HSQLDB JPA configuration.
+     * HSQLDB JDBC configuration.
      */
-    public static final String HSQLDB = "classpath:config/persistence/jpa/test-jpa-hsqldb.properties";
+    public static final String HSQLDB = "classpath:config/persistence/jdbc/test-jdbc-hsqldb.properties";
 
     /**
-     * MySQL JPA configuration.
+     * MySQL JDBC configuration.
      */
-    public static final String MYSQL = "classpath:config/persistence/jpa/test-jpa-mysql.properties";
+    public static final String MYSQL = "classpath:config/persistence/jdbc/test-jdbc-mysql.properties";
 
     /**
-     * PostgreSQL JPA configuration.
+     * PostgreSQL JDBC configuration.
      */
-    public static final String POSTGRESQL = "classpath:config/persistence/jpa/test-jpa-postgresql.properties";
+    public static final String POSTGRESQL = "classpath:config/persistence/jdbc/test-jdbc-postgresql.properties";
 
     /**
-     * SQLite JPA configuration.
+     * SQLite JDBC configuration.
      */
-    public static final String SQLITE = "classpath:config/persistence/jpa/test-jpa-sqlite.properties";
+    public static final String SQLITE = "classpath:config/persistence/jdbc/test-jdbc-sqlite.properties";
 
     /**
      * Private constructor to avoid initialization.
      */
-    private JPAPropertiesPaths() {
+    private JdbcPropertiesPaths() {
         super();
     }
 

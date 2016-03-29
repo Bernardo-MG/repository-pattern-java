@@ -31,7 +31,7 @@ import com.wandrell.pattern.test.util.config.context.PersistenceContextPaths;
 import com.wandrell.pattern.test.util.config.context.RepositoryContextPaths;
 import com.wandrell.pattern.test.util.config.context.TestContextPaths;
 import com.wandrell.pattern.test.util.config.properties.DatabaseScriptsPropertiesPaths;
-import com.wandrell.pattern.test.util.config.properties.JDBCPropertiesPaths;
+import com.wandrell.pattern.test.util.config.properties.JdbcPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.PersistenceProviderPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.QueryPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.RepositoryPropertiesPaths;
@@ -56,7 +56,7 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
         RepositoryPropertiesPaths.SPRING_JDBC, TestPropertiesPaths.ENTITY,
         PersistenceProviderPropertiesPaths.SPRING_JDBC,
         UserPropertiesPaths.DEFAULT, DatabaseScriptsPropertiesPaths.MSSQL,
-        JDBCPropertiesPaths.HSQLDB }, properties = {
+        JdbcPropertiesPaths.HSQLDB }, properties = {
                 "jdbc.url=jdbc:hsqldb:mem:test_spring_jdbc" })
 public final class ITQueryHsqldbSpringJdbcRepository extends AbstractITQuery {
 
