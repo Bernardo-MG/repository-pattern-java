@@ -1,9 +1,9 @@
 #!/bin/bash
 #
-# Creates the test tables.
+# Creates the test databases.
 #
-# This script requires a MySQL and a PostgreSQL table, with the default super user,
-# where the test tables will be added.
+# This script requires a MySQL and a PostgreSQL services, with the default super user,
+# where the test databases will be added.
 
 set -o nounset
 set -e

@@ -19,13 +19,13 @@ matrix:
 
 before_install:
   # Scripts are set as executable
-  - chmod +x ./.scripts/create-test-tables.sh
+  - chmod +x ./.scripts/create-test-databases.sh
   - chmod +x ./.scripts/load-travis-environment.sh
   - chmod +x ./.scripts/create-maven-settings.sh
   - chmod +x ./.scripts/deploy.sh
   - chmod +x ./.scripts/deploy-site.sh
-  # Creates test tables
-  - ./.scripts/create-test-tables.sh
+  # Creates test databases
+  - ./.scripts/create-test-databases.sh
   # Prepares CI environment
   - source ./.scripts/load-travis-environment.sh
   # Creates Maven settings
