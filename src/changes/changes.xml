@@ -98,7 +98,7 @@
                 it is based on the repository pattern.
             </action>
         </release>
-        <release version="0.2.1" date="2016-2-29" description="Changes to tests.">
+        <release version="0.2.1" date="2016-02-29" description="Changes to tests.">
             <action dev="bmg" type="update">
                 Tests now make use of Spring annotations instead of context files.
             </action>
@@ -109,7 +109,7 @@
                 Updated dependencies.
             </action>
         </release>
-        <release version="0.3.0" date="In development" description="Corrected naming scheme.">
+        <release version="0.3.0" date="2016-04-07" description="Corrected naming scheme.">
             <action dev="bmg" type="update">
                 All the repositories now use camel-case naming.
             </action>
