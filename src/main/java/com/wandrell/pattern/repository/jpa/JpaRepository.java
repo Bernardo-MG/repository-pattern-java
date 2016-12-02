@@ -80,7 +80,7 @@ public final class JpaRepository<V extends PersistenceEntity>
      * <p>
      * {@code SELECT employee FROM Employee employee}
      */
-    private final String selectAllQuery;
+    private final String        selectAllQuery;
 
     /**
      * Constructs a {@code JPARepository} with the specified all-data query.
@@ -195,8 +195,8 @@ public final class JpaRepository<V extends PersistenceEntity>
      */
     @SuppressWarnings("unchecked")
     @Override
-    public final Collection<V> getCollection(
-            final NamedParameterQueryData query) {
+    public final Collection<V>
+            getCollection(final NamedParameterQueryData query) {
 
         checkNotNull(query, "Received a null pointer as the query");
 
@@ -298,6 +298,14 @@ public final class JpaRepository<V extends PersistenceEntity>
         add(entity);
     }
 
+    /**
+     * Applies pagination to the query.
+     * 
+     * @param query
+     *            query to apply the pagination to
+     * @param pagination
+     *            pagination to apply
+     */
     private final void applyPagination(final Query query,
             final PaginationData pagination) {
         query.setFirstResult(
