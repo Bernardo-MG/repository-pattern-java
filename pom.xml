@@ -150,25 +150,25 @@
       <!-- Manifest data -->
       <manifest.name>com/wandrell/pattern/repository</manifest.name>
       <!-- Dependencies versions -->
-      <eclipselink.version>2.6.2</eclipselink.version>
+      <eclipselink.version>2.6.4</eclipselink.version>
       <guava.version>19.0</guava.version>
-      <h2.version>1.4.191</h2.version>
-      <hibernate.version>5.1.0.Final</hibernate.version>
-      <hikari.version>2.4.5</hikari.version>
-      <hsqldb.version>2.3.3</hsqldb.version>
+      <h2.version>1.4.193</h2.version>
+      <hibernate.version>5.1.3.Final</hibernate.version>
+      <hikari.version>2.5.1</hikari.version>
+      <hsqldb.version>2.3.4</hsqldb.version>
       <javaee.api.version>7.0</javaee.api.version>
-      <log4j.version>2.5</log4j.version>
-      <mysql.version>5.1.38</mysql.version>
-      <postgresql.version>9.4.1208.jre7</postgresql.version>
-      <slf4j.version>1.7.18</slf4j.version>
-      <spring.version>4.2.5.RELEASE</spring.version>
-      <sqlite.version>3.8.11.2</sqlite.version>
-      <testng.version>6.9.10</testng.version>
+      <log4j.version>2.7</log4j.version>
+      <mysql.version>5.1.40</mysql.version>
+      <postgresql.version>9.4.1212.jre7</postgresql.version>
+      <slf4j.version>1.7.21</slf4j.version>
+      <spring.version>4.3.4.RELEASE</spring.version>
+      <sqlite.version>3.15.1</sqlite.version>
+      <testng.version>6.9.13.6</testng.version>
       <!-- Plugins versions -->
-      <plugin.changes.version>2.11</plugin.changes.version>
+      <plugin.changes.version>2.12.1</plugin.changes.version>
       <plugin.site.velocity.version>1.7</plugin.site.velocity.version>
       <!-- Maven Site -->
-      <site.skin.version>0.2.4</site.skin.version>
+      <site.skin.version>0.4.0</site.skin.version>
       <bintrayURL>https://bintray.com/bernardo-mg/maven/repository-pattern/view</bintrayURL>
       <mavenURL>http://mvnrepository.com/artifact/com.wandrell/repository-pattern</mavenURL>
    </properties>
