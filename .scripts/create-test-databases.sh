@@ -3,7 +3,7 @@
 # Creates the test databases.
 #
 # This script requires a MySQL and a PostgreSQL services, with the default super user,
-# where the test databases will be added.
+# where the test databases will be created.
 
 set -o nounset
 set -e
