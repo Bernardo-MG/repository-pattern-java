@@ -116,6 +116,9 @@
             <action dev="bmg" type="update">
                 Corrected the tests class path.
             </action>
+            <action dev="bmg" type="update">
+                Updated project configuration.
+            </action>
         </release>
     </body>
 </document>
