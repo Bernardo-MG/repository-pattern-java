@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="PersistenceUtilsIntegration" parallel="instances"
+<suite name="RepositoryPatternIntegration" parallel="instances"
 	thread-count="4">
 
-	<test name="persistence_utils_integration">
+	<test name="repository_pattern_integration">
 		<packages>
-			<package name="com.wandrell.testing.persistence.test.integration.*" />
+			<package name="com.wandrell.pattern.test.integration.*" />
 		</packages>
 	</test>
 

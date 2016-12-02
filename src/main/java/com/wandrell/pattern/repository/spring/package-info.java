@@ -22,13 +22,12 @@
  * SOFTWARE.
  */
 /**
- * Provides Spring JDBC based implementations of the {@code Repository}
- * interface.
+ * Spring JDBC-based repositories.
  * <p>
  * These are meant to be used with the Spring framework.
  * <h2>Implementations</h2>
  * <p>
- * Only the {@link com.wandrell.pattern.repository.spring.SpringJDBCRepository
+ * Only the {@link com.wandrell.pattern.repository.spring.SpringJdbcRepository
  * SpringJDBCRepository} is offered.
  */
 

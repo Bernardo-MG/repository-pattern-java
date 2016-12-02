@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 /**
- * Provides interfaces and default implementations for handling pagination.
+ * Pagination support.
  * <p>
  * These are thought to be used with the
  * {@link com.wandrell.pattern.repository.pagination.PaginatedRepository

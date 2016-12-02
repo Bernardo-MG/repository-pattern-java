@@ -22,8 +22,8 @@
  * SOFTWARE.
  */
 /**
- * Provides interfaces and basic implementations for a query class, meant to
- * ease sending and creating data queries.
+ * Interfaces and basic implementations for a query class, meant to ease sending
+ * and creating data queries.
  * <p>
  * These queries are meant to be something similar to a SQL query.
  * <h2>Interfaces</h2> The

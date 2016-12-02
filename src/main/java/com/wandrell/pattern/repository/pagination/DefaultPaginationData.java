@@ -39,6 +39,7 @@ public final class DefaultPaginationData implements PaginationData {
      * Number of the page.
      */
     private final Integer pageNumber;
+
     /**
      * Size of the page.
      * <p>

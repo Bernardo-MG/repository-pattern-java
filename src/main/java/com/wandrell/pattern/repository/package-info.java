@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 /**
- * Provides interfaces and basic implementations for the repository pattern.
+ * Interfaces and basic implementations for the repository pattern.
  * <p>
  * This pattern is similar to a DAO, as it allows accessing data through CRUD
  * operations, hiding the source of this data.

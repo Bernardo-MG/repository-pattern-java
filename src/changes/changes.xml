@@ -84,7 +84,8 @@
                 Included tests for several databases.
             </action>
         </release>
-        <release version="0.2.0" date="2015-12-27" description="Pagination and Maven coordinates changes.">
+        <release version="0.2.0" date="2015-12-27"
+            description="Pagination and Maven coordinates changes.">
             <action dev="bmg" type="add">
                 Added pagination support for the JPA repository.
             </action>
@@ -97,7 +98,7 @@
                 it is based on the repository pattern.
             </action>
         </release>
-        <release version="0.2.1" date="2016-2-29" description="Changes to tests.">
+        <release version="0.2.1" date="2016-02-29" description="Changes to tests.">
             <action dev="bmg" type="update">
                 Tests now make use of Spring annotations instead of context files.
             </action>
@@ -106,6 +107,17 @@
             </action>
             <action dev="bmg" type="update">
                 Updated dependencies.
+            </action>
+        </release>
+        <release version="0.3.0" date="2016-04-07" description="Corrected naming scheme.">
+            <action dev="bmg" type="update">
+                All the repositories now use camel-case naming.
+            </action>
+            <action dev="bmg" type="update">
+                Corrected the tests class path.
+            </action>
+            <action dev="bmg" type="update">
+                Updated project configuration.
             </action>
         </release>
     </body>

@@ -48,13 +48,14 @@ public final class DefaultNamedParameterQueryData
      * placeholders on the query string when building the final string.
      */
     private final Map<String, Object> params;
+
     /**
      * The base query.
      * <p>
      * If there is any parameter, these will be applied to this string to build
      * the final query.
      */
-    private final String              queryStr;
+    private final String queryStr;
 
     /**
      * Constructs a {@code DefaultQuery} with no parameters.
