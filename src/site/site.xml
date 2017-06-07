@@ -14,36 +14,18 @@
 			<keywords>Maven, Java, library</keywords>
 			<descriptionUrl>Check the documentation for Java Persistence Utils</descriptionUrl>
 			<twitterSite>@Wandrell_BMG</twitterSite>
-			<interpreters>
-				<interpreter>JDK 7</interpreter>
-				<interpreter>JDK 8</interpreter>
-				<interpreter>OpenJDK 7</interpreter>
-			</interpreters>
-			<releaseRepositories>
-				<releaseRepository>
-					<name>Bintray</name>
-					<url>${bintrayURL}</url>
-				</releaseRepository>
-				<releaseRepository>
-					<name>Maven Central</name>
-					<url>${mavenURL}</url>
-				</releaseRepository>
-			</releaseRepositories>
 			<topNav>
 				<menu>Documentation</menu>
 				<menu>Info and reports</menu>
 			</topNav>
 			<bottomNav>
 				<menu>General Info</menu>
+            <menu>Code</menu>
+            <menu>Releases</menu>
 			</bottomNav>
-			<pages>
-				<index>
-					<sections>
-						<body />
-						<columns>2</columns>
-					</sections>
-				</index>
-			</pages>
+         <iconNav>
+            <menu>Icons</menu>
+         </iconNav>
 		</skinConfig>
 	</custom>
 
@@ -57,16 +39,34 @@
 			<item name="Acquire" href="./acquire.html" />
 			<item name="Persistence entity" href="./persistence_entity.html" />
 			<item name="Repository" href="./repository.html" />
-            <item name="Query" href="./query.html" />
-            <item name="Pagination" href="./pagination.html" />
-            <item name="Repository implementations" href="./repository_impl.html" />
-            <item name="Configuration examples" href="./configs.html" />
+         <item name="Query" href="./query.html" />
+         <item name="Pagination" href="./pagination.html" />
+         <item name="Repository implementations" href="./repository_impl.html" />
+         <item name="Configuration examples" href="./configs.html" />
 		</menu>
 		<menu name="Info and reports" inherit="bottom">
 			<item name="Info" href="./info.html" />
 			<item name="Reports" href="./reports.html" />
 			<item name="JavaDocs" href="./apidocs/" />
 		</menu>
+      <menu name="Code" inherit="bottom">
+         <item name="SCM" href="${project.scm.url}">
+            <description>GitHub</description>
+         </item>
+         <item name="CI" href="${project.ciManagement.url}">
+            <description>${project.ciManagement.system}</description>
+         </item>
+         <item name="Issues" href="${project.issueManagement.url}">
+            <description>${project.issueManagement.system}</description>
+         </item>
+      </menu>
+      <menu name="Releases" inherit="bottom">
+         <item name="Bintray" href="${bintrayURL}" />
+         <item name="Maven Central" href="${mavenURL}" />
+      </menu>
+      <menu name="Icons" inherit="bottom">
+         <item name="Github" img="github" href="${project.scm.url}" />
+      </menu>
 	</body>
 
 </project>
