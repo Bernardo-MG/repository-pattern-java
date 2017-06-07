@@ -11,7 +11,7 @@
    <parent>
       <groupId>com.wandrell.maven</groupId>
       <artifactId>base-pom</artifactId>
-      <version>1.0.5</version>
+      <version>1.1.4</version>
    </parent>
 
    <!-- ********************************************** -->
@@ -21,7 +21,6 @@
    <groupId>com.wandrell</groupId>
    <artifactId>repository-pattern</artifactId>
    <version>0.3.0-SNAPSHOT</version>
-   <packaging>jar</packaging>
 
    <name>Repository Pattern</name>
    <description>Interfaces and basic implementations for the repository pattern.</description>
@@ -79,9 +78,43 @@
 
    <profiles>
       <profile>
+         <!-- Profile for the Eclipse Maven plugin -->
+         <!-- Sets the POM so this plugin does not give the usual unregistered 
+            goals errors -->
+         <!-- It will be activated automatically on Eclipse if this has the 
+            m2e plugin, by detecting the version property -->
+         <id>eclipse</id>
+         <activation>
+            <property>
+               <name>m2e.version</name>
+            </property>
+         </activation>
+         <build>
+            <pluginManagement>
+               <plugins>
+                  <plugin>
+                     <!-- m2e lifecycle mapping -->
+                     <!-- This is used to configure the Maven plugin for 
+                        Eclipse. -->
+                     <!-- Among other things, it allows registering goals, 
+                        which Eclipse would otherwise reject. -->
+                     <!-- It has no real effect on Maven. -->
+                     <groupId>org.eclipse.m2e</groupId>
+                     <artifactId>lifecycle-mapping</artifactId>
+                     <version>${plugin.lifecycle.version}</version>
+                     <configuration>
+                        <downloadSources>true</downloadSources>
+                        <downloadJavadocs>true</downloadJavadocs>
+                     </configuration>
+                  </plugin>
+               </plugins>
+            </pluginManagement>
+         </build>
+      </profile>
+      <profile>
          <!-- Release site deployment profile -->
          <!-- Sets the site repository to point to the releases repo -->
-         <id>deploy-site-release</id>
+         <id>deployment-release</id>
          <activation>
             <!-- Active by default so the repository appears in the reports -->
             <activeByDefault>true</activeByDefault>
@@ -97,7 +130,7 @@
       <profile>
          <!-- Development site deployment profile -->
          <!-- Sets the site repository to point to the development repo -->
-         <id>deploy-site-development</id>
+         <id>deployment-development</id>
          <distributionManagement>
             <site>
                <id>site-development</id>
@@ -164,11 +197,8 @@
       <spring.version>4.3.4.RELEASE</spring.version>
       <sqlite.version>3.15.1</sqlite.version>
       <testng.version>6.9.13.6</testng.version>
-      <!-- Plugins versions -->
-      <plugin.changes.version>2.12.1</plugin.changes.version>
-      <plugin.site.velocity.version>1.7</plugin.site.velocity.version>
       <!-- Maven Site -->
-      <site.skin.version>0.4.0</site.skin.version>
+      <site.skin.version>0.6.0</site.skin.version>
       <bintrayURL>https://bintray.com/bernardo-mg/maven/repository-pattern/view</bintrayURL>
       <mavenURL>http://mvnrepository.com/artifact/com.wandrell/repository-pattern</mavenURL>
    </properties>
@@ -368,7 +398,6 @@
             <!-- It is set to also validate the changes log file -->
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-changes-plugin</artifactId>
-            <version>${plugin.changes.version}</version>
             <executions>
                <!-- Changes plugin is bound to the pre-site phase -->
                <execution>
@@ -391,18 +420,6 @@
             </executions>
          </plugin>
          <plugin>
-            <!-- Failsafe -->
-            <!-- Runs integration tests -->
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-failsafe-plugin</artifactId>
-            <configuration>
-               <suiteXmlFiles>
-                  <!-- Path to the integration tests suite file -->
-                  <suiteXmlFile>${project.build.testOutputDirectory}/tests_maven_integration_suite.xml</suiteXmlFile>
-               </suiteXmlFiles>
-            </configuration>
-         </plugin>
-         <plugin>
             <!-- Site -->
             <!-- Generates the Maven Site -->
             <groupId>org.apache.maven.plugins</groupId>
@@ -414,25 +431,7 @@
                   <artifactId>docs-maven-skin</artifactId>
                   <version>${site.skin.version}</version>
                </dependency>
-               <dependency>
-                  <!-- Velocity -->
-                  <groupId>org.apache.velocity</groupId>
-                  <artifactId>velocity</artifactId>
-                  <version>${plugin.site.velocity.version}</version>
-               </dependency>
             </dependencies>
-         </plugin>
-         <plugin>
-            <!-- Surefire -->
-            <!-- Runs unit tests -->
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <configuration>
-               <suiteXmlFiles>
-                  <!-- Path to the unit tests suite file -->
-                  <suiteXmlFile>${project.build.testOutputDirectory}/tests_maven_unit_suite.xml</suiteXmlFile>
-               </suiteXmlFiles>
-            </configuration>
          </plugin>
       </plugins>
    </build>
@@ -443,16 +442,6 @@
 
    <reporting>
       <plugins>
-         <plugin>
-             <!-- FindBugs -->
-             <!-- Checks for patterns which are prone to errors -->
-             <groupId>org.codehaus.mojo</groupId>
-             <artifactId>findbugs-maven-plugin</artifactId>
-             <configuration>
-                 <!-- Exclusion patterns -->
-                 <excludeFilterFile>${project.basedir}/src/config/findbugs/findbugs-exclude.xml</excludeFilterFile>
-             </configuration>
-         </plugin>
          <plugin>
             <!-- Checkstyle -->
             <!-- Checks that the source files comply with style standards -->
@@ -471,6 +460,7 @@
             <artifactId>maven-pmd-plugin</artifactId>
             <configuration>
                <rulesets>
+                  <!-- The customized rules file -->
                   <ruleset>${project.basedir}/src/config/pmd/pmd-rules.xml</ruleset>
                </rulesets>
             </configuration>
