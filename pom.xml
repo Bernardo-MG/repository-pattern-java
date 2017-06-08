@@ -180,6 +180,7 @@
    <!-- ********************************************** -->
 
    <properties>
+      <maven.compiler.source>1.8</maven.compiler.source>
       <!-- Manifest data -->
       <manifest.name>com/wandrell/pattern/repository</manifest.name>
       <!-- Dependencies versions -->
