@@ -28,8 +28,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Collection;
 import java.util.LinkedList;
-
-import com.google.common.base.Predicate;
+import java.util.function.Predicate;
 
 /**
  * Collection-based implementation of
@@ -111,7 +110,7 @@ public final class CollectionRepository<V>
 
         result = new LinkedList<V>();
         for (final V entity : getData()) {
-            if (filter.apply(entity)) {
+            if (filter.test(entity)) {
                 result.add(entity);
             }
         }

@@ -27,6 +27,7 @@ package com.wandrell.pattern.test.unit.repository;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.function.Predicate;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -34,7 +35,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Predicate;
 import com.wandrell.pattern.repository.CollectionRepository;
 import com.wandrell.pattern.repository.FilteredRepository;
 
@@ -133,7 +133,7 @@ public final class TestCustomUpdateCollectionRepository {
                 .getCollection(new Predicate<TestClass>() {
 
                     @Override
-                    final public boolean apply(final TestClass entity) {
+                    final public boolean test(final TestClass entity) {
                         return true;
                     }
 
@@ -171,7 +171,7 @@ public final class TestCustomUpdateCollectionRepository {
         entities = repository.getCollection(new Predicate<TestClass>() {
 
             @Override
-            final public boolean apply(final TestClass entity) {
+            final public boolean test(final TestClass entity) {
                 return true;
             }
 
@@ -196,7 +196,7 @@ public final class TestCustomUpdateCollectionRepository {
         entities = repository.getCollection(new Predicate<TestClass>() {
 
             @Override
-            final public boolean apply(final TestClass entity) {
+            final public boolean test(final TestClass entity) {
                 return true;
             }
 

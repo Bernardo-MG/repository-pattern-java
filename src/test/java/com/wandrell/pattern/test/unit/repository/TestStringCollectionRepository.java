@@ -26,13 +26,13 @@ package com.wandrell.pattern.test.unit.repository;
 
 import java.util.Collection;
 import java.util.LinkedHashSet;
+import java.util.function.Predicate;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.google.common.base.Predicate;
 import com.wandrell.pattern.repository.CollectionRepository;
 import com.wandrell.pattern.repository.FilteredRepository;
 
@@ -85,7 +85,7 @@ public final class TestStringCollectionRepository {
                 .getCollection(new Predicate<String>() {
 
                     @Override
-                    final public boolean apply(final String entity) {
+                    final public boolean test(final String entity) {
                         return true;
                     }
 
@@ -119,7 +119,7 @@ public final class TestStringCollectionRepository {
         entities = repository.getCollection(new Predicate<String>() {
 
             @Override
-            final public boolean apply(final String entity) {
+            final public boolean test(final String entity) {
                 return true;
             }
 
@@ -156,7 +156,7 @@ public final class TestStringCollectionRepository {
         entities = repository.getCollection(new Predicate<String>() {
 
             @Override
-            final public boolean apply(final String entity) {
+            final public boolean test(final String entity) {
                 return entity.equals("b");
             }
 
@@ -178,7 +178,7 @@ public final class TestStringCollectionRepository {
         entities = repository.getCollection(new Predicate<String>() {
 
             @Override
-            final public boolean apply(final String entity) {
+            final public boolean test(final String entity) {
                 return entity.equals("b");
             }
 
@@ -190,7 +190,7 @@ public final class TestStringCollectionRepository {
         Assert.assertEquals(repository.getCollection(new Predicate<String>() {
 
             @Override
-            final public boolean apply(final String entity) {
+            final public boolean test(final String entity) {
                 return true;
             }
 
@@ -212,7 +212,7 @@ public final class TestStringCollectionRepository {
         entity = repository.getEntity(new Predicate<String>() {
 
             @Override
-            final public boolean apply(final String entity) {
+            final public boolean test(final String entity) {
                 return entity.equals("b");
             }
 
@@ -231,7 +231,7 @@ public final class TestStringCollectionRepository {
         entity = repository.getEntity(new Predicate<String>() {
 
             @Override
-            final public boolean apply(final String entity) {
+            final public boolean test(final String entity) {
                 return entity.equals("b");
             }
 
@@ -252,7 +252,7 @@ public final class TestStringCollectionRepository {
         entities = repository.getCollection(new Predicate<String>() {
 
             @Override
-            final public boolean apply(final String entity) {
+            final public boolean test(final String entity) {
                 return true;
             }
 
@@ -274,7 +274,7 @@ public final class TestStringCollectionRepository {
         entities = repository.getCollection(new Predicate<String>() {
 
             @Override
-            final public boolean apply(final String entity) {
+            final public boolean test(final String entity) {
                 return true;
             }
 
@@ -296,7 +296,7 @@ public final class TestStringCollectionRepository {
         entities = repository.getCollection(new Predicate<String>() {
 
             @Override
-            final public boolean apply(final String entity) {
+            final public boolean test(final String entity) {
                 return true;
             }
 
