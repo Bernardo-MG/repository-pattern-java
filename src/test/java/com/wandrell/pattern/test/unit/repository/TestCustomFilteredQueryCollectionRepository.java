@@ -30,7 +30,6 @@ import java.util.function.Predicate;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.wandrell.pattern.repository.CollectionRepository;
@@ -50,7 +49,7 @@ import com.wandrell.pattern.test.util.model.TestEntityBean;
  * @author Bernardo Martínez Garrido
  * @see CollectionRepository
  */
-public final class TestCustomUpdateCollectionRepository {
+public final class TestCustomFilteredQueryCollectionRepository {
 
     /**
      * The repository being tested.
@@ -60,18 +59,17 @@ public final class TestCustomUpdateCollectionRepository {
     /**
      * Default constructor.
      */
-    public TestCustomUpdateCollectionRepository() {
+    public TestCustomFilteredQueryCollectionRepository() {
         super();
     }
 
     /**
-     * Restores the repository state before each test.
+     * Creates the repository being tested before any test is run.
      */
-    @BeforeMethod
-    public final void cleanUp() {
-        for (final TestEntityBean entity : repository.getAll()) {
-            repository.remove(entity);
-        }
+    @BeforeClass
+    public final void initializeRepository() {
+        repository = new CollectionRepository<TestEntityBean>(
+                new LinkedHashSet<TestEntityBean>());
 
         repository.add(new TestEntityBean(1));
         repository.add(new TestEntityBean(2));
@@ -79,50 +77,16 @@ public final class TestCustomUpdateCollectionRepository {
     }
 
     /**
-     * Creates the repository being tested before any test is run.
-     */
-    @BeforeClass
-    public final void initialize() {
-        repository = new CollectionRepository<TestEntityBean>(
-                new LinkedHashSet<TestEntityBean>());
-    }
-
-    /**
-     * Tests that updating a non existing entity does not add it.
+     * Tests that filtering by id returns the expected entity.
      */
     @Test
-    public final void testUpdate_Existing_Update() {
-        final Collection<TestEntityBean> entities; // All the entities
-        final TestEntityBean entity; // The updated entity
+    public final void testReadFiltered_ById_ReturnsExpected() {
+        final Collection<TestEntityBean> entities; // Filtered entities
 
-        // TODO: Read and verify the updated entity
-        entity = new TestEntityBean(1);
-        entity.setName("name");
+        entities = repository.getCollection((e) -> e.getId().equals(2));
 
-        repository.update(entity);
-
-        entities = repository.getAll();
-
-        Assert.assertEquals(entities.size(), 3);
-        Assert.assertTrue(entities.contains(entity));
-    }
-
-    /**
-     * Tests that updating a non existing entity does not add it.
-     */
-    @Test
-    public final void testUpdate_NotExisting_NoAdd() {
-        final Collection<TestEntityBean> entities; // All the entities
-        final TestEntityBean entity; // The updated entity
-
-        entity = new TestEntityBean(4);
-
-        repository.update(new TestEntityBean(4));
-
-        entities = repository.getAll();
-
-        Assert.assertEquals(entities.size(), 3);
-        Assert.assertTrue(!entities.contains(entity));
+        Assert.assertEquals(entities.size(), 1);
+        Assert.assertEquals(entities.iterator().next().getId(), (Integer) 2);
     }
 
 }

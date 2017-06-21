@@ -30,7 +30,6 @@ import java.util.function.Predicate;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.wandrell.pattern.repository.CollectionRepository;
@@ -62,7 +61,7 @@ import com.wandrell.pattern.repository.FilteredRepository;
  * @author Bernardo Martínez Garrido
  * @see CollectionRepository
  */
-public final class TestStringCollectionRepository {
+public final class TestStringFilteredQueryCollectionRepository {
 
     /**
      * The repository being tested.
@@ -72,22 +71,8 @@ public final class TestStringCollectionRepository {
     /**
      * Default constructor.
      */
-    public TestStringCollectionRepository() {
+    public TestStringFilteredQueryCollectionRepository() {
         super();
-    }
-
-    /**
-     * Restores the repository state before each test.
-     */
-    @BeforeMethod
-    public final void cleanUp() {
-        for (final String entity : repository.getAll()) {
-            repository.remove(entity);
-        }
-
-        repository.add("a");
-        repository.add("b");
-        repository.add("c");
     }
 
     /**
@@ -97,66 +82,114 @@ public final class TestStringCollectionRepository {
     public final void initialize() {
         repository = new CollectionRepository<String>(
                 new LinkedHashSet<String>());
+
+        repository.add("a");
+        repository.add("b");
+        repository.add("c");
     }
 
     /**
-     * Tests that entities are added correctly.
+     * Test that the {@code getCollection} method filters the entities
+     * correctly.
      */
     @Test
-    public final void testAdd_Adds() {
-        final Collection<String> entities; // All the entities
-
-        repository.add("d");
-
-        entities = repository.getAll();
-
-        Assert.assertEquals(entities.size(), 4);
-        Assert.assertTrue(entities.contains("d"));
-    }
-
-    /**
-     * Tests that entities are removed correctly.
-     */
-    @Test
-    public final void testRemove_Removes() {
+    public final void testGetCollection_Filter_Filters() {
         final Collection<String> entities; // Filtered entities
 
-        repository.remove("b");
+        entities = repository.getCollection(new Predicate<String>() {
 
-        entities = repository.getAll();
+            @Override
+            final public boolean test(final String entity) {
+                return entity.equals("b");
+            }
 
-        Assert.assertEquals(entities.size(), 2);
-        Assert.assertTrue(!entities.contains("b"));
+        });
+
+        Assert.assertEquals(entities.size(), 1);
+        Assert.assertTrue(entities.contains("b"));
     }
 
     /**
-     * Tests that entities are updated correctly.
+     * Tests that modifying the {@code Collection} returned by
+     * {@code getCollection} does not modify the repository's internal
+     * collection.
      */
     @Test
-    public final void testUpdate_Existing_Update() {
-        final Collection<String> entities; // All the entities
+    public final void testGetCollection_Remove_OriginalNotChanges() {
+        final Collection<String> entities; // Filtered entities
 
-        repository.update("c");
+        entities = repository.getCollection(new Predicate<String>() {
 
-        entities = repository.getAll();
+            @Override
+            final public boolean test(final String entity) {
+                return entity.equals("b");
+            }
 
-        Assert.assertEquals(entities.size(), 3);
-        Assert.assertTrue(entities.contains("c"));
+        });
+
+        entities.remove("b");
+
+        Assert.assertEquals(entities.size(), 0);
+        Assert.assertEquals(repository.getAll().size(), 3);
     }
 
     /**
-     * Tests that updating a non existing entity does not add it.
+     * Tests that the {@code getEntity} method returns {@code null} when the
+     * repository is empty.
      */
     @Test
-    public final void testUpdate_NotExisting_NoAdd() {
-        final Collection<String> entities; // All the entities
+    public final void testGetEntity_Empty() {
+        final String entity; // Filtered entity
 
-        repository.update("d");
+        for (final String ent : repository.getAll()) {
+            repository.remove(ent);
+        }
+
+        entity = repository.getEntity(new Predicate<String>() {
+
+            @Override
+            final public boolean test(final String entity) {
+                return entity.equals("b");
+            }
+
+        });
+
+        Assert.assertEquals(entity, null);
+    }
+
+    /**
+     * Test that the {@code getEntity} method filters the entities correctly.
+     */
+    @Test
+    public final void testGetEntity_Filter_Filters() {
+        final String entity; // Filtered entity
+
+        entity = repository.getEntity(new Predicate<String>() {
+
+            @Override
+            final public boolean test(final String entity) {
+                return entity.equals("b");
+            }
+
+        });
+
+        Assert.assertEquals(entity, "b");
+    }
+
+    /**
+     * Tests that modifying the {@code Collection} returned by {@code getAll}
+     * does not modify the repository's internal collection.
+     */
+    @Test
+    public final void testGetAll_Remove_OriginalNotChanges() {
+        final Collection<String> entities; // Filtered entities
 
         entities = repository.getAll();
 
-        Assert.assertEquals(entities.size(), 3);
-        Assert.assertTrue(!entities.contains("d"));
+        entities.clear();
+
+        Assert.assertEquals(entities.size(), 0);
+        Assert.assertEquals(repository.getAll().size(), 3);
     }
 
 }
