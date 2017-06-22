@@ -96,14 +96,7 @@ public final class TestStringFilteredQueryCollectionRepository {
     public final void testGetCollection_Filter_Filters() {
         final Collection<String> entities; // Filtered entities
 
-        entities = repository.getCollection(new Predicate<String>() {
-
-            @Override
-            final public boolean test(final String entity) {
-                return entity.equals("b");
-            }
-
-        });
+        entities = repository.getCollection((entity) -> entity.equals("b"));
 
         Assert.assertEquals(entities.size(), 1);
         Assert.assertTrue(entities.contains("b"));
@@ -118,43 +111,12 @@ public final class TestStringFilteredQueryCollectionRepository {
     public final void testGetCollection_Remove_OriginalNotChanges() {
         final Collection<String> entities; // Filtered entities
 
-        entities = repository.getCollection(new Predicate<String>() {
-
-            @Override
-            final public boolean test(final String entity) {
-                return entity.equals("b");
-            }
-
-        });
+        entities = repository.getCollection((e) -> e.equals("b"));
 
         entities.remove("b");
 
         Assert.assertEquals(entities.size(), 0);
         Assert.assertEquals(repository.getAll().size(), 3);
-    }
-
-    /**
-     * Tests that the {@code getEntity} method returns {@code null} when the
-     * repository is empty.
-     */
-    @Test
-    public final void testGetEntity_Empty() {
-        final String entity; // Filtered entity
-
-        for (final String ent : repository.getAll()) {
-            repository.remove(ent);
-        }
-
-        entity = repository.getEntity(new Predicate<String>() {
-
-            @Override
-            final public boolean test(final String entity) {
-                return entity.equals("b");
-            }
-
-        });
-
-        Assert.assertEquals(entity, null);
     }
 
     /**
@@ -164,14 +126,7 @@ public final class TestStringFilteredQueryCollectionRepository {
     public final void testGetEntity_Filter_Filters() {
         final String entity; // Filtered entity
 
-        entity = repository.getEntity(new Predicate<String>() {
-
-            @Override
-            final public boolean test(final String entity) {
-                return entity.equals("b");
-            }
-
-        });
+        entity = repository.getEntity((e) -> e.equals("b"));
 
         Assert.assertEquals(entity, "b");
     }
