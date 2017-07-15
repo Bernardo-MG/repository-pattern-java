@@ -11,7 +11,7 @@
    <parent>
       <groupId>com.wandrell.maven</groupId>
       <artifactId>base-pom</artifactId>
-      <version>1.1.4</version>
+      <version>1.1.5</version>
    </parent>
 
    <!-- ********************************************** -->
@@ -199,7 +199,7 @@
       <sqlite.version>3.18.0</sqlite.version>
       <testng.version>6.11</testng.version>
       <!-- Maven Site -->
-      <site.skin.version>0.6.0</site.skin.version>
+      <site.skin.version>0.6.1</site.skin.version>
       <bintrayURL>https://bintray.com/bernardo-mg/maven/repository-pattern/view</bintrayURL>
       <mavenURL>http://mvnrepository.com/artifact/com.wandrell/repository-pattern</mavenURL>
    </properties>
