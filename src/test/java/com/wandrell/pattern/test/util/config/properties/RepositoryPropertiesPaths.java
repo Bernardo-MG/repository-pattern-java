@@ -30,7 +30,7 @@ package com.wandrell.pattern.test.util.config.properties;
  * These files contain the vendor specific configuration data required for each
  * type of tested repository.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 public class RepositoryPropertiesPaths {
 

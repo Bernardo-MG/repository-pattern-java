@@ -30,7 +30,7 @@ package com.wandrell.pattern.test.util.config.properties;
  * These files contain the vendor specific configuration data required to set up
  * the persistence provider.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 public class PersistenceProviderPropertiesPaths {
 

@@ -47,7 +47,7 @@ import com.wandrell.pattern.test.util.model.TestEntityBean;
  * <li>Updating a non existing entity does not add it</li>
  * </ol>
  * 
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  * @see CollectionRepository
  */
 public final class TestCustomUpdateCollectionRepository {

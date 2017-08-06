@@ -30,7 +30,7 @@ package com.wandrell.pattern.test.util.config.context;
  * Each of these files can be used to create a Spring context for a specific
  * persistence provider.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 public class PersistenceContextPaths {
 

@@ -48,7 +48,7 @@ import java.util.function.Predicate;
  * Predicate</a> class. When using the query methods all the entities validating
  * the predicate received as filter will be returned.
  * 
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  * @param <V>
  *            the type stored on the repository
  */

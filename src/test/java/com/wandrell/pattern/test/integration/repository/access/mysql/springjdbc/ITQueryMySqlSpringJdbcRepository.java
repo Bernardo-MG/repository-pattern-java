@@ -45,7 +45,7 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
  * SpringJDBCRepository} implementing {@code AbstractITQuery}, using a MySQL
  * in-memory database and Spring JDBC.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  * @see com.wandrell.pattern.repository.spring.SpringJdbcRepository
  *      SpringJDBCRepository
  */

@@ -30,7 +30,7 @@ package com.wandrell.pattern.test.util.config.properties;
  * These files contain the Hibernate dialect to be used for each database
  * vendor.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 public class HibernateDialectPropertiesPaths {
 

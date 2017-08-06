@@ -34,7 +34,7 @@ package com.wandrell.pattern.repository.pagination;
  * entities, which would allow acquiring just the third set of five, or what is
  * the same, the eleventh to fifteenth entities.
  * 
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  * @see com.wandrell.pattern.repository.pagination.PaginatedRepository
  *      PaginatedRepository
  */

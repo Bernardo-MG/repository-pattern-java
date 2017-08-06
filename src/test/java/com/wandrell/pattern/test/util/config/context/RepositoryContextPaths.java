@@ -30,7 +30,7 @@ package com.wandrell.pattern.test.util.config.context;
  * Each of these files can be used to create a Spring context for a repository
  * using a specific persistence access method.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 public class RepositoryContextPaths {
 

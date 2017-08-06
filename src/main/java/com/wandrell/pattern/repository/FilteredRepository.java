@@ -40,7 +40,7 @@ import java.util.Collection;
  * of such filters, but what the interface uses, and how, will depend purely on
  * the implementation.
  * 
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  * @param <V>
  *            the type stored on the repository
  * @param <F>

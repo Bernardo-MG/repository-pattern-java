@@ -29,7 +29,7 @@ package com.wandrell.pattern.test.util.config.properties;
  * <p>
  * These files contain the scripts used to set up the test databases.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 public class DatabaseScriptsPropertiesPaths {
 

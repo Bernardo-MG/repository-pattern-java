@@ -33,7 +33,7 @@ package com.wandrell.pattern.repository.entity;
  * The ID will be the value contained on the key column for the row where the
  * entity's data is contained.
  * 
- * @author Bernardo Martínez Garrido.
+ * @author Bernardo Mart&iacute;nez Garrido.
  * @see com.wandrell.pattern.repository repository package
  */
 public interface PersistenceEntity {

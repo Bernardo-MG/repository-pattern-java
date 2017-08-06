@@ -66,7 +66,7 @@ import com.wandrell.pattern.repository.entity.PersistenceEntity;
  * entity will be added into the database, otherwise the entity will be updated
  * in the data source.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  * @param <V>
  *            the type stored on the repository
  * @see NamedParameterQueryData

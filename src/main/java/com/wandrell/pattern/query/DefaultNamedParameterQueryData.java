@@ -36,7 +36,7 @@ import java.util.Map;
  * This is a partially immutable class, as the base query used to build the
  * final query can't be edited, but parameters may be modified.
  * 
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 public final class DefaultNamedParameterQueryData
         implements NamedParameterQueryData {

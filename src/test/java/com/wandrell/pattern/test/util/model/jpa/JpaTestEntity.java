@@ -39,7 +39,7 @@ import com.wandrell.pattern.test.util.model.TestEntity;
  * <p>
  * This is to be used on the JPA repositories tests.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 @Entity(name = "TestEntity")
 @Table(name = "test_entities")

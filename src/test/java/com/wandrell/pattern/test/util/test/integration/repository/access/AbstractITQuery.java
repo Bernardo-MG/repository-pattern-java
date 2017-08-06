@@ -54,7 +54,7 @@ import com.wandrell.pattern.test.util.model.TestEntity;
  * This is meant to be used along a Spring context, which will set up the
  * repository and all of it's requirements.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  * @see FilteredRepository
  */
 public abstract class AbstractITQuery

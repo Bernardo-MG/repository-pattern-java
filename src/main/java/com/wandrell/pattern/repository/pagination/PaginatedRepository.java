@@ -37,7 +37,7 @@ import com.wandrell.pattern.repository.FilteredRepository;
  * meaning that it is possible paginate a subset created with the methods from
  * {@code FilteredRepository}.
  * 
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  *
  * @param <V>
  *            the type stored on the repository

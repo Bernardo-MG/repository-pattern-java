@@ -58,7 +58,7 @@ import com.wandrell.pattern.repository.FilteredRepository;
  * Note that due to the way the testing is configured, Maven will run these test
  * parallelized.
  * 
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  * @see CollectionRepository
  */
 public final class TestStringFilteredQueryCollectionRepository {

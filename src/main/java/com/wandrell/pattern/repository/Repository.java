@@ -33,7 +33,7 @@ import java.util.Collection;
  * This serves as a way to handle persistent data, without needing to know where
  * that data persists.
  * 
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  * @param <V>
  *            the type stored on the repository
  */

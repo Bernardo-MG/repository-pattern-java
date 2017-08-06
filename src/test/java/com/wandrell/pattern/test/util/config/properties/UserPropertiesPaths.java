@@ -30,7 +30,7 @@ package com.wandrell.pattern.test.util.config.properties;
  * These files contain the authentication data required to access the test
  * databases.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 public class UserPropertiesPaths {
 

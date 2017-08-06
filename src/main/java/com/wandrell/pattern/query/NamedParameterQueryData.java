@@ -38,7 +38,7 @@ import java.util.Map;
  * Classes implementing this interface are not expected to build the final
  * query, just to keep the data for building it wherever it may be required.
  * 
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 public interface NamedParameterQueryData {
 

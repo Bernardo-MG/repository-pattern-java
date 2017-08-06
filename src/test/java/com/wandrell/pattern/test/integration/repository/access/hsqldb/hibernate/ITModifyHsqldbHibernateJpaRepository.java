@@ -47,7 +47,7 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
  * implementing {@code AbstractITModify}, using an HSQLDB in-memory database and
  * Hibernate-based JPA.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  * @see com.wandrell.pattern.repository.jpa.JpaRepository JPARepository
  */
 @ContextConfiguration(locations = { TestContextPaths.DEFAULT,

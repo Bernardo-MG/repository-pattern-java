@@ -34,7 +34,7 @@ import com.wandrell.pattern.repository.entity.PersistenceEntity;
  * It just implements {@link PersistenceEntity}, adding a name field as
  * additional data for the tests.
  * 
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 public interface TestEntity extends PersistenceEntity, Serializable {
 

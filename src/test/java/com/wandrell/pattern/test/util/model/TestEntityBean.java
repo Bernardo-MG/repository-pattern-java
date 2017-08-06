@@ -31,7 +31,7 @@ import java.util.Objects;
  * <p>
  * This is to be used on the non-JPA repositories tests.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 public final class TestEntityBean implements TestEntity {
 
