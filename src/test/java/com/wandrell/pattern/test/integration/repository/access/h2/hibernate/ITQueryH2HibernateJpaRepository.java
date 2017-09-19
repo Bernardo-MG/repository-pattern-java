@@ -51,13 +51,14 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
  */
 @ContextConfiguration(locations = { TestContextPaths.DEFAULT,
         PersistenceContextPaths.HIBERNATE, RepositoryContextPaths.JPA })
-@TestPropertySource(locations = { QueryPropertiesPaths.JPA_QUERY,
-        RepositoryPropertiesPaths.JPA,
-        PersistenceProviderPropertiesPaths.HIBERNATE,
-        UserPropertiesPaths.DEFAULT, DatabaseScriptsPropertiesPaths.MSSQL,
-        JdbcPropertiesPaths.H2, JpaPropertiesPaths.H2,
-        HibernateDialectPropertiesPaths.H2 }, properties = {
-                "jpa.persistenceUnitName=test_model_jpa_hibernate_h2",
+@TestPropertySource(
+        locations = { QueryPropertiesPaths.JPA_QUERY,
+                RepositoryPropertiesPaths.JPA,
+                PersistenceProviderPropertiesPaths.HIBERNATE,
+                UserPropertiesPaths.DEFAULT,
+                DatabaseScriptsPropertiesPaths.MSSQL, JdbcPropertiesPaths.H2,
+                JpaPropertiesPaths.H2, HibernateDialectPropertiesPaths.H2 },
+        properties = { "jpa.persistenceUnitName=test_model_jpa_hibernate_h2",
                 "jdbc.url=jdbc:h2:mem:test_jpa_hibernate;DB_CLOSE_ON_EXIT=FALSE" })
 public final class ITQueryH2HibernateJpaRepository extends AbstractITQuery {
 

@@ -36,17 +36,17 @@ public class JpaPropertiesPaths {
     /**
      * H2 JPA configuration.
      */
-    public static final String H2 = "classpath:config/persistence/jpa/test-jpa-h2.properties";
+    public static final String H2         = "classpath:config/persistence/jpa/test-jpa-h2.properties";
 
     /**
      * HSQLDB JPA configuration.
      */
-    public static final String HSQLDB = "classpath:config/persistence/jpa/test-jpa-hsqldb.properties";
+    public static final String HSQLDB     = "classpath:config/persistence/jpa/test-jpa-hsqldb.properties";
 
     /**
      * MySQL JPA configuration.
      */
-    public static final String MYSQL = "classpath:config/persistence/jpa/test-jpa-mysql.properties";
+    public static final String MYSQL      = "classpath:config/persistence/jpa/test-jpa-mysql.properties";
 
     /**
      * PostgreSQL JPA configuration.
@@ -56,7 +56,7 @@ public class JpaPropertiesPaths {
     /**
      * SQLite JPA configuration.
      */
-    public static final String SQLITE = "classpath:config/persistence/jpa/test-jpa-sqlite.properties";
+    public static final String SQLITE     = "classpath:config/persistence/jpa/test-jpa-sqlite.properties";
 
     /**
      * Private constructor to avoid initialization.

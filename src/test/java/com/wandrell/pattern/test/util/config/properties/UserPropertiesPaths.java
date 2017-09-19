@@ -37,12 +37,12 @@ public class UserPropertiesPaths {
     /**
      * Default database authentication.
      */
-    public static final String DEFAULT = "classpath:config/db/user/test-user-default.properties";
+    public static final String DEFAULT  = "classpath:config/db/user/test-user-default.properties";
 
     /**
      * MySQL database authentication.
      */
-    public static final String MYSQL = "classpath:config/db/user/test-user-mysql.properties";
+    public static final String MYSQL    = "classpath:config/db/user/test-user-mysql.properties";
 
     /**
      * Postgres database authentication.

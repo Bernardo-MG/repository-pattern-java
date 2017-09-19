@@ -80,7 +80,7 @@ public final class SpringJdbcRepository<V extends PersistenceEntity>
      * <p>
      * This is used by Spring's classes to transform query results.
      */
-    private final Class<V> classType;
+    private final Class<V>                     classType;
 
     /**
      * SQL query template for deleting entities.
@@ -96,7 +96,7 @@ public final class SpringJdbcRepository<V extends PersistenceEntity>
      * The template will be used, along a received entity, to build and execute
      * the actual query.
      */
-    private final String deleteQueryTemplate;
+    private final String                       deleteQueryTemplate;
 
     /**
      * Insert operation handler.
@@ -104,7 +104,7 @@ public final class SpringJdbcRepository<V extends PersistenceEntity>
      * This takes care of inserting entities into the database, and is generated
      * from the parameters received by the constructor.
      */
-    private final SimpleJdbcInsertOperations insertHandler;
+    private final SimpleJdbcInsertOperations   insertHandler;
 
     /**
      * Named JDBC operations handler.
@@ -122,7 +122,7 @@ public final class SpringJdbcRepository<V extends PersistenceEntity>
      * <p>
      * {@code SELECT * FROM employees}
      */
-    private final String selectAllQuery;
+    private final String                       selectAllQuery;
 
     /**
      * SQL query template for updating entities.
@@ -138,7 +138,7 @@ public final class SpringJdbcRepository<V extends PersistenceEntity>
      * The template will be used, along a received entity, to build and execute
      * the actual query.
      */
-    private final String updateQueryTemplate;
+    private final String                       updateQueryTemplate;
 
     /**
      * Constructs a {@code SpringJDBCRepository} with the specified data and
@@ -320,8 +320,8 @@ public final class SpringJdbcRepository<V extends PersistenceEntity>
      * @return the queried subset of entities
      */
     @Override
-    public final Collection<V> getCollection(
-            final NamedParameterQueryData query) {
+    public final Collection<V>
+            getCollection(final NamedParameterQueryData query) {
 
         checkNotNull(query, "Received a null pointer as the query");
 

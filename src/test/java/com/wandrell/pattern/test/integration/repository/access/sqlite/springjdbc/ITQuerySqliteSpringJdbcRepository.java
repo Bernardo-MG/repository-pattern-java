@@ -56,7 +56,8 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
         RepositoryPropertiesPaths.SPRING_JDBC, TestPropertiesPaths.ENTITY,
         PersistenceProviderPropertiesPaths.SPRING_JDBC,
         UserPropertiesPaths.DEFAULT, DatabaseScriptsPropertiesPaths.PLAIN,
-        JdbcPropertiesPaths.SQLITE }, properties = {
+        JdbcPropertiesPaths.SQLITE },
+        properties = {
                 "jdbc.url=jdbc:sqlite:target/sqlite_test_spring_jdbc.db" })
 public final class ITQuerySqliteSpringJdbcRepository extends AbstractITQuery {
 

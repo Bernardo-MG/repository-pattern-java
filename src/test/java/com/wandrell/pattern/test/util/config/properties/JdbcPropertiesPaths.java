@@ -36,17 +36,17 @@ public class JdbcPropertiesPaths {
     /**
      * H2 JDBC configuration.
      */
-    public static final String H2 = "classpath:config/persistence/jdbc/test-jdbc-h2.properties";
+    public static final String H2         = "classpath:config/persistence/jdbc/test-jdbc-h2.properties";
 
     /**
      * HSQLDB JDBC configuration.
      */
-    public static final String HSQLDB = "classpath:config/persistence/jdbc/test-jdbc-hsqldb.properties";
+    public static final String HSQLDB     = "classpath:config/persistence/jdbc/test-jdbc-hsqldb.properties";
 
     /**
      * MySQL JDBC configuration.
      */
-    public static final String MYSQL = "classpath:config/persistence/jdbc/test-jdbc-mysql.properties";
+    public static final String MYSQL      = "classpath:config/persistence/jdbc/test-jdbc-mysql.properties";
 
     /**
      * PostgreSQL JDBC configuration.
@@ -56,7 +56,7 @@ public class JdbcPropertiesPaths {
     /**
      * SQLite JDBC configuration.
      */
-    public static final String SQLITE = "classpath:config/persistence/jdbc/test-jdbc-sqlite.properties";
+    public static final String SQLITE     = "classpath:config/persistence/jdbc/test-jdbc-sqlite.properties";
 
     /**
      * Private constructor to avoid initialization.

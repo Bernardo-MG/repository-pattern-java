@@ -56,7 +56,8 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
         RepositoryPropertiesPaths.SPRING_JDBC, TestPropertiesPaths.ENTITY,
         PersistenceProviderPropertiesPaths.SPRING_JDBC,
         UserPropertiesPaths.MYSQL, DatabaseScriptsPropertiesPaths.MYSQL,
-        JdbcPropertiesPaths.MYSQL }, properties = {
+        JdbcPropertiesPaths.MYSQL },
+        properties = {
                 "jdbc.url=jdbc:mysql://localhost:3306/test_spring_jdbc_modify" })
 public final class ITModifyMySqlSpringJdbcRepository extends AbstractITModify {
 

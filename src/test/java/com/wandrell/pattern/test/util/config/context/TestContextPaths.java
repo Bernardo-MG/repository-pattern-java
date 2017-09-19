@@ -39,7 +39,7 @@ public class TestContextPaths {
      * For those test which don't need any context configuration but require
      * loading Spring properties.
      */
-    public static final String DEFAULT = "classpath:context/test-default.xml";
+    public static final String DEFAULT           = "classpath:context/test-default.xml";
 
     /**
      * Entity prototype context.

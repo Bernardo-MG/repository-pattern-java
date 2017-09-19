@@ -54,7 +54,8 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
         RepositoryPropertiesPaths.JPA,
         PersistenceProviderPropertiesPaths.ECLIPSELINK,
         UserPropertiesPaths.DEFAULT, DatabaseScriptsPropertiesPaths.PLAIN,
-        JdbcPropertiesPaths.SQLITE, JpaPropertiesPaths.SQLITE }, properties = {
+        JdbcPropertiesPaths.SQLITE, JpaPropertiesPaths.SQLITE },
+        properties = {
                 "jpa.persistenceUnitName=test_model_jpa_eclipselink_sqlite",
                 "jdbc.url=jdbc:sqlite:target/sqlite_test_jpa_eclipselink.db" })
 public final class ITQuerySqliteEclipselinkJpaRepository

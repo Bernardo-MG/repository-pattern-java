@@ -55,9 +55,8 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
         RepositoryPropertiesPaths.JPA,
         PersistenceProviderPropertiesPaths.HIBERNATE, UserPropertiesPaths.MYSQL,
         DatabaseScriptsPropertiesPaths.MYSQL, JdbcPropertiesPaths.MYSQL,
-        JpaPropertiesPaths.MYSQL,
-        HibernateDialectPropertiesPaths.MYSQL }, properties = {
-                "jpa.persistenceUnitName=test_model_jpa_hibernate_mysql",
+        JpaPropertiesPaths.MYSQL, HibernateDialectPropertiesPaths.MYSQL },
+        properties = { "jpa.persistenceUnitName=test_model_jpa_hibernate_mysql",
                 "jdbc.url=jdbc:mysql://localhost:3306/test_jpa_hibernate" })
 public final class ITQueryMySqlHibernateJpaRepository extends AbstractITQuery {
 

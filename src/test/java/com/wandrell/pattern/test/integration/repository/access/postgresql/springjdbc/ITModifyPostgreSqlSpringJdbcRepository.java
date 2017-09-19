@@ -56,7 +56,8 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
         RepositoryPropertiesPaths.SPRING_JDBC, TestPropertiesPaths.ENTITY,
         PersistenceProviderPropertiesPaths.SPRING_JDBC,
         UserPropertiesPaths.POSTGRES, DatabaseScriptsPropertiesPaths.POSTGRESQL,
-        JdbcPropertiesPaths.POSTGRESQL }, properties = {
+        JdbcPropertiesPaths.POSTGRESQL },
+        properties = {
                 "jdbc.url=jdbc:postgresql://localhost:5432/test_spring_jdbc_modify" })
 public final class ITModifyPostgreSqlSpringJdbcRepository
         extends AbstractITModify {

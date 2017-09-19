@@ -56,7 +56,8 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
         PersistenceProviderPropertiesPaths.HIBERNATE,
         UserPropertiesPaths.POSTGRES, DatabaseScriptsPropertiesPaths.POSTGRESQL,
         JdbcPropertiesPaths.POSTGRESQL, JpaPropertiesPaths.POSTGRESQL,
-        HibernateDialectPropertiesPaths.POSTGRESQL }, properties = {
+        HibernateDialectPropertiesPaths.POSTGRESQL },
+        properties = {
                 "jpa.persistenceUnitName=test_model_jpa_hibernate_postgresql",
                 "jdbc.url=jdbc:postgresql://localhost:5432/test_jpa_hibernate" })
 public final class ITQueryPostgreSqlHibernateJpaRepository

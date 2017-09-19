@@ -56,8 +56,8 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
         RepositoryPropertiesPaths.JPA, TestPropertiesPaths.ENTITY_JPA,
         PersistenceProviderPropertiesPaths.ECLIPSELINK,
         UserPropertiesPaths.POSTGRES, DatabaseScriptsPropertiesPaths.POSTGRESQL,
-        JdbcPropertiesPaths.POSTGRESQL,
-        JpaPropertiesPaths.POSTGRESQL }, properties = {
+        JdbcPropertiesPaths.POSTGRESQL, JpaPropertiesPaths.POSTGRESQL },
+        properties = {
                 "jpa.persistenceUnitName=test_model_jpa_eclipselink_postgresql_modify",
                 "jdbc.url=jdbc:postgresql://localhost:5432/test_jpa_eclipselink_modify" })
 public final class ITModifyPostgreSqlEclipselinkJpaRepository

@@ -58,7 +58,8 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
         PersistenceProviderPropertiesPaths.HIBERNATE,
         UserPropertiesPaths.DEFAULT, DatabaseScriptsPropertiesPaths.MSSQL,
         JdbcPropertiesPaths.HSQLDB, JpaPropertiesPaths.HSQLDB,
-        HibernateDialectPropertiesPaths.HSQLDB }, properties = {
+        HibernateDialectPropertiesPaths.HSQLDB },
+        properties = {
                 "jpa.persistenceUnitName=test_model_jpa_hibernate_hsqldb_modify",
                 "jdbc.url=jdbc:hsqldb:mem:test_jpa_hibernate_modify" })
 public final class ITModifyHsqldbHibernateJpaRepository

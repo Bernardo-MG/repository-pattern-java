@@ -54,7 +54,8 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
         RepositoryPropertiesPaths.JPA,
         PersistenceProviderPropertiesPaths.ECLIPSELINK,
         UserPropertiesPaths.DEFAULT, DatabaseScriptsPropertiesPaths.MSSQL,
-        JdbcPropertiesPaths.HSQLDB, JpaPropertiesPaths.HSQLDB }, properties = {
+        JdbcPropertiesPaths.HSQLDB, JpaPropertiesPaths.HSQLDB },
+        properties = {
                 "jpa.persistenceUnitName=test_model_jpa_eclipselink_hsqldb",
                 "jdbc.url=jdbc:hsqldb:mem:test_jpa_eclipselink" })
 public final class ITQueryHsqldbEclipselinkJpaRepository

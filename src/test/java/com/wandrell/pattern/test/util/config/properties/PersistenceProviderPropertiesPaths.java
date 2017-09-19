@@ -42,7 +42,7 @@ public class PersistenceProviderPropertiesPaths {
     /**
      * Hibernate JPA persistence provider.
      */
-    public static final String HIBERNATE = "classpath:config/persistence/provider/test-provider-jpa-hibernate.properties";
+    public static final String HIBERNATE   = "classpath:config/persistence/provider/test-provider-jpa-hibernate.properties";
 
     /**
      * Spring JDBC persistence provider.

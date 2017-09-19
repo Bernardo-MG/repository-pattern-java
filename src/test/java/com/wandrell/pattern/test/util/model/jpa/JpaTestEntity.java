@@ -56,7 +56,7 @@ public final class JpaTestEntity implements TestEntity {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id = null;
+    private Integer           id               = null;
 
     /**
      * Name of the entity.
@@ -65,7 +65,7 @@ public final class JpaTestEntity implements TestEntity {
      * tests.
      */
     @Column(name = "name", nullable = false)
-    private String name = "";
+    private String            name             = "";
 
     /**
      * Default constructor.
@@ -76,18 +76,23 @@ public final class JpaTestEntity implements TestEntity {
 
     @Override
     public final boolean equals(final Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
-        JpaTestEntity other = (JpaTestEntity) obj;
+        }
+        final JpaTestEntity other = (JpaTestEntity) obj;
         if (id == null) {
-            if (other.id != null)
+            if (other.id != null) {
                 return false;
-        } else if (!id.equals(other.id))
+            }
+        } else if (!id.equals(other.id)) {
             return false;
+        }
         return true;
     }
 
@@ -105,7 +110,7 @@ public final class JpaTestEntity implements TestEntity {
     public final int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = (prime * result) + ((id == null) ? 0 : id.hashCode());
         return result;
     }
 

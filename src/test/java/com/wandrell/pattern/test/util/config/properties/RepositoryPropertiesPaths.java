@@ -37,7 +37,7 @@ public class RepositoryPropertiesPaths {
     /**
      * JPA repository.
      */
-    public static final String JPA = "classpath:config/repository/jpa-repository.properties";
+    public static final String JPA         = "classpath:config/repository/jpa-repository.properties";
 
     /**
      * JDBC repository.

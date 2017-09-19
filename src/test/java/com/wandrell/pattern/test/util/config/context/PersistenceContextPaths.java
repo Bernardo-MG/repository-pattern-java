@@ -42,7 +42,7 @@ public class PersistenceContextPaths {
     /**
      * Hibernate JPA persistence.
      */
-    public static final String HIBERNATE = "classpath:context/persistence/jpa-hibernate.xml";
+    public static final String HIBERNATE   = "classpath:context/persistence/jpa-hibernate.xml";
 
     /**
      * Spring JDBC persistence.

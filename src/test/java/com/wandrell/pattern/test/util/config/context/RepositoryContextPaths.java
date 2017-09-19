@@ -37,7 +37,7 @@ public class RepositoryContextPaths {
     /**
      * JPA repository.
      */
-    public static final String JPA = "classpath:context/repository/jpa-repository.xml";
+    public static final String JPA         = "classpath:context/repository/jpa-repository.xml";
 
     /**
      * Spring JDBC repository.

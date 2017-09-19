@@ -36,17 +36,17 @@ public class DatabaseScriptsPropertiesPaths {
     /**
      * MSSQL database scripts.
      */
-    public static final String MSSQL = "classpath:config/db/script/test-script-mssql.properties";
+    public static final String MSSQL      = "classpath:config/db/script/test-script-mssql.properties";
 
     /**
      * MySQL database scripts.
      */
-    public static final String MYSQL = "classpath:config/db/script/test-script-mysql.properties";
+    public static final String MYSQL      = "classpath:config/db/script/test-script-mysql.properties";
 
     /**
      * Plain SQL database scripts.
      */
-    public static final String PLAIN = "classpath:config/db/script/test-script-plain.properties";
+    public static final String PLAIN      = "classpath:config/db/script/test-script-plain.properties";
 
     /**
      * PostgreSQL database scripts.

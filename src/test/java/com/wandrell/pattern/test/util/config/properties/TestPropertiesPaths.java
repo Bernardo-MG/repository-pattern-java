@@ -36,7 +36,7 @@ public class TestPropertiesPaths {
     /**
      * Test entity bean.
      */
-    public static final String ENTITY = "classpath:config/entity/test-entity.properties";
+    public static final String ENTITY     = "classpath:config/entity/test-entity.properties";
 
     /**
      * Test JPA entity.

@@ -41,7 +41,7 @@ public class QueryPropertiesPaths {
     /**
      * JPA queries.
      */
-    public static final String JPA_QUERY = "classpath:config/persistence/test-jpa-query.properties";
+    public static final String JPA_QUERY  = "classpath:config/persistence/test-jpa-query.properties";
 
     /**
      * Private constructor to avoid initialization.

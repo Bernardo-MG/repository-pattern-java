@@ -26,8 +26,8 @@ package com.wandrell.pattern.repository;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedList;
 import java.util.function.Predicate;
 
 /**
@@ -64,11 +64,11 @@ public final class CollectionRepository<V>
     private final Collection<V> data;
 
     /**
-     * Constructs a {@code CollectionRepository} using a {@code LinkedList} as
+     * Constructs a {@code CollectionRepository} using a {@code ArrayList} as
      * the {@code Collection}.
      */
     public CollectionRepository() {
-        this(new LinkedList<V>());
+        this(new ArrayList<V>());
     }
 
     /**
@@ -99,7 +99,7 @@ public final class CollectionRepository<V>
 
     @Override
     public final Collection<V> getAll() {
-        return new LinkedList<V>(getData());
+        return new ArrayList<V>(getData());
     }
 
     @Override
@@ -108,7 +108,7 @@ public final class CollectionRepository<V>
 
         checkNotNull(filter, "Received a null pointer as filter");
 
-        result = new LinkedList<V>();
+        result = new ArrayList<V>();
         for (final V entity : getData()) {
             if (filter.test(entity)) {
                 result.add(entity);

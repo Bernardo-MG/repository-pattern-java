@@ -57,8 +57,8 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
         RepositoryPropertiesPaths.JPA, TestPropertiesPaths.ENTITY_JPA,
         PersistenceProviderPropertiesPaths.HIBERNATE, UserPropertiesPaths.MYSQL,
         DatabaseScriptsPropertiesPaths.MYSQL, JdbcPropertiesPaths.MYSQL,
-        JpaPropertiesPaths.MYSQL,
-        HibernateDialectPropertiesPaths.MYSQL }, properties = {
+        JpaPropertiesPaths.MYSQL, HibernateDialectPropertiesPaths.MYSQL },
+        properties = {
                 "jpa.persistenceUnitName=test_model_jpa_hibernate_mysql_modify",
                 "jdbc.url=jdbc:mysql://localhost:3306/test_jpa_hibernate_modify" })
 public final class ITModifyMySqlHibernateJpaRepository

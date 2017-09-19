@@ -54,8 +54,8 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
         RepositoryPropertiesPaths.JPA,
         PersistenceProviderPropertiesPaths.ECLIPSELINK,
         UserPropertiesPaths.DEFAULT, DatabaseScriptsPropertiesPaths.MSSQL,
-        JdbcPropertiesPaths.H2, JpaPropertiesPaths.H2 }, properties = {
-                "jpa.persistenceUnitName=test_model_jpa_eclipselink_h2",
+        JdbcPropertiesPaths.H2, JpaPropertiesPaths.H2 },
+        properties = { "jpa.persistenceUnitName=test_model_jpa_eclipselink_h2",
                 "jdbc.url=jdbc:h2:mem:test_jpa_eclipselink;DB_CLOSE_ON_EXIT=FALSE" })
 public final class ITQueryH2EclipselinkJpaRepository extends AbstractITQuery {
 

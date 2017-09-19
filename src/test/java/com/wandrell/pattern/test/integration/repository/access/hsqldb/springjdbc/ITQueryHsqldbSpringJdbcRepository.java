@@ -56,8 +56,8 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
         RepositoryPropertiesPaths.SPRING_JDBC, TestPropertiesPaths.ENTITY,
         PersistenceProviderPropertiesPaths.SPRING_JDBC,
         UserPropertiesPaths.DEFAULT, DatabaseScriptsPropertiesPaths.MSSQL,
-        JdbcPropertiesPaths.HSQLDB }, properties = {
-                "jdbc.url=jdbc:hsqldb:mem:test_spring_jdbc" })
+        JdbcPropertiesPaths.HSQLDB },
+        properties = { "jdbc.url=jdbc:hsqldb:mem:test_spring_jdbc" })
 public final class ITQueryHsqldbSpringJdbcRepository extends AbstractITQuery {
 
     /**

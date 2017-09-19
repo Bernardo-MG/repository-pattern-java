@@ -76,13 +76,13 @@ public abstract class AbstractITPagination
      * Query for acquiring an entity by it's id.
      */
     @Value("${query.byId}")
-    private String selectByIdQuery;
+    private String                                                   selectByIdQuery;
 
     /**
      * Query for acquiring the second set of five entities.
      */
     @Value("${query.secondFive}")
-    private String selectSecondFiveQuery;
+    private String                                                   selectSecondFiveQuery;
 
     /**
      * Default constructor.
@@ -188,7 +188,8 @@ public abstract class AbstractITPagination
      *
      * @return the repository being tested.
      */
-    protected final PaginatedRepository<TestEntity, NamedParameterQueryData> getRepository() {
+    protected final PaginatedRepository<TestEntity, NamedParameterQueryData>
+            getRepository() {
         return repository;
     }
 

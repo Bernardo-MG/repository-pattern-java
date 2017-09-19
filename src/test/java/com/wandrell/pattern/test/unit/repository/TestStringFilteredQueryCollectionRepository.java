@@ -89,6 +89,22 @@ public final class TestStringFilteredQueryCollectionRepository {
     }
 
     /**
+     * Tests that modifying the {@code Collection} returned by {@code getAll}
+     * does not modify the repository's internal collection.
+     */
+    @Test
+    public final void testGetAll_Remove_OriginalNotChanges() {
+        final Collection<String> entities; // Filtered entities
+
+        entities = repository.getAll();
+
+        entities.clear();
+
+        Assert.assertEquals(entities.size(), 0);
+        Assert.assertEquals(repository.getAll().size(), 3);
+    }
+
+    /**
      * Test that the {@code getCollection} method filters the entities
      * correctly.
      */
@@ -129,22 +145,6 @@ public final class TestStringFilteredQueryCollectionRepository {
         entity = repository.getEntity((e) -> e.equals("b"));
 
         Assert.assertEquals(entity, "b");
-    }
-
-    /**
-     * Tests that modifying the {@code Collection} returned by {@code getAll}
-     * does not modify the repository's internal collection.
-     */
-    @Test
-    public final void testGetAll_Remove_OriginalNotChanges() {
-        final Collection<String> entities; // Filtered entities
-
-        entities = repository.getAll();
-
-        entities.clear();
-
-        Assert.assertEquals(entities.size(), 0);
-        Assert.assertEquals(repository.getAll().size(), 3);
     }
 
 }

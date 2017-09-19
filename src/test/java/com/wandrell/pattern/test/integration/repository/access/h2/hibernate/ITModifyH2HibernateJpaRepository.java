@@ -53,12 +53,14 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
 @ContextConfiguration(locations = { TestContextPaths.DEFAULT,
         TestContextPaths.ENTITY_MODIFIABLE, PersistenceContextPaths.HIBERNATE,
         RepositoryContextPaths.JPA })
-@TestPropertySource(locations = { QueryPropertiesPaths.JPA_QUERY,
-        RepositoryPropertiesPaths.JPA, TestPropertiesPaths.ENTITY_JPA,
-        PersistenceProviderPropertiesPaths.HIBERNATE,
-        UserPropertiesPaths.DEFAULT, DatabaseScriptsPropertiesPaths.MSSQL,
-        JdbcPropertiesPaths.H2, JpaPropertiesPaths.H2,
-        HibernateDialectPropertiesPaths.H2 }, properties = {
+@TestPropertySource(
+        locations = { QueryPropertiesPaths.JPA_QUERY,
+                RepositoryPropertiesPaths.JPA, TestPropertiesPaths.ENTITY_JPA,
+                PersistenceProviderPropertiesPaths.HIBERNATE,
+                UserPropertiesPaths.DEFAULT,
+                DatabaseScriptsPropertiesPaths.MSSQL, JdbcPropertiesPaths.H2,
+                JpaPropertiesPaths.H2, HibernateDialectPropertiesPaths.H2 },
+        properties = {
                 "jpa.persistenceUnitName=test_model_jpa_hibernate_h2_modify",
                 "jdbc.url=jdbc:h2:mem:test_jpa_hibernate_modify;DB_CLOSE_ON_EXIT=FALSE" })
 public final class ITModifyH2HibernateJpaRepository extends AbstractITModify {

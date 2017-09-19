@@ -50,11 +50,13 @@ import com.wandrell.pattern.test.util.test.integration.repository.pagination.Abs
  */
 @ContextConfiguration(locations = { TestContextPaths.DEFAULT,
         PersistenceContextPaths.ECLIPSELINK, RepositoryContextPaths.JPA })
-@TestPropertySource(locations = { QueryPropertiesPaths.JPA_QUERY,
-        RepositoryPropertiesPaths.JPA,
-        PersistenceProviderPropertiesPaths.ECLIPSELINK,
-        UserPropertiesPaths.MYSQL, DatabaseScriptsPropertiesPaths.MYSQL,
-        JdbcPropertiesPaths.MYSQL, JpaPropertiesPaths.MYSQL }, properties = {
+@TestPropertySource(
+        locations = { QueryPropertiesPaths.JPA_QUERY,
+                RepositoryPropertiesPaths.JPA,
+                PersistenceProviderPropertiesPaths.ECLIPSELINK,
+                UserPropertiesPaths.MYSQL, DatabaseScriptsPropertiesPaths.MYSQL,
+                JdbcPropertiesPaths.MYSQL, JpaPropertiesPaths.MYSQL },
+        properties = {
                 "jpa.persistenceUnitName=test_model_jpa_eclipselink_mysql",
                 "jdbc.url=jdbc:mysql://localhost:3306/test_jpa_eclipselink" })
 public final class ITPaginationMySqlEclipselinkJpaRepository
