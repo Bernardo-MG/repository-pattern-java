@@ -11,7 +11,7 @@
    <parent>
       <groupId>com.wandrell.maven</groupId>
       <artifactId>base-pom</artifactId>
-      <version>1.1.5</version>
+      <version>1.1.6</version>
    </parent>
 
    <!-- ********************************************** -->
@@ -180,10 +180,17 @@
    <!-- ********************************************** -->
 
    <properties>
-      <maven.compiler.source>1.8</maven.compiler.source>
-      <!-- Manifest data -->
+      <!-- ============================================== -->
+      <!-- ================ JAVA VERSION ================ -->
+      <!-- ============================================== -->
+      <java.version>1.8</java.version>
+      <!-- ============================================== -->
+      <!-- =============== MANIFEST DATA ================ -->
+      <!-- ============================================== -->
       <manifest.name>com/wandrell/pattern/repository</manifest.name>
-      <!-- Dependencies versions -->
+      <!-- ============================================== -->
+      <!-- =========== DEPENDENCIES VERSIONS ============ -->
+      <!-- ============================================== -->
       <eclipselink.version>2.6.4</eclipselink.version>
       <guava.version>22.0</guava.version>
       <h2.version>1.4.195</h2.version>
@@ -198,8 +205,10 @@
       <spring.version>4.3.9.RELEASE</spring.version>
       <sqlite.version>3.18.0</sqlite.version>
       <testng.version>6.11</testng.version>
-      <!-- Maven Site -->
-      <site.skin.version>0.6.1</site.skin.version>
+      <!-- ============================================== -->
+      <!-- ================= MAVEN SITE ================= -->
+      <!-- ============================================== -->
+      <site.skin.version>1.0.0</site.skin.version>
       <bintrayURL>https://bintray.com/bernardo-mg/maven/repository-pattern/view</bintrayURL>
       <mavenURL>http://mvnrepository.com/artifact/com.wandrell/repository-pattern</mavenURL>
    </properties>
