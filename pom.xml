@@ -111,6 +111,169 @@
             </pluginManagement>
          </build>
       </profile>
+      <!-- ============================================== -->
+      <!-- ============= DATABASE PROFILES ============== -->
+      <!-- ============================================== -->
+      <profile>
+         <!-- H2 database profile -->
+         <!-- Prepares the project to make use of an H2 in-memory database -->
+         <id>h2</id>
+         <properties>
+            <!-- Access data -->
+            <database.url>jdbc:h2:mem:jpa_test</database.url>
+            <database.username>sa</database.username>
+            <database.password></database.password>
+            <!-- Spring context -->
+            <spring.profile.database>h2</spring.profile.database>
+         </properties>
+         <dependencies>
+            <dependency>
+               <!-- H2 database -->
+               <groupId>com.h2database</groupId>
+               <artifactId>h2</artifactId>
+               <version>${h2.version}</version>
+            </dependency>
+         </dependencies>
+      </profile>
+      <profile>
+         <!-- HSQLDB database profile -->
+         <!-- Prepares the project to make use of an HSQLDB in-memory database -->
+         <id>hsqldb</id>
+         <properties>
+            <!-- Access data -->
+            <database.url>jdbc:hsqldb:mem:jpa_test</database.url>
+            <database.username>sa</database.username>
+            <database.password></database.password>
+            <!-- Spring context -->
+            <spring.profile.database>hsqldb</spring.profile.database>
+         </properties>
+         <dependencies>
+            <dependency>
+               <!-- HSQLDB driver -->
+               <groupId>org.hsqldb</groupId>
+               <artifactId>hsqldb</artifactId>
+               <version>${hsqldb.version}</version>
+               <scope>test</scope>
+            </dependency>
+         </dependencies>
+      </profile>
+      <profile>
+         <!-- MySQL database profile -->
+         <!-- Prepares the project to make use of an H2 in-memory database -->
+         <id>mysql</id>
+         <properties>
+            <!-- Access data -->
+            <database.url>jdbc:mysql://localhost:3306/jpa_test</database.url>
+            <database.username>root</database.username>
+            <database.password></database.password>
+            <!-- Spring context -->
+            <spring.profile.database>mysql</spring.profile.database>
+         </properties>
+         <dependencies>
+            <dependency>
+               <!-- MySQL connector -->
+               <groupId>mysql</groupId>
+               <artifactId>mysql-connector-java</artifactId>
+               <version>${mysql.version}</version>
+            </dependency>
+         </dependencies>
+      </profile>
+      <profile>
+         <!-- Postgres database profile -->
+         <!-- Prepares the project to make use of a Postgres database -->
+         <id>postgres</id>
+         <properties>
+            <!-- Access data -->
+            <database.url>jdbc:postgresql://localhost:5432/jpa_test</database.url>
+            <database.username>postgres</database.username>
+            <database.password></database.password>
+            <!-- Spring context -->
+            <spring.profile.database>postgres</spring.profile.database>
+         </properties>
+         <dependencies>
+            <dependency>
+               <!-- Postgres connector -->
+               <groupId>org.postgresql</groupId>
+               <artifactId>postgresql</artifactId>
+               <version>${postgresql.version}</version>
+            </dependency>
+         </dependencies>
+      </profile>
+      <profile>
+         <!-- SQLite database profile -->
+         <!-- Prepares the project to make use of a SQLite database -->
+         <id>sqlite</id>
+         <properties>
+            <!-- Access data -->
+            <database.url>jdbc:sqlite:target/sqlite_test_jpa_eclipselink_modify.db</database.url>
+            <database.username>sa</database.username>
+            <database.password></database.password>
+            <!-- Spring context -->
+            <spring.profile.database>sqlite</spring.profile.database>
+         </properties>
+         <dependencies>
+            <dependency>
+               <!-- SQLite connector -->
+               <groupId>org.xerial</groupId>
+               <artifactId>sqlite-jdbc</artifactId>
+               <version>${sqlite.version}</version>
+            </dependency>
+         </dependencies>
+      </profile>
+      <profile>
+         <!-- EclipseLink JPA provider profile -->
+         <!-- Prepares the project to connect to the DB through EclipseLink -->
+         <id>eclipselink</id>
+         <properties>
+            <jpa.provider>eclipselink</jpa.provider>
+         </properties>
+         <dependencies>
+            <dependency>
+               <!-- Eclipselink -->
+               <groupId>org.eclipse.persistence</groupId>
+               <artifactId>eclipselink</artifactId>
+               <version>${eclipselink.version}</version>
+               <scope>test</scope>
+            </dependency>
+         </dependencies>
+      </profile>
+      <!-- ============================================== -->
+      <!-- ============ JPA PROVIDER PROFILES =========== -->
+      <!-- ============================================== -->
+      <profile>
+         <!-- Hibernate JPA provider profile -->
+         <!-- Prepares the project to connect to the DB through Hibernate -->
+         <id>hibernate</id>
+         <properties>
+            <jpa.provider>hibernate</jpa.provider>
+         </properties>
+         <dependencies>
+            <dependency>
+               <!-- Hibernate Core -->
+               <groupId>org.hibernate</groupId>
+               <artifactId>hibernate-core</artifactId>
+               <version>${hibernate.version}</version>
+               <scope>test</scope>
+            </dependency>
+            <dependency>
+               <!-- Hibernate Ehcache -->
+               <groupId>org.hibernate</groupId>
+               <artifactId>hibernate-ehcache</artifactId>
+               <version>${hibernate.version}</version>
+               <scope>test</scope>
+            </dependency>
+            <dependency>
+               <!-- Hibernate Entity Manager -->
+               <groupId>org.hibernate</groupId>
+               <artifactId>hibernate-entitymanager</artifactId>
+               <version>${hibernate.version}</version>
+               <scope>test</scope>
+            </dependency>
+         </dependencies>
+      </profile>
+      <!-- ============================================== -->
+      <!-- ============= DEPLOYMENT PROFILES ============ -->
+      <!-- ============================================== -->
       <profile>
          <!-- Release site deployment profile -->
          <!-- Sets the site repository to point to the releases repo -->
@@ -193,14 +356,15 @@
       <!-- ============================================== -->
       <eclipselink.version>2.6.4</eclipselink.version>
       <guava.version>22.0</guava.version>
-      <h2.version>1.4.195</h2.version>
-      <hibernate.version>5.2.10.Final</hibernate.version>
+      <h2.version>1.4.196</h2.version>
+      <hibernate.version>5.2.11.Final</hibernate.version>
       <hikari.version>2.6.2</hikari.version>
       <hsqldb.version>2.4.0</hsqldb.version>
-      <javaee.api.version>7.0</javaee.api.version>
+      <javaee.api.version>2.2</javaee.api.version>
       <log4j.version>2.8.2</log4j.version>
       <mysql.version>6.0.6</mysql.version>
-      <postgresql.version>42.1.1.jre7</postgresql.version>
+      <postgresql.version>42.1.4</postgresql.version>
+      <sqlite.version>3.20.0</sqlite.version>
       <slf4j.version>1.7.25</slf4j.version>
       <spring.version>4.3.9.RELEASE</spring.version>
       <sqlite.version>3.18.0</sqlite.version>
@@ -265,57 +429,14 @@
       <!-- =========== PROVIDED DEPENDENCIES ============ -->
       <!-- ============================================== -->
       <dependency>
-         <!-- JavaEE API -->
-         <groupId>javax</groupId>
-         <artifactId>javaee-api</artifactId>
+         <!-- JPA API -->
+         <groupId>javax.persistence</groupId>
+         <artifactId>javax.persistence-api</artifactId>
          <version>${javaee.api.version}</version>
-         <scope>provided</scope>
       </dependency>
       <!-- ============================================== -->
       <!-- ======= TEST ENVIRONMENT DEPENDENCIES ======== -->
       <!-- ============================================== -->
-      <dependency>
-         <!-- Eclipselink -->
-         <groupId>org.eclipse.persistence</groupId>
-         <artifactId>eclipselink</artifactId>
-         <version>${eclipselink.version}</version>
-         <scope>test</scope>
-      </dependency>
-      <dependency>
-         <!-- H2 Database -->
-         <groupId>com.h2database</groupId>
-         <artifactId>h2</artifactId>
-         <version>${h2.version}</version>
-         <scope>test</scope>
-      </dependency>
-      <dependency>
-         <!-- Hibernate Core -->
-         <groupId>org.hibernate</groupId>
-         <artifactId>hibernate-core</artifactId>
-         <version>${hibernate.version}</version>
-         <scope>test</scope>
-      </dependency>
-      <dependency>
-         <!-- Hibernate Ehcache -->
-         <groupId>org.hibernate</groupId>
-         <artifactId>hibernate-ehcache</artifactId>
-         <version>${hibernate.version}</version>
-         <scope>test</scope>
-      </dependency>
-      <dependency>
-         <!-- Hibernate Entity Manager -->
-         <groupId>org.hibernate</groupId>
-         <artifactId>hibernate-entitymanager</artifactId>
-         <version>${hibernate.version}</version>
-         <scope>test</scope>
-      </dependency>
-      <dependency>
-         <!-- HSQLDB driver -->
-         <groupId>org.hsqldb</groupId>
-         <artifactId>hsqldb</artifactId>
-         <version>${hsqldb.version}</version>
-         <scope>test</scope>
-      </dependency>
       <dependency>
          <!-- Hikari CP -->
          <groupId>com.zaxxer</groupId>
@@ -345,20 +466,6 @@
          <scope>test</scope>
       </dependency>
       <dependency>
-         <!-- MYSQL connector -->
-         <groupId>mysql</groupId>
-         <artifactId>mysql-connector-java</artifactId>
-         <version>${mysql.version}</version>
-         <scope>test</scope>
-      </dependency>
-      <dependency>
-         <!-- PostgreSQL connector -->
-         <groupId>org.postgresql</groupId>
-         <artifactId>postgresql</artifactId>
-         <version>${postgresql.version}</version>
-         <scope>test</scope>
-      </dependency>
-      <dependency>
          <!-- Spring Framework Context -->
          <groupId>org.springframework</groupId>
          <artifactId>spring-context</artifactId>
@@ -377,13 +484,6 @@
          <groupId>org.springframework</groupId>
          <artifactId>spring-test</artifactId>
          <version>${spring.version}</version>
-         <scope>test</scope>
-      </dependency>
-      <dependency>
-         <!-- SQLite JDBC -->
-         <groupId>org.xerial</groupId>
-         <artifactId>sqlite-jdbc</artifactId>
-         <version>${sqlite.version}</version>
          <scope>test</scope>
       </dependency>
       <dependency>

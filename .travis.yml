@@ -3,16 +3,18 @@
 
 # Using Java for the project
 language: java
-jdk:
-# JDK 8 is set to deploy the artifacts and docs
-- oraclejdk8
-env:
-   - DEPLOY=true
-   - DEPLOY_DOCS=true
+services:
+  - mysql
+  - postgresql
+matrix:
+  include:
+    # Documentation deployed with JDK8
+    - jdk: oraclejdk8
+      env: DATABASE=h2 PROVIDER=eclipselink DEPLOY_DOCS=true DEPLOY=true
 
 before_install:
   # Gets scripts
-  - git clone -b v0.4.2 --single-branch https://github.com/Bernardo-MG/ci-shell-scripts.git ~/.scripts
+  - git clone -b v1.0.0 --single-branch https://github.com/Bernardo-MG/ci-shell-scripts.git ~/.scripts
   # Sets scripts as executable
   - chmod -R +x ~/.scripts/*
   - chmod +x ./.scripts/create-test-databases.sh
@@ -25,7 +27,7 @@ before_script:
   - ./.scripts/create-test-databases.sh
 script:
   # Unit and integration tests are run
-  - mvn clean verify
+  - mvn clean verify -P $DATABASE,$PROVIDER
 after_success:
   # Documentation deployment script
   - ~/.scripts/java/maven/deploy-site.sh $DO_DEPLOY_DOCS deployment
