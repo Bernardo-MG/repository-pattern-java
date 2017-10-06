@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.pattern.test.util.test.integration.repository.access;
+package com.wandrell.pattern.test.integration.repository.access;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -39,25 +39,15 @@ import com.wandrell.pattern.test.util.model.TestEntity;
 import com.wandrell.pattern.test.util.test.integration.AbstractIntegrationTest;
 
 /**
- * Abstract integration tests for a {@link FilteredRepository} testing query
- * methods.
- * <p>
- * Checks the following cases:
- * <ol>
- * <li>Retrieving all the entities gives the correct number of them.</li>
- * <li>Retrieving an existing entity returns it.</li>
- * <li>Retrieving a not existing entity returns null.</li>
- * <li>Retrieving an existing collection returns it.</li>
- * <li>Retrieving a not existing collection returns an empty collection.</li>
- * </ol>
- * <p>
- * This is meant to be used along a Spring context, which will set up the
- * repository and all of it's requirements.
+ * Integration tests for
+ * {@link com.wandrell.pattern.repository.jpa.JpaRepository JPARepository}
+ * implementing {@code AbstractITQuery}, using an H2 in-memory database and
+ * Eclipselink-based JPA.
  *
  * @author Bernardo Mart&iacute;nez Garrido
- * @see FilteredRepository
+ * @see com.wandrell.pattern.repository.jpa.JpaRepository JPARepository
  */
-public abstract class AbstractITQuery extends AbstractIntegrationTest {
+public final class ITQueryRepository extends AbstractIntegrationTest {
 
     /**
      * Initial number of entities in the repository.
@@ -92,7 +82,7 @@ public abstract class AbstractITQuery extends AbstractIntegrationTest {
     /**
      * Default constructor.
      */
-    public AbstractITQuery() {
+    public ITQueryRepository() {
         super();
     }
 

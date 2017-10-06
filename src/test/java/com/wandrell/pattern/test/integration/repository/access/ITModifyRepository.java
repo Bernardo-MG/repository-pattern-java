@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.pattern.test.util.test.integration.repository.access;
+package com.wandrell.pattern.test.integration.repository.access;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -43,23 +43,15 @@ import com.wandrell.pattern.test.util.model.jpa.JpaTestEntity;
 import com.wandrell.pattern.test.util.test.integration.AbstractIntegrationTest;
 
 /**
- * Abstract integration tests for a {@link FilteredRepository} testing modifier
- * methods.
- * <p>
- * Checks the following cases:
- * <ol>
- * <li>Adding an entity changes the contents of the repository.</li>
- * <li>Removing an entity changes the contents of the repository.</li>
- * <li>Updating an entity changes it.</li>
- * </ol>
- * <p>
- * This is meant to be used along a Spring context, which will set up the
- * repository and all of it's requirements.
+ * Integration tests for
+ * {@link com.wandrell.pattern.repository.jpa.JpaRepository JPARepository}
+ * implementing {@code AbstractITModify}, using an H2 in-memory database and
+ * Eclipselink-based JPA.
  *
  * @author Bernardo Mart&iacute;nez Garrido
- * @see FilteredRepository
+ * @see com.wandrell.pattern.repository.jpa.JpaRepository JPARepository
  */
-public abstract class AbstractITModify extends AbstractIntegrationTest {
+public final class ITModifyRepository extends AbstractIntegrationTest {
 
     /**
      * The entity manager for the test context.
@@ -93,7 +85,7 @@ public abstract class AbstractITModify extends AbstractIntegrationTest {
     /**
      * Default constructor.
      */
-    public AbstractITModify() {
+    public ITModifyRepository() {
         super();
     }
 

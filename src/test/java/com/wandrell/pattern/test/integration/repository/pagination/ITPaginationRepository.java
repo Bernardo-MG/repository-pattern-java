@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.pattern.test.util.test.integration.repository.pagination;
+package com.wandrell.pattern.test.integration.repository.pagination;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,7 +31,6 @@ import org.testng.annotations.Test;
 
 import com.wandrell.pattern.query.DefaultNamedParameterQueryData;
 import com.wandrell.pattern.query.NamedParameterQueryData;
-import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.pagination.DefaultPaginationData;
 import com.wandrell.pattern.repository.pagination.PaginatedRepository;
 import com.wandrell.pattern.repository.pagination.PaginationData;
@@ -39,31 +38,15 @@ import com.wandrell.pattern.test.util.model.TestEntity;
 import com.wandrell.pattern.test.util.test.integration.AbstractIntegrationTest;
 
 /**
- * Abstract integration tests for a {@link PaginatedRepository} testing
- * paginated query methods.
- * <p>
- * Checks the following cases:
- * <ol>
- * <li>Retrieving a page for all the entities returns the number of entities set
- * for the page.</li>
- * <li>Retrieving a page for all the entities returns the correct entities.</li>
- * <li>Retrieving the last page for all the entities returns the number of
- * entities set for the page.</li>
- * <li>Retrieving a page for a subset of entities returns the number of entities
- * set for the page.</li>
- * <li>Retrieving a page for a subset of entities returns the correct entities.
- * </li>
- * <li>Retrieving the last page for a subset of entities returns the number of
- * entities set for the page.</li>
- * </ol>
- * <p>
- * This is meant to be used along a Spring context, which will set up the
- * repository and all of it's requirements.
+ * Integration tests checking pagination for
+ * {@link com.wandrell.pattern.repository.jpa.JpaRepository JPARepository}
+ * implementing {@code AbstractITModify}, using an H2 in-memory database and
+ * Eclipselink-based JPA.
  *
  * @author Bernardo Mart&iacute;nez Garrido
- * @see FilteredRepository
+ * @see com.wandrell.pattern.repository.jpa.JpaRepository JPARepository
  */
-public abstract class AbstractITPagination extends AbstractIntegrationTest {
+public final class ITPaginationRepository extends AbstractIntegrationTest {
 
     /**
      * The repository being tested.
@@ -86,7 +69,7 @@ public abstract class AbstractITPagination extends AbstractIntegrationTest {
     /**
      * Default constructor.
      */
-    public AbstractITPagination() {
+    public ITPaginationRepository() {
         super();
         // TODO: Add a test for pages out of the collection
     }
