@@ -30,15 +30,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 
-import com.wandrell.pattern.test.util.config.context.RepositoryContextPaths;
-
 /**
  * Abstract integration tests with an entity manager and the test configuration.
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
-@ContextConfiguration(locations = { "classpath:context/test-maven-profile.xml",
-        RepositoryContextPaths.JPA })
+@ContextConfiguration(
+        locations = { "classpath:context/test-maven-profile.xml" })
 public abstract class AbstractIntegrationTest
         extends AbstractTransactionalTestNGSpringContextTests {
 

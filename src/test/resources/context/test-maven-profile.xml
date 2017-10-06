@@ -17,9 +17,12 @@
       location="classpath:config/persistence/liquibase.properties,
                   classpath:config/persistence/database/db-@spring.profile.database@.properties, 
                   classpath:config/persistence/persistence-access.properties,
-                  classpath:config/persistence/provider/@persistence.api@-@persistence.provider@.properties" />
+                  classpath:config/persistence/provider/@persistence.api@-@persistence.provider@.properties,
+                  classpath:config/persistence/query/@persistence.api@-query.properties,
+                  classpath:config/repository/@persistence.api@-repository.properties" />
 
    <!-- Contexts -->
    <import resource="classpath:context/persistence/@persistence.api@-@persistence.provider@.xml" />
+   <import resource="classpath:context/repository/@persistence.api@-repository.xml" />
 
 </beans>
