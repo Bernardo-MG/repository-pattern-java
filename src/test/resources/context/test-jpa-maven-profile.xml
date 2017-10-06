@@ -7,7 +7,7 @@
                         http://www.springframework.org/schema/context/spring-context.xsd">
 
    <description>
-      Context for the tests.
+      Context for the JPA tests.
 
       It is prepared for Maven's variable replacement, which will set the names of the actual files to be used.
    </description>
