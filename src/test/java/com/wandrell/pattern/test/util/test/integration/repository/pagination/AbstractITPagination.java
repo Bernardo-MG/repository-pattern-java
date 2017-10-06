@@ -26,6 +26,7 @@ package com.wandrell.pattern.test.util.test.integration.repository.pagination;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -36,7 +37,10 @@ import com.wandrell.pattern.repository.FilteredRepository;
 import com.wandrell.pattern.repository.pagination.DefaultPaginationData;
 import com.wandrell.pattern.repository.pagination.PaginatedRepository;
 import com.wandrell.pattern.repository.pagination.PaginationData;
+import com.wandrell.pattern.test.util.config.properties.QueryPropertiesPaths;
+import com.wandrell.pattern.test.util.config.properties.RepositoryPropertiesPaths;
 import com.wandrell.pattern.test.util.model.TestEntity;
+import com.wandrell.pattern.test.util.test.integration.AbstractIntegrationTest;
 
 /**
  * Abstract integration tests for a {@link PaginatedRepository} testing
@@ -63,8 +67,9 @@ import com.wandrell.pattern.test.util.model.TestEntity;
  * @author Bernardo Mart&iacute;nez Garrido
  * @see FilteredRepository
  */
-public abstract class AbstractITPagination
-        extends AbstractTransactionalTestNGSpringContextTests {
+@TestPropertySource(locations = { QueryPropertiesPaths.JPA_QUERY,
+        RepositoryPropertiesPaths.JPA })
+public abstract class AbstractITPagination extends AbstractIntegrationTest {
 
     /**
      * The repository being tested.

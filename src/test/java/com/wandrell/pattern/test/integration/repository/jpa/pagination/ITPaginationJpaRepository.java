@@ -24,19 +24,6 @@
 
 package com.wandrell.pattern.test.integration.repository.jpa.pagination;
 
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
-
-import com.wandrell.pattern.test.util.config.context.PersistenceContextPaths;
-import com.wandrell.pattern.test.util.config.context.RepositoryContextPaths;
-import com.wandrell.pattern.test.util.config.context.TestContextPaths;
-import com.wandrell.pattern.test.util.config.properties.DatabaseScriptsPropertiesPaths;
-import com.wandrell.pattern.test.util.config.properties.JdbcPropertiesPaths;
-import com.wandrell.pattern.test.util.config.properties.JpaPropertiesPaths;
-import com.wandrell.pattern.test.util.config.properties.PersistenceProviderPropertiesPaths;
-import com.wandrell.pattern.test.util.config.properties.QueryPropertiesPaths;
-import com.wandrell.pattern.test.util.config.properties.RepositoryPropertiesPaths;
-import com.wandrell.pattern.test.util.config.properties.UserPropertiesPaths;
 import com.wandrell.pattern.test.util.test.integration.repository.pagination.AbstractITPagination;
 
 /**
@@ -48,16 +35,7 @@ import com.wandrell.pattern.test.util.test.integration.repository.pagination.Abs
  * @author Bernardo Mart&iacute;nez Garrido
  * @see com.wandrell.pattern.repository.jpa.JpaRepository JPARepository
  */
-@ContextConfiguration(locations = { TestContextPaths.DEFAULT,
-        PersistenceContextPaths.ECLIPSELINK, RepositoryContextPaths.JPA })
-@TestPropertySource(locations = { QueryPropertiesPaths.JPA_QUERY,
-        RepositoryPropertiesPaths.JPA,
-        PersistenceProviderPropertiesPaths.ECLIPSELINK,
-        UserPropertiesPaths.DEFAULT, DatabaseScriptsPropertiesPaths.MSSQL,
-        JdbcPropertiesPaths.H2, JpaPropertiesPaths.H2 },
-        properties = { "jpa.persistenceUnitName=test_model_jpa_eclipselink_h2",
-                "jdbc.url=jdbc:h2:mem:test_jpa_eclipselink;DB_CLOSE_ON_EXIT=FALSE" })
-public abstract class ITPaginationJpaRepository extends AbstractITPagination {
+public final class ITPaginationJpaRepository extends AbstractITPagination {
 
     /**
      * Default constructor.
