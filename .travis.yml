@@ -14,8 +14,6 @@ matrix:
     - jdk: oraclejdk8
       env: DATABASE=hsqldb PROVIDER=eclipselink
     - jdk: oraclejdk8
-      env: DATABASE=mysql PROVIDER=eclipselink
-    - jdk: oraclejdk8
       env: DATABASE=postgres PROVIDER=eclipselink
 
 before_install:
