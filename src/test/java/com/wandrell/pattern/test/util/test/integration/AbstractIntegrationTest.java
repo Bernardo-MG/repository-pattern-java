@@ -24,9 +24,6 @@
 
 package com.wandrell.pattern.test.util.test.integration;
 
-import javax.persistence.EntityManager;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 
@@ -41,25 +38,9 @@ public abstract class AbstractIntegrationTest
         extends AbstractTransactionalTestNGSpringContextTests {
 
     /**
-     * The persistence entity manager.
-     */
-    @Autowired
-    private EntityManager entityManager;
-
-    /**
      * Default constructor.
      */
     public AbstractIntegrationTest() {
         super();
     }
-
-    /**
-     * Returns the JPA entity manager.
-     *
-     * @return the JPA entity manager
-     */
-    protected final EntityManager getEntityManager() {
-        return entityManager;
-    }
-
 }

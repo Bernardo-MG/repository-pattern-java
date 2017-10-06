@@ -46,7 +46,7 @@ import com.wandrell.pattern.test.util.test.integration.AbstractIntegrationTest;
  * @author Bernardo Mart&iacute;nez Garrido
  * @see com.wandrell.pattern.repository.jpa.JpaRepository JPARepository
  */
-public final class ITPaginationRepository extends AbstractIntegrationTest {
+public abstract class ITPaginationRepository extends AbstractIntegrationTest {
 
     /**
      * The repository being tested.
