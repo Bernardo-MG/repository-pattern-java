@@ -29,14 +29,17 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
+import org.springframework.test.context.TestPropertySource;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.wandrell.pattern.query.DefaultNamedParameterQueryData;
 import com.wandrell.pattern.query.NamedParameterQueryData;
 import com.wandrell.pattern.repository.FilteredRepository;
+import com.wandrell.pattern.test.util.config.properties.QueryPropertiesPaths;
+import com.wandrell.pattern.test.util.config.properties.RepositoryPropertiesPaths;
 import com.wandrell.pattern.test.util.model.TestEntity;
+import com.wandrell.pattern.test.util.test.integration.AbstractIntegrationTest;
 
 /**
  * Abstract integration tests for a {@link FilteredRepository} testing query
@@ -57,8 +60,9 @@ import com.wandrell.pattern.test.util.model.TestEntity;
  * @author Bernardo Mart&iacute;nez Garrido
  * @see FilteredRepository
  */
-public abstract class AbstractITQuery
-        extends AbstractTransactionalTestNGSpringContextTests {
+@TestPropertySource(locations = { QueryPropertiesPaths.JPA_QUERY,
+        RepositoryPropertiesPaths.JPA })
+public abstract class AbstractITQuery extends AbstractIntegrationTest {
 
     /**
      * Initial number of entities in the repository.

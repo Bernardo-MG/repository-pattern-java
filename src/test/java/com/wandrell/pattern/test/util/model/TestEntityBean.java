@@ -26,6 +26,8 @@ package com.wandrell.pattern.test.util.model;
 
 import java.util.Objects;
 
+import com.google.common.base.MoreObjects;
+
 /**
  * Test class serving as a persistence entity bean.
  * <p>
@@ -83,9 +85,7 @@ public final class TestEntityBean implements TestEntity {
             return false;
         }
 
-        final TestEntityBean other;
-
-        other = (TestEntityBean) obj;
+        final TestEntityBean other = (TestEntityBean) obj;
         return Objects.equals(id, other.id);
     }
 
@@ -112,6 +112,11 @@ public final class TestEntityBean implements TestEntity {
     @Override
     public final void setName(final String name) {
         this.name = name;
+    }
+
+    @Override
+    public final String toString() {
+        return MoreObjects.toStringHelper(this).add("id", id).toString();
     }
 
 }

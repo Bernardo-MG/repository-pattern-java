@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.pattern.test.integration.repository.access.h2.eclipselink;
+package com.wandrell.pattern.test.integration.repository.pagination;
 
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
@@ -36,12 +36,11 @@ import com.wandrell.pattern.test.util.config.properties.JpaPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.PersistenceProviderPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.QueryPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.RepositoryPropertiesPaths;
-import com.wandrell.pattern.test.util.config.properties.TestPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.UserPropertiesPaths;
-import com.wandrell.pattern.test.util.test.integration.repository.access.AbstractITModify;
+import com.wandrell.pattern.test.util.test.integration.repository.pagination.AbstractITPagination;
 
 /**
- * Integration tests for
+ * Integration tests checking pagination for
  * {@link com.wandrell.pattern.repository.jpa.JpaRepository JPARepository}
  * implementing {@code AbstractITModify}, using an H2 in-memory database and
  * Eclipselink-based JPA.
@@ -50,22 +49,20 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
  * @see com.wandrell.pattern.repository.jpa.JpaRepository JPARepository
  */
 @ContextConfiguration(locations = { TestContextPaths.DEFAULT,
-        TestContextPaths.ENTITY_MODIFIABLE, PersistenceContextPaths.ECLIPSELINK,
-        RepositoryContextPaths.JPA })
+        PersistenceContextPaths.ECLIPSELINK, RepositoryContextPaths.JPA })
 @TestPropertySource(locations = { QueryPropertiesPaths.JPA_QUERY,
-        RepositoryPropertiesPaths.JPA, TestPropertiesPaths.ENTITY_JPA,
+        RepositoryPropertiesPaths.JPA,
         PersistenceProviderPropertiesPaths.ECLIPSELINK,
         UserPropertiesPaths.DEFAULT, DatabaseScriptsPropertiesPaths.MSSQL,
         JdbcPropertiesPaths.H2, JpaPropertiesPaths.H2 },
-        properties = {
-                "jpa.persistenceUnitName=test_model_jpa_eclipselink_h2_modify",
-                "jdbc.url=jdbc:h2:mem:test_jpa_eclipselink_modify;DB_CLOSE_ON_EXIT=FALSE" })
-public final class ITModifyH2EclipselinkJpaRepository extends AbstractITModify {
+        properties = { "jpa.persistenceUnitName=test_model_jpa_eclipselink_h2",
+                "jdbc.url=jdbc:h2:mem:test_jpa_eclipselink;DB_CLOSE_ON_EXIT=FALSE" })
+public abstract class ITPaginationJpaRepository extends AbstractITPagination {
 
     /**
      * Default constructor.
      */
-    public ITModifyH2EclipselinkJpaRepository() {
+    public ITPaginationJpaRepository() {
         super();
     }
 

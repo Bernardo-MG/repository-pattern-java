@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context.xsd">
+
+   <description>
+      Context for the tests.
+
+      It is prepared for Maven's variable replacement, which will set the names of the actual files to be used.
+   </description>
+
+   <!-- Properties -->
+   <context:property-placeholder
+      location="classpath:config/persistence/liquibase.properties,
+                  classpath:config/persistence/database/db-@spring.profile.database@.properties, 
+                  classpath:config/persistence/persistence-access.properties,
+                  classpath:config/persistence/provider/jpa-@jpa.provider@.properties" />
+
+   <!-- Contexts -->
+   <import resource="classpath:context/persistence/jpa-@jpa.provider@.xml" />
+
+</beans>

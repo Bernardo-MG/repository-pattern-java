@@ -59,7 +59,7 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
         JdbcPropertiesPaths.H2 },
         properties = {
                 "jdbc.url=jdbc:h2:mem:test_spring_jdbc;DB_CLOSE_ON_EXIT=FALSE" })
-public final class ITQueryH2SpringJdbcRepository extends AbstractITQuery {
+public abstract class ITQueryH2SpringJdbcRepository extends AbstractITQuery {
 
     /**
      * Default constructor.

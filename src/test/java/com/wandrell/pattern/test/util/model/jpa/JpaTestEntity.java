@@ -24,6 +24,8 @@
 
 package com.wandrell.pattern.test.util.model.jpa;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,6 +34,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.google.common.base.MoreObjects;
 import com.wandrell.pattern.test.util.model.TestEntity;
 
 /**
@@ -79,21 +82,17 @@ public final class JpaTestEntity implements TestEntity {
         if (this == obj) {
             return true;
         }
+
         if (obj == null) {
             return false;
         }
+
         if (getClass() != obj.getClass()) {
             return false;
         }
+
         final JpaTestEntity other = (JpaTestEntity) obj;
-        if (id == null) {
-            if (other.id != null) {
-                return false;
-            }
-        } else if (!id.equals(other.id)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(id, other.id);
     }
 
     @Override
@@ -108,10 +107,7 @@ public final class JpaTestEntity implements TestEntity {
 
     @Override
     public final int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = (prime * result) + ((id == null) ? 0 : id.hashCode());
-        return result;
+        return Objects.hash(id);
     }
 
     @Override
@@ -122,6 +118,11 @@ public final class JpaTestEntity implements TestEntity {
     @Override
     public final void setName(final String name) {
         this.name = name;
+    }
+
+    @Override
+    public final String toString() {
+        return MoreObjects.toStringHelper(this).add("id", id).toString();
     }
 
 }

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+   <changeSet author="Bernardo" id="test_tables">
+      <createTable tableName="test_entities">
+         <column autoIncrement="true" startWith="1" name="id" type="INTEGER">
+            <constraints primaryKey="true" />
+         </column>
+         <column name="name" type="VARCHAR(30)" defaultValue="">
+            <constraints nullable="false" unique="true" />
+         </column>
+      </createTable>
+   </changeSet>
+
+   <changeSet author="Bernardo" id="data">
+      <insert tableName="test_entities">
+         <column name="name">entity_1</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_2</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_3</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_4</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_5</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_6</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_7</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_8</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_9</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_10</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_11</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_12</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_13</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_14</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_15</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_16</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_17</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_18</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_19</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_20</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_21</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_22</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_23</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_24</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_25</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_26</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_27</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_28</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_29</column>
+      </insert>
+      <insert tableName="test_entities">
+         <column name="name">entity_30</column>
+      </insert>
+   </changeSet>
+
+</databaseChangeLog>

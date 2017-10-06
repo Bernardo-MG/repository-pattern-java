@@ -361,12 +361,13 @@
       <hikari.version>2.6.2</hikari.version>
       <hsqldb.version>2.4.0</hsqldb.version>
       <javaee.api.version>2.2</javaee.api.version>
+      <liquibase.version>3.5.3</liquibase.version>
       <log4j.version>2.8.2</log4j.version>
       <mysql.version>6.0.6</mysql.version>
       <postgresql.version>42.1.4</postgresql.version>
       <sqlite.version>3.20.0</sqlite.version>
       <slf4j.version>1.7.25</slf4j.version>
-      <spring.version>4.3.9.RELEASE</spring.version>
+      <spring.version>4.3.11.RELEASE</spring.version>
       <sqlite.version>3.18.0</sqlite.version>
       <testng.version>6.11</testng.version>
       <!-- ============================================== -->
@@ -445,6 +446,12 @@
          <scope>test</scope>
       </dependency>
       <dependency>
+         <!-- Liquibase -->
+         <groupId>org.liquibase</groupId>
+         <artifactId>liquibase-core</artifactId>
+         <version>${liquibase.version}</version>
+      </dependency>
+      <dependency>
          <!-- Log4j core -->
          <groupId>org.apache.logging.log4j</groupId>
          <artifactId>log4j-core</artifactId>
@@ -501,6 +508,22 @@
 
    <build>
       <defaultGoal>clean package install</defaultGoal>
+      <testResources>
+         <testResource>
+            <directory>src/test/resources/</directory>
+         </testResource>
+         <testResource>
+            <!-- Test resources -->
+            <directory>src/test/resources/</directory>
+            <includes>
+               <!-- Filter the contexts -->
+               <include>context/**/*.xml</include>
+               <!-- Filter the properties -->
+               <include>config/**/*.properties</include>
+            </includes>
+            <filtering>true</filtering>
+         </testResource>
+      </testResources>
       <plugins>
          <plugin>
             <!-- Changes -->
