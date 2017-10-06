@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.pattern.test.integration.repository.access.h2.springjdbc;
+package com.wandrell.pattern.test.integration.repository.springjdbc.access;
 
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
@@ -37,12 +37,12 @@ import com.wandrell.pattern.test.util.config.properties.QueryPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.RepositoryPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.TestPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.UserPropertiesPaths;
-import com.wandrell.pattern.test.util.test.integration.repository.access.AbstractITModify;
+import com.wandrell.pattern.test.util.test.integration.repository.access.AbstractITQuery;
 
 /**
  * Integration tests for
  * {@link com.wandrell.pattern.repository.spring.SpringJdbcRepository
- * SpringJDBCRepository} implementing {@code AbstractITModify}, using an H2
+ * SpringJDBCRepository} implementing {@code AbstractITQuery}, using an H2
  * in-memory database and Spring JDBC.
  *
  * @author Bernardo Mart&iacute;nez Garrido
@@ -50,7 +50,7 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
  *      SpringJDBCRepository
  */
 @ContextConfiguration(locations = { TestContextPaths.DEFAULT,
-        TestContextPaths.ENTITY_MODIFIABLE, PersistenceContextPaths.SPRING_JDBC,
+        PersistenceContextPaths.SPRING_JDBC,
         RepositoryContextPaths.SPRING_JDBC })
 @TestPropertySource(locations = { QueryPropertiesPaths.JDBC_QUERY,
         RepositoryPropertiesPaths.SPRING_JDBC, TestPropertiesPaths.ENTITY,
@@ -58,13 +58,13 @@ import com.wandrell.pattern.test.util.test.integration.repository.access.Abstrac
         UserPropertiesPaths.DEFAULT, DatabaseScriptsPropertiesPaths.MSSQL,
         JdbcPropertiesPaths.H2 },
         properties = {
-                "jdbc.url=jdbc:h2:mem:test_spring_jdbc_modify;DB_CLOSE_ON_EXIT=FALSE" })
-public abstract class ITModifyH2SpringJdbcRepository extends AbstractITModify {
+                "jdbc.url=jdbc:h2:mem:test_spring_jdbc;DB_CLOSE_ON_EXIT=FALSE" })
+public abstract class ITQuerySpringJdbcRepository extends AbstractITQuery {
 
     /**
      * Default constructor.
      */
-    public ITModifyH2SpringJdbcRepository() {
+    public ITQuerySpringJdbcRepository() {
         super();
     }
 

@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.pattern.test.integration.repository.access.h2.springjdbc;
+package com.wandrell.pattern.test.integration.repository.jpa.pagination;
 
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
@@ -32,39 +32,37 @@ import com.wandrell.pattern.test.util.config.context.RepositoryContextPaths;
 import com.wandrell.pattern.test.util.config.context.TestContextPaths;
 import com.wandrell.pattern.test.util.config.properties.DatabaseScriptsPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.JdbcPropertiesPaths;
+import com.wandrell.pattern.test.util.config.properties.JpaPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.PersistenceProviderPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.QueryPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.RepositoryPropertiesPaths;
-import com.wandrell.pattern.test.util.config.properties.TestPropertiesPaths;
 import com.wandrell.pattern.test.util.config.properties.UserPropertiesPaths;
-import com.wandrell.pattern.test.util.test.integration.repository.access.AbstractITQuery;
+import com.wandrell.pattern.test.util.test.integration.repository.pagination.AbstractITPagination;
 
 /**
- * Integration tests for
- * {@link com.wandrell.pattern.repository.spring.SpringJdbcRepository
- * SpringJDBCRepository} implementing {@code AbstractITQuery}, using an H2
- * in-memory database and Spring JDBC.
+ * Integration tests checking pagination for
+ * {@link com.wandrell.pattern.repository.jpa.JpaRepository JPARepository}
+ * implementing {@code AbstractITModify}, using an H2 in-memory database and
+ * Eclipselink-based JPA.
  *
  * @author Bernardo Mart&iacute;nez Garrido
- * @see com.wandrell.pattern.repository.spring.SpringJdbcRepository
- *      SpringJDBCRepository
+ * @see com.wandrell.pattern.repository.jpa.JpaRepository JPARepository
  */
 @ContextConfiguration(locations = { TestContextPaths.DEFAULT,
-        PersistenceContextPaths.SPRING_JDBC,
-        RepositoryContextPaths.SPRING_JDBC })
-@TestPropertySource(locations = { QueryPropertiesPaths.JDBC_QUERY,
-        RepositoryPropertiesPaths.SPRING_JDBC, TestPropertiesPaths.ENTITY,
-        PersistenceProviderPropertiesPaths.SPRING_JDBC,
+        PersistenceContextPaths.ECLIPSELINK, RepositoryContextPaths.JPA })
+@TestPropertySource(locations = { QueryPropertiesPaths.JPA_QUERY,
+        RepositoryPropertiesPaths.JPA,
+        PersistenceProviderPropertiesPaths.ECLIPSELINK,
         UserPropertiesPaths.DEFAULT, DatabaseScriptsPropertiesPaths.MSSQL,
-        JdbcPropertiesPaths.H2 },
-        properties = {
-                "jdbc.url=jdbc:h2:mem:test_spring_jdbc;DB_CLOSE_ON_EXIT=FALSE" })
-public abstract class ITQueryH2SpringJdbcRepository extends AbstractITQuery {
+        JdbcPropertiesPaths.H2, JpaPropertiesPaths.H2 },
+        properties = { "jpa.persistenceUnitName=test_model_jpa_eclipselink_h2",
+                "jdbc.url=jdbc:h2:mem:test_jpa_eclipselink;DB_CLOSE_ON_EXIT=FALSE" })
+public abstract class ITPaginationJpaRepository extends AbstractITPagination {
 
     /**
      * Default constructor.
      */
-    public ITQueryH2SpringJdbcRepository() {
+    public ITPaginationJpaRepository() {
         super();
     }
 

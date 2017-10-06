@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.pattern.test.integration.repository.access;
+package com.wandrell.pattern.test.integration.repository.jpa.access;
 
 import com.wandrell.pattern.test.util.test.integration.repository.access.AbstractITModify;
 
