@@ -37,9 +37,8 @@ import com.wandrell.pattern.test.util.config.context.RepositoryContextPaths;
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
-@ContextConfiguration(
-        locations = { "classpath:context/test-jpa-maven-profile.xml",
-                RepositoryContextPaths.JPA })
+@ContextConfiguration(locations = { "classpath:context/test-maven-profile.xml",
+        RepositoryContextPaths.JPA })
 public abstract class AbstractIntegrationTest
         extends AbstractTransactionalTestNGSpringContextTests {
 
