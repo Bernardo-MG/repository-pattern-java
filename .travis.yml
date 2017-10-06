@@ -11,6 +11,12 @@ matrix:
     # Documentation deployed with JDK8
     - jdk: oraclejdk8
       env: DATABASE=h2 PROVIDER=eclipselink DEPLOY_DOCS=true DEPLOY=true
+    - jdk: oraclejdk8
+      env: DATABASE=hsqldb PROVIDER=eclipselink
+    - jdk: oraclejdk8
+      env: DATABASE=mysql PROVIDER=eclipselink
+    - jdk: oraclejdk8
+      env: DATABASE=postgres PROVIDER=eclipselink
 
 before_install:
   # Gets scripts
